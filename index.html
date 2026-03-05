@@ -176,34 +176,81 @@ footer {
 </style>
 
 <script>
+
 /* GOOGLE SCHOLAR METRICS */
 async function loadScholar() {
+
     let data = await fetch("scholar.json").then(r => r.json());
+
     document.getElementById("citations").innerText = data.citations;
     document.getElementById("hindex").innerText = data.hindex;
+
 }
 
-/* ORCID PUBLICATIONS */
+
+/* ORCID PUBLICATIONS WITH HYPERLINKED TITLES */
+
 async function loadORCID() {
+
     const orcid = "0000-0002-9202-7598";
+
     let url = `https://pub.orcid.org/v3.0/${orcid}/works`;
-    let response = await fetch(url, { headers: { 'Accept': 'application/json' } });
-    let data = await response.json();
-    let list = document.getElementById("orcid-pubs");
-    list.innerHTML = "";
-    data.group.slice(0, 8).forEach(w => {
-        let title = w["work-summary"][0].title.title.value;
-        let year = w["work-summary"][0]["publication-date"]?.year?.value || "";
-        let li = document.createElement("li");
-        li.innerHTML = title + " (" + year + ")";
-        list.appendChild(li);
+
+    let response = await fetch(url, {
+        headers: { 'Accept': 'application/json' }
     });
+
+    let data = await response.json();
+
+    let list = document.getElementById("orcid-pubs");
+
+    list.innerHTML = "";
+
+    data.group.slice(0, 8).forEach(w => {
+
+        let work = w["work-summary"][0];
+
+        let title = work.title.title.value;
+
+        let year = work["publication-date"]?.year?.value || "";
+
+        let doiLink = "";
+
+        if (work["external-ids"] && work["external-ids"]["external-id"]) {
+
+            let doi = work["external-ids"]["external-id"].find(
+                id => id["external-id-type"] === "doi"
+            );
+
+            if (doi) {
+                doiLink = "https://doi.org/" + doi["external-id-value"];
+            }
+
+        }
+
+        let li = document.createElement("li");
+
+        if (doiLink) {
+            li.innerHTML = `<a href="${doiLink}" target="_blank">${title}</a> (${year})`;
+        } 
+        else {
+            li.innerHTML = `${title} (${year})`;
+        }
+
+        list.appendChild(li);
+
+    });
+
 }
+
 
 window.onload = function () {
+
     loadScholar();
     loadORCID();
+
 }
+
 </script>
 </head>
 
@@ -284,17 +331,22 @@ window.onload = function () {
 </section>
 
 <section id="publications">
+
     <h2>Publications (Live from ORCID)</h2>
+
+    <!-- ORCID publications will be dynamically loaded here -->
     <ul id="orcid-pubs">
         <li>Loading publications...</li>
     </ul>
+
+    <!-- Google Scholar Profile -->
     <p>
         <a href="https://scholar.google.com/citations?user=DVMNjugAAAAJ" target="_blank">
             View Google Scholar Profile
         </a>
     </p>
-</section>
 
+</section>
 <section id="cv">
     <h2>Academic CV</h2>
     <ul>
