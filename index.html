@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -25,7 +26,7 @@ color:#0b3c5d;
 text-decoration:none;
 }
 
-/* HERO */
+/* HERO HEADER (STATIC — NO ANIMATION) */
 
 .hero{
 position:relative;
@@ -38,7 +39,6 @@ align-items:center;
 justify-content:flex-end;
 padding-right:80px;
 color:white;
-overflow:hidden;
 }
 
 .hero::before{
@@ -49,45 +49,6 @@ left:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0.55);
-}
-
-/* NASA STYLE SOLAR GLOW */
-
-.hero::after{
-content:"";
-position:absolute;
-left:-200px;
-top:-150px;
-width:600px;
-height:600px;
-border-radius:50%;
-background:radial-gradient(circle,#ff7b00,#ff4500,#000);
-filter:blur(4px);
-animation:flare 10s infinite alternate;
-}
-
-@keyframes flare{
-0%{transform:scale(1);}
-100%{transform:scale(1.2);}
-}
-
-/* STAR FIELD */
-
-.stars{
-position:absolute;
-top:0;
-left:0;
-width:200%;
-height:200%;
-background-image:radial-gradient(white 1px, transparent 1px);
-background-size:50px 50px;
-opacity:0.15;
-animation:stars 120s linear infinite;
-}
-
-@keyframes stars{
-from{transform:translate(0,0);}
-to{transform:translate(-500px,-500px);}
 }
 
 .hero-text{
@@ -303,8 +264,6 @@ loadORCID();
 
 <header class="hero">
 
-<div class="stars"></div>
-
 <div class="hero-text">
 
 <h1>Dr. Sharad Chandra Tripathi</h1>
@@ -324,12 +283,7 @@ Space Weather • Solar Physics • Ionospheric Plasma • Space Instrumentation
 
 <nav>
 
-<a href="#about">About</a>
-<a href="#research">Research</a>
-<a href="#experience">Experience</a>
-<a href="#publications">Publications</a>
-<a href="#cv">CV</a>
-<a href="#contact">Contact</a>
+<a href="#about">About</a> <a href="#research">Research</a> <a href="#experience">Experience</a> <a href="#publications">Publications</a> <a href="#cv">CV</a> <a href="#contact">Contact</a>
 
 </nav>
 
@@ -448,12 +402,8 @@ View Google Scholar Profile
 
 <p>
 
-📧
-<a href="mailto:risingsharad@gmail.com">risingsharad@gmail.com</a><br>
-<a href="mailto:drsharadctripathi@gmail.com">drsharadctripathi@gmail.com</a><br>
-<a href="mailto:sharadchandra.tripathi@vitbhopal.ac.in">
-sharadchandra.tripathi@vitbhopal.ac.in
-</a>
+📧 <a href="mailto:risingsharad@gmail.com">[risingsharad@gmail.com](mailto:risingsharad@gmail.com)</a><br> <a href="mailto:drsharadctripathi@gmail.com">[drsharadctripathi@gmail.com](mailto:drsharadctripathi@gmail.com)</a><br> <a href="mailto:sharadchandra.tripathi@vitbhopal.ac.in">
+[sharadchandra.tripathi@vitbhopal.ac.in](mailto:sharadchandra.tripathi@vitbhopal.ac.in) </a>
 
 </p>
 
