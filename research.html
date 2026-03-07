@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,122 +13,120 @@
 
 <body>
 
+<!-- ===========================
+     Header Banner (IDENTICAL TO INDEX.HTML)
+=========================== -->
 <header class="site-header">
 
-<img src="header-banner.jpg" class="banner">
+    <!-- Header Banner -->
+    <img src="header-banner.jpg" alt="Header banner" class="banner">
 
-<div class="header-content">
+    <div class="header-content">
+        <!-- Profile Image -->
+        <img src="profile.jpg" alt="Dr Sharad Chandra Tripathi" class="profile">
 
-<img src="profile.jpg" class="profile">
+        <h1>Dr. Sharad Chandra Tripathi</h1>
 
-<h1>Dr. Sharad Chandra Tripathi</h1>
-
-</div>
+        <p>
+        Senior Assistant Professor of Physics <br>
+        School of Advanced Sciences and Languages (SASL) <br>
+        VIT Bhopal University <br>
+        Ionospheric Physics | Space Weather | Computational Physics
+        </p>
+    </div>
 
 </header>
 
+<!-- ===========================
+     Navigation Bar
+=========================== -->
 <nav class="navbar">
-
-<a href="index.html">Home</a>
-<a href="research.html">Research</a>
-<a href="teaching.html">Teaching</a>
-<a href="news.html">News</a>
-
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="news.html">News</a>
 </nav>
 
 <main>
 
+<!-- ===========================
+     Research Areas
+=========================== -->
 <section>
-
-<h2>Research Areas</h2>
-
-<div class="card-container">
-
-<div class="card">
-<h3>Ionospheric Physics</h3>
-<p>Study of ionospheric irregularities and radio wave propagation.</p>
-</div>
-
-<div class="card">
-<h3>Space Weather</h3>
-<p>Understanding solar-terrestrial interactions and geomagnetic disturbances.</p>
-</div>
-
-<div class="card">
-<h3>Computational Plasma Physics</h3>
-<p>Simulation and modelling of plasma dynamics.</p>
-</div>
-
-</div>
-
+    <h2>Research Areas</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>Ionospheric Physics</h3>
+            <p>Study of ionospheric irregularities and radio wave propagation.</p>
+        </div>
+        <div class="card">
+            <h3>Space Weather</h3>
+            <p>Understanding solar-terrestrial interactions and geomagnetic disturbances.</p>
+        </div>
+        <div class="card">
+            <h3>Computational Plasma Physics</h3>
+            <p>Simulation and modelling of plasma dynamics.</p>
+        </div>
+    </div>
 </section>
 
+<!-- ===========================
+     Research Projects
+=========================== -->
 <section>
-
-<h2>Research Projects</h2>
-
-<ul>
-
-<li>Solar Flare Induced Ionospheric Plasma Irregularities</li>
-<li>Metamaterial Behaviour in Space Plasma</li>
-<li>Radio Wave Propagation in Disturbed Ionosphere</li>
-
-</ul>
-
+    <h2>Research Projects</h2>
+    <ul>
+        <li>Solar Flare Induced Ionospheric Plasma Irregularities</li>
+        <li>Metamaterial Behaviour in Space Plasma</li>
+        <li>Radio Wave Propagation in Disturbed Ionosphere</li>
+    </ul>
 </section>
 
-<!-- RECENT PUBLICATIONS SECTION -->
+<!-- ===========================
+     Recent Publications
+=========================== -->
 <section id="publications">
-
-<h2>Recent Publications</h2>
-
-<ul id="publication-list">
-  <li>Loading publications...</li>
-</ul>
-
+    <h2>Recent Publications</h2>
+    <ul id="publication-list">
+        <li>Loading publications...</li>
+    </ul>
 </section>
 
-<!-- RESEARCH PROFILES SECTION -->
+<!-- ===========================
+     Research Profiles
+=========================== -->
 <section>
-
-<h2>Research Profiles</h2>
-
-<div class="profiles">
-
-<a href="https://orcid.org/0000-0002-9202-7598" target="_blank">
-<img src="icons/orcid.svg" alt="ORCID">
-<p>ORCID</p>
-</a>
-
-<a href="https://scholar.google.com/citations?user=DVMNjugAAAAJ" target="_blank">
-<img src="icons/googlescholar.svg" alt="Google Scholar">
-<p>Scholar</p>
-</a>
-
-<a href="https://www.researchgate.net/profile/Sharad-Tripathi-3" target="_blank">
-<img src="icons/researchgate.svg" alt="ResearchGate">
-<p>ResearchGate</p>
-</a>
-
-<a href="https://www.scopus.com/authid/detail.uri?authorId=53264963400" target="_blank">
-<img src="icons/scopus.svg" alt="Scopus">
-<p>Scopus</p>
-</a>
-
-</div>
-
+    <h2>Research Profiles</h2>
+    <div class="profiles">
+        <a href="https://orcid.org/0000-0002-9202-7598" target="_blank">
+            <img src="icons/orcid.svg" alt="ORCID">
+            <p>ORCID</p>
+        </a>
+        <a href="https://scholar.google.com/citations?user=DVMNjugAAAAJ" target="_blank">
+            <img src="icons/googlescholar.svg" alt="Google Scholar">
+            <p>Scholar</p>
+        </a>
+        <a href="https://www.researchgate.net/profile/Sharad-Tripathi-3" target="_blank">
+            <img src="icons/researchgate.svg" alt="ResearchGate">
+            <p>ResearchGate</p>
+        </a>
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=53264963400" target="_blank">
+            <img src="icons/scopus.svg" alt="Scopus">
+            <p>Scopus</p>
+        </a>
+    </div>
 </section>
 
 </main>
 
 <footer>
-
-<p>© 2026 Dr. Sharad Chandra Tripathi</p>
-
+    <p>© 2026 Dr. Sharad Chandra Tripathi</p>
 </footer>
 
+<!-- ===========================
+     Fetch Recent Publications via ORCID
+=========================== -->
 <script>
-// Fetch recent publications from ORCID API
 const ORCID_ID = "0000-0002-9202-7598";
 const pubList = document.getElementById("publication-list");
 
