@@ -24,7 +24,7 @@
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Dr. Sharad Chandra Tripathi | Physics">
   <meta property="og:description" content="Academic website of Dr. Sharad Chandra Tripathi, Professor of Physics at VIT Bhopal University, specializing in ionospheric physics, space weather, plasma physics, and computational modelling.">
-  <meta property="og:image" content="https://sharadctripathi.github.io/profile.jpg">
+  <meta property="og:image" content="https://sharadctripathi.github.io/profile-400.jpg">
   <meta property="og:url" content="https://sharadctripathi.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Dr. Sharad Chandra Tripathi">
@@ -32,7 +32,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Dr. Sharad Chandra Tripathi | Physics">
   <meta name="twitter:description" content="Explore research and publications of Dr. Sharad Chandra Tripathi, specializing in Ionospheric Physics, Space Weather, Plasma Physics, and Computational Modeling.">
-  <meta name="twitter:image" content="https://sharadctripathi.github.io/profile.jpg">
+  <meta name="twitter:image" content="https://sharadctripathi.github.io/profile-400.jpg">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -41,7 +41,7 @@
     "@type": "Person",
     "name": "Dr. Sharad Chandra Tripathi",
     "url": "https://sharadctripathi.github.io/",
-    "image": "https://sharadctripathi.github.io/profile.jpg",
+    "image": "https://sharadctripathi.github.io/profile-400.jpg",
     "jobTitle": "Professor of Physics",
     "worksFor": {
       "@type": "Organization",
@@ -69,11 +69,25 @@
 
 <header class="site-header">
 
-    <img src="header-banner.jpg" class="banner" alt="Header banner">
+    <!-- Responsive Header Banner -->
+    <img 
+      src="header-banner-1200.jpg" 
+      srcset="header-banner-800.jpg 800w, header-banner-1200.jpg 1200w, header-banner-1600.jpg 1600w"
+      sizes="(max-width: 600px) 800px, (max-width: 1200px) 1200px, 1600px"
+      alt="Header banner" 
+      class="banner" 
+      loading="lazy">
 
     <div class="header-content">
 
-        <img src="profile.jpg" class="profile" alt="Dr Sharad Chandra Tripathi">
+        <!-- Responsive Profile Image -->
+        <img 
+          src="profile-400.jpg" 
+          srcset="profile-200.jpg 200w, profile-400.jpg 400w, profile-800.jpg 800w" 
+          sizes="(max-width: 600px) 200px, (max-width: 1200px) 400px, 800px" 
+          alt="Dr Sharad Chandra Tripathi" 
+          class="profile" 
+          loading="lazy">
 
         <h1>Dr. Sharad Chandra Tripathi</h1>
 
@@ -89,12 +103,10 @@
 </header>
 
 <nav class="navbar">
-
     <a href="index.html">Home</a>
     <a href="research.html">Research</a>
     <a href="teaching.html">Teaching</a>
     <a href="news.html">News</a>
-
 </nav>
 
 <main>
@@ -126,7 +138,6 @@
 <h2>Google Scholar Statistics</h2>
 
 <div class="stats">
-
   <div>
     <h3 id="citations">Loading...</h3>
     <p>Total Citations</p>
@@ -141,7 +152,6 @@
     <h3 id="papers">Loading...</h3>
     <p>Papers</p>
   </div>
-
 </div>
 
 <p style="text-align:center; margin-top:20px;">
@@ -192,14 +202,10 @@ Google Scholar
 </section>
 
 <section>
-
   <p>
-  <a class="cv-btn" href="cv.pdf" target="_blank">Download Full CV</a>
+    <a class="cv-btn" href="cv.pdf" target="_blank">Download Full CV</a>
   </p>
-
 </section>
-  
-
 
 </main>
 
