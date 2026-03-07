@@ -24,23 +24,22 @@ body {
 =========================== */
 .site-header {
     position: relative; /* container for absolute positioning */
-    margin-bottom: 30px; /* prevents overlap with main content */
+    margin-bottom: 30px; /* space below banner */
 }
 
 .header-content {
     position: absolute;
-    top: 50%;
+    top: 25%; /* distance from top of banner */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%); /* horizontal centering only */
     text-align: center;
     color: white;
     width: 90%;
     max-width: 900px;
-    padding: 25px;
+    padding: 20px;
     border-radius: 8px;
     box-sizing: border-box;
-    /* Removed the overlay background for a clean look */
-    background: transparent;
+    background: transparent; /* clean look, no overlay */
 }
 
 .header-content h1,
@@ -57,7 +56,6 @@ body {
     display: block;
     margin: 0 auto 15px auto;
 }
-
 /* ===========================
    CV Download Button
 =========================== */
