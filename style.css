@@ -8,7 +8,7 @@ body{
 /* Header Banner */
 .banner {
     width: 100%;
-    height: 480px;
+    height: 500px;
     object-fit: cover;
     position: relative;
 }
