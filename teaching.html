@@ -6,24 +6,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teaching | Dr. Sharad Chandra Tripathi</title>
 <link rel="stylesheet" href="style.css">
+
+<!-- ================= Google Analytics 4 ================= -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PJDWHZTWG8"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PJDWHZTWG8');
+
+// GA4 Event sender
+function sendGAEvent(event_name, params = {}) {
+  if(typeof gtag === "function"){
+    gtag('event', event_name, params);
+    console.log("GA Event Sent:", event_name, params);
+  }
+}
+</script>
+
 </head>
 
 <body>
 
-<!-- ===========================
-     Header Banner (IDENTICAL TO INDEX.HTML)
-=========================== -->
+<!-- ================= Header Banner ================= -->
 <header class="site-header">
-
-    <!-- Header Banner -->
     <img src="header-banner.jpg" alt="Header banner" class="banner">
-
     <div class="header-content">
-        <!-- Profile Image -->
         <img src="profile.jpg" alt="Dr Sharad Chandra Tripathi" class="profile">
-
         <h1>Dr. Sharad Chandra Tripathi</h1>
-
         <p>
         Senior Assistant Professor of Physics <br>
         School of Advanced Sciences and Languages (SASL) <br>
@@ -31,12 +41,9 @@
         Ionospheric Physics | Space Weather | Computational Physics
         </p>
     </div>
-
 </header>
 
-<!-- ===========================
-     Navigation Bar
-=========================== -->
+<!-- ================= Navigation Bar ================= -->
 <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="research.html">Research</a>
@@ -46,15 +53,13 @@
 
 <main>
 
-<!-- ===========================
-     Courses Taught
-=========================== -->
+<!-- ================= Courses Taught ================= -->
 <section>
     <h2>Courses Taught</h2>
 
     <h3>@ VIT Bhopal University (since Jul 2017)</h3>
     <p>School of Advanced Sciences and Languages, <a href="https://vitbhopal.ac.in/"><strong>VIT Bhopal University</strong></a>, Bhopal-Indore Highway, Kothri Kalan, Sehore-466114, Madhya Pradesh, India</p>
-    <ul>
+    <ul id="vit-courses">
         <li>Introduction to Computational Physics (PHY1003)</li>
         <li>Engineering Physics (PHY1001)</li>
         <li>Game Physics (PHY1002)</li>
@@ -68,20 +73,33 @@
 
     <h3>@ Oriental Institute of Science and Technology (Jan 2017 – Jun 2017)</h3>
     <p>Department of Basic Sciences, <a href="https://oistbpl.com/"><strong>OIST Bhopal</strong></a>, Opp. Patel Nagar, Raisen Road, Bhopal-462022, Madhya Pradesh, India</p>
-    <ul>
+    <ul id="oist-courses">
         <li>Engineering Physics (BT201)</li>
         <li>Rural Outreach (BT108)</li>
         <li>Environmental Science (XXXXX)</li>
     </ul>
 </section>
 
+<!-- ================= Laboratory Courses ================= -->
 <section>
     <h2>Laboratory Courses</h2>
-    <ul>
+    <ul id="lab-courses">
         <li>Python Programming for Physics</li>
         <li>Numerical Methods</li>
         <li>Scientific Data Analysis</li>
         <li>Game Engine Development</li>
+    </ul>
+</section>
+
+<!-- ================= Placeholder for Downloads ================= -->
+<section>
+    <h2>Course Materials</h2>
+    <p>Click to download syllabus, previous year question papers, or program repositories:</p>
+    <ul id="materials-list">
+        <li><a href="downloads/PHY1003_syllabus.pdf" target="_blank">PHY1003 - Computational Physics Syllabus</a></li>
+        <li><a href="downloads/PHY1003_prev_year_qp.pdf" target="_blank">PHY1003 - Previous Year Question Paper</a></li>
+        <li><a href="downloads/PHY1003_lab_repo.zip" target="_blank">PHY1003 - Lab Repository</a></li>
+        <!-- Add more links as needed -->
     </ul>
 </section>
 
@@ -90,6 +108,39 @@
 <footer>
     <p>© 2026 Dr. Sharad Chandra Tripathi</p>
 </footer>
+
+<!-- ================= GA4 Event Tracking ================= -->
+<script>
+// Track clicks on all download links in Course Materials
+document.addEventListener("DOMContentLoaded", function(){
+    const materialsLinks = document.querySelectorAll("#materials-list a");
+    materialsLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            sendGAEvent('material_download', {
+                material_name: link.textContent,
+                url: link.href,
+                page_location: window.location.pathname
+            });
+        });
+    });
+
+    // Optional: track hover/view of courses
+    ['vit-courses', 'oist-courses', 'lab-courses'].forEach(listId => {
+        const list = document.getElementById(listId);
+        if(list){
+            list.querySelectorAll('li').forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    sendGAEvent('course_view', {
+                        course_name: item.textContent,
+                        list_id: listId,
+                        page_location: window.location.pathname
+                    });
+                });
+            });
+        }
+    });
+});
+</script>
 
 </body>
 </html>
