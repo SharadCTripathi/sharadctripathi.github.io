@@ -36,10 +36,11 @@ body {
     color: white;
     width: 90%;
     max-width: 900px;
-    background: rgba(0, 0, 0, 0.35); /* subtle overlay for readability */
     padding: 25px;
     border-radius: 8px;
     box-sizing: border-box;
+    /* Removed the overlay background for a clean look */
+    background: transparent;
 }
 
 .header-content h1,
