@@ -37,7 +37,6 @@
 
 </nav>
 
-
 <main>
 
 <section>
@@ -65,7 +64,6 @@
 
 </section>
 
-
 <section>
 
 <h2>Research Projects</h2>
@@ -73,16 +71,25 @@
 <ul>
 
 <li>Solar Flare Induced Ionospheric Plasma Irregularities</li>
-
 <li>Metamaterial Behaviour in Space Plasma</li>
-
 <li>Radio Wave Propagation in Disturbed Ionosphere</li>
 
 </ul>
 
 </section>
 
+<!-- RECENT PUBLICATIONS SECTION -->
+<section id="publications">
 
+<h2>Recent Publications</h2>
+
+<ul id="publication-list">
+  <li>Loading publications...</li>
+</ul>
+
+</section>
+
+<!-- RESEARCH PROFILES SECTION -->
 <section>
 
 <h2>Research Profiles</h2>
@@ -90,22 +97,22 @@
 <div class="profiles">
 
 <a href="https://orcid.org/0000-0002-9202-7598" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg">
+<img src="icons/orcid.png" alt="ORCID">
 <p>ORCID</p>
 </a>
 
 <a href="https://scholar.google.com/citations?user=DVMNjugAAAAJ" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg">
+<img src="icons/scholar.png" alt="Google Scholar">
 <p>Scholar</p>
 </a>
 
 <a href="https://www.researchgate.net/profile/Sharad-Tripathi-3" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg">
+<img src="icons/researchgate.png" alt="ResearchGate">
 <p>ResearchGate</p>
 </a>
 
 <a href="https://www.scopus.com/authid/detail.uri?authorId=53264963400" target="_blank">
-<img src="https://cdn.simpleicons.org/scopus">
+<img src="icons/scopus.png" alt="Scopus">
 <p>Scopus</p>
 </a>
 
@@ -120,6 +127,40 @@
 <p>© 2026 Dr. Sharad Chandra Tripathi</p>
 
 </footer>
+
+<script>
+// Fetch recent publications from ORCID API
+const ORCID_ID = "0000-0002-9202-7598";
+const pubList = document.getElementById("publication-list");
+
+fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/works`, {
+    headers: { 'Accept': 'application/json' }
+})
+.then(response => response.json())
+.then(data => {
+    pubList.innerHTML = "";
+    const works = data.group.slice(0, 5); // fetch 5 recent publications
+    works.forEach(work => {
+        const title = work['work-summary'][0]['title']['title']['value'];
+        let doi = "";
+        const externalIds = work['work-summary'][0]['external-ids']['external-id'];
+        externalIds.forEach(id => {
+            if(id['external-id-type'] === "doi") doi = `https://doi.org/${id['external-id-value']}`;
+        });
+        const li = document.createElement("li");
+        if(doi) {
+            li.innerHTML = `<a href="${doi}" target="_blank">${title}</a>`;
+        } else {
+            li.textContent = title;
+        }
+        pubList.appendChild(li);
+    });
+})
+.catch(err => {
+    pubList.innerHTML = "<li>Could not fetch publications.</li>";
+    console.error(err);
+});
+</script>
 
 </body>
 </html>
