@@ -105,6 +105,7 @@
 
   <!-- ================= Main Content ================= -->
   <main>
+
     <!-- About Section -->
     <section>
       <h2>About</h2>
@@ -146,10 +147,7 @@
       </p>
     </section>
 
-    <!-- Work Experience Section -->
-    <!-- ... Keep the work experience exactly as your original code ... -->
-
-    <!-- Contact Section -->
+    <!-- ================= Contact & CV Section ================= -->
     <section>
       <h2>Contact Me</h2>
       <p>You can reach out to me via email for research, collaboration, or academic inquiries:</p>
@@ -161,27 +159,25 @@
       </div>
     </section>
 
-    <!-- CV Download Section -->
     <section style="text-align:center;">
       <a class="cv-btn" href="cv.pdf" target="_blank">Download Full CV</a>
     </section>
 
-    <!-- Social Media Profiles Section -->
+    <!-- ================= Social & Research Profiles ================= -->
     <section>
       <h2>Social Media Profiles</h2>
       <div class="profiles">
-        <a href="https://www.facebook.com/risingsharad" target="_blank">
-          <img src="icons/facebook.svg" alt="Facebook"><p>Facebook</p>
-        </a>
-        <a href="https://www.instagram.com/risingsharad" target="_blank">
-          <img src="icons/instagram.svg" alt="Instagram"><p>Instagram</p>
-        </a>
-        <a href="https://www.linkedin.com/in/sharad-c-tripathi-614396197" target="_blank">
-          <img src="icons/linkedin.svg" alt="LinkedIn"><p>LinkedIn</p>
-        </a>
-        <a href="https://www.youtube.com/@risingsharad" target="_blank">
-          <img src="icons/youtube.svg" alt="YouTube"><p>YouTube</p>
-        </a>
+        <a href="https://www.facebook.com/risingsharad" target="_blank"><img src="icons/facebook.svg" alt="Facebook"><p>Facebook</p></a>
+        <a href="https://www.instagram.com/risingsharad" target="_blank"><img src="icons/instagram.svg" alt="Instagram"><p>Instagram</p></a>
+        <a href="https://www.linkedin.com/in/sharad-c-tripathi-614396197" target="_blank"><img src="icons/linkedin.svg" alt="LinkedIn"><p>LinkedIn</p></a>
+        <a href="https://www.youtube.com/@risingsharad" target="_blank"><img src="icons/youtube.svg" alt="YouTube"><p>YouTube</p></a>
+      </div>
+
+      <h2>Research Profiles</h2>
+      <div class="research-profiles">
+        <a href="https://scholar.google.com/citations?user=DVMNjugAAAAJ" target="_blank"><p>Google Scholar</p></a>
+        <a href="https://www.researchgate.net/profile/Sharad-Tripathi-3" target="_blank"><p>ResearchGate</p></a>
+        <a href="https://orcid.org/0000-0002-9202-7598" target="_blank"><p>ORCID</p></a>
       </div>
     </section>
 
@@ -191,6 +187,52 @@
   <footer>
     <p>© 2026 Dr. Sharad Chandra Tripathi</p>
   </footer>
+
+  <!-- ================= GA4 Event Tracking Script ================= -->
+  <script>
+    function sendGAEvent(event_name, params = {}) {
+      if (typeof gtag === "function") {
+        gtag('event', event_name, params);
+        console.log("GA Event Sent:", event_name, params);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+      // CV Download
+      const cvBtn = document.querySelector('.cv-btn');
+      if(cvBtn) cvBtn.addEventListener('click', function() {
+        sendGAEvent('cv_download', { file_name: cvBtn.href, page_location: window.location.pathname });
+      });
+
+      // Email Clicks
+      document.querySelectorAll('.contact-emails a').forEach(link => {
+        link.addEventListener('click', () => sendGAEvent('contact_email_click', { email_address: link.href.replace('mailto:', ''), page_location: window.location.pathname }));
+      });
+
+      // Social Media Clicks
+      document.querySelectorAll('.profiles a').forEach(link => {
+        link.addEventListener('click', () => {
+          const platform = link.querySelector('p')?.innerText || 'social';
+          sendGAEvent('social_click', { platform, page_location: window.location.pathname });
+        });
+      });
+
+      // Research Profile Clicks
+      document.querySelectorAll('.research-profiles a').forEach(link => {
+        link.addEventListener('click', () => {
+          const profile = link.querySelector('p')?.innerText || 'research';
+          sendGAEvent('research_profile_click', { profile_name: profile, url: link.href, page_location: window.location.pathname });
+        });
+      });
+
+      // PDF Downloads
+      document.querySelectorAll('a[href$=".pdf"]').forEach(link => {
+        link.addEventListener('click', () => sendGAEvent('publication_download', { file_name: link.href, page_location: window.location.pathname }));
+      });
+
+    });
+  </script>
 
 </body>
 </html>
