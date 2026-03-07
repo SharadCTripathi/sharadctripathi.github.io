@@ -16,6 +16,7 @@ body {
     width: 100%;
     height: 450px;
     object-fit: cover;
+    display: block;
 }
 
 /* ===========================
@@ -23,6 +24,7 @@ body {
 =========================== */
 .site-header {
     position: relative; /* container for absolute positioning */
+    margin-bottom: 30px; /* prevents overlap with main content */
 }
 
 .header-content {
@@ -32,15 +34,18 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.3); /* subtle overlay for readability */
-    padding: 20px;
+    width: 90%;
+    max-width: 900px;
+    background: rgba(0, 0, 0, 0.35); /* subtle overlay for readability */
+    padding: 25px;
     border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .header-content h1,
 .header-content p {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    margin: 10px 0;
 }
 
 /* Profile Image */
@@ -48,6 +53,8 @@ body {
     width: 150px;
     border-radius: 50%;
     border: 4px solid white;
+    display: block;
+    margin: 0 auto 15px auto;
 }
 
 /* ===========================
@@ -101,7 +108,7 @@ body {
 main {
     max-width: 1000px;
     margin: auto;
-    padding: 30px;
+    padding: 30px 20px;
 }
 
 section {
@@ -109,6 +116,12 @@ section {
     padding: 30px;
     margin-bottom: 30px;
     border-radius: 6px;
+}
+
+/* Justify all paragraph text inside sections */
+section p {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* ===========================
@@ -205,5 +218,12 @@ footer {
     .stats {
         flex-direction: column;
         gap: 15px;
+    }
+    .header-content {
+        width: 90%;
+        padding: 15px;
+    }
+    .profile {
+        width: 120px;
     }
 }
