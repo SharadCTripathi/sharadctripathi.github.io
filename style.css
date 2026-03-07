@@ -247,8 +247,8 @@ footer {
 =========================== */
 .contact-emails {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;  /* stack emails vertically */
+    gap: 12px;               /* space between emails */
     margin-top: 15px;
 }
 
