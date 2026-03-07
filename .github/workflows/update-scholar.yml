@@ -5,6 +5,9 @@ on:
     - cron: "0 0 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -20,11 +23,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          pip install scholarly
 
       - name: Run Scholar Script
-        run: |
-          python update_scholar.py
+        run: python update_scholar.py
 
       - name: Commit updated file
         run: |
