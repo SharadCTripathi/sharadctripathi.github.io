@@ -67,25 +67,14 @@
 
 <body>
 
-<header class="site-header">
+<header class="site-header" style="height:450px; position:relative;">
 
-    <!-- Responsive Header Banner -->
-    <img 
-      src="header-banner.jpg" 
-      srcset="header-banner-800.jpg 800w, header-banner-1200.jpg 1200w, header-banner-1600.jpg 1600w"
-      sizes="(max-width: 768px) 800px, (max-width: 1200px) 1200px, 1600px"
-      alt="Header banner" 
-      class="banner">
+    <!-- Header Banner -->
+    <img src="header-banner.jpg" alt="Header banner" class="banner" style="width:100%; height:100%; object-fit:cover; display:block;">
 
-    <div class="header-content">
-
-        <!-- Responsive Profile Image -->
-        <img 
-          src="profile-400.jpg" 
-          srcset="profile-200.jpg 200w, profile-400.jpg 400w, profile-800.jpg 800w" 
-          sizes="(max-width: 768px) 200px, (max-width: 1200px) 400px, 800px" 
-          alt="Dr Sharad Chandra Tripathi" 
-          class="profile">
+    <div class="header-content" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center; color:white; width:90%; max-width:1000px; background:rgba(0,0,0,0.3); padding:20px; border-radius:8px; z-index:2;">
+        <!-- Profile Image -->
+        <img src="profile.jpg" alt="Dr Sharad Chandra Tripathi" class="profile" style="width:150px; border-radius:50%; border:4px solid white;">
 
         <h1>Dr. Sharad Chandra Tripathi</h1>
 
@@ -110,99 +99,76 @@
 <main>
 
 <section>
-
   <h2>About</h2>
-
   <p>
     Dr. Sharad Chandra Tripathi is a physicist and researcher specializing in Solar Physics, Space Weather, Ionospheric Physics, and Space Instrumentation. 
     He earned his Ph.D. from Barkatullah Vishwavidyalaya, Bhopal, and was awarded the Erasmus Mundus INTACT Fellowship by the European Union. 
     He completed post-doctoral research at Frederick University, Cyprus, and has extensive experience in developing scientific instruments, including contributions to India’s first Mars mission (MOM) and solar observation telescopes at PRL, Ahmedabad.
   </p>
-
   <p>
     With a strong foundation in Advanced Plasma Physics and observational astronomy, Dr. Tripathi has designed and implemented systems to study galactic radio signals and ionospheric phenomena. 
     He has authored multiple publications in international journals and presented his research at national and international conferences.
   </p>
-
   <p>
     In addition to his research, Dr. Tripathi is an experienced educator and academic leader, mentoring undergraduate, postgraduate, and doctoral students. 
     As the coordinator of Unnat Bharat Abhiyan at VIT Bhopal University, he facilitates the engagement of rural communities with the institution under this flagship programme of the Ministry of Education, Government of India, promoting sustainable development and rural empowerment.
   </p>
-
 </section>
 
 <section>
-
 <h2>Google Scholar Statistics</h2>
-
 <div class="stats">
   <div>
     <h3 id="citations">Loading...</h3>
     <p>Total Citations</p>
   </div>
-
   <div>
     <h3 id="hindex">Loading...</h3>
     <p>h-index</p>
   </div>
-
   <div>
     <h3 id="papers">Loading...</h3>
     <p>Papers</p>
   </div>
 </div>
-
 <p style="text-align:center; margin-top:20px;">
 View full profile on 
-<a href="https://scholar.google.com/citations?user=DVMNjugAAAAJ" target="_blank">
-Google Scholar
-</a>
+<a href="https://scholar.google.com/citations?user=DVMNjugAAAAJ" target="_blank">Google Scholar</a>
 </p>
-
 </section>
 
 <section>
-
 <h2>Research Highlights</h2>
-
 <div class="card-container">
-
   <div class="card">
     <h3>Ionospheric Variability & Plasma Dynamics</h3>
     <p>
       Studies on ionospheric responses to geomagnetic storms, including plasma irregularities, Total Electron Content (TEC) variations, and radio wave propagation across different latitudes and longitudes.
     </p>
   </div>
-
   <div class="card">
     <h3>Solar Flare & Space Weather Impacts</h3>
     <p>
       Analysis of solar flare events and solar transients on ionospheric structure, magnetic field perturbations, proton events, and their implications for communication, navigation, and space weather forecasting.
     </p>
   </div>
-
   <div class="card">
     <h3>Advanced Solar Phenomena & Plasma Diagnostics</h3>
     <p>
       Spectroscopic and observational diagnostics of solar flares, surges, filaments, and cool loop footpoints, providing insights into plasma heating, self-absorption, and homologous surge behaviour.
     </p>
   </div>
-
   <div class="card">
     <h3>Global Geomagnetic & Ionospheric Effects</h3>
     <p>
       Assessment of geomagnetic storms and solar wind influences on the ionosphere globally, including delayed responses of energetic particles and geomagnetic activity under solar cycle variations.
     </p>
   </div>
-
 </div>
-
 </section>
 
-<section>
-  <p style="text-align:center;">
-    <a class="cv-btn" href="cv.pdf" target="_blank">Download Full CV</a>
-  </p>
+<section style="text-align:center;">
+  <a class="cv-btn" href="cv.pdf" target="_blank">Download Full CV</a>
 </section>
 
 </main>
