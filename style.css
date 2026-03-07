@@ -5,7 +5,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     background: #f5f5f5;
-    line-height: 1.6; /* improves readability */
+    line-height: 1.6;
     color: #333;
 }
 
@@ -25,28 +25,19 @@ body {
 .site-header {
     position: relative;
     width: 100%;
-    height: 450px; /* same as banner */
-    margin-bottom: 30px; /* space below header so content doesn't overlap */
+    height: 450px; 
+    margin-bottom: 30px;
 }
 
-.banner {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Center header content vertically using flexbox */
 .header-content {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    justify-content: center; /* vertically center */
-    align-items: center;     /* horizontally center */
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: white;
     padding: 20px;
@@ -82,7 +73,7 @@ body {
     text-decoration: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s, box-shadow 0.2s;
-    outline: none; /* accessibility */
+    outline: none;
 }
 
 .cv-btn:hover,
@@ -132,7 +123,6 @@ section {
     border-radius: 6px;
 }
 
-/* Justify all paragraph text inside sections */
 section p {
     text-align: justify;
     text-justify: inter-word;
@@ -142,16 +132,15 @@ section p {
    Section Headings (h2)
 =========================== */
 main section h2 {
-    text-align: left;        /* Left-aligned for all sections */
-    font-size: 2em;          /* Uniform size */
-    color: #002147;          /* Uniform color */
-    font-weight: 700;        /* Bold */
-    margin-bottom: 20px;     /* Space below heading */
-    border-bottom: 2px solid #FFD700;  /* Optional underline */
-    padding-bottom: 5px;     /* Space between text and underline */
+    text-align: left;
+    font-size: 2em;
+    color: #002147;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 5px;
 }
 
-/* Optional: smaller h3 headings inside sections */
 main section h3 {
     font-size: 1.5em;
     color: #0056b3;
@@ -180,11 +169,11 @@ main section h4 {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-between; /* evenly distribute cards */
+    justify-content: space-between;
 }
 
 .card {
-    flex: 1 1 300px; /* sets min-width and flexible growth */
+    flex: 1 1 300px;
     min-width: 300px;
     background: #fafafa;
     padding: 20px;
@@ -192,7 +181,7 @@ main section h4 {
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
-    text-align: justify; /* improves readability */
+    text-align: justify;
 }
 
 .card:hover {
@@ -249,24 +238,24 @@ footer {
 =========================== */
 .contact-emails {
     display: flex;
-    flex-direction: column;   /* stack emails vertically */
-    gap: 10px;                /* space between emails */
+    flex-direction: column;
+    gap: 10px;
     margin-top: 15px;
 }
 
 .contact-emails a {
-    display: block;           /* each email on a separate line */
-    color: #0077cc;           /* standard blue color for links */
-    text-decoration: none;    /* remove underline */
+    display: block;
+    color: #0077cc;
+    text-decoration: none;
     font-weight: bold;
-    padding: 5px 0;           /* vertical spacing */
+    padding: 5px 0;
     transition: color 0.2s, transform 0.2s;
 }
 
 .contact-emails a:hover,
 .contact-emails a:focus {
-    color: #004a99;           /* darker blue on hover */
-    text-decoration: underline; /* optional underline on hover */
+    color: #004a99;
+    text-decoration: underline;
     transform: translateY(-2px);
 }
 
@@ -341,6 +330,7 @@ footer {
    Responsive Design
 =========================== */
 @media (max-width: 768px) {
+
     .card-container {
         flex-direction: column;
         gap: 15px;
@@ -351,18 +341,29 @@ footer {
     }
 
     .header-content {
-        position: relative; /* relative for mobile */
-        top: auto;
-        left: auto;
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
         padding: 15px;
         box-sizing: border-box;
+        text-align: center;
+    }
+
+    .site-header {
+        height: auto;
+        min-height: 420px; /* enough for all header content */
+        margin-bottom: 30px;
+    }
+
+    .banner {
+        height: auto;
+        max-height: 250px;
+    }
+
+    main {
+        padding-top: 30px; /* ensure content starts below navbar */
     }
 
     .profile {
@@ -374,13 +375,6 @@ footer {
         gap: 15px;
     }
 
-    /* Make banner responsive */
-    .banner {
-        height: auto;
-        max-height: 250px;
-    }
-
-    /* Work experience adjustments */
     .work-item {
         padding-left: 10px;
     }
@@ -391,10 +385,5 @@ footer {
 
     .work-institution h3 {
         font-size: 1.3em;
-    }
-
-    /* Remove extra top padding on main content */
-    main {
-        padding-top: 0;
     }
 }
