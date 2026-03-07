@@ -274,3 +274,90 @@ footer {
         gap: 8px;             /* slightly smaller gap on small screens */
     }
 }
+
+/* ===========================
+   Work Experience Section
+=========================== */
+#work-experience {
+    margin: 40px 0;
+    padding: 0 10px;
+}
+
+#work-experience h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: #002147;
+}
+
+.work-institution {
+    margin-bottom: 30px;
+}
+
+.work-institution h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    color: #0056b3;
+}
+
+.work-institution h3 a {
+    text-decoration: none;
+    color: #0056b3;
+    transition: color 0.3s;
+}
+
+.work-institution h3 a:hover {
+    color: #ff8c00;
+}
+
+.work-institution p {
+    font-size: 0.95em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.work-item {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 3px solid #FFD700;
+}
+
+.work-item h4 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #002147;
+}
+
+.work-item .duration {
+    display: block;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.work-item p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+.work-item ul {
+    margin: 5px 0 10px 20px;
+}
+
+.work-item ul li {
+    margin-bottom: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .work-item {
+        padding-left: 10px;
+    }
+    #work-experience h2 {
+        font-size: 1.8em;
+    }
+    .work-institution h3 {
+        font-size: 1.3em;
+    }
+}
