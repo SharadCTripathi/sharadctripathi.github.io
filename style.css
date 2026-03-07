@@ -6,23 +6,17 @@ body{
 }
 
 /* Header Banner */
-.banner {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    position: relative;
+.banner{
+    width:100%;
+    height:480px;
+    object-fit:cover;
 }
 
-.site-header::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
-    pointer-events: none;
+/* Header Content over Banner */
+.site-header {
+    position: relative; /* container for absolute positioning */
 }
+
 /* Header Content with subtle overlay */
 .header-content {
     position: absolute;
