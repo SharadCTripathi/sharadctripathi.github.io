@@ -28,6 +28,10 @@ body{
     width: 100%;       /* full width to center content */
 }
 
+.header-content h1,
+.header-content p {
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
 /* Profile Image */
 .profile{
     width:150px;
