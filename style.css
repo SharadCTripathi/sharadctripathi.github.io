@@ -247,32 +247,30 @@ footer {
 =========================== */
 .contact-emails {
     display: flex;
-    flex-direction: column;  /* stack emails vertically */
-    gap: 12px;               /* space between emails */
+    flex-direction: column;   /* stack emails vertically */
+    gap: 10px;                /* space between emails */
     margin-top: 15px;
 }
 
-.contact-link {
-    display: inline-block;
-    background-color: #002147;
-    color: #FFD700;
-    padding: 10px 15px;
-    border-radius: 6px;
-    text-decoration: none;
+.contact-emails a {
+    display: block;           /* each email on a separate line */
+    color: #0077cc;           /* standard blue color for links */
+    text-decoration: none;    /* remove underline */
     font-weight: bold;
-    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 5px 0;           /* vertical spacing */
+    transition: color 0.2s, transform 0.2s;
 }
 
-.contact-link:hover,
-.contact-link:focus {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.contact-emails a:hover,
+.contact-emails a:focus {
+    color: #004a99;           /* darker blue on hover */
+    text-decoration: underline; /* optional underline on hover */
+    transform: translateY(-2px);
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .contact-emails {
-        flex-direction: column;
-        gap: 12px;
+        gap: 8px;             /* slightly smaller gap on small screens */
     }
 }
