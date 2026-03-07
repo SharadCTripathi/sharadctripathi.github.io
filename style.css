@@ -31,10 +31,14 @@ body {
 
 .header-content {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* perfectly center vertically & horizontally */
-    width: 90%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: white;
     padding: 20px;
@@ -44,11 +48,10 @@ body {
 
 .header-content h1,
 .header-content p {
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
     margin: 10px 0;
 }
 
-/* Profile Image */
 .profile {
     width: 150px;
     border-radius: 50%;
@@ -299,49 +302,50 @@ footer {
 }
 
 /* ===========================
-   Responsive Design
+   Responsive Design (Mobile Fix)
 =========================== */
 @media (max-width: 768px) {
-
-    /* Header adjustments */
+    /* Keep header content same style as desktop */
     .site-header {
         height: auto;
-        min-height: 300px; /* keeps proportion reasonable */
+        min-height: 450px; /* ensures banner height preserved */
     }
 
+    /* Banner adapts */
     .banner {
-        height: auto;
-        max-height: 250px; /* reduce banner height slightly */
+        height: 100%;
+        object-fit: cover;
     }
 
+    /* Header content forced below navbar space */
     .header-content {
-        position: relative; /* avoid absolute overlapping */
+        position: relative; /* remove absolute to prevent overlap */
         top: 0;
         left: 0;
         transform: none;
-        padding: 15px;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
     }
 
     .header-content h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .header-content p {
-        font-size: 0.95rem;
-        line-height: 1.4;
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
     .profile {
-        width: 100px; /* smaller profile on mobile */
-        margin-bottom: 10px;
+        width: 120px;
+        margin-bottom: 15px;
     }
 
-    /* Main content spacing to avoid overlapping navbar */
     main {
-        padding-top: 15px;
+        padding-top: 15px; /* small padding so content starts below header */
     }
 
-    /* Cards and stats adjustments */
     .card-container {
         flex-direction: column;
         gap: 15px;
@@ -352,10 +356,8 @@ footer {
         gap: 10px;
     }
 
-    /* Work Experience adjustments */
     #work-experience h2 {
         font-size: 1.8em;
-        margin-bottom: 15px;
     }
 
     .work-institution h3 {
