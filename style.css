@@ -37,7 +37,6 @@ body {
     width: 90%;
     max-width: 900px;
     padding: 20px;
-    border-radius: 8px;
     box-sizing: border-box;
     background: transparent; /* clean look, no overlay */
 }
@@ -56,6 +55,7 @@ body {
     display: block;
     margin: 0 auto 15px auto;
 }
+
 /* ===========================
    CV Download Button
 =========================== */
@@ -86,6 +86,9 @@ body {
     background: #002147;
     text-align: center;
     padding: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar a {
@@ -214,15 +217,16 @@ footer {
     .header-content h1 {
         font-size: 1.8rem;
     }
-    .stats {
-        flex-direction: column;
-        gap: 15px;
-    }
     .header-content {
         width: 90%;
         padding: 15px;
+        top: 20%; /* adjusted for smaller screens */
     }
     .profile {
         width: 120px;
+    }
+    .stats {
+        flex-direction: column;
+        gap: 15px;
     }
 }
