@@ -9,20 +9,24 @@
 
 <link rel="stylesheet" href="style.css">
 
+<!-- ================= Google Analytics 4 ================= -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PJDWHZTWG8"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PJDWHZTWG8');
+</script>
+
 </head>
 
 <body>
 
-<!-- ===========================
-     Header Banner (IDENTICAL TO INDEX.HTML)
-=========================== -->
+<!-- ================= Header Banner ================= -->
 <header class="site-header">
-
-    <!-- Header Banner -->
     <img src="header-banner.jpg" alt="Header banner" class="banner">
 
     <div class="header-content">
-        <!-- Profile Image -->
         <img src="profile.jpg" alt="Dr Sharad Chandra Tripathi" class="profile">
 
         <h1>Dr. Sharad Chandra Tripathi</h1>
@@ -34,12 +38,9 @@
         Ionospheric Physics | Space Weather | Computational Physics
         </p>
     </div>
-
 </header>
 
-<!-- ===========================
-     Navigation Bar
-=========================== -->
+<!-- ================= Navigation Bar ================= -->
 <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="research.html">Research</a>
@@ -49,53 +50,38 @@
 
 <main>
 
-<!-- ===========================
-     Research Areas
-=========================== -->
-<!-- Research Highlights Section -->
-    <section>
-      <h2>Research Highlights</h2>
-      <div class="card-container">
-        <div class="card">
-          <h3>Ionospheric Variability & Plasma Dynamics</h3>
-          <p>
-            Studies on ionospheric responses to geomagnetic storms, including plasma irregularities, Total Electron Content (TEC) variations, and radio wave propagation across different latitudes and longitudes.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Solar Flare & Space Weather Impacts</h3>
-          <p>
-            Analysis of solar flare events and solar transients on ionospheric structure, magnetic field perturbations, proton events, and their implications for communication, navigation, and space weather forecasting.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Advanced Solar Phenomena & Plasma Diagnostics</h3>
-          <p>
-            Spectroscopic and observational diagnostics of solar flares, surges, filaments, and cool loop footpoints, providing insights into plasma heating, self-absorption, and homologous surge behaviour.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Global Geomagnetic & Ionospheric Effects</h3>
-          <p>
-            Assessment of geomagnetic storms and solar wind influences on the ionosphere globally, including delayed responses of energetic particles and geomagnetic activity under solar cycle variations.
-          </p>
-        </div>
-      </div>
-    </section>
-<!-- ===========================
-     Research Projects
-=========================== -->
-<!-- <section>
-    <h2>Research Projects</h2>
-    <ul>
-        <li>Solar Flare Induced Ionospheric Plasma Irregularities</li>
-        <li>Metamaterial Behaviour in Space Plasma</li>
-        <li>Radio Wave Propagation in Disturbed Ionosphere</li>
-    </ul>
-</section> -->
-<!-- ===========================
-     Recent Publications
-=========================== -->
+<!-- ================= Research Highlights ================= -->
+<section>
+  <h2>Research Highlights</h2>
+  <div class="card-container">
+    <div class="card">
+      <h3>Ionospheric Variability & Plasma Dynamics</h3>
+      <p>
+        Studies on ionospheric responses to geomagnetic storms, including plasma irregularities, Total Electron Content (TEC) variations, and radio wave propagation across different latitudes and longitudes.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Solar Flare & Space Weather Impacts</h3>
+      <p>
+        Analysis of solar flare events and solar transients on ionospheric structure, magnetic field perturbations, proton events, and their implications for communication, navigation, and space weather forecasting.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Advanced Solar Phenomena & Plasma Diagnostics</h3>
+      <p>
+        Spectroscopic and observational diagnostics of solar flares, surges, filaments, and cool loop footpoints, providing insights into plasma heating, self-absorption, and homologous surge behaviour.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Global Geomagnetic & Ionospheric Effects</h3>
+      <p>
+        Assessment of geomagnetic storms and solar wind influences on the ionosphere globally, including delayed responses of energetic particles and geomagnetic activity under solar cycle variations.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Recent Publications ================= -->
 <section id="publications">
     <h2>Recent Publications</h2>
     <ul id="publication-list">
@@ -103,9 +89,7 @@
     </ul>
 </section>
 
-<!-- ===========================
-     Research Profiles
-=========================== -->
+<!-- ================= Research Profiles ================= -->
 <section>
     <h2>Research Profiles</h2>
     <div class="profiles">
@@ -134,39 +118,63 @@
     <p>© 2026 Dr. Sharad Chandra Tripathi</p>
 </footer>
 
-<!-- ===========================
-     Fetch Recent Publications via ORCID
-=========================== -->
+<!-- ================= Fetch Publications & GA4 Tracking ================= -->
 <script>
 const ORCID_ID = "0000-0002-9202-7598";
 const pubList = document.getElementById("publication-list");
 
+// GA4 Event sender
+function sendGAEvent(event_name, params = {}) {
+  if(typeof gtag === "function"){
+    gtag('event', event_name, params);
+    console.log("GA Event Sent:", event_name, params);
+  }
+}
+
+// Fetch recent publications from ORCID
 fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/works`, {
-    headers: { 'Accept': 'application/json' }
+  headers: { 'Accept': 'application/json' }
 })
 .then(response => response.json())
 .then(data => {
-    pubList.innerHTML = "";
-    const works = data.group.slice(0, 5); // fetch 5 recent publications
-    works.forEach(work => {
-        const title = work['work-summary'][0]['title']['title']['value'];
-        let doi = "";
-        const externalIds = work['work-summary'][0]['external-ids']['external-id'];
-        externalIds.forEach(id => {
-            if(id['external-id-type'] === "doi") doi = `https://doi.org/${id['external-id-value']}`;
-        });
-        const li = document.createElement("li");
-        if(doi) {
-            li.innerHTML = `<a href="${doi}" target="_blank">${title}</a>`;
-        } else {
-            li.textContent = title;
-        }
-        pubList.appendChild(li);
+  pubList.innerHTML = "";
+  const works = data.group.slice(0, 5); // first 5
+  works.forEach(work => {
+    const title = work['work-summary'][0]['title']['title']['value'];
+    let doi = "";
+    const externalIds = work['work-summary'][0]['external-ids']['external-id'];
+    externalIds.forEach(id => {
+      if(id['external-id-type'] === "doi") doi = `https://doi.org/${id['external-id-value']}`;
     });
+    const li = document.createElement("li");
+    if(doi){
+      li.innerHTML = `<a href="${doi}" target="_blank">${title}</a>`;
+      li.querySelector('a').addEventListener('click', () => {
+        sendGAEvent('publication_download', { title: title, url: doi, page_location: window.location.pathname });
+      });
+    } else {
+      li.textContent = title;
+    }
+    // track view of each publication
+    li.addEventListener('mouseenter', () => {
+      sendGAEvent('publication_view', { title: title, page_location: window.location.pathname });
+    });
+    pubList.appendChild(li);
+  });
 })
 .catch(err => {
-    pubList.innerHTML = "<li>Could not fetch publications.</li>";
-    console.error(err);
+  pubList.innerHTML = "<li>Could not fetch publications.</li>";
+  console.error(err);
+});
+
+// Track research profile clicks
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.profiles a').forEach(link => {
+    link.addEventListener('click', () => {
+      const profile = link.querySelector('p')?.innerText || 'research';
+      sendGAEvent('research_profile_click', { profile_name: profile, url: link.href, page_location: window.location.pathname });
+    });
+  });
 });
 </script>
 
