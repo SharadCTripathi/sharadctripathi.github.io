@@ -1,7 +1,7 @@
 from scholarly import scholarly
 import json
 
-SCHOLAR_ID = "YOUR_ID_HERE"
+SCHOLAR_ID = "DVMNjugAAAAJ"
 
 author = scholarly.search_author_id(SCHOLAR_ID)
 author = scholarly.fill(author)
