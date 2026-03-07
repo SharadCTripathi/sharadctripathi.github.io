@@ -12,15 +12,19 @@ body{
     object-fit:cover;
 }
 
-/* Header Content */
-.header-content{
-    text-align:center;
-    margin-top:-60px;
-    background-color: rgba(0,0,0,0.5); /* semi-transparent black */
-    padding: 20px;
-    border-radius: 10px;
-    color: white; /* white font for visibility */
-    display: inline-block; /* shrink to fit content */
+/* Header Content over Banner */
+.site-header {
+    position: relative; /* container for absolute positioning */
+}
+
+.header-content {
+    position: absolute;
+    top: 50%;          /* vertically center */
+    left: 50%;         /* horizontally center */
+    transform: translate(-50%, -50%); /* perfect centering */
+    text-align: center;
+    color: white;      /* text visible on banner */
+    width: 100%;       /* full width to center content */
 }
 
 /* Profile Image */
