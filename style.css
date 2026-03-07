@@ -144,7 +144,7 @@ section p {
 main section h2 {
     text-align: left;        /* Left-aligned for all sections */
     font-size: 2em;          /* Uniform size */
-    color: #002147;           /* Uniform color */
+    color: #002147;          /* Uniform color */
     font-weight: 700;        /* Bold */
     margin-bottom: 20px;     /* Space below heading */
     border-bottom: 2px solid #FFD700;  /* Optional underline */
@@ -245,31 +245,6 @@ footer {
 }
 
 /* ===========================
-   Responsive Design
-=========================== */
-@media (max-width: 768px) {
-    .card-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .header-content h1 {
-        font-size: 1.8rem;
-    }
-    .header-content {
-        width: 90%;
-        padding: 15px;
-        top: 20%; /* adjusted for smaller screens */
-    }
-    .profile {
-        width: 120px;
-    }
-    .stats {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-
-/* ===========================
    Contact Me Section
 =========================== */
 .contact-emails {
@@ -301,10 +276,6 @@ footer {
 #work-experience {
     margin: 40px 0;
     padding: 0 10px;
-}
-
-#work-experience h2 {
-    /* Already unified in main section h2 */
 }
 
 .work-institution {
@@ -366,42 +337,64 @@ footer {
     margin-bottom: 5px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .work-item {
-        padding-left: 10px;
-    }
-    #work-experience h2 {
-        font-size: 1.8em;
-    }
-    .work-institution h3 {
-        font-size: 1.3em;
-    }
-}
-
 /* ===========================
-   Mobile Header Fix
+   Responsive Design
 =========================== */
 @media (max-width: 768px) {
-    .site-header {
-        height: auto; /* allow content to expand */
-        min-height: 350px; /* reasonable minimum */
+    .card-container {
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .banner {
-        height: auto;
-        max-height: 300px;
+    .header-content h1 {
+        font-size: 1.8rem;
     }
 
     .header-content {
-        top: 0;
+        position: relative; /* relative for mobile */
+        top: auto;
+        left: auto;
         width: 100%;
-        padding: 20px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
         box-sizing: border-box;
     }
 
-    /* Add spacing so main content doesn't go under navbar */
+    .profile {
+        width: 120px;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Make banner responsive */
+    .banner {
+        height: auto;
+        max-height: 250px;
+    }
+
+    /* Work experience adjustments */
+    .work-item {
+        padding-left: 10px;
+    }
+
+    #work-experience h2 {
+        font-size: 1.8em;
+    }
+
+    .work-institution h3 {
+        font-size: 1.3em;
+    }
+
+    /* Remove extra top padding on main content */
     main {
-        padding-top: 20px;
+        padding-top: 0;
     }
 }
