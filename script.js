@@ -1,7 +1,9 @@
 fetch("scholar.json")
-.then(res => res.json())
+.then(response => response.json())
 .then(data => {
-document.getElementById("citations").innerHTML = data.citations;
-document.getElementById("hindex").innerHTML = data.hindex;
-document.getElementById("papers").innerHTML = data.papers;
+
+document.getElementById("citations").innerText = data.citations;
+document.getElementById("hindex").innerText = data.hindex;
+document.getElementById("papers").innerText = data.papers;
+
 });
