@@ -284,7 +284,7 @@ footer {
 }
 
 #work-experience h2 {
-    text-align: center;
+    text-align: left;      /* Left aligned instead of center */
     font-size: 2em;
     margin-bottom: 25px;
     color: #002147;
