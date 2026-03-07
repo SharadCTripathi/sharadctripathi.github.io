@@ -1,27 +1,27 @@
-from scholarly import scholarly
+import requests
+from bs4 import BeautifulSoup
 import json
 
 SCHOLAR_ID = "DVMNjugAAAAJ"
 
-try:
-    author = scholarly.search_author_id(SCHOLAR_ID)
-    author = scholarly.fill(author)
+url = f"https://scholar.google.com/citations?user={SCHOLAR_ID}&hl=en"
 
-    data = {
-        "citations": author.get("citedby", 0),
-        "hindex": author.get("hindex", 0),
-        "papers": len(author.get("publications", []))
-    }
+response = requests.get(url)
 
-except Exception as e:
-    print("Error fetching scholar data:", e)
+soup = BeautifulSoup(response.text, "html.parser")
 
-    # fallback values if Scholar blocks request
-    data = {
-        "citations": 0,
-        "hindex": 0,
-        "papers": 0
-    }
+stats = soup.select("#gsc_rsb_st td.gsc_rsb_std")
+
+citations = stats[0].text
+hindex = stats[2].text
+
+papers = len(soup.select(".gsc_a_tr"))
+
+data = {
+    "citations": int(citations),
+    "hindex": int(hindex),
+    "papers": papers
+}
 
 with open("scholar.json", "w") as f:
     json.dump(data, f)
