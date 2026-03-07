@@ -1,153 +1,209 @@
-/* General Body Styles */
-body{
+/* ===========================
+   General Body Styles
+=========================== */
+body {
     font-family: Arial, sans-serif;
-    margin:0;
-    background:#f5f5f5;
+    margin: 0;
+    background: #f5f5f5;
+    line-height: 1.6; /* improves readability */
+    color: #333;
 }
 
-/* Header Banner */
-.banner{
-    width:100%;
-    height:480px;
-    object-fit:cover;
+/* ===========================
+   Header Banner
+=========================== */
+.banner {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
 }
 
-/* Header Content over Banner */
+/* ===========================
+   Header Content over Banner
+=========================== */
 .site-header {
     position: relative; /* container for absolute positioning */
 }
 
-/* Header Content with subtle overlay */
 .header-content {
     position: absolute;
-    top: 50%;          /* vertically center */
-    left: 50%;         /* horizontally center */
-    transform: translate(-50%, -50%); /* perfect centering */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    color: white;      /* text visible on banner */
-    width: 100%;       /* full width to center content */
+    color: white;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3); /* subtle overlay for readability */
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .header-content h1,
 .header-content p {
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-}
-/* Profile Image */
-.profile{
-    width:150px;
-    border-radius:50%;
-    border:4px solid white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* CV Download Button */
+/* Profile Image */
+.profile {
+    width: 150px;
+    border-radius: 50%;
+    border: 4px solid white;
+}
+
+/* ===========================
+   CV Download Button
+=========================== */
 .cv-btn {
     display: inline-block;
-    background-color: #FFD700; /* bright yellow */
-    color: #002147; /* dark text for contrast */
+    background-color: #FFD700;
+    color: #002147;
     font-weight: bold;
     padding: 12px 25px;
     margin-top: 20px;
     border-radius: 8px;
     text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s, box-shadow 0.2s;
+    outline: none; /* accessibility */
 }
 
-.cv-btn:hover {
+.cv-btn:hover,
+.cv-btn:focus {
     transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Navigation */
-.navbar{
-    background:#002147;
-    text-align:center;
-    padding:12px;
+/* ===========================
+   Navigation
+=========================== */
+.navbar {
+    background: #002147;
+    text-align: center;
+    padding: 12px;
 }
 
-.navbar a{
-    color:white;
-    margin:15px;
-    text-decoration:none;
-    font-weight:bold;
+.navbar a {
+    color: white;
+    margin: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
 }
 
-/* Main Content */
-main{
-    max-width:1000px;
-    margin:auto;
-    padding:30px;
+.navbar a:hover,
+.navbar a:focus {
+    color: #FFD700;
 }
 
-section{
-    background:white;
-    padding:30px;
-    margin-bottom:20px;
-    border-radius:6px;
+/* ===========================
+   Main Content
+=========================== */
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
 }
 
-/* Stats (for homepage metrics if used) */
-.stats{
-    display:flex;
-    justify-content:space-around;
+section {
+    background: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 6px;
 }
 
-/* Research Cards */
-.card-container{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+/* ===========================
+   Stats (for metrics)
+=========================== */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.card{
-    flex:1;
-    min-width:200px;
-    background:#fafafa;
-    padding:20px;
-    border-radius:6px;
-    box-shadow:0 2px 5px rgba(0,0,0,0.2);
-    transition:transform 0.2s;
+/* ===========================
+   Research Cards
+=========================== */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between; /* evenly distribute cards */
 }
 
-.card:hover{
-    transform:translateY(-5px);
+.card {
+    flex: 1 1 300px; /* sets min-width and flexible growth */
+    min-width: 300px;
+    background: #fafafa;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: justify; /* improves readability */
 }
 
-/* Research Profile Icons */
-.profiles{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:30px;
-    margin-top:20px;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.profiles a{
-    text-decoration:none;
-    color:#000;
-    text-align:center;
-    font-weight:bold;
-    width:90px;
+/* ===========================
+   Research Profile Icons
+=========================== */
+.profiles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
 }
 
-.profiles img{
-    width:40px;
-    height:40px;
-    object-fit:contain;
-    display:block;
-    margin:auto;
-    margin-bottom:8px;
-    transition:transform 0.2s;
+.profiles a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    width: 90px;
 }
 
-.profiles img:hover{
-    transform:scale(1.15);
+.profiles img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+    margin-bottom: 8px;
+    transition: transform 0.2s;
 }
 
-/* Footer */
-footer{
-    text-align:center;
-    padding:20px;
-    background:#002147;
-    color:white;
+.profiles img:hover,
+.profiles img:focus {
+    transform: scale(1.15);
+}
+
+/* ===========================
+   Footer
+=========================== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #002147;
+    color: white;
+}
+
+/* ===========================
+   Responsive Design
+=========================== */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
