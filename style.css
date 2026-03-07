@@ -378,3 +378,30 @@ footer {
         font-size: 1.3em;
     }
 }
+
+/* ===========================
+   Mobile Header Fix
+=========================== */
+@media (max-width: 768px) {
+    .site-header {
+        height: auto; /* allow content to expand */
+        min-height: 350px; /* reasonable minimum */
+    }
+
+    .banner {
+        height: auto;
+        max-height: 300px;
+    }
+
+    .header-content {
+        top: 0;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Add spacing so main content doesn't go under navbar */
+    main {
+        padding-top: 20px;
+    }
+}
