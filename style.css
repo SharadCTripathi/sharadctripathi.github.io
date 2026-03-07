@@ -1,123 +1,144 @@
+/* General Body Styles */
 body{
-font-family: Arial;
-margin:0;
-background:#f5f5f5;
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f5f5f5;
 }
 
 /* Header Banner */
-
 .banner{
-width:100%;
-height:250px;
-object-fit:cover;
+    width:100%;
+    height:250px;
+    object-fit:cover;
 }
 
+/* Header Content */
 .header-content{
-text-align:center;
-margin-top:-60px;
+    text-align:center;
+    margin-top:-60px;
+    background-color: rgba(0,0,0,0.5); /* semi-transparent black */
+    padding: 20px;
+    border-radius: 10px;
+    color: white; /* white font for visibility */
+    display: inline-block; /* shrink to fit content */
 }
 
+/* Profile Image */
 .profile{
-width:150px;
-border-radius:50%;
-border:4px solid white;
+    width:150px;
+    border-radius:50%;
+    border:4px solid white;
+}
+
+/* CV Download Button */
+.cv-btn {
+    display: inline-block;
+    background-color: #FFD700; /* bright yellow */
+    color: #002147; /* dark text for contrast */
+    font-weight: bold;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cv-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
 /* Navigation */
-
 .navbar{
-background:#002147;
-text-align:center;
-padding:12px;
+    background:#002147;
+    text-align:center;
+    padding:12px;
 }
 
 .navbar a{
-color:white;
-margin:15px;
-text-decoration:none;
-font-weight:bold;
+    color:white;
+    margin:15px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 /* Main Content */
-
 main{
-max-width:1000px;
-margin:auto;
-padding:30px;
+    max-width:1000px;
+    margin:auto;
+    padding:30px;
 }
 
 section{
-background:white;
-padding:30px;
-margin-bottom:20px;
-border-radius:6px;
+    background:white;
+    padding:30px;
+    margin-bottom:20px;
+    border-radius:6px;
 }
 
 /* Stats (for homepage metrics if used) */
-
 .stats{
-display:flex;
-justify-content:space-around;
+    display:flex;
+    justify-content:space-around;
 }
 
 /* Research Cards */
-
 .card-container{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
 .card{
-flex:1;
-min-width:200px;
-background:#fafafa;
-padding:20px;
-border-radius:6px;
-box-shadow:0 2px 5px rgba(0,0,0,0.2);
-transition:transform 0.2s;
+    flex:1;
+    min-width:200px;
+    background:#fafafa;
+    padding:20px;
+    border-radius:6px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
+    transition:transform 0.2s;
 }
 
 .card:hover{
-transform:translateY(-5px);
+    transform:translateY(-5px);
 }
 
 /* Research Profile Icons */
-
 .profiles{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-margin-top:20px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    margin-top:20px;
 }
 
 .profiles a{
-text-decoration:none;
-color:#000;
-text-align:center;
-font-weight:bold;
-width:90px;
+    text-decoration:none;
+    color:#000;
+    text-align:center;
+    font-weight:bold;
+    width:90px;
 }
 
 .profiles img{
-width:40px;
-height:40px;
-object-fit:contain;
-display:block;
-margin:auto;
-margin-bottom:8px;
-transition:transform 0.2s;
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+    margin-bottom:8px;
+    transition:transform 0.2s;
 }
 
 .profiles img:hover{
-transform:scale(1.15);
+    transform:scale(1.15);
 }
-/* Footer */
 
+/* Footer */
 footer{
-text-align:center;
-padding:20px;
-background:#002147;
-color:white;
+    text-align:center;
+    padding:20px;
+    background:#002147;
+    color:white;
 }
