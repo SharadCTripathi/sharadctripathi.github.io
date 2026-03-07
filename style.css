@@ -20,25 +20,38 @@ body {
 }
 
 /* ===========================
-   Header Content over Banner
+   Header Banner & Content
 =========================== */
 .site-header {
-    position: relative; /* container for absolute positioning */
-    margin-bottom: 30px; /* space below banner */
+    position: relative;
+    width: 100%;
+    height: 450px; /* same as banner */
+    margin-bottom: 30px; /* space below header so content doesn't overlap */
 }
 
+.banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Center header content vertically using flexbox */
 .header-content {
     position: absolute;
-    top: 25%; /* distance from top of banner */
-    left: 50%;
-    transform: translateX(-50%); /* horizontal centering only */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertically center */
+    align-items: center;     /* horizontally center */
     text-align: center;
     color: white;
-    width: 90%;
-    max-width: 900px;
     padding: 20px;
     box-sizing: border-box;
-    background: transparent; /* clean look, no overlay */
+    z-index: 2;
 }
 
 .header-content h1,
@@ -52,8 +65,7 @@ body {
     width: 150px;
     border-radius: 50%;
     border: 4px solid white;
-    display: block;
-    margin: 0 auto 15px auto;
+    margin-bottom: 15px;
 }
 
 /* ===========================
