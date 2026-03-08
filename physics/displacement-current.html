@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Displacement Current: Concept, Examples, and Shortcuts</title>
 
-<!-- MathJax configuration -->
+<!-- MathJax configuration for inline and display math -->
 <script>
 window.MathJax = {
   tex: {
@@ -20,18 +20,19 @@ window.MathJax = {
 
 <!-- Scoped CSS -->
 <style>
-.article-page {
-  background: #f9f9f9;
-  font-family: "Georgia", serif;
+body {
+  font-family: Georgia, serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
   color: #222;
-  padding: 20px 0;
 }
-.article-page main {
+main {
   max-width: 900px;
-  margin: auto;
-  padding: 40px 25px;
+  margin: 30px auto;
+  padding: 30px 25px;
 }
-.article-page section {
+section {
   background: #fff;
   padding: 30px 25px;
   margin-bottom: 30px;
@@ -39,11 +40,11 @@ window.MathJax = {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.article-page section:hover {
+section:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
-.article-page h2 {
+h2 {
   font-size: 2em;
   color: #002147;
   font-weight: 700;
@@ -51,21 +52,21 @@ window.MathJax = {
   border-bottom: 3px solid #FFD700;
   padding-bottom: 8px;
 }
-.article-page p {
+p {
   text-align: justify;
   text-justify: inter-word;
   margin-bottom: 18px;
   line-height: 1.75;
 }
-.article-page ul, .article-page ol {
+ul, ol {
   margin-left: 30px;
   margin-bottom: 15px;
   line-height: 1.6;
 }
-.article-page li {
+li {
   margin-bottom: 10px;
 }
-.article-page .math-display {
+.math-display {
   display: block;
   text-align: center;
   margin: 25px 0;
@@ -75,14 +76,14 @@ window.MathJax = {
   border-radius: 6px;
   overflow-x: auto;
 }
-.article-page span.math-inline {
+.math-inline {
   font-size: 1.05em;
   background: #f4f4f4;
   padding: 2px 5px;
   border-radius: 3px;
   white-space: nowrap;
 }
-.article-page .work-item {
+.work-item {
   border-left: 4px solid #FFD700;
   background: #fffbea;
   border-radius: 6px;
@@ -91,15 +92,14 @@ window.MathJax = {
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 @media (max-width: 768px) {
-  .article-page main { padding: 25px 15px; }
-  .article-page h2 { font-size: 1.8em; }
-  .article-page .math-display { font-size: 1.05em; }
+  main { padding: 25px 15px; }
+  h2 { font-size: 1.8em; }
+  .math-display { font-size: 1.05em; }
 }
 </style>
 </head>
 <body>
 
-<div class="article-page">
 <main>
 
 <!-- Section: What Is Displacement Current -->
@@ -113,6 +113,7 @@ window.MathJax = {
 <p class="math-display">\[
 I_d = \epsilon_0 \frac{d\Phi_E}{dt}
 \]</p>
+
 <p>where <span class="math-inline">\( \Phi_E \)</span> is the electric flux and <span class="math-inline">\( \epsilon_0 \)</span> is the permittivity of free space.</p>
 </section>
 
@@ -204,7 +205,6 @@ I = I_d = \frac{V_0}{R} e^{-t/RC}
 <p><strong>Q1.</strong> A time-varying potential difference is applied between the plates of a parallel-plate capacitor of capacitance <span class="math-inline">2.5\,\mu\text{F}</span>. The dielectric constant of the medium between the plates is 1. If it produces an instantaneous displacement current of <span class="math-inline">0.25\,\text{mA}</span>, the magnitude of the rate of change of the potential difference will be ______ V/s. <strong>(JEE Main 2025)</strong></p>
 
 <p><strong>Solution:</strong></p>
-<p>We use the formula for displacement current:</p>
 <p class="math-display">\[
 I_d = C \frac{dV}{dt} \Rightarrow \frac{dV}{dt} = \frac{I_d}{C}
 \]</p>
@@ -241,7 +241,6 @@ I_d = 6 \times 0.2 = 1.2\,\text{A} = 1200\,\text{mA}
 </section>
 
 </main>
-</div>
 
 </body>
 </html>
