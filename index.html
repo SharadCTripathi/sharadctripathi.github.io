@@ -303,7 +303,7 @@
       <a class="cv-btn" href="cv.pdf" target="_blank">Download Full CV</a>
     </section>
 
-    <!-- ================= Social & Research Profiles ================= -->
+    <!-- ================= Social Media Profiles ================= -->
     <section>
       <h2>Social Media Profiles</h2>
       <div class="profiles">
@@ -348,14 +348,6 @@
         link.addEventListener('click', () => {
           const platform = link.querySelector('p')?.innerText || 'social';
           sendGAEvent('social_click', { platform, page_location: window.location.pathname });
-        });
-      });
-
-      // Research Profile Clicks
-      document.querySelectorAll('.research-profiles a').forEach(link => {
-        link.addEventListener('click', () => {
-          const profile = link.querySelector('p')?.innerText || 'research';
-          sendGAEvent('research_profile_click', { profile_name: profile, url: link.href, page_location: window.location.pathname });
         });
       });
 
