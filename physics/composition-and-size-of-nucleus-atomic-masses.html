@@ -1,295 +1,226 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Composition and Size of Nucleus, Atomic Masses</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="/usr/share/javascript/mathjax/MathJax.js"
-  type="text/javascript"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Composition and Size of Nucleus, Atomic Masses</title>
+
+<!-- MathJax configuration -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<!-- Scoped CSS for Article -->
+<style>
+.article-page {
+  background: #f9f9f9;
+  font-family: "Georgia", serif;
+  color: #222;
+  padding: 20px 0;
+}
+.article-page main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 25px;
+}
+.article-page section {
+  background: #ffffff;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.article-page section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.article-page h2 {
+  font-size: 2em;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 8px;
+}
+.article-page h3 {
+  font-size: 1.5em;
+  color: #0056b3;
+  margin-bottom: 15px;
+}
+.article-page p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 18px;
+  line-height: 1.75;
+}
+.article-page ul, .article-page ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+.article-page li {
+  margin-bottom: 10px;
+}
+.article-page .work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.article-page .math-display {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+  font-size: 1.2em;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+.article-page span.math-inline {
+  font-size: 1.05em;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.article-page pre, .article-page code {
+  background: #f4f4f4;
+  padding: 6px 12px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: "Courier New", monospace;
+}
+.article-page p strong {
+  color: #002147;
+}
+@media (max-width: 768px) {
+  .article-page main { padding: 25px 15px; }
+  .article-page h2 { font-size: 1.8em; }
+  .article-page h3 { font-size: 1.4em; }
+  .article-page .math-display { font-size: 1.05em; }
+}
+</style>
 </head>
 <body>
-<header id="title-block-header">
-<h1 class="title">Composition and Size of Nucleus, Atomic Masses</h1>
-</header>
-<h1 class="unnumbered" id="what-is-the-atomic-nucleus">What Is the
-Atomic Nucleus?</h1>
-<p>The atomic nucleus is the dense central core of an atom, containing
-protons and neutrons, collectively known as <strong>nucleons</strong>.
-The nucleus carries almost the entire mass of the atom but occupies a
-very small volume compared to the atom’s total size.</p>
+
+<div class="article-page">
+<main>
+
+<!-- Section: Atomic Nucleus -->
+<section>
+<h2>What Is the Atomic Nucleus?</h2>
+<p>The atomic nucleus is the dense central core of an atom, containing protons and neutrons, collectively known as <strong>nucleons</strong>. It carries almost the entire mass of the atom but occupies a very small volume compared to the atom’s total size.</p>
 <ul>
-<li><p><strong>Proton (p):</strong> Positively charged particle with a
-charge of <span class="math inline">\(+1.6 \times 10^{-19}\)</span> C
-and mass <span class="math inline">\(\approx 1.007 \,
-\text{u}\)</span>.</p></li>
-<li><p><strong>Neutron (n):</strong> Neutral particle with no charge and
-mass <span class="math inline">\(\approx 1.009 \,
-\text{u}\)</span>.</p></li>
-<li><p><strong>Nucleons:</strong> Protons and neutrons inside the
-nucleus.</p></li>
+  <li><strong>Proton (p):</strong> Positively charged particle with a charge of <span class="math-inline">\( +1.6 \times 10^{-19} \, \text{C} \)</span> and mass <span class="math-inline">\( \approx 1.007 \, \text{u} \)</span>.</li>
+  <li><strong>Neutron (n):</strong> Neutral particle with no charge and mass <span class="math-inline">\( \approx 1.009 \, \text{u} \)</span>.</li>
+  <li><strong>Nucleons:</strong> Protons and neutrons inside the nucleus.</li>
 </ul>
-<p>The number of protons defines the atomic number <span
-class="math inline">\(Z\)</span>, while the total number of nucleons
-defines the mass number <span class="math inline">\(A\)</span>. The
-number of neutrons <span class="math inline">\(N\)</span> is given by:
-<span class="math display">\[N = A - Z.\]</span></p>
-<h1 class="unnumbered" id="size-of-the-nucleus">Size of the Nucleus</h1>
-<p>Nuclear sizes are extremely small, typically in the range of
-femtometers (1 fm = <span class="math inline">\(10^{-15}\)</span> m).
-The radius of a nucleus is given approximately by the empirical formula:
-<span class="math display">\[R = R_0 A^{1/3},\]</span> where</p>
+<p>The number of protons defines the atomic number <span class="math-inline">\( Z \)</span>, while the total number of nucleons defines the mass number <span class="math-inline">\( A \)</span>. The number of neutrons <span class="math-inline">\( N \)</span> is given by:</p>
+<p class="math-display">\[ N = A - Z \]</p>
+</section>
+
+<!-- Section: Size of the Nucleus -->
+<section>
+<h2>Size of the Nucleus</h2>
+<p>Nuclear sizes are extremely small, typically in femtometers (1 fm = <span class="math-inline">\( 10^{-15} \, \text{m} \)</span>). The radius of a nucleus is given approximately by:</p>
+<p class="math-display">\[ R = R_0 A^{1/3} \]</p>
+<p>Where:</p>
 <ul>
-<li><p><span class="math inline">\(R\)</span>: nuclear radius,</p></li>
-<li><p><span class="math inline">\(R_0 \approx 1.2 \times 10^{-15} \,
-\text{m}\)</span>,</p></li>
-<li><p><span class="math inline">\(A\)</span>: mass number of the
-nucleus.</p></li>
+  <li><span class="math-inline">\( R \)</span>: nuclear radius</li>
+  <li><span class="math-inline">\( R_0 \approx 1.2 \times 10^{-15} \, \text{m} \)</span></li>
+  <li><span class="math-inline">\( A \)</span>: mass number of the nucleus</li>
 </ul>
-<p>This shows that the volume of a nucleus is roughly proportional to
-the number of nucleons, suggesting nearly constant nuclear density.</p>
-<h1 class="unnumbered" id="atomic-mass-and-mass-defect">Atomic Mass and
-Mass Defect</h1>
-<p>The atomic mass of an element is the weighted average mass of its
-isotopes, expressed in atomic mass units (u or amu), where: <span
-class="math display">\[1 \, \text{u} = \frac{1}{12} \text{mass of one
-atom of } \ce{^{12}C} \approx 1.66 \times 10^{-27} \,
-\text{kg}.\]</span></p>
-<p><strong>Mass Defect</strong> (<span class="math inline">\(\Delta
-m\)</span>) is the difference between the mass of the separated nucleons
-and the actual mass of the nucleus: <span class="math display">\[\Delta
-m = Zm_p + Nm_n - M_{\text{nucleus}}.\]</span></p>
-<p>This missing mass is converted into binding energy via Einstein’s
-equation: <span class="math display">\[E_b = \Delta m c^2.\]</span></p>
-<h1 class="unnumbered" id="binding-energy-and-stability">Binding Energy
-and Stability</h1>
-<p><strong>Binding energy</strong> is the energy required to disassemble
-a nucleus into its individual protons and neutrons. A higher binding
-energy per nucleon indicates greater stability of the nucleus.</p>
+<p>This shows the volume of a nucleus is roughly proportional to the number of nucleons, suggesting nearly constant nuclear density.</p>
+</section>
+
+<!-- Section: Atomic Mass and Mass Defect -->
+<section>
+<h2>Atomic Mass and Mass Defect</h2>
+<p>The atomic mass of an element is the weighted average of its isotopes, expressed in atomic mass units (u or amu), where:</p>
+<p class="math-display">\[ 1 \, \text{u} = \frac{1}{12} \text{mass of one atom of } \ce{^{12}C} \approx 1.66 \times 10^{-27} \, \text{kg} \]</p>
+<p><strong>Mass Defect</strong> (\( \Delta m \)) is the difference between the mass of separated nucleons and the actual mass of the nucleus:</p>
+<p class="math-display">\[ \Delta m = Z m_p + N m_n - M_{\text{nucleus}} \]</p>
+<p>This missing mass is converted into binding energy using Einstein’s equation:</p>
+<p class="math-display">\[ E_b = \Delta m c^2 \]</p>
+</section>
+
+<!-- Section: Binding Energy and Stability -->
+<section>
+<h2>Binding Energy and Stability</h2>
+<p><strong>Binding energy</strong> is the energy required to disassemble a nucleus into individual protons and neutrons. Higher binding energy per nucleon indicates greater stability.</p>
 <ul>
-<li><p>Light nuclei: Binding energy increases with mass number.</p></li>
-<li><p>Around Iron (<span class="math inline">\(A \approx 56\)</span>):
-Maximum binding energy per nucleon.</p></li>
-<li><p>Heavy nuclei: Binding energy per nucleon decreases, leading to
-fission in some cases.</p></li>
+  <li>Light nuclei: Binding energy increases with mass number.</li>
+  <li>Around Iron (<span class="math-inline">\( A \approx 56 \)</span>): Maximum binding energy per nucleon.</li>
+  <li>Heavy nuclei: Binding energy per nucleon decreases, leading to fission in some cases.</li>
 </ul>
-<h1 class="unnumbered" id="shortcut-concepts-and-units">Shortcut
-Concepts and Units</h1>
-<ul>
-<li><p>Atomic radius <span class="math inline">\(\sim 10^{-10}\)</span>
-m, nuclear radius <span class="math inline">\(\sim 10^{-15}\)</span>
-m.</p></li>
-<li><p>Nuclear density is nearly constant for all nuclei: <span
-class="math display">\[\rho \approx 2.3 \times 10^{17} \,
-\text{kg/m}^3.\]</span></p></li>
-<li><p>1 amu energy equivalent: <span class="math display">\[1 \,
-\text{u} = 931.5 \, \text{MeV}/c^2.\]</span></p></li>
+</section>
+
+<!-- Section: Shortcut Concepts and Units -->
+<section>
+<h2>Shortcut Concepts and Units</h2>
+<ul class="work-item">
+  <li>Atomic radius <span class="math-inline">\( \sim 10^{-10} \, \text{m} \)</span>, nuclear radius <span class="math-inline">\( \sim 10^{-15} \, \text{m} \)</span>.</li>
+  <li>Nuclear density is nearly constant: <p class="math-display">\[ \rho \approx 2.3 \times 10^{17} \, \text{kg/m}^3 \]</p></li>
+  <li>1 amu energy equivalent: <p class="math-display">\[ 1 \, \text{u} = 931.5 \, \text{MeV}/c^2 \]</p></li>
 </ul>
-<h1 class="unnumbered" id="concept-questions-with-explanations">Concept
-Questions with Explanations</h1>
-<ol>
-<li><p><strong>Which force holds the nucleus together?</strong><br />
-<em>Answer:</em> The strong nuclear force, acting between
-nucleons.</p></li>
-<li><p><strong>Why is there a mass defect?</strong><br />
-<em>Answer:</em> Some mass converts to binding energy, holding nucleons
-together.</p></li>
-<li><p><strong>Which nucleus is most stable?</strong><br />
-<em>Answer:</em> Iron-56, due to highest binding energy per
-nucleon.</p></li>
-<li><p><strong>What determines nuclear size?</strong><br />
-<em>Answer:</em> Mass number <span class="math inline">\(A\)</span> via
-<span class="math inline">\(R = R_0 A^{1/3}\)</span>.</p></li>
+</section>
+
+<!-- Section: Concept Questions -->
+<section>
+<h2>Concept Questions with Explanations</h2>
+<ol class="work-item">
+  <li><strong>Which force holds the nucleus together?</strong><br><em>Answer:</em> The strong nuclear force, acting between nucleons.</li>
+  <li><strong>Why is there a mass defect?</strong><br><em>Answer:</em> Some mass converts to binding energy, holding nucleons together.</li>
+  <li><strong>Which nucleus is most stable?</strong><br><em>Answer:</em> Iron-56, due to highest binding energy per nucleon.</li>
+  <li><strong>What determines nuclear size?</strong><br><em>Answer:</em> Mass number <span class="math-inline">\( A \)</span> via <span class="math-inline">\( R = R_0 A^{1/3} \)</span>.</li>
 </ol>
-<h1 class="unnumbered" id="super-tips-for-solving-fast">Super Tips for
-Solving Fast</h1>
-<ul>
-<li><p>Use <span class="math inline">\(R = 1.2 A^{1/3} \,
-\text{fm}\)</span> for quick nuclear radius estimates.</p></li>
-<li><p>Remember: Binding energy per nucleon <span
-class="math inline">\(\approx \frac{E_b}{A}\)</span>.</p></li>
-<li><p>Mass defect questions often relate to energy using <span
-class="math inline">\(E = \Delta m c^2\)</span>.</p></li>
-<li><p>For stable nuclei, <span class="math inline">\(N \approx
-Z\)</span> for light elements, <span class="math inline">\(N &gt;
-Z\)</span> for heavier ones.</p></li>
+</section>
+
+<!-- Section: Super Tips -->
+<section>
+<h2>Super Tips for Solving Fast</h2>
+<ul class="work-item">
+  <li>Use <span class="math-inline">\( R = 1.2 A^{1/3} \, \text{fm} \)</span> for quick nuclear radius estimates.</li>
+  <li>Binding energy per nucleon <span class="math-inline">\( \approx \frac{E_b}{A} \)</span>.</li>
+  <li>Mass defect problems often use <span class="math-inline">\( E = \Delta m c^2 \)</span>.</li>
+  <li>For stable nuclei: <span class="math-inline">\( N \approx Z \)</span> for light elements, <span class="math-inline">\( N > Z \)</span> for heavy ones.</li>
 </ul>
-<h1 class="unnumbered" id="previous-year-questions-pyqs">Previous Year
-Questions (PYQs)</h1>
-<p><strong>(NEET 2022)</strong>: A nucleus of mass number 189 splits
-into two nuclei having mass numbers 125 and 64. The ratio of the radius
-of two daughter nuclei respectively is:</p>
-<ol>
-<li><p>25:16</p></li>
-<li><p>1:1</p></li>
-<li><p>4:5</p></li>
-<li><p>5:4</p></li>
+</section>
+
+<!-- Section: Previous Year Questions -->
+<section>
+<h2>Previous Year Questions (PYQs)</h2>
+<div class="work-item">
+<p><strong>(NEET 2022)</strong>: A nucleus of mass number 189 splits into two nuclei having mass numbers 125 and 64. The ratio of the radii of the daughter nuclei is:</p>
+<ol type="1">
+  <li>25:16</li>
+  <li>1:1</li>
+  <li>4:5</li>
+  <li>5:4</li>
 </ol>
 <p><strong>Solution:</strong></p>
-<p>Nuclear radius is given by: <span class="math display">\[R = R_0
-A^{1/3}\]</span></p>
-<p>So, ratio of radii is: <span class="math display">\[\frac{R_1}{R_2} =
-\left( \frac{125}{64} \right)^{1/3} = \left( \frac{5^3}{4^3}
-\right)^{1/3} = \frac{5}{4}\]</span></p>
-<p><strong>Answer:</strong> <span class="math inline">\(\boxed{4}
-\Rightarrow \boxed{5:4}\)</span></p>
+<p>Nuclear radius is given by:</p>
+<p class="math-display">\[ R = R_0 A^{1/3} \]</p>
+<p>Ratio of radii:</p>
+<p class="math-display">\[ \frac{R_1}{R_2} = \left( \frac{125}{64} \right)^{1/3} = \left( \frac{5^3}{4^3} \right)^{1/3} = \frac{5}{4} \]</p>
+<p><strong>Answer:</strong> <span class="math-inline">5:4</span></p>
+</div>
+</section>
+
+</main>
+</div>
+
 </body>
 </html>
