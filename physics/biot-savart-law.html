@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biot–Savart Law and Circular Current Loop</title>
+<title>Biot–Savart Law and Its Application to Circular Current Loop</title>
 
 <!-- MathJax configuration -->
 <script>
@@ -20,22 +20,17 @@ window.MathJax = {
 
 <!-- Scoped CSS for Article -->
 <style>
-/* ===========================
-   Scoped Physics Article Styling
-=========================== */
 .article-page {
   background: #f9f9f9;
-  padding: 20px 0;
   font-family: "Georgia", serif;
   color: #222;
+  padding: 20px 0;
 }
-
 .article-page main {
   max-width: 900px;
   margin: auto;
   padding: 40px 25px;
 }
-
 .article-page section {
   background: #ffffff;
   padding: 30px 25px;
@@ -44,12 +39,10 @@ window.MathJax = {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .article-page section:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
-
 .article-page h2 {
   font-size: 2em;
   color: #002147;
@@ -58,46 +51,33 @@ window.MathJax = {
   border-bottom: 3px solid #FFD700;
   padding-bottom: 8px;
 }
-
 .article-page h3 {
   font-size: 1.5em;
   color: #0056b3;
   margin-bottom: 15px;
 }
-
-.article-page h4 {
-  font-size: 1.25em;
-  color: #002147;
-  margin-bottom: 10px;
-}
-
 .article-page p {
   text-align: justify;
   text-justify: inter-word;
   margin-bottom: 18px;
   line-height: 1.75;
 }
-
-.article-page ul, 
-.article-page ol {
+.article-page ul, .article-page ol {
   margin-left: 30px;
   margin-bottom: 15px;
   line-height: 1.6;
 }
-
 .article-page li {
   margin-bottom: 10px;
 }
-
 .article-page .work-item {
   border-left: 4px solid #FFD700;
-  margin-bottom: 20px;
   background: #fffbea;
   border-radius: 6px;
   padding: 15px 18px;
+  margin-bottom: 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
-
 .article-page .math-display {
   display: block;
   text-align: center;
@@ -108,44 +88,27 @@ window.MathJax = {
   border-radius: 6px;
   overflow-x: auto;
 }
-
 .article-page span.math-inline {
   font-size: 1.05em;
   background: #f4f4f4;
   padding: 2px 5px;
   border-radius: 3px;
 }
-
-.article-page pre, 
-.article-page code {
+.article-page pre, .article-page code {
   background: #f4f4f4;
   padding: 6px 12px;
   border-radius: 5px;
   overflow-x: auto;
   font-family: "Courier New", monospace;
 }
-
 .article-page p strong {
   color: #002147;
 }
-
-/* Responsive tweaks */
 @media (max-width: 768px) {
-    .article-page main {
-        padding: 25px 15px;
-    }
-    .article-page h2 {
-        font-size: 1.8em;
-    }
-    .article-page h3 {
-        font-size: 1.4em;
-    }
-    .article-page h4 {
-        font-size: 1.15em;
-    }
-    .article-page .math-display {
-        font-size: 1.05em;
-    }
+  .article-page main { padding: 25px 15px; }
+  .article-page h2 { font-size: 1.8em; }
+  .article-page h3 { font-size: 1.4em; }
+  .article-page .math-display { font-size: 1.05em; }
 }
 </style>
 </head>
@@ -154,6 +117,7 @@ window.MathJax = {
 <div class="article-page">
 <main>
 
+<!-- Section: Biot–Savart Law -->
 <section>
 <h2>What Is Biot–Savart Law?</h2>
 <p>The Biot–Savart Law describes the magnetic field produced by a small segment of current-carrying conductor. It is the magnetic analog of Coulomb’s law, applying to steady currents.</p>
@@ -165,17 +129,18 @@ d\vec{B} = \frac{\mu_0}{4\pi} \frac{I\, d\vec{l} \times \hat{r}}{r^2}
 
 <p>Where:</p>
 <ul>
-<li><span class="math-inline">\( \mu_0 = 4\pi \times 10^{-7} \, \text{T·m/A} \)</span>: Permeability of free space</li>
-<li><span class="math-inline">\( I \)</span>: Current</li>
-<li><span class="math-inline">\( d\vec{l} \)</span>: Element vector along current</li>
-<li><span class="math-inline">\( \vec{r} \)</span>: Position vector from element to observation point</li>
-<li><span class="math-inline">\( \hat{r} = \vec{r}/r \)</span>: Unit vector pointing from current element to field point</li>
+  <li><span class="math-inline">\( \mu_0 = 4\pi \times 10^{-7} \, \text{T m/A} \)</span>: Permeability of free space</li>
+  <li><span class="math-inline">\( I \)</span>: Current</li>
+  <li><span class="math-inline">\( d\vec{l} \)</span>: Element vector along current</li>
+  <li><span class="math-inline">\( \vec{r} \)</span>: Position vector from element to observation point</li>
+  <li><span class="math-inline">\( \hat{r} = \vec{r}/r \)</span>: Unit vector pointing from current element to field point</li>
 </ul>
 </section>
 
+<!-- Section: Total Magnetic Field -->
 <section>
 <h2>Total Magnetic Field</h2>
-<p>The total magnetic field is the vector sum of contributions over the entire current:</p>
+<p>The total field is the vector sum (integral) of contributions over the entire current:</p>
 <p class="math-display">\[
 \vec{B} = \frac{\mu_0}{4\pi} \int \frac{I\, d\vec{l} \times \hat{r}}{r^2}
 \]</p>
@@ -185,9 +150,10 @@ d\vec{B} = \frac{\mu_0}{4\pi} \frac{I\, d\vec{l} \times \hat{r}}{r^2}
 <p class="math-display">\[
 B = \frac{\mu_0 I}{2\pi r}
 \]</p>
-<p>Direction follows the right-hand rule: curl fingers in the current direction; thumb points along <span class="math-inline">\( \vec{B} \)</span>.</p>
+<p>Direction follows the right-hand rule: curl fingers in current direction; thumb points to <span class="math-inline">\( \vec{B} \)</span>.</p>
 </section>
 
+<!-- Section: Circular Current Loop -->
 <section>
 <h2>Circular Current Loop</h2>
 <p>Consider a loop of radius <span class="math-inline">\( R \)</span> carrying current <span class="math-inline">\( I \)</span>.</p>
@@ -197,7 +163,7 @@ B = \frac{\mu_0 I}{2\pi r}
 <p class="math-display">\[
 B = \frac{\mu_0 I}{2R}
 \]</p>
-<p>The direction is perpendicular to the loop plane (right-hand thumb rule).</p>
+<p>Direction: perpendicular to loop plane (right-hand thumb rule).</p>
 
 <h3>Field on the Axis</h3>
 <p>At distance <span class="math-inline">\( x \)</span> along the loop’s axis:</p>
@@ -207,72 +173,75 @@ B = \frac{\mu_0 I R^2}{2 (R^2 + x^2)^{3/2}}
 <p>At <span class="math-inline">\( x=0 \)</span>, this reduces to the center value.</p>
 </section>
 
+<!-- Section: Key Points -->
 <section>
 <h2>Key Points</h2>
 <ul class="work-item">
-<li>Only the axial component of <span class="math-inline">\( \vec{B} \)</span> survives due to symmetry.</li>
-<li>Right-hand rule determines the direction of <span class="math-inline">\( \vec{B} \)</span>.</li>
-<li>The field inside the loop (away from the axis) is non-uniform.</li>
+  <li>Only the axial component of <span class="math-inline">\( \vec{B} \)</span> survives due to symmetry.</li>
+  <li>Right-hand rule determines the direction of <span class="math-inline">\( \vec{B} \)</span>.</li>
+  <li>The field inside the loop (away from the axis) is non-uniform.</li>
 </ul>
 </section>
 
+<!-- Section: Examples -->
 <section>
 <h2>Examples</h2>
 <ul class="work-item">
-<li>
-Loop with radius <span class="math-inline">0.05 m</span>, current <span class="math-inline">5 A</span>, field at center:
+<li>Loop radius <span class="math-inline">0.05 m</span>, current <span class="math-inline">5 A</span>, field at center:
 <p class="math-display">\[
-B = \frac{4\pi \times 10^{-7} \times 5}{2 \times 0.05} = 10^{-5}\pi \, \text{T}
+B = \frac{4\pi \times 10^{-7} \times 5}{2 \times 0.05} = 10^{-5} \pi \, \text{T}
 \]</p>
 </li>
-<li>
-At <span class="math-inline">x = 0.05 m</span> on the axis:
+<li>At <span class="math-inline">x = 0.05 m</span> on the axis:
 <p class="math-display">\[
 B = \frac{4\pi \times 10^{-7} \times 5 \times (0.05)^2}{2 \left[(0.05)^2 + (0.05)^2\right]^{3/2}}
 \]</p>
 </li>
-<li>
-Electron moves parallel to long wire carrying <span class="math-inline">5 A</span>, at <span class="math-inline">0.2 m</span>:
+<li>Electron parallel to wire, current <span class="math-inline">5 A</span>, distance <span class="math-inline">0.2 m</span>:
 <p class="math-display">\[
 B = \frac{4\pi \times 10^{-7} \times 5}{2\pi \times 0.2} = 5 \times 10^{-6} \, \text{T}
 \]</p>
-<p>Force on electron moving at <span class="math-inline">10^5 m/s</span>:</p>
+<p>Force on electron, speed <span class="math-inline">10^5 m/s</span>:</p>
 <p class="math-display">\[
-F = |q| v B = (1.6 \times 10^{-19}) \times 10^5 \times 5 \times 10^{-6} = 8.0 \times 10^{-20}\, \text{N}
+F = |q| v B = (1.6 \times 10^{-19}) \times 10^5 \times 5 \times 10^{-6} = 8.0 \times 10^{-20} \, \text{N}
 \]</p>
 </li>
 </ul>
 </section>
 
+<!-- Section: Concept Questions -->
 <section>
 <h2>Concept Questions</h2>
 <ul class="work-item">
-<li>Why is Biot–Savart Law important? It allows calculation of magnetic fields from arbitrary current shapes.</li>
+<li>Importance of Biot–Savart Law? Allows calculation of magnetic fields from arbitrary current shapes.</li>
 <li>Direction of magnetic field at loop’s center? Perpendicular to loop plane (right-hand rule).</li>
-<li>How does the field vary on the axis? Decreases as <span class="math-inline">(R^2 + x^2)^{-3/2}</span>.</li>
+<li>How does the field vary on axis? Decreases as <span class="math-inline">(R^2 + x^2)^{-3/2}</span>.</li>
 <li>Field at infinity on axis? Approaches zero as <span class="math-inline">x → ∞</span>.</li>
-<li>Is Biot–Savart Law valid for time-varying currents? No, only steady currents.</li>
+<li>Valid for time-varying currents? No, only steady currents.</li>
 </ul>
 </section>
 
+<!-- Section: Super Tips -->
 <section>
 <h2>Super Tips</h2>
 <ul class="work-item">
-<li>Memorize <span class="math-inline">B = μ₀I/2R</span> at the center of the loop.</li>
+<li>Memorize <span class="math-inline">B = μ₀I/2R</span> at center.</li>
 <li>On-axis field: <span class="math-inline">B = μ₀ I R² / 2(R² + x²)^(3/2)</span>.</li>
-<li>Use right-hand rule to determine field direction quickly.</li>
-<li>For straight wires, use <span class="math-inline">B = μ₀I/2πr</span>.</li>
+<li>Use right-hand rule for direction.</li>
+<li>Straight wire: <span class="math-inline">B = μ₀I/2πr</span>.</li>
 <li>Use superposition for composite loops.</li>
 </ul>
 </section>
 
+<!-- Section: Previous Year Questions -->
 <section>
 <h2>Previous Year Questions (PYQs)</h2>
+
 <div class="work-item">
 <p><strong>Q1.</strong> Given two statements:</p>
 <ul>
-<li><strong>Statement I:</strong> Biot–Savart's law gives the magnetic field of an infinitesimal current element (\( I\,d\vec{l} \)) only.</li>
-<li><strong>Statement II:</strong> Biot–Savart's law is analogous to Coulomb's inverse square law of charge \( q \), former vector, latter scalar.</li>
+<li><strong>Statement I:</strong> Biot-Savart's law gives the magnetic field of an infinitesimal current element (<span class="math-inline">I\,d\vec{l}</span>).</li>
+<li><strong>Statement II:</strong> Biot-Savart's law is analogous to Coulomb's inverse square law of charge \( q \), former vector, latter scalar.</li>
 </ul>
 <p>Answer choices:</p>
 <ol type="a">
@@ -287,14 +256,19 @@ F = |q| v B = (1.6 \times 10^{-19}) \times 10^5 \times 5 \times 10^{-6} = 8.0 \t
 <div class="work-item">
 <p><strong>Q2.</strong> Electron near infinitely long wire (current 5 A), speed 10⁵ m/s, distance 0.2 m. Find force.</p>
 <p><strong>Solution:</strong></p>
+<p>Step 1: Magnetic field due to long straight conductor:</p>
 <p class="math-display">\[
-B = \frac{\mu_0 I}{2 \pi r} = 5 \times 10^{-6} \, \text{T}
+B = \frac{\mu_0 I}{2\pi r} = \frac{4\pi \times 10^{-7} \times 5}{2\pi \times 0.2} = 5 \times 10^{-6} \, \text{T}
+\]</p>
+<p>Step 2: Magnetic force on electron:</p>
+<p class="math-display">\[
+F = |q| v B \sin\theta, \quad \theta = 90^\circ
 \]</p>
 <p class="math-display">\[
-F = |q| v B = 8.0 \times 10^{-20} \, \text{N}
+F = (1.6 \times 10^{-19}) \times (10^5) \times (5 \times 10^{-6}) = 8.0 \times 10^{-20} \, \text{N}
 \]</p>
+<p><strong>Answer:</strong> 8.0 × 10⁻²⁰ N</p>
 </div>
-</section>
 
 </main>
 </div>
