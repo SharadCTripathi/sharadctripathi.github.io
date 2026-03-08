@@ -39,9 +39,16 @@ window.MathJax = {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.article-page section:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+.article-page h1 {
+  font-size: 2.2em;
+  color: #002147;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.article-page .header-author {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 20px;
 }
 .article-page h2 {
   font-size: 2em;
@@ -104,6 +111,12 @@ window.MathJax = {
 .article-page p strong {
   color: #002147;
 }
+.article-page .footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
 @media (max-width: 768px) {
   .article-page main { padding: 25px 15px; }
   .article-page h2 { font-size: 1.8em; }
@@ -116,6 +129,10 @@ window.MathJax = {
 
 <div class="article-page">
 <main>
+
+<!-- Header: Title and Author -->
+<h1>Biot–Savart Law and Its Application to Circular Current Loop</h1>
+<p class="header-author">by Dr. Sharad Chandra Tripathi</p>
 
 <!-- Section: Biot–Savart Law -->
 <section>
@@ -234,11 +251,12 @@ F = |q| v B = (1.6 \times 10^{-19}) \times 10^5 \times 5 \times 10^{-6} = 8.0 \t
 </section>
 
 <!-- Section: Previous Year Questions -->
+<!-- Section: Previous Year Questions -->
 <section>
 <h2>Previous Year Questions (PYQs)</h2>
 
 <div class="work-item">
-<p><strong>Q1.</strong> Given two statements:</p>
+<p><strong>Q1. (NEET 2022)</strong> Given two statements:</p>
 <ul>
 <li><strong>Statement I:</strong> Biot-Savart's law gives the magnetic field of an infinitesimal current element <span class="math-inline">\( I\,d\vec{l} \)</span>.</li>
 <li><strong>Statement II:</strong> Biot-Savart's law is analogous to Coulomb's inverse square law of charge \( q \), former vector, latter scalar.</li>
@@ -254,7 +272,7 @@ F = |q| v B = (1.6 \times 10^{-19}) \times 10^5 \times 5 \times 10^{-6} = 8.0 \t
 </div>
 
 <div class="work-item">
-<p><strong>Q2.</strong> Electron near infinitely long wire (current 5 A), speed 10⁵ m/s, distance 0.2 m. Find force.</p>
+<p><strong>Q2. (NEET 2021)</strong> Electron near infinitely long wire (current 5 A), speed 10⁵ m/s, distance 0.2 m. Find force.</p>
 <p><strong>Solution:</strong></p>
 <p>Step 1: Magnetic field due to long straight conductor:</p>
 <p class="math-display">\[
@@ -268,6 +286,11 @@ F = |q| v B \sin\theta, \quad \theta = 90^\circ
 F = (1.6 \times 10^{-19}) \times (10^5) \times (5 \times 10^{-6}) = 8.0 \times 10^{-20} \, \text{N}
 \]</p>
 <p><strong>Answer:</strong> <span class="math-inline">\( 8.0 \times 10^{-20} \, \text{N} \)</span></p>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+<p>© 2026 Dr. Sharad Chandra Tripathi</p>
 </div>
 
 </main>
