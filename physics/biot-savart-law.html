@@ -8,14 +8,115 @@
   <!-- MathJax for equations -->
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-  <!-- Your existing CSS (includes .article-page styles) -->
-  <link rel="stylesheet" href="your-styles.css">
+  <!-- Scoped CSS for this article only -->
+  <style>
+    /* ===========================
+       Scoped Physics Article Styling
+       (Won't affect other pages)
+    ============================ */
+    .article-page main {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px 20px;
+        font-family: "Georgia", serif;
+        line-height: 1.7;
+        color: #222;
+    }
+
+    .article-page section {
+        background: #ffffff;
+        padding: 30px 25px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .article-page h2 {
+        font-size: 2em;
+        color: #002147;
+        font-weight: 700;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #FFD700;
+        padding-bottom: 6px;
+    }
+
+    .article-page h3 {
+        font-size: 1.5em;
+        color: #0056b3;
+        margin-bottom: 15px;
+    }
+
+    .article-page h4 {
+        font-size: 1.2em;
+        color: #002147;
+        margin-bottom: 10px;
+    }
+
+    .article-page p {
+        text-align: justify;
+        text-justify: inter-word;
+        margin-bottom: 15px;
+    }
+
+    .article-page ul, 
+    .article-page ol {
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+
+    .article-page li {
+        margin-bottom: 8px;
+    }
+
+    .article-page .work-item {
+        border-left: 3px solid #FFD700;
+        padding-left: 15px;
+        margin-bottom: 15px;
+    }
+
+    .article-page .math-display {
+        display: block;
+        text-align: center;
+        margin: 20px 0;
+        font-size: 1.15em;
+    }
+
+    .article-page span.math-inline {
+        font-size: 1.05em;
+    }
+
+    .article-page pre, .article-page code {
+        background: #f4f4f4;
+        padding: 5px 10px;
+        border-radius: 4px;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+        .article-page main {
+            padding: 25px 15px;
+        }
+        .article-page h2 {
+            font-size: 1.7em;
+        }
+        .article-page h3 {
+            font-size: 1.3em;
+        }
+        .article-page h4 {
+            font-size: 1.1em;
+        }
+        .article-page .math-display {
+            font-size: 1em;
+        }
+    }
+  </style>
 </head>
 <body>
 
 <div class="article-page">
   <main>
-
     <section>
       <h2>What Is Biot–Savart Law?</h2>
       <p>The Biot–Savart Law describes the magnetic field produced by a small segment of current-carrying conductor. It is the magnetic analog of Coulomb’s law, applying to steady currents.</p>
@@ -112,7 +213,6 @@
 
     <section>
       <h2>Previous Year Questions (PYQs)</h2>
-
       <div class="work-item">
         <p><strong>Q1.</strong> Given two statements:</p>
         <ul>
@@ -132,12 +232,9 @@
       <div class="work-item">
         <p><strong>Q2.</strong> Electron near infinitely long wire (current \(5\,\text{A}\)), speed \(10^5\,\text{m/s}\), distance \(0.2\,\text{m}\). Find force.</p>
         <p><strong>Solution:</strong></p>
-        <p>Magnetic field:</p>
         <p class="math-display">B = \frac{\mu_0 I}{2 \pi r} = \frac{4\pi \times 10^{-7} \times 5}{2\pi \times 0.2} = 5.0 \times 10^{-6} \, \text{T}</p>
-        <p>Force on electron:</p>
         <p class="math-display">F = |q| v B = 1.6 \times 10^{-19} \times 10^5 \times 5 \times 10^{-6} = 8.0 \times 10^{-20} \, \text{N}</p>
       </div>
-
     </section>
 
   </main>
