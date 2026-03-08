@@ -93,6 +93,7 @@ window.MathJax = {
   background: #f4f4f4;
   padding: 2px 5px;
   border-radius: 3px;
+  white-space: nowrap;
 }
 .article-page pre, .article-page code {
   background: #f4f4f4;
@@ -129,15 +130,11 @@ window.MathJax = {
 <h2>Postulates of Bohr's Model</h2>
 <ul>
   <li>Electrons orbit the nucleus in stable, quantized paths.</li>
-  <li>Angular momentum is quantized:  
-    <p class="math-display">\[
-      m v r = \frac{n h}{2\pi}
-    \]</p>
+  <li>Angular momentum is quantized:
+    <p class="math-display">\[ m v r = \frac{n h}{2\pi} \]</p>
   </li>
   <li>Radiation is emitted/absorbed only during transitions:
-    <p class="math-display">\[
-      E = h \nu = E_i - E_f
-    \]</p>
+    <p class="math-display">\[ E = h \nu = E_i - E_f \]</p>
   </li>
 </ul>
 </section>
@@ -145,25 +142,21 @@ window.MathJax = {
 <!-- Section: Energy Levels -->
 <section>
 <h2>Energy Levels in Hydrogen Atom</h2>
-<p class="math-display">\[
-E_n = -\frac{13.6}{n^2} \, \text{eV}
-\]</p>
+<p class="math-display">\[ E_n = -\frac{13.6}{n^2} \, \text{eV} \]</p>
 <p>Where <span class="math-inline">\( n \)</span> is the principal quantum number. Negative energy indicates the electron is bound.</p>
-<p><strong>Radius of orbit:</strong> <span class="math-inline">\( r_n = n^2 a_0 \)</span>, where <span class="math-inline">\( a_0 = 0.529 \, \text{Å} \)</span></p>
+<p><strong>Radius of orbit:</strong> <span class="math-inline">r_n = n^2 a_0</span>, where <span class="math-inline">a_0 = 0.529 \, \text{Å}</span></p>
 </section>
 
 <!-- Section: Spectral Lines -->
 <section>
 <h2>Spectral Lines</h2>
 <p>Electron transitions lead to emission or absorption of light:</p>
-<p class="math-display">\[
-\frac{1}{\lambda} = R_H \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right)
-\]</p>
+<p class="math-display">\[ \frac{1}{\lambda} = R_H \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right) \]</p>
 <p><strong>Hydrogen Series:</strong></p>
 <ul>
-  <li>Lyman (<span class="math-inline">\( n_1 = 1 \)</span>): UV</li>
-  <li>Balmer (<span class="math-inline">\( n_1 = 2 \)</span>): Visible</li>
-  <li>Paschen (<span class="math-inline">\( n_1 = 3 \)</span>): IR</li>
+  <li>Lyman (<span class="math-inline">n_1 = 1</span>): UV</li>
+  <li>Balmer (<span class="math-inline">n_1 = 2</span>): Visible</li>
+  <li>Paschen (<span class="math-inline">n_1 = 3</span>): IR</li>
 </ul>
 </section>
 
@@ -172,7 +165,7 @@ E_n = -\frac{13.6}{n^2} \, \text{eV}
 <h2>Key Points</h2>
 <ul class="work-item">
   <li>Energy is quantized; levels are negative.</li>
-  <li><span class="math-inline">\( E_n \propto 1/n^2 \)</span>, <span class="math-inline">\( r_n \propto n^2 \)</span></li>
+  <li><span class="math-inline">E_n \propto 1/n^2</span>, <span class="math-inline">r_n \propto n^2</span></li>
   <li>Only hydrogen or hydrogen-like ions fit the model.</li>
   <li>Photon frequency depends on energy gap.</li>
 </ul>
@@ -182,10 +175,8 @@ E_n = -\frac{13.6}{n^2} \, \text{eV}
 <section>
 <h2>Example</h2>
 <p><strong>Find the energy needed to ionize a hydrogen atom from its ground state.</strong></p>
-<p class="math-display">\[
-E_1 = -13.6 \, \text{eV}, \quad E_\infty = 0
-\Rightarrow \text{Ionization energy} = 0 - (-13.6) = 13.6 \, \text{eV}
-\]</p>
+<p class="math-display">\[ E_1 = -13.6 \, \text{eV}, \quad E_\infty = 0
+\Rightarrow \text{Ionization energy} = 0 - (-13.6) = 13.6 \, \text{eV} \]</p>
 <p><strong>Answer:</strong> <span class="math-inline">13.6 eV</span></p>
 </section>
 
@@ -208,9 +199,7 @@ E_1 = -13.6 \, \text{eV}, \quad E_\infty = 0
   <li><strong>Energy formula:</strong> <span class="math-inline">E_n = -13.6/n^2 eV</span>. Lower <span class="math-inline">n</span> means more tightly bound electron.</li>
   <li><strong>Radius formula:</strong> <span class="math-inline">r_n = n^2 a_0</span>. Orbit size increases rapidly with <span class="math-inline">n</span>.</li>
   <li><strong>Photon emission:</strong> Occurs when electron falls from higher to lower level:  
-  <p class="math-display">\[
-  h\nu = E_i - E_f
-  \]</p>
+  <p class="math-display">\[ h \nu = E_i - E_f \]</p>
   </li>
   <li><strong>Ionization energy:</strong> From ground state: <span class="math-inline">13.6 eV</span>.</li>
   <li><strong>Transition shortcuts:</strong><br>
@@ -219,9 +208,7 @@ E_1 = -13.6 \, \text{eV}, \quad E_\infty = 0
     UV: Lyman series
   </li>
   <li><strong>Rydberg formula tip:</strong>  
-  <p class="math-display">\[
-  \frac{1}{\lambda} = R_H \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right)
-  \]</p>
+  <p class="math-display">\[ \frac{1}{\lambda} = R_H \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right) \]</p>
   </li>
   <li><strong>Electron speed:</strong> Decreases with increasing <span class="math-inline">n</span>: <span class="math-inline">v_n \propto 1/n</span></li>
   <li><strong>Model limitation:</strong> Works only for single-electron atoms like H, He⁺, Li²⁺.</li>
@@ -246,20 +233,15 @@ E_1 = -13.6 \, \text{eV}, \quad E_\infty = 0
 <p><strong>Step 1: Use central force model</strong><br>
 Given: A constant central force <span class="math-inline">F</span> pulls the particle towards origin.  
 Centripetal force: <span class="math-inline">mv^2/r = F \Rightarrow v^2 \propto r</span>  
-\[
-\Rightarrow v \propto \sqrt{r} \tag{1}
-\]</p>
+<p class="math-display">\[ \Rightarrow v \propto \sqrt{r} \tag{1} \]</p>
+</p>
 
 <p><strong>Step 2: Apply Bohr's quantization condition</strong><br>
 Angular momentum quantization:  
-<p class="math-display">\[
-m v r = n \hbar \Rightarrow v \propto \frac{n}{r} \tag{2}
-\]</p>
+<p class="math-display">\[ m v r = n \hbar \Rightarrow v \propto \frac{n}{r} \tag{2} \]</p>
 
 <p>Substitute (1) into (2):  
-\[
-\sqrt{r} \propto \frac{n}{r} \Rightarrow r^{3/2} \propto n \Rightarrow r \propto n^{2/3}
-\]</p>
+<p class="math-display">\[ \sqrt{r} \propto \frac{n}{r} \Rightarrow r^{3/2} \propto n \Rightarrow r \propto n^{2/3} \]</p>
 
 <p>Now from (1): <span class="math-inline">v \propto \sqrt{r} \Rightarrow v \propto n^{1/3}</span></p>
 
