@@ -1,164 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biot–Savart Law and Its Application</title>
-<link rel="stylesheet" href="your-style.css">
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biot–Savart Law and Circular Current Loop</title>
+  
+  <!-- MathJax for equations -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- Your existing CSS -->
+  <link rel="stylesheet" href="your-styles.css">
 </head>
 <body>
 
 <main>
-
-  <!-- What is Biot-Savart Law -->
   <section class="card">
     <h2>What Is Biot–Savart Law?</h2>
-    <p>The Biot–Savart Law describes the magnetic field produced by a small segment of a current-carrying conductor. It is the magnetic analog of Coulomb’s law, applying to steady currents.</p>
-    <p>For a small current element <span class="math">\(I\,d\vec{l}\)</span>, the magnetic field at point <span class="math">\(\vec{r}\)</span> is:</p>
-    <p class="work-item"><span class="math">\(d\vec{B} = \frac{\mu_0}{4\pi} \frac{I\, d\vec{l} \times \hat{r}}{r^2}\)</span></p>
+    <p>The Biot–Savart Law describes the magnetic field produced by a small segment of current-carrying conductor. It is the magnetic analog of Coulomb’s law, applying to steady currents.</p>
+
+    <p>For a small current element \( I\,d\vec{l} \), the magnetic field at point \( \vec{r} \) is:</p>
+    <p>\[
+      d\vec{B} = \frac{\mu_0}{4\pi} \frac{I\, d\vec{l} \times \hat{r}}{r^2}
+    \]</p>
+
     <p>Where:</p>
     <ul>
-      <li><span class="math">\(\mu_0 = 4\pi \times 10^{-7} \, \text{T m/A}\)</span>: Permeability of free space</li>
-      <li><span class="math">I</span>: Current</li>
-      <li><span class="math">d\vec{l}</span>: Element vector along current</li>
-      <li><span class="math">\(\vec{r}\)</span>: Position vector from element to observation point</li>
-      <li><span class="math">\(\hat{r} = \vec{r}/r\)</span>: Unit vector pointing from current element to field point</li>
+      <li>\( \mu_0 = 4\pi \times 10^{-7} \, \text{T·m/A} \): Permeability of free space</li>
+      <li>\( I \): Current</li>
+      <li>\( d\vec{l} \): Element vector along current</li>
+      <li>\( \vec{r} \): Position vector from element to observation point</li>
+      <li>\( \hat{r} = \vec{r}/r \): Unit vector pointing from current element to field point</li>
     </ul>
   </section>
 
-  <!-- Total Magnetic Field -->
   <section class="card">
     <h2>Total Magnetic Field</h2>
-    <p>The total field is the vector sum (integral) of contributions over the entire current:</p>
-    <p class="work-item"><span class="math"> \(\vec{B} = \frac{\mu_0}{4\pi} \int \frac{I\, d\vec{l} \times \hat{r}}{r^2}\)</span></p>
+    <p>The total magnetic field is the vector sum of contributions over the entire current:</p>
+    <p>\[
+      \vec{B} = \frac{\mu_0}{4\pi} \int \frac{I\, d\vec{l} \times \hat{r}}{r^2}
+    \]</p>
 
     <h3>Magnetic Field of a Long Straight Conductor</h3>
-    <p>At a perpendicular distance <span class="math">r</span> from an infinitely long wire carrying current <span class="math">I</span>:</p>
-    <p class="work-item"><span class="math">B = \frac{\mu_0 I}{2\pi r}</span></p>
-    <p>Direction follows the right-hand rule: curl fingers in current direction; thumb points to <span class="math">\(\vec{B}\)</span>.</p>
+    <p>At a perpendicular distance \( r \) from an infinitely long wire carrying current \( I \):</p>
+    <p>\[
+      B = \frac{\mu_0 I}{2\pi r}
+    \]</p>
+    <p>Direction follows the right-hand rule: curl fingers in the current direction; thumb points along \( \vec{B} \).</p>
   </section>
 
-  <!-- Circular Current Loop -->
   <section class="card">
     <h2>Circular Current Loop</h2>
-    <p>Consider a loop of radius <span class="math">R</span> carrying current <span class="math">I</span>.</p>
+    <p>Consider a loop of radius \( R \) carrying current \( I \).</p>
 
-    <div class="work-item">
-      <h3>Field at the Center</h3>
-      <p>Symmetry ensures the magnetic field at the center is:</p>
-      <p class="work-item"><span class="math">B = \frac{\mu_0 I}{2R}</span></p>
-      <p>Direction: perpendicular to the loop’s plane (use right-hand thumb rule).</p>
-    </div>
+    <h3>Field at the Center</h3>
+    <p>Symmetry ensures the magnetic field at the center is:</p>
+    <p>\[
+      B = \frac{\mu_0 I}{2R}
+    \]</p>
+    <p>The direction is perpendicular to the loop plane (right-hand thumb rule).</p>
 
-    <div class="work-item">
-      <h3>Field on the Axis</h3>
-      <p>At distance <span class="math">x</span> along the loop’s axis:</p>
-      <p class="work-item"><span class="math">B = \frac{\mu_0 I R^2}{2 (R^2 + x^2)^{3/2}}</span></p>
-      <p>At <span class="math">x=0</span>, this reduces to the center value.</p>
-    </div>
+    <h3>Field on the Axis</h3>
+    <p>At distance \( x \) along the loop’s axis:</p>
+    <p>\[
+      B = \frac{\mu_0 I R^2}{2 (R^2 + x^2)^{3/2}}
+    \]</p>
+    <p>At \( x=0 \), this reduces to the center value.</p>
   </section>
 
-  <!-- Key Points -->
   <section class="card">
     <h2>Key Points</h2>
-    <ul>
-      <li>Only the axial component of <span class="math">\(\vec{B}\)</span> survives due to symmetry.</li>
-      <li>Right-hand rule determines the direction of <span class="math">\(\vec{B}\)</span>.</li>
+    <ul class="work-item">
+      <li>Only the axial component of \( \vec{B} \) survives due to symmetry.</li>
+      <li>Right-hand rule determines the direction of \( \vec{B} \).</li>
       <li>The field inside the loop (away from the axis) is non-uniform.</li>
     </ul>
   </section>
 
-  <!-- Examples -->
   <section class="card">
     <h2>Examples</h2>
-
-    <div class="work-item">
-      <h3>Example 1</h3>
-      <p>Loop radius <span class="math">0.05\,\text{m}</span>, current <span class="math">5\,\text{A}</span>, field at center:</p>
-      <p class="work-item"><span class="math">B = \frac{4\pi \times 10^{-7} \times 5}{2 \times 0.05} = 10^{-5}\pi \, \text{T}</span></p>
-    </div>
-
-    <div class="work-item">
-      <h3>Example 2</h3>
-      <p>At <span class="math">x = 0.05\,\text{m}</span> on the axis:</p>
-      <p class="work-item"><span class="math">B = \frac{4\pi \times 10^{-7} \times 5 \times (0.05)^2}{2[(0.05)^2 + (0.05)^2]^{3/2}}</span></p>
-    </div>
-
-    <div class="work-item">
-      <h3>Example 3</h3>
-      <p>Electron moves parallel to a long wire carrying <span class="math">5\,\text{A}</span>, at <span class="math">0.2\,\text{m}</span>:</p>
-      <p>Magnetic field at electron:</p>
-      <p class="work-item"><span class="math">B = \frac{4\pi \times 10^{-7} \times 5}{2\pi \times 0.2} = 5 \times 10^{-5} \, \text{T}</span></p>
-      <p>Force on electron moving at <span class="math">105\,\text{m/s}</span>:</p>
-      <p class="work-item"><span class="math">F = |q| v B = (1.6 \times 10^{-19}) \times 105 \times 5 \times 10^{-5} = 8.4 \times 10^{-22} \, \text{N}</span></p>
-    </div>
-
+    <ul class="work-item">
+      <li>
+        Loop with radius \(0.05\,\text{m}\), current \(5\,\text{A}\), field at center:
+        <p>\[
+          B = \frac{4\pi \times 10^{-7} \times 5}{2 \times 0.05} = 10^{-5}\pi \, \text{T}
+        \]</p>
+      </li>
+      <li>
+        At \( x = 0.05\,\text{m} \) on the axis:
+        <p>\[
+          B = \frac{4\pi \times 10^{-7} \times 5 \times (0.05)^2}{2 \left[(0.05)^2 + (0.05)^2\right]^{3/2}}
+        \]</p>
+      </li>
+      <li>
+        Electron moves parallel to long wire carrying \(5\,\text{A}\), at \(0.2\,\text{m}\):
+        <p>\[
+          B = \frac{4\pi \times 10^{-7} \times 5}{2\pi \times 0.2} = 5 \times 10^{-6} \, \text{T}
+        \]</p>
+        <p>Force on electron moving at \(10^5\,\text{m/s}\):</p>
+        <p>\[
+          F = |q| v B = (1.6 \times 10^{-19}) \times 10^5 \times 5 \times 10^{-6} = 8.0 \times 10^{-20}\, \text{N}
+        \]</p>
+      </li>
+    </ul>
   </section>
 
-  <!-- Concept Questions -->
   <section class="card">
     <h2>Concept Questions</h2>
-    <ol>
-      <li>Why is Biot–Savart Law important? <br>It allows calculation of magnetic fields from arbitrary current shapes.</li>
-      <li>Direction of magnetic field at loop’s center? <br>Perpendicular to loop plane by right-hand rule.</li>
-      <li>How does the field vary on the axis? <br>Decreases as <span class="math">(R^2 + x^2)^{-3/2}</span>.</li>
-      <li>Field at infinity on axis? <br>Approaches zero as <span class="math">x \to \infty</span>.</li>
-      <li>Is Biot–Savart Law valid for time-varying currents? <br>No, only steady currents.</li>
-    </ol>
+    <ul class="work-item">
+      <li>Why is Biot–Savart Law important? It allows calculation of magnetic fields from arbitrary current shapes.</li>
+      <li>Direction of magnetic field at loop’s center? Perpendicular to loop plane (right-hand rule).</li>
+      <li>How does the field vary on the axis? Decreases as \( (R^2 + x^2)^{-3/2} \).</li>
+      <li>Field at infinity on axis? Approaches zero as \( x \to \infty \).</li>
+      <li>Is Biot–Savart Law valid for time-varying currents? No, only steady currents.</li>
+    </ul>
   </section>
 
-  <!-- Super Tips -->
   <section class="card">
     <h2>Super Tips</h2>
-    <ul>
-      <li>Memorize <span class="math">B = \frac{\mu_0 I}{2R}</span> at center of loop.</li>
-      <li>On-axis field: <span class="math">B = \frac{\mu_0 I R^2}{2(R^2 + x^2)^{3/2}}</span></li>
+    <ul class="work-item">
+      <li>Memorize \( B = \frac{\mu_0 I}{2R} \) at the center of the loop.</li>
+      <li>On-axis field: \( B = \frac{\mu_0 I R^2}{2(R^2 + x^2)^{3/2}} \).</li>
       <li>Use right-hand rule to determine field direction quickly.</li>
-      <li>For straight wires, use <span class="math">B = \frac{\mu_0 I}{2\pi r}</span>.</li>
+      <li>For straight wires, use \( B = \frac{\mu_0 I}{2\pi r} \).</li>
       <li>Use superposition for composite loops.</li>
     </ul>
   </section>
 
-  <!-- Previous Year Questions -->
   <section class="card">
     <h2>Previous Year Questions (PYQs)</h2>
+    <div class="work-item">
+      <p><strong>Q1.</strong> Given two statements:</p>
+      <ul>
+        <li><strong>Statement I:</strong> Biot–Savart's law gives the magnetic field of an infinitesimal current element (\( I\,d\vec{l} \)) only.</li>
+        <li><strong>Statement II:</strong> Biot–Savart's law is analogous to Coulomb's inverse square law of charge \( q \), former vector, latter scalar.</li>
+      </ul>
+      <p>Answer choices:</p>
+      <ol type="a">
+        <li>Both Statement I and II are correct</li>
+        <li>Both Statement I and II are incorrect</li>
+        <li>Statement I correct, Statement II incorrect</li>
+        <li>Statement I incorrect, Statement II correct</li>
+      </ol>
+      <p><strong>Answer:</strong> (c) Statement I correct, Statement II incorrect</p>
+    </div>
 
     <div class="work-item">
-      <h3>Q1 (NEET 2022)</h3>
-      <p>Two statements:</p>
-      <ul>
-        <li><strong>Statement I:</strong> Biot-Savart's law gives the magnetic field due to an infinitesimal current element <span class="math">I\,d\vec{l}</span>.</li>
-        <li><strong>Statement II:</strong> Biot-Savart's law is analogous to Coulomb’s law, but source types differ.</li>
-      </ul>
+      <p><strong>Q2.</strong> Electron near infinitely long wire (current \(5\,\text{A}\)), speed \(10^5\,\text{m/s}\), distance \(0.2\,\text{m}\). Find force.</p>
       <p><strong>Solution:</strong></p>
-      <ul>
-        <li>Statement I is correct — integrate <span class="math">I\,d\vec{l}</span> over conductor to get total field.</li>
-        <li>Statement II is incorrect — Coulomb has scalar source, Biot–Savart has vector source.</li>
-      </ul>
-      <p><strong>Answer:</strong> <span class="math">\(\boxed{\text{(c) Statement I is correct and Statement II is incorrect}}\)</span></p>
+      <p>Magnetic field:</p>
+      <p>\[
+        B = \frac{\mu_0 I}{2 \pi r} = \frac{4\pi \times 10^{-7} \times 5}{2\pi \times 0.2} = 5.0 \times 10^{-6} \, \text{T}
+      \]</p>
+      <p>Force on electron:</p>
+      <p>\[
+        F = |q| v B = 1.6 \times 10^{-19} \times 10^5 \times 5 \times 10^{-6} = 8.0 \times 10^{-20} \, \text{N}
+      \]</p>
     </div>
-
-    <div class="work-item">
-      <h3>Q2 (NEET 2021)</h3>
-      <p>Long straight conductor with current <span class="math">5\,\text{A}</span>. Electron moves parallel at <span class="math">10^5\,\text{m/s}</span>, perpendicular distance <span class="math">0.2\,\text{m}</span>. Find force.</p>
-      <p><strong>Step 1:</strong> Magnetic field:</p>
-      <p class="work-item"><span class="math">B = \frac{\mu_0 I}{2\pi r} = \frac{4\pi \times 10^{-7} \times 5}{2\pi \times 0.2} = 5 \times 10^{-6} \, \text{T}</span></p>
-      <p><strong>Step 2:</strong> Force on electron:</p>
-      <p class="work-item"><span class="math">F = |q| v B = (1.6 \times 10^{-19}) \times 10^5 \times 5 \times 10^{-6} = 8.0 \times 10^{-20} \, \text{N}</span></p>
-      <p><strong>Answer:</strong> <span class="math">\(\boxed{8.0 \times 10^{-20} \, \text{N}}\)</span></p>
-    </div>
-
   </section>
-
 </main>
-
-<footer>
-  <p>&copy; 2026 Physics Notes. All rights reserved.</p>
-</footer>
 
 </body>
 </html>
