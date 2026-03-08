@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biot–Savart Law and Its Application to Circular Current Loop</title>
+<title>Biot–Savart Law and Its Application</title>
 <link rel="stylesheet" href="your-style.css">
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script type="text/javascript" id="MathJax-script" async
@@ -12,25 +12,17 @@
 </head>
 <body>
 
-<header class="site-header">
-  <img src="banner.jpg" alt="Physics Banner" class="banner">
-  <div class="header-content">
-    <h1>Biot–Savart Law and Its Application to Circular Current Loop</h1>
-    <p>Understanding magnetic fields produced by currents made simple!</p>
-  </div>
-</header>
-
 <main>
 
   <!-- What is Biot-Savart Law -->
   <section class="card">
     <h2>What Is Biot–Savart Law?</h2>
-    <p>The Biot–Savart Law describes the magnetic field produced by a small segment of a current-carrying conductor. Think of it as the magnetic version of Coulomb’s law — but for steady currents!</p>
+    <p>The Biot–Savart Law describes the magnetic field produced by a small segment of a current-carrying conductor. It is the magnetic analog of Coulomb’s law, applying to steady currents.</p>
     <p>For a small current element <span class="math">\(I\,d\vec{l}\)</span>, the magnetic field at point <span class="math">\(\vec{r}\)</span> is:</p>
     <p class="work-item"><span class="math">\(d\vec{B} = \frac{\mu_0}{4\pi} \frac{I\, d\vec{l} \times \hat{r}}{r^2}\)</span></p>
     <p>Where:</p>
     <ul>
-      <li><span class="math"> \(\mu_0 = 4\pi \times 10^{-7} \, \text{T m/A}\)</span>: Permeability of free space</li>
+      <li><span class="math">\(\mu_0 = 4\pi \times 10^{-7} \, \text{T m/A}\)</span>: Permeability of free space</li>
       <li><span class="math">I</span>: Current</li>
       <li><span class="math">d\vec{l}</span>: Element vector along current</li>
       <li><span class="math">\(\vec{r}\)</span>: Position vector from element to observation point</li>
@@ -41,13 +33,13 @@
   <!-- Total Magnetic Field -->
   <section class="card">
     <h2>Total Magnetic Field</h2>
-    <p>The total magnetic field is the vector sum of contributions from every element of the current:</p>
+    <p>The total field is the vector sum (integral) of contributions over the entire current:</p>
     <p class="work-item"><span class="math"> \(\vec{B} = \frac{\mu_0}{4\pi} \int \frac{I\, d\vec{l} \times \hat{r}}{r^2}\)</span></p>
 
     <h3>Magnetic Field of a Long Straight Conductor</h3>
     <p>At a perpendicular distance <span class="math">r</span> from an infinitely long wire carrying current <span class="math">I</span>:</p>
     <p class="work-item"><span class="math">B = \frac{\mu_0 I}{2\pi r}</span></p>
-    <p>Direction? Use the right-hand rule: curl your fingers along current, thumb points along <span class="math">\(\vec{B}\)</span>.</p>
+    <p>Direction follows the right-hand rule: curl fingers in current direction; thumb points to <span class="math">\(\vec{B}\)</span>.</p>
   </section>
 
   <!-- Circular Current Loop -->
@@ -57,16 +49,16 @@
 
     <div class="work-item">
       <h3>Field at the Center</h3>
-      <p>By symmetry, the magnetic field at the center is:</p>
+      <p>Symmetry ensures the magnetic field at the center is:</p>
       <p class="work-item"><span class="math">B = \frac{\mu_0 I}{2R}</span></p>
-      <p>Direction: perpendicular to loop plane (use right-hand thumb rule).</p>
+      <p>Direction: perpendicular to the loop’s plane (use right-hand thumb rule).</p>
     </div>
 
     <div class="work-item">
       <h3>Field on the Axis</h3>
-      <p>At a distance <span class="math">x</span> along the loop’s axis:</p>
+      <p>At distance <span class="math">x</span> along the loop’s axis:</p>
       <p class="work-item"><span class="math">B = \frac{\mu_0 I R^2}{2 (R^2 + x^2)^{3/2}}</span></p>
-      <p>At <span class="math">x=0</span>, this reduces to the center field.</p>
+      <p>At <span class="math">x=0</span>, this reduces to the center value.</p>
     </div>
   </section>
 
@@ -75,8 +67,8 @@
     <h2>Key Points</h2>
     <ul>
       <li>Only the axial component of <span class="math">\(\vec{B}\)</span> survives due to symmetry.</li>
-      <li>Right-hand rule quickly determines direction.</li>
-      <li>Field inside loop (off-axis) is non-uniform.</li>
+      <li>Right-hand rule determines the direction of <span class="math">\(\vec{B}\)</span>.</li>
+      <li>The field inside the loop (away from the axis) is non-uniform.</li>
     </ul>
   </section>
 
@@ -98,10 +90,10 @@
 
     <div class="work-item">
       <h3>Example 3</h3>
-      <p>Electron moves parallel to long wire carrying <span class="math">5\,\text{A}</span>, at <span class="math">0.2\,\text{m}</span>:</p>
+      <p>Electron moves parallel to a long wire carrying <span class="math">5\,\text{A}</span>, at <span class="math">0.2\,\text{m}</span>:</p>
       <p>Magnetic field at electron:</p>
       <p class="work-item"><span class="math">B = \frac{4\pi \times 10^{-7} \times 5}{2\pi \times 0.2} = 5 \times 10^{-5} \, \text{T}</span></p>
-      <p>Force on electron at speed <span class="math">105\,\text{m/s}</span>:</p>
+      <p>Force on electron moving at <span class="math">105\,\text{m/s}</span>:</p>
       <p class="work-item"><span class="math">F = |q| v B = (1.6 \times 10^{-19}) \times 105 \times 5 \times 10^{-5} = 8.4 \times 10^{-22} \, \text{N}</span></p>
     </div>
 
@@ -112,9 +104,9 @@
     <h2>Concept Questions</h2>
     <ol>
       <li>Why is Biot–Savart Law important? <br>It allows calculation of magnetic fields from arbitrary current shapes.</li>
-      <li>Direction of magnetic field at loop’s center? <br>Perpendicular to loop plane using right-hand rule.</li>
+      <li>Direction of magnetic field at loop’s center? <br>Perpendicular to loop plane by right-hand rule.</li>
       <li>How does the field vary on the axis? <br>Decreases as <span class="math">(R^2 + x^2)^{-3/2}</span>.</li>
-      <li>Field at infinity along axis? <br>Approaches zero as <span class="math">x \to \infty</span>.</li>
+      <li>Field at infinity on axis? <br>Approaches zero as <span class="math">x \to \infty</span>.</li>
       <li>Is Biot–Savart Law valid for time-varying currents? <br>No, only steady currents.</li>
     </ol>
   </section>
@@ -123,9 +115,9 @@
   <section class="card">
     <h2>Super Tips</h2>
     <ul>
-      <li>Memorize <span class="math">B = \frac{\mu_0 I}{2R}</span> at the center of a loop.</li>
+      <li>Memorize <span class="math">B = \frac{\mu_0 I}{2R}</span> at center of loop.</li>
       <li>On-axis field: <span class="math">B = \frac{\mu_0 I R^2}{2(R^2 + x^2)^{3/2}}</span></li>
-      <li>Use right-hand rule to quickly determine direction.</li>
+      <li>Use right-hand rule to determine field direction quickly.</li>
       <li>For straight wires, use <span class="math">B = \frac{\mu_0 I}{2\pi r}</span>.</li>
       <li>Use superposition for composite loops.</li>
     </ul>
@@ -139,12 +131,12 @@
       <h3>Q1 (NEET 2022)</h3>
       <p>Two statements:</p>
       <ul>
-        <li><strong>Statement I:</strong> Biot-Savart's law gives the magnetic field due to an infinitesimal current element (<span class="math">I\,d\vec{l}</span>).</li>
-        <li><strong>Statement II:</strong> Biot-Savart's law is analogous to Coulomb’s inverse square law of charge <span class="math">q</span>, but the source nature differs.</li>
+        <li><strong>Statement I:</strong> Biot-Savart's law gives the magnetic field due to an infinitesimal current element <span class="math">I\,d\vec{l}</span>.</li>
+        <li><strong>Statement II:</strong> Biot-Savart's law is analogous to Coulomb’s law, but source types differ.</li>
       </ul>
       <p><strong>Solution:</strong></p>
       <ul>
-        <li>Statement I is correct — integrate <span class="math">I\,d\vec{l}</span> over the conductor to get total field.</li>
+        <li>Statement I is correct — integrate <span class="math">I\,d\vec{l}</span> over conductor to get total field.</li>
         <li>Statement II is incorrect — Coulomb has scalar source, Biot–Savart has vector source.</li>
       </ul>
       <p><strong>Answer:</strong> <span class="math">\(\boxed{\text{(c) Statement I is correct and Statement II is incorrect}}\)</span></p>
@@ -156,7 +148,7 @@
       <p><strong>Step 1:</strong> Magnetic field:</p>
       <p class="work-item"><span class="math">B = \frac{\mu_0 I}{2\pi r} = \frac{4\pi \times 10^{-7} \times 5}{2\pi \times 0.2} = 5 \times 10^{-6} \, \text{T}</span></p>
       <p><strong>Step 2:</strong> Force on electron:</p>
-      <p class="work-item"><span class="math">F = |q| v B \sin 90^\circ = (1.6 \times 10^{-19}) \times 10^5 \times 5 \times 10^{-6} = 8.0 \times 10^{-20} \, \text{N}</span></p>
+      <p class="work-item"><span class="math">F = |q| v B = (1.6 \times 10^{-19}) \times 10^5 \times 5 \times 10^{-6} = 8.0 \times 10^{-20} \, \text{N}</span></p>
       <p><strong>Answer:</strong> <span class="math">\(\boxed{8.0 \times 10^{-20} \, \text{N}}\)</span></p>
     </div>
 
