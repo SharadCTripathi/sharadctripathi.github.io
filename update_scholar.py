@@ -1,14 +1,9 @@
 import json
 from datetime import datetime
-from scholarly import scholarly, ProxyGenerator
+from scholarly import scholarly
 
 # Your Google Scholar ID
 SCHOLAR_ID = "DVMNjugAAAAJ"
-
-# Use a ProxyGenerator to reduce chance of blocking
-pg = ProxyGenerator()
-pg.FreeProxies()  # use free proxies
-scholarly.use_pg(pg)
 
 def fetch_scholar_data(scholar_id):
     try:
