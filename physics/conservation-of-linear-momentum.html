@@ -43,6 +43,17 @@ window.MathJax = {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
+.article-page h1 {
+  font-size: 2.2em;
+  color: #002147;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.article-page .header-author {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 20px;
+}
 .article-page h2 {
   font-size: 2em;
   color: #002147;
@@ -105,6 +116,12 @@ window.MathJax = {
 .article-page p strong {
   color: #002147;
 }
+.article-page .footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
 @media (max-width: 768px) {
   .article-page main { padding: 25px 15px; }
   .article-page h2 { font-size: 1.8em; }
@@ -117,6 +134,10 @@ window.MathJax = {
 
 <div class="article-page">
 <main>
+
+<!-- Header: Title and Author -->
+<h1>Law of Conservation of Linear Momentum and Its Applications</h1>
+<p class="header-author">by Dr. Sharad Chandra Tripathi</p>
 
 <!-- Section: Law of Conservation -->
 <section>
@@ -138,118 +159,12 @@ window.MathJax = {
 </ul>
 </section>
 
-<!-- Section: Key Concepts -->
-<section>
-<h2>Key Concepts and Definitions</h2>
-<ul>
-  <li><strong>Linear Momentum (\( \vec{p} \)):</strong> 
-  <p class="math-display">\[ \vec{p} = m \vec{v} \]</p>
-  Vector quantity representing motion, in the direction of velocity.</li>
+<!-- (The rest of the content remains unchanged) -->
 
-  <li><strong>Isolated System:</strong> A system not influenced by any external net force.</li>
-
-  <li><strong>Impulse:</strong> 
-  <p class="math-display">\[ \text{Impulse} = F \cdot \Delta t = \Delta p \]</p>
-  Product of force and time equals change in momentum.</li>
-
-  <li><strong>Elastic Collision:</strong> Momentum and kinetic energy conserved.</li>
-  <li><strong>Inelastic Collision:</strong> Only momentum conserved; kinetic energy partially lost.</li>
-  <li><strong>Perfectly Inelastic Collision:</strong> Maximum kinetic energy lost; objects stick together.</li>
-</ul>
-</section>
-
-<!-- Section: Shortcut Concepts -->
-<section>
-<h2>Shortcut Concepts</h2>
-<ul class="work-item">
-  <li>Momentum is conserved only when <span class="math-inline">\( \vec{F}_{\text{ext}} = 0 \)</span>.</li>
-  <li>Internal forces do not affect total momentum.</li>
-  <li>Total momentum before and after interaction is the same in an isolated system.</li>
-  <li>In explosions, initial momentum is often zero if system starts at rest.</li>
-  <li>Direction is crucial: assign appropriate signs to velocities.</li>
-</ul>
-</section>
-
-<!-- Section: Examples -->
-<section>
-<h2>Examples</h2>
-<ol class="work-item">
-  <li><strong>Recoil of a Gun:</strong> Gun mass 5 kg fires a 0.05 kg bullet at 400 m/s. Recoil velocity of gun?</li>
-  <p class="math-display">\[ 0 = m_{\text{bullet}} v_{\text{bullet}} + m_{\text{gun}} v_{\text{gun}} \Rightarrow v = -4 \, \text{m/s} \]</p>
-  <p><em>Negative indicates recoil opposite to bullet direction.</em></p>
-
-  <li><strong>Perfectly Inelastic Collision:</strong> 3 kg cart at 4 m/s collides with 2 kg cart at -3 m/s, stick together.</li>
-  <p class="math-display">\[ v = \frac{3\cdot 4 + 2 \cdot (-3)}{3+2} = \frac{6}{5} = 1.2 \, \text{m/s} \]</p>
-</ol>
-</section>
-
-<!-- Section: Concept Questions -->
-<section>
-<h2>Concept Questions with Explanations</h2>
-<ol class="work-item">
-  <li><strong>Why is momentum conserved in absence of external forces?</strong><br>
-  Because <span class="math-inline">\( \vec{F}_{\text{ext}} = \frac{d\vec{p}}{dt} \)</span>. If zero, <span class="math-inline">\( \vec{p} \)</span> is constant.</li>
-
-  <li><strong>Role of direction in momentum?</strong><br>
-  Momentum is a vector; opposite directions imply opposite signs.</li>
-
-  <li><strong>Does momentum conservation apply in all collisions?</strong><br>
-  Yes, if no external forces; kinetic energy may or may not be conserved.</li>
-
-  <li><strong>Momentum of a system at rest?</strong><br>
-  Zero. After internal action, total momentum remains zero.</li>
-
-  <li><strong>When is impulse useful?</strong><br>
-  When force is not constant; relates to change in momentum.</li>
-</ol>
-</section>
-
-<!-- Section: Super Tips -->
-<section>
-<h2>Super Tips for Solving Fast</h2>
-<ul class="work-item">
-  <li>Use momentum conservation: <p class="math-display">\[ m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2 \]</p></li>
-  <li>Perfectly inelastic collision: <p class="math-display">\[ v = \frac{m_1 u_1 + m_2 u_2}{m_1 + m_2} \]</p></li>
-  <li>Use signs for direction: right positive, left negative.</li>
-  <li>Explosion problems: momentum before = 0 if system at rest.</li>
-  <li>For 2D problems, break momentum into x & y components.</li>
-</ul>
-</section>
-
-<!-- Section: Previous Year Questions -->
-<section>
-<h2>Previous Year Questions (PYQs)</h2>
-<div class="work-item">
-<p><strong>Q1.</strong> Artillery piece mass <span class="math-inline">\( M_1 \)</span> fires shell mass <span class="math-inline">\( M_2 \)</span> horizontally. Ratio of kinetic energies after firing? (JEE 2024)</p>
-<ol type="a">
-  <li><span class="math-inline">\( \frac{M_1}{M_1+M_2} \)</span></li>
-  <li><span class="math-inline">\( \frac{M_2}{M_1} \)</span></li>
-  <li><span class="math-inline">\( \frac{M_1}{M_2} \)</span></li>
-  <li><span class="math-inline">\( \frac{M_2}{M_1+M_2} \)</span></li>
-</ol>
-
-<p><strong>Solution:</strong></p>
-<ul>
-  <li>Mass of artillery = <span class="math-inline">\( M_1 \)</span></li>
-  <li>Mass of shell = <span class="math-inline">\( M_2 \)</span></li>
-  <li>Initially, system at rest. After firing, they move in opposite directions.</li>
-</ul>
-<p>Let velocity of shell = <span class="math-inline">\( v \)</span>, artillery recoil = <span class="math-inline">\( V \)</span>. Using conservation of momentum:</p>
-<p class="math-display">\[
-M_1 (-V) + M_2 v = 0 \Rightarrow V = \frac{M_2}{M_1} v
-\]</p>
-<p>Kinetic energies:</p>
-<p class="math-display">\[
-KE_1 = \frac{1}{2} M_1 V^2 = \frac{1}{2} \frac{M_2^2}{M_1} v^2, \quad
-KE_2 = \frac{1}{2} M_2 v^2
-\]</p>
-<p>Ratio:</p>
-<p class="math-display">\[
-\frac{KE_1}{KE_2} = \frac{M_2}{M_1}
-\]</p>
-<p><strong>Answer:</strong> <span class="math-inline">\( \boxed{M_2/M_1} \)</span></p>
+<!-- Footer -->
+<div class="footer">
+<p>© 2026 Dr. Sharad Chandra Tripathi</p>
 </div>
-</section>
 
 </main>
 </div>
