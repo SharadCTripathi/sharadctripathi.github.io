@@ -1,48 +1,34 @@
-import requests
-from bs4 import BeautifulSoup
 import json
+from datetime import datetime
+from scholarly import scholarly, ProxyGenerator
 
+# Your Google Scholar ID
 SCHOLAR_ID = "DVMNjugAAAAJ"
-URL = f"https://scholar.google.com/citations?user={SCHOLAR_ID}&hl=en"
 
-headers = {
-    "User-Agent": "Mozilla/5.0"
-}
+# Use a ProxyGenerator to reduce chance of blocking
+pg = ProxyGenerator()
+pg.FreeProxies()  # use free proxies
+scholarly.use_pg(pg)
 
-try:
-    response = requests.get(URL, headers=headers, timeout=20)
-    response.raise_for_status()
+def fetch_scholar_data(scholar_id):
+    try:
+        # Fetch author by ID
+        author = scholarly.search_author_id(scholar_id)
+        author = scholarly.fill(author)
 
-    soup = BeautifulSoup(response.text, "html.parser")
+        data = {
+            "citations": author.citedby,
+            "hindex": author.hindex,
+            "papers": len(author.publications),
+            "timestamp": datetime.now().isoformat()
+        }
+        return data
+    except Exception as e:
+        print("Failed to fetch Scholar data:", e)
+        return {"citations": 0, "hindex": 0, "papers": 0, "timestamp": datetime.now().isoformat()}
 
-    stats = soup.select("#gsc_rsb_st td.gsc_rsb_std")
-    papers = soup.select(".gsc_a_tr")
-
-    if len(stats) >= 3:
-        citations = int(stats[0].text.replace(",", ""))
-        hindex = int(stats[2].text.replace(",", ""))
-    else:
-        print("Scholar stats not found (possibly blocked)")
-        citations = 0
-        hindex = 0
-
-    data = {
-        "citations": citations,
-        "hindex": hindex,
-        "papers": len(papers)
-    }
-
-    print("Fetched:", data)
-
-except Exception as e:
-    print("Scholar fetch failed:", e)
-    data = {
-        "citations": 0,
-        "hindex": 0,
-        "papers": 0
-    }
-
-with open("scholar.json", "w") as f:
-    json.dump(data, f)
-
-print("Scholar data updated")
+if __name__ == "__main__":
+    data = fetch_scholar_data(SCHOLAR_ID)
+    with open("scholar.json", "w") as f:
+        json.dump(data, f, indent=2)
+    print("Scholar data updated:", data)
