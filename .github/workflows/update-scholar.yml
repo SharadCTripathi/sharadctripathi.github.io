@@ -2,7 +2,7 @@ name: Update Google Scholar Stats
 
 on:
   schedule:
-    - cron: "0 0,6,12,18 * * *"
+    - cron: "0 0,6,12,18 * * *" # every 6 hours
   workflow_dispatch:
 
 permissions:
@@ -24,11 +24,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          pip install scholarly
 
       - name: Run Scholar Script
-        run: |
-          python update_scholar.py
+        run: python update_scholar.py
 
       - name: Commit updated file
         run: |
