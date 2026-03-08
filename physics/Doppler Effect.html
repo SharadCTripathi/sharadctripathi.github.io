@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Doppler Effect</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Doppler Effect</h1>
+</header>
+<p>Have you ever stood near a railway track and noticed how the sound of
+a train whistle changes as it approaches and then passes you? That
+sudden shift in pitch, higher as it comes near and lower as it moves
+away, is a real-life experience of the <strong>Doppler
+Effect</strong>.</p>
+<p>This phenomenon is not limited to trains. It is used in radar,
+weather forecasting, medical imaging, and even astronomy to study stars
+and galaxies. Let us explore what causes the Doppler Effect, how it
+works, and where it shows up in everyday life.</p>
+<h1 class="unnumbered" id="what-is-the-doppler-effect">What is the
+Doppler Effect?</h1>
+<p>The Doppler Effect is the change in frequency (or pitch) of a wave in
+relation to an observer who is moving relative to the wave source.</p>
+<p>In simple terms:</p>
+<ul>
+<li><p>If the source moves <strong>towards</strong> the observer, the
+waves get compressed. The observer hears a <strong>higher</strong>
+frequency.</p></li>
+<li><p>If the source moves <strong>away</strong>, the waves get
+stretched. The observer hears a <strong>lower</strong>
+frequency.</p></li>
+</ul>
+<p>This effect applies to all types of waves—sound waves, light waves,
+water waves, and so on. However, it is easiest to understand with
+sound.</p>
+<h1 class="unnumbered"
+id="understanding-through-an-example">Understanding Through an
+Example</h1>
+<p>Imagine a car honking its horn while moving past you. As it
+approaches, the horn sounds sharp. As it recedes, the sound drops in
+pitch. However, for someone inside the car, the horn sounds the same
+throughout. This happens because the sound waves are bunched up in front
+of the car and stretched out behind it.</p>
+<h1 class="unnumbered" id="mathematical-expression">Mathematical
+Expression</h1>
+<p>The apparent frequency <span class="math inline">\(f&#39;\)</span>
+heard by an observer depends on:</p>
+<ul>
+<li><p>The actual frequency <span class="math inline">\(f\)</span> of
+the source</p></li>
+<li><p>The speed of the source and observer</p></li>
+<li><p>The speed of sound in the medium</p></li>
+</ul>
+<h2 class="unnumbered"
+id="case-1-source-moving-observer-stationary">Case 1: Source Moving,
+Observer Stationary</h2>
+<p><span class="math display">\[f&#39; = f \left( \frac{v}{v \mp v_s}
+\right)\]</span></p>
+<p>Where:</p>
+<ul>
+<li><p><span class="math inline">\(f&#39;\)</span> = apparent
+frequency</p></li>
+<li><p><span class="math inline">\(f\)</span> = actual
+frequency</p></li>
+<li><p><span class="math inline">\(v\)</span> = speed of sound in
+medium</p></li>
+<li><p><span class="math inline">\(v_s\)</span> = speed of
+source</p></li>
+</ul>
+<p><strong>Signs:</strong></p>
+<ul>
+<li><p>Use <span class="math inline">\(-v_s\)</span> if the source is
+moving towards the observer (frequency increases)</p></li>
+<li><p>Use <span class="math inline">\(+v_s\)</span> if the source is
+moving away (frequency decreases)</p></li>
+</ul>
+<h2 class="unnumbered"
+id="case-2-observer-moving-source-stationary">Case 2: Observer Moving,
+Source Stationary</h2>
+<p><span class="math display">\[f&#39; = f \left( \frac{v \pm v_o}{v}
+\right)\]</span></p>
+<p>Where <span class="math inline">\(v_o\)</span> is the observer’s
+speed.</p>
+<ul>
+<li><p>Use <span class="math inline">\(+v_o\)</span> if the observer
+moves towards the source</p></li>
+<li><p>Use <span class="math inline">\(-v_o\)</span> if the observer
+moves away</p></li>
+</ul>
+<h2 class="unnumbered" id="case-3-both-moving">Case 3: Both Moving</h2>
+<p><span class="math display">\[f&#39; = f \left( \frac{v \pm v_o}{v \mp
+v_s} \right)\]</span></p>
+<h1 class="unnumbered" id="important-notes">Important Notes</h1>
+<ul>
+<li><p>The Doppler Effect is most noticeable in sound because sound
+requires a medium, and relative motion between the source, observer, and
+medium affects the wave.</p></li>
+<li><p>In electromagnetic waves (such as light), there is no need for a
+medium. The Doppler Effect still occurs and is used in astronomy
+(redshift and blueshift).</p></li>
+</ul>
+<h1 class="unnumbered" id="applications-of-doppler-effect">Applications
+of Doppler Effect</h1>
+<ol>
+<li><p><strong>Astronomy:</strong> Redshift tells us that galaxies are
+moving away, which is one of the pieces of evidence supporting the
+expanding universe.</p></li>
+<li><p><strong>Radar and Police Speed Guns:</strong> These devices
+measure the speed of a moving vehicle by bouncing radio waves off it and
+analyzing the frequency shift.</p></li>
+<li><p><strong>Medical Imaging (Doppler Ultrasound):</strong> It is used
+to measure blood flow speed in arteries and veins.</p></li>
+<li><p><strong>Weather Forecasting:</strong> Doppler radar is used to
+track storms, rainfall, and wind speeds.</p></li>
+<li><p><strong>Navigation:</strong> Submarines use sonar (sound
+navigation and ranging) to determine distances and relative motion
+underwater.</p></li>
+</ol>
+<h1 class="unnumbered" id="real-life-example-ambulance-siren">Real-Life
+Example: Ambulance Siren</h1>
+<p>Let us say an ambulance approaches with a siren frequency of 500 Hz
+and moves at 20 m/s. If the speed of sound is 340 m/s, what frequency
+does a stationary observer hear?</p>
+<p><span class="math display">\[f&#39; = f \left( \frac{v}{v - v_s}
+\right) = 500 \left( \frac{340}{340 - 20} \right) = 500 \left(
+\frac{340}{320} \right) \approx 531.25 \, \text{Hz}\]</span></p>
+<p>As the ambulance moves away:</p>
+<p><span class="math display">\[f&#39; = 500 \left( \frac{340}{340 + 20}
+\right) = 500 \left( \frac{340}{360} \right) \approx 472.2 \,
+\text{Hz}\]</span></p>
+<p>This change in pitch is noticeable to any person standing still.</p>
+<h1 class="unnumbered" id="common-misconceptions">Common
+Misconceptions</h1>
+<ul>
+<li><p>The Doppler Effect does not change the speed of the wave, only
+the frequency and wavelength change.</p></li>
+<li><p>The effect is symmetrical only when the observer and source move
+in a straight line towards or away from each other.</p></li>
+<li><p>The Doppler Effect does not require a special medium, light
+experiences Doppler shift even in a vacuum.</p></li>
+</ul>
+<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
+<ul>
+<li><p>Source towards observer: frequency increases</p></li>
+<li><p>Source away from observer: frequency decreases</p></li>
+<li><p>Observer moving towards source: hears higher frequency</p></li>
+<li><p>Observer moving away: hears lower frequency</p></li>
+<li><p>General formula: <span class="math display">\[f&#39; = f \left(
+\frac{v \pm v_o}{v \mp v_s} \right)\]</span></p></li>
+</ul>
+<h1 class="unnumbered" id="quick-review-questions">Quick Review
+Questions</h1>
+<ol>
+<li><p><strong>What is the Doppler Effect?</strong> It is the change in
+frequency due to relative motion between the source and the
+observer.</p></li>
+<li><p><strong>What happens to the pitch of a siren as it moves away
+from you?</strong> The pitch (frequency) appears lower.</p></li>
+<li><p><strong>Does the Doppler Effect affect light?</strong> Yes, it
+results in redshift or blueshift depending on motion.</p></li>
+<li><p><strong>Is the speed of the wave affected by the Doppler
+Effect?</strong> No, only frequency and wavelength change.</p></li>
+<li><p><strong>Give one medical use of the Doppler Effect.</strong>
+Measuring blood flow using Doppler ultrasound.</p></li>
+</ol>
+<h1 class="unnumbered" id="previous-year-question-pyq">Previous Year
+Question (PYQ)</h1>
+<p><strong>Q.1</strong> The engine of a train moving with speed <span
+class="math inline">\(10 \, \text{m/s}\)</span> towards a platform
+sounds a whistle at frequency <span class="math inline">\(400 \,
+\text{Hz}\)</span>. The frequency heard by a passenger inside the train
+is (neglect air speed. Speed of sound in air = <span
+class="math inline">\(330 \, \text{m/s}\)</span>): <strong>[JEE,
+2023]</strong></p>
+<ol>
+<li><p>400 Hz</p></li>
+<li><p>388 Hz</p></li>
+<li><p>412 Hz</p></li>
+<li><p>200 Hz</p></li>
+</ol>
+<p><strong><em>Solution:</em></strong></p>
+<p>Since the passenger is inside the train, both the source (engine) and
+the observer (passenger) are moving together. There is no relative
+motion between them. The sound source and the observer are in the same
+frame of reference.</p>
+<p>Hence, the frequency heard by the passenger is:</p>
+<p><span class="math display">\[f&#39; = f = 400 \,
+\text{Hz}\]</span></p>
+<p><strong>Answer: (a) 400 Hz</strong></p>
+<p><strong>Declaration:</strong><br />
+This article is an original work written for educational purposes. It
+has not been copied from any external source. The content is intended to
+help students preparing for JEE or NEET and may be freely used for
+academic, non-commercial purposes with proper credit.</p>
+<p><strong>Writer’s Name:</strong> Dr. Sharad Chandra Tripathi</p>
+</body>
+</html>

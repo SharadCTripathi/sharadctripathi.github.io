@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Dr. Sharad Chandra Tripathi" />
+  <title>Conservative and Non-Conservative Forces</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Conservative and Non-Conservative Forces</h1>
+<p class="author">Dr. Sharad Chandra Tripathi</p>
+</header>
+<h1 class="unnumbered" id="introduction">Introduction</h1>
+<p>In mechanics, forces can be broadly divided into two main types:
+<strong>conservative</strong> and <strong>non-conservative</strong>
+forces. Recognizing which type of force is acting helps us understand
+how energy behaves in a system—whether it stays within the system or
+gets transformed into other forms like heat or sound.</p>
+<h1 class="unnumbered" id="conservative-forces">Conservative Forces</h1>
+<p>A conservative force is one where the work done in moving an object
+between two points doesn’t depend on the path taken. It only depends on
+where you start and where you finish.</p>
+<ul>
+<li><p><strong>Work Around a Loop:</strong> If an object is moved around
+a closed path and ends up where it started, the total work done by a
+conservative force is zero: <span
+class="math display">\[W_{\text{closed}} = 0\]</span></p></li>
+<li><p><strong>Examples of Conservative Forces:</strong></p>
+<ul>
+<li><p>Gravity</p></li>
+<li><p>Electrostatic force</p></li>
+<li><p>Ideal spring (elastic force)</p></li>
+</ul></li>
+<li><p><strong>Associated with Potential Energy:</strong> Conservative
+forces can be linked to potential energy. Mathematically: <span
+class="math display">\[\vec{F} = -\nabla U\]</span> - For gravity near
+Earth’s surface: <span class="math display">\[U = mgh\]</span> - For a
+spring: <span class="math display">\[U = \frac{1}{2} k
+x^2\]</span></p></li>
+<li><p><strong>Mechanical Energy is Conserved:</strong> If only
+conservative forces are doing work, the total mechanical energy of the
+system stays constant: <span class="math display">\[\text{Total Energy}
+= \text{K.E.} + \text{P.E.} = \text{constant}\]</span></p></li>
+</ul>
+<h1 class="unnumbered" id="non-conservative-forces">Non-Conservative
+Forces</h1>
+<p>Non-conservative forces are different. The work they do depends on
+the path taken, and they often convert mechanical energy into other
+forms like heat or sound.</p>
+<ul>
+<li><p><strong>Path-Dependent Work:</strong> The work done by
+non-conservative forces in a closed path is not zero: <span
+class="math display">\[W_{\text{closed}} \neq 0\]</span></p></li>
+<li><p><strong>Examples of Non-Conservative Forces:</strong></p>
+<ul>
+<li><p>Friction</p></li>
+<li><p>Air resistance (drag)</p></li>
+<li><p>Viscous forces (like in liquids)</p></li>
+<li><p>Tension in non-ideal ropes or strings</p></li>
+</ul></li>
+<li><p><strong>They Cause Energy Loss:</strong> These forces reduce the
+mechanical energy of a system, often turning it into heat: <span
+class="math display">\[\text{Initial Mechanical Energy} &gt; \text{Final
+Mechanical Energy}\]</span></p></li>
+<li><p><strong>No Potential Energy Function:</strong> You can’t describe
+non-conservative forces using potential energy equations.</p></li>
+</ul>
+<h1 class="unnumbered" id="quick-comparison">Quick Comparison</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Feature</strong></th>
+<th style="text-align: left;"><strong>Conservative Force</strong></th>
+<th style="text-align: left;"><strong>Non-Conservative
+Force</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Work in a closed path</td>
+<td style="text-align: left;">Zero</td>
+<td style="text-align: left;">Non-zero</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Path dependence</td>
+<td style="text-align: left;">Independent of path</td>
+<td style="text-align: left;">Dependent on path</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Energy conservation</td>
+<td style="text-align: left;">Mechanical energy conserved</td>
+<td style="text-align: left;">Mechanical energy not conserved</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Associated potential energy</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Examples</td>
+<td style="text-align: left;">Gravity, Spring force, Electrostatic
+force</td>
+<td style="text-align: left;">Friction, Air resistance, Viscous
+drag</td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered"
+id="example-lifting-a-block-two-different-paths">Example: Lifting a
+Block — Two Different Paths</h1>
+<p><strong>Q:</strong> Suppose you’re lifting a block up by <span
+class="math inline">\(5\,\text{m}\)</span> vertically, or pushing it up
+a ramp to the same height. Which forces care about the path taken?</p>
+<p><strong>Answer:</strong> Gravity doesn’t—it’s conservative and only
+depends on height. But friction, which acts along the ramp, definitely
+depends on the path taken and adds extra energy loss.</p>
+<p><strong>Work done by gravity:</strong> <span class="math display">\[W
+= -mgh \quad \text{(same for both paths)}\]</span></p>
+<p><strong>Work done by friction (on ramp):</strong> <span
+class="math display">\[W_{\text{friction}} = \mu mg \cos\theta \cdot
+\text{distance along ramp}\]</span></p>
+<p><strong>Key Takeaway:</strong> Gravity is a conservative force—it’s
+path-independent. Friction is non-conservative—it depends on the path
+and causes energy loss.</p>
+<h1 class="unnumbered" id="helpful-tips-to-remember">Helpful Tips to
+Remember</h1>
+<ul>
+<li><p>If you can define potential energy for a force, it’s
+conservative.</p></li>
+<li><p>Friction always leads to mechanical energy loss—it’s always
+non-conservative.</p></li>
+<li><p>Use energy conservation methods for gravity and springs.</p></li>
+<li><p>If mechanical energy decreases in a system, a non-conservative
+force is likely acting.</p></li>
+</ul>
+<h1 class="unnumbered" id="previous-year-questions-pyqs">Previous Year
+Questions (PYQs)</h1>
+<p><strong>Q2.</strong> A particle is released from height <span
+class="math inline">\(S\)</span> from the surface of the Earth. At a
+certain height, its kinetic energy is three times its potential energy.
+The height from the surface of the Earth and the speed of the particle
+at that instant are respectively -</p>
+<ol>
+<li><p><span class="math inline">\(\frac{S}{4},
+\sqrt{\frac{3gS}{2}}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{S}{4},
+\frac{3gS}{2}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{S}{4},
+\frac{\sqrt{3gS}}{2}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{S}{2},
+\frac{\sqrt{3gS}}{2}\)</span></p></li>
+</ol>
+<p><strong>NEET 2021</strong></p>
+<p><strong><em>Solution:</em></strong></p>
+<p>Given: - Initial height = <span class="math inline">\(S\)</span> - At
+some height <span class="math inline">\(h\)</span>, kinetic energy <span
+class="math inline">\(K = 3 \times\)</span> potential energy <span
+class="math inline">\(U\)</span>.</p>
+<p>Using conservation of mechanical energy:</p>
+<p><span class="math display">\[mgS = mg h + \frac{1}{2} m
+v^2\]</span></p>
+<p>Given:</p>
+<p><span class="math display">\[K = 3U \implies \frac{1}{2} m v^2 = 3 m
+g h \implies v^2 = 6 g h\]</span></p>
+<p>Substitute <span class="math inline">\(v^2 = 6 g h\)</span> into the
+energy equation:</p>
+<p><span class="math display">\[mgS = mg h + \frac{1}{2} m (6 g h) = mg
+h + 3 m g h = 4 m g h\]</span></p>
+<p>Divide both sides by <span class="math inline">\(mg\)</span>:</p>
+<p><span class="math display">\[S = 4 h \implies h =
+\frac{S}{4}\]</span></p>
+<p>Now, find speed <span class="math inline">\(v\)</span>:</p>
+<p><span class="math display">\[v = \sqrt{6 g h} = \sqrt{6 g \times
+\frac{S}{4}} = \sqrt{\frac{3 g S}{2}}\]</span></p>
+<p><strong>Answer:</strong> <span class="math display">\[\boxed{
+\text{Height} = \frac{S}{4}, \quad \text{Speed} = \sqrt{\frac{3 g S}{2}}
+}\]</span></p>
+<p>So, option <strong>(a)</strong> is correct.</p>
+</body>
+</html>

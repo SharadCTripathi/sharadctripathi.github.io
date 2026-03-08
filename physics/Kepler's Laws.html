@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Dr. Sharad Chandra Tripathi" />
+  <title>Kepler’s Laws of Planetary Motion</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Kepler’s Laws of Planetary Motion</h1>
+<p class="author">Dr. Sharad Chandra Tripathi</p>
+</header>
+<p>Have you ever looked up at the night sky and wondered how planets
+know where to go? Why do they seem to follow smooth, repeating paths
+around the Sun? Long before rockets and space missions, a man named
+Kepler figured out some of the biggest clues to this mystery.</p>
+<p>Kepler’s Laws of Planetary Motion explain how planets move in space.
+These ideas are not just old facts, they are still used in astronomy and
+space science.</p>
+<h1 class="unnumbered"
+id="keplers-first-law-the-orbit-is-an-ellipse">Kepler’s First Law: The
+Orbit is an Ellipse</h1>
+<p>The first thing Kepler discovered is that planets do not move in
+perfect circles around the Sun. Instead, their paths are shaped like
+ellipses, a bit like stretched-out circles. The Sun is not at the center
+of this shape; it is slightly off-center, at one of two special points
+called foci.</p>
+<p>You can think of an ellipse as a squashed circle. How much it is
+squashed is called its <strong>eccentricity</strong> (<span
+class="math inline">\(e\)</span>). If <span class="math inline">\(e =
+0\)</span>, the shape is a perfect circle. The more stretched out it is,
+the higher the eccentricity.</p>
+<p>This means that a planet does not stay the same distance from the Sun
+all the time. When it is closest, we call that point
+<strong>perihelion</strong>. When it is farthest, it is called
+<strong>aphelion</strong>.</p>
+<h1 class="unnumbered"
+id="keplers-second-law-planets-sweep-equal-areas-in-equal-time">Kepler’s
+Second Law: Planets Sweep Equal Areas in Equal Time</h1>
+<p>Kepler noticed something interesting about the way planets move. If
+you imagine a line from the planet to the Sun, the area that line sweeps
+out over a fixed amount of time, say a month, always stays the same.
+Whether the planet is close to the Sun or far from it, the area covered
+in that time is equal.</p>
+<p>This tells us that planets move faster when they are closer to the
+Sun and slower when they are farther away.</p>
+<p><strong>Why?</strong> It is because gravity pulls harder when the
+planet is nearer the Sun, speeding it up. When it is farther away, the
+pull is weaker, so the planet slows down.</p>
+<p>This also explains why the seasons on Earth are not all exactly the
+same length.</p>
+<h1 class="unnumbered"
+id="keplers-third-law-the-farther-a-planet-the-longer-the-orbit">Kepler’s
+Third Law: The Farther a Planet, the Longer the Orbit</h1>
+<p>The third law connects how far a planet is from the Sun with how long
+it takes to go around it. Basically, the farther a planet is, the longer
+its year.</p>
+<p>Mathematically, the square of the time it takes to orbit (in Earth
+years) is proportional to the cube of the average distance from the Sun
+(in astronomical units, or AU):</p>
+<p><span class="math display">\[T^2 \propto r^3\]</span></p>
+<p>Where:</p>
+<ul>
+<li><p><span class="math inline">\(T\)</span> is the orbital time (in
+years)</p></li>
+<li><p><span class="math inline">\(r\)</span> is the average distance
+from the Sun (in AU)</p></li>
+</ul>
+<p>For example, Earth is 1 AU away and takes 1 year. Jupiter is about
+5.2 AU away, so:</p>
+<p><span class="math display">\[T^2 = (5.2)^3 = 140.6 \Rightarrow T
+\approx 11.8 \text{ years}\]</span></p>
+<p>And yes, Jupiter takes about 11.8 years to complete one orbit.</p>
+<p>You might wonder why this is important today. When scientists plan
+missions to other planets, they use these same laws to figure out where
+planets will be, how fast they are moving, and how long it will take to
+get there. Even satellites and space stations use similar ideas.</p>
+<p>Kepler’s work also helped pave the way for Newton’s law of gravity,
+which explains the force that holds everything together in space.</p>
+<p>Kepler came up with his laws by studying data. Later, Newton used his
+own laws of motion and gravity to explain why the planets move the way
+Kepler said they do.</p>
+<p>By combining Kepler’s Third Law with Newton’s Law of Gravitation, we
+get:</p>
+<p><span class="math display">\[T^2 = \frac{4\pi^2}{G M}
+r^3\]</span></p>
+<p>where:</p>
+<ul>
+<li><p><span class="math inline">\(G\)</span> is the gravitational
+constant</p></li>
+<li><p><span class="math inline">\(M\)</span> is the mass of the central
+object (like the Sun)</p></li>
+</ul>
+<p>This formula can be used to figure out the orbits of moons,
+satellites, and even exoplanets around other stars.</p>
+<h1 class="unnumbered" id="some-fun-facts">Some Fun Facts</h1>
+<ul>
+<li><p>Halley’s Comet moves in a very stretched-out ellipse. It comes
+close to the Sun and then goes far into space and it still follows
+Kepler’s Laws.</p></li>
+<li><p>Kepler figured out these laws by carefully studying the motion of
+Mars, long before calculators or computers.</p></li>
+<li><p>The word "planet" comes from a Greek word that means "wanderer,"
+because planets seemed to move oddly across the night sky. Kepler helped
+explain why.</p></li>
+</ul>
+<h1 class="unnumbered" id="quick-review-questions">Quick Review
+Questions</h1>
+<ol>
+<li><p><strong>Why does a planet move faster when it is near the
+Sun?</strong><br />
+Because the Sun’s gravity is stronger when the planet is closer, pulling
+it more and making it speed up.</p></li>
+<li><p><strong>If a planet is twice as far from the Sun as Earth, how
+long is its year?</strong><br />
+Use <span class="math inline">\(T^2 = r^3\)</span>. If <span
+class="math inline">\(r = 2\)</span>, then <span
+class="math inline">\(T^2 = 8\)</span>, so <span class="math inline">\(T
+\approx 2.83\)</span> years.</p></li>
+<li><p><strong>Are all orbits ellipses?</strong><br />
+For objects that are bound by gravity, yes. But objects escaping
+gravity, like some comets, can follow different paths like parabolas or
+hyperbolas.</p></li>
+<li><p><strong>Does the Sun stay still?</strong><br />
+Not exactly. The Sun also moves slightly because of the pull from big
+planets like Jupiter.</p></li>
+<li><p><strong>Do Kepler’s Laws work outside our solar
+system?</strong><br />
+Yes! They apply anywhere that one object orbits another due to
+gravity.</p></li>
+</ol>
+<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
+<ul>
+<li><p>Planet orbits are ellipses, not perfect circles.</p></li>
+<li><p>Planets move faster when they are closer to the Sun.</p></li>
+<li><p>Farther planets take longer to orbit: <span
+class="math inline">\(T^2 \propto r^3\)</span>.</p></li>
+<li><p>Kepler described how orbits work; Newton explained why.</p></li>
+</ul>
+<h1 class="unnumbered" id="previous-year-question-pyq">Previous Year
+Question (PYQ)</h1>
+<p><strong>Q.1</strong> A satellite orbits in a circle of radius <span
+class="math inline">\(R\)</span>, and takes time <span
+class="math inline">\(T\)</span>. Another satellite orbits in a circle
+of radius <span class="math inline">\(9R\)</span>. What is its time
+period? <strong>[JEE 2021]</strong></p>
+<ol>
+<li><p><span class="math inline">\(9T\)</span></p></li>
+<li><p><span class="math inline">\(27T\)</span></p></li>
+<li><p><span class="math inline">\(12T\)</span></p></li>
+<li><p><span class="math inline">\(3T\)</span></p></li>
+</ol>
+<p><strong><em>Solution:</em></strong></p>
+<p>Using Kepler’s Third Law:</p>
+<p><span class="math display">\[T^2 \propto R^3\]</span></p>
+<p>Let the second satellite’s time be <span
+class="math inline">\(T_2\)</span>, with radius <span
+class="math inline">\(R_2 = 9R\)</span>:</p>
+<p><span class="math display">\[\left( \frac{T_2}{T} \right)^2 = \left(
+\frac{R_2}{R} \right)^3 = 9^3 = 729 \Rightarrow \frac{T_2}{T} =
+\sqrt{729} = 27\]</span></p>
+<p><strong>Answer:</strong> <span
+class="math inline">\(\boxed{27T}\)</span></p>
+<p><strong>Declaration:</strong><br />
+This article is an original work written for educational purposes. It
+has not been copied from any external source. The content is intended to
+help students preparing for JEE/NEET and may be freely used for
+academic, non-commercial use with proper credit.</p>
+<p><strong>Writer’s Name:</strong> Dr. Sharad Chandra Tripathi</p>
+</body>
+</html>

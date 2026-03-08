@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Equipartition of Energy</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Equipartition of Energy</h1>
+</header>
+<p>Energy is one of the fundamental concepts in physics. It manifests in
+various forms such as kinetic energy, potential energy, thermal energy,
+and more. When studying gases and their microscopic behavior, the
+<strong>equipartition of energy</strong> principle becomes crucial in
+understanding how energy is shared among the different ways a molecule
+can move or vibrate.</p>
+<h1 class="unnumbered" id="what-is-equipartition-of-energy">What is
+Equipartition of Energy?</h1>
+<p>The <strong>law of equipartition of energy</strong> states that at
+thermal equilibrium, the total energy is equally distributed among all
+the available degrees of freedom of the molecules in the system. Each
+degree of freedom contributes equally to the total energy, with an
+average energy of <span class="math inline">\(\frac{1}{2} k_B T\)</span>
+per degree of freedom, where <span class="math inline">\(k_B\)</span> is
+the Boltzmann constant and <span class="math inline">\(T\)</span> is the
+absolute temperature.</p>
+<p><strong>Degrees of freedom</strong> are independent ways in which a
+molecule can store energy, such as translational, rotational, and
+vibrational motions.</p>
+<h2 class="unnumbered" id="types-of-degrees-of-freedom">Types of Degrees
+of Freedom</h2>
+<ul>
+<li><p><strong>Translational Degrees of Freedom:</strong> Movement along
+the x, y, and z axes. Every molecule has three translational degrees of
+freedom.</p></li>
+<li><p><strong>Rotational Degrees of Freedom:</strong> Rotation about
+different axes. Linear molecules have two rotational degrees of freedom,
+while nonlinear molecules have three.</p></li>
+<li><p><strong>Vibrational Degrees of Freedom:</strong> Molecules can
+vibrate in ways that involve stretching or bending bonds. Each
+vibrational mode counts as two degrees of freedom (one kinetic and one
+potential).</p></li>
+</ul>
+<h2 class="unnumbered"
+id="energy-contribution-per-degree-of-freedom">Energy Contribution Per
+Degree of Freedom</h2>
+<p>For each degree of freedom, the average energy is:</p>
+<p><span class="math display">\[E = \frac{1}{2} k_B T\]</span></p>
+<p>Thus, for a molecule with <span class="math inline">\(f\)</span>
+degrees of freedom, the total energy per molecule is:</p>
+<p><span class="math display">\[E_{\text{total}} = \frac{f}{2} k_B
+T\]</span></p>
+<p>On a molar basis, using <span class="math inline">\(R = N_A
+k_B\)</span> (where <span class="math inline">\(N_A\)</span> is
+Avogadro’s number), the internal energy per mole becomes:</p>
+<p><span class="math display">\[U = \frac{f}{2} RT\]</span></p>
+<p>This formula allows us to calculate important thermodynamic
+quantities like the molar specific heat at constant volume <span
+class="math inline">\(C_V\)</span>.</p>
+<h2 class="unnumbered"
+id="equipartition-and-specific-heats">Equipartition and Specific
+Heats</h2>
+<p>The molar specific heat at constant volume <span
+class="math inline">\(C_V\)</span> is the temperature derivative of
+internal energy:</p>
+<p><span class="math display">\[C_V = \left(\frac{dU}{dT}\right)_V =
+\frac{f}{2} R\]</span></p>
+<p>This means the more degrees of freedom a molecule has, the higher its
+specific heat capacity, because more energy is needed to raise the
+temperature of the gas.</p>
+<h2 class="unnumbered"
+id="example-monatomic-diatomic-and-polyatomic-gases">Example: Monatomic,
+Diatomic, and Polyatomic Gases</h2>
+<ul>
+<li><p><strong>Monatomic gases (e.g., helium, neon):</strong> Only
+translational degrees of freedom are active, so <span
+class="math inline">\(f = 3\)</span>. Therefore, <span
+class="math display">\[C_V = \frac{3}{2} R\]</span></p></li>
+<li><p><strong>Diatomic gases (e.g., nitrogen, oxygen):</strong> Besides
+translation (<span class="math inline">\(3\)</span>), they have
+rotational degrees of freedom (<span class="math inline">\(2\)</span>)
+and potentially vibrational modes. At room temperature, vibrational
+modes are usually "frozen," so <span class="math display">\[f = 3 + 2 =
+5, \quad C_V = \frac{5}{2} R\]</span></p></li>
+<li><p><strong>Polyatomic gases:</strong> More complex molecules have
+additional rotational and vibrational modes, increasing <span
+class="math inline">\(f\)</span> and therefore the molar specific
+heat.</p></li>
+</ul>
+<h2 class="unnumbered"
+id="vibrational-modes-and-temperature-dependence">Vibrational Modes and
+Temperature Dependence</h2>
+<p>Vibrational modes contribute two degrees of freedom each, one kinetic
+and one potential. However, these modes require more energy to activate
+and thus often become significant only at higher temperatures. This
+explains why the molar specific heat of gases increases with
+temperature, as more vibrational modes get excited.</p>
+<h2 class="unnumbered"
+id="limitations-of-equipartition-theorem">Limitations of Equipartition
+Theorem</h2>
+<p>While the equipartition theorem works well for many gases, it does
+not always perfectly predict specific heats. The reasons include:</p>
+<ul>
+<li><p><strong>Quantum effects:</strong> At low temperatures, quantum
+mechanics restricts the excitation of vibrational modes.</p></li>
+<li><p><strong>Frozen degrees of freedom:</strong> Some modes remain
+inactive due to insufficient thermal energy.</p></li>
+</ul>
+<p>Modern physics accounts for these limitations by using quantum
+statistical mechanics, but equipartition remains a valuable classical
+approximation.</p>
+<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
+<ul>
+<li><p>Each degree of freedom has average energy <span
+class="math inline">\(\frac{1}{2} k_B T\)</span>.</p></li>
+<li><p>Total energy per mole: <span class="math inline">\(U =
+\frac{f}{2} RT\)</span>.</p></li>
+<li><p>Molar specific heat at constant volume: <span
+class="math inline">\(C_V = \frac{f}{2} R\)</span>.</p></li>
+<li><p>Translational motion always contributes 3 degrees of
+freedom.</p></li>
+<li><p>Linear molecules have 2 rotational degrees of freedom, nonlinear
+molecules have 3.</p></li>
+<li><p>Vibrational modes contribute 2 degrees of freedom each but may be
+inactive at low temperatures.</p></li>
+</ul>
+<h1 class="unnumbered"
+id="applications-of-equipartition-of-energy">Applications of
+Equipartition of Energy</h1>
+<ul>
+<li><p><strong>Understanding gas heat capacities:</strong> Predicts and
+explains why gases have different specific heats.</p></li>
+<li><p><strong>Thermodynamics and statistical mechanics:</strong>
+Provides foundation for microscopic explanations of macroscopic
+properties.</p></li>
+<li><p><strong>Engineering:</strong> Important for designing engines and
+refrigeration systems where gas properties matter.</p></li>
+<li><p><strong>Astrophysics and atmospheric science:</strong> Helps
+describe behavior of gases under varying temperatures and
+pressures.</p></li>
+</ul>
+<h1 class="unnumbered" id="quick-review-questions">Quick Review
+Questions</h1>
+<ol>
+<li><p><strong>What is the average energy per degree of freedom at
+temperature <span class="math inline">\(T\)</span>?</strong><br />
+<span class="math inline">\(\frac{1}{2} k_B T\)</span></p></li>
+<li><p><strong>How many translational degrees of freedom does a gas
+molecule have?</strong><br />
+Three.</p></li>
+<li><p><strong>Why do vibrational modes contribute twice as many degrees
+of freedom?</strong><br />
+Because each vibrational mode has both kinetic and potential energy
+components.</p></li>
+<li><p><strong>What is the molar specific heat at constant volume for a
+monatomic gas?</strong><br />
+<span class="math inline">\(\frac{3}{2} R\)</span>.</p></li>
+<li><p><strong>Why does the specific heat of diatomic gases increase at
+higher temperatures?</strong><br />
+Because vibrational modes become excited.</p></li>
+</ol>
+<h1 class="unnumbered" id="previous-year-question-pyq">Previous Year
+Question (PYQ)</h1>
+<p><strong>Q.1</strong> According to law of equipartition of energy the
+molar specific heat of a diatomic gas at constant volume where the
+molecule has one additional vibrational mode is : [JEE, 2023]<br />
+a) <span class="math inline">\(\frac{9}{2} R\)</span>, b) <span
+class="math inline">\(\frac{7}{2} R\)</span>, c) <span
+class="math inline">\(\frac{5}{2} R\)</span>, d) <span
+class="math inline">\(\frac{3}{2} R\)</span></p>
+<p><strong><em>Solution:</em></strong></p>
+<p><strong>Step 1: Determine degrees of freedom</strong></p>
+<ul>
+<li><p>Translational: 3</p></li>
+<li><p>Rotational (diatomic): 2</p></li>
+<li><p>Vibrational mode: Each vibrational mode counts as 2 degrees of
+freedom (1 kinetic + 1 potential)</p></li>
+</ul>
+<p>So,</p>
+<p><span class="math display">\[f = 3 + 2 + 2 = 7\]</span></p>
+<p><strong>Step 2: Use formula for molar specific heat at constant
+volume</strong></p>
+<p><span class="math display">\[C_V = \frac{f}{2} R = \frac{7}{2}
+R\]</span></p>
+<p><strong>Answer: (b) <span class="math inline">\(\frac{7}{2}
+R\)</span></strong></p>
+<p><strong>Declaration:</strong><br />
+This article is an original work written for educational purposes. It
+has not been copied from any external source. The content is intended to
+help students preparing for JEE or NEET and may be freely used for
+academic, non-commercial purposes with proper credit.</p>
+<p><strong>Writer’s Name:</strong> Dr. Sharad Chandra Tripathi</p>
+</body>
+</html>

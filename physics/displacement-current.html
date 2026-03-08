@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Displacement Current: Concept, Examples, and Shortcuts</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Displacement Current: Concept, Examples, and
+Shortcuts</h1>
+</header>
+<h1 class="unnumbered" id="what-is-displacement-current">What Is
+Displacement Current?</h1>
+<p>Displacement current is a concept introduced by James Clerk Maxwell
+to modify Ampere’s law and make it consistent with the continuity
+equation of current in situations involving time-varying electric
+fields.</p>
+<p>Traditional current involves the movement of charges through a
+conductor. However, in a capacitor during charging or discharging, no
+actual charges move across the gap between plates, yet there exists a
+changing electric field. Maxwell proposed the idea of <em>displacement
+current</em> to account for this effect.</p>
+<p>The displacement current <span class="math inline">\(I_d\)</span> is
+not a real movement of charges, but it produces magnetic fields just
+like conduction current. It is defined as:</p>
+<p><span class="math display">\[I_d = \epsilon_0
+\frac{d\Phi_E}{dt},\]</span></p>
+<p>where <span class="math inline">\(\Phi_E\)</span> is the electric
+flux and <span class="math inline">\(\epsilon_0\)</span> is the
+permittivity of free space.</p>
+<h1 class="unnumbered"
+id="modified-amperes-law-maxwells-addition">Modified Ampere’s Law
+(Maxwell’s Addition)</h1>
+<p>Maxwell modified Ampere’s Law to include displacement current:</p>
+<p><span class="math display">\[\oint \vec{B} \cdot d\vec{l} = \mu_0
+\left( I + I_d \right) = \mu_0 \left( I + \epsilon_0 \frac{d\Phi_E}{dt}
+\right),\]</span></p>
+<p>This correction allows Ampere’s Law to apply in all cases, including
+capacitors in AC circuits, and is essential for the formulation of
+Maxwell’s equations.</p>
+<h1 class="unnumbered" id="key-formula">Key Formula</h1>
+<p><span class="math display">\[I_d = \epsilon_0 \frac{d\Phi_E}{dt} =
+\epsilon_0 \frac{d}{dt} \left( \int \vec{E} \cdot d\vec{A}
+\right)\]</span></p>
+<p>Where:</p>
+<ul>
+<li><p><span class="math inline">\(I_d\)</span>: Displacement
+current</p></li>
+<li><p><span class="math inline">\(\epsilon_0 = 8.85 \times 10^{-12} \,
+\text{F/m}\)</span>: Permittivity of free space</p></li>
+<li><p><span class="math inline">\(\Phi_E\)</span>: Electric
+flux</p></li>
+<li><p><span class="math inline">\(\vec{E}\)</span>: Electric
+field</p></li>
+</ul>
+<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
+<ul>
+<li><p>In a charging capacitor, <span class="math inline">\(I_d =
+I\)</span> at any instant.</p></li>
+<li><p>Displacement current exists in the region between capacitor
+plates.</p></li>
+<li><p>It contributes to the magnetic field just like conduction
+current.</p></li>
+<li><p>Essential in electromagnetic wave propagation (time-varying <span
+class="math inline">\(E\)</span> and <span
+class="math inline">\(B\)</span> fields).</p></li>
+</ul>
+<h1 class="unnumbered" id="examples">Examples</h1>
+<ol>
+<li><p>A capacitor with plate area <span
+class="math inline">\(A\)</span> and electric field increasing at a rate
+<span class="math inline">\(\frac{dE}{dt}\)</span>:</p>
+<p><span class="math display">\[I_d = \epsilon_0 A
+\frac{dE}{dt}\]</span></p></li>
+<li><p>A parallel-plate capacitor has <span
+class="math inline">\(\epsilon_0 = 8.85 \times 10^{-12}\)</span>, area
+<span class="math inline">\(A = 0.01 \, \text{m}^2\)</span>, and <span
+class="math inline">\(\frac{dE}{dt} = 10^6 \, \text{V/m/s}\)</span>:</p>
+<p><span class="math display">\[I_d = 8.85 \times 10^{-12} \times 0.01
+\times 10^6 = 8.85 \times 10^{-8} \, \text{A}\]</span></p></li>
+<li><p>In an RC circuit during charging:</p>
+<p><span class="math display">\[I = I_d = \frac{V_0}{R}
+e^{-t/RC}\]</span></p></li>
+</ol>
+<h1 class="unnumbered" id="concept-questions-with-explanations">Concept
+Questions with Explanations</h1>
+<ol>
+<li><p><strong>Why was displacement current introduced?</strong><br />
+To maintain continuity in Ampere’s law where no physical current exists,
+like between capacitor plates.</p></li>
+<li><p><strong>Does displacement current create a magnetic
+field?</strong><br />
+Yes, just like conduction current.</p></li>
+<li><p><strong>In which region does only displacement current
+exist?</strong><br />
+Between the plates of a capacitor (non-conducting dielectric
+region).</p></li>
+<li><p><strong>What is the unit of displacement current?</strong><br />
+Same as conduction current — Amperes (A).</p></li>
+<li><p><strong>Is displacement current a real current?</strong><br />
+No; it does not involve movement of actual charges but results from
+changing electric fields.</p></li>
+</ol>
+<h1 class="unnumbered" id="super-tips-for-solving-fast">Super Tips for
+Solving Fast</h1>
+<ul>
+<li><p>Use <span class="math inline">\(I_d = \epsilon_0 A
+\frac{dE}{dt}\)</span> when electric field variation is known.</p></li>
+<li><p>In capacitors, always equate displacement current to conduction
+current.</p></li>
+<li><p>Treat displacement current just like real current for magnetic
+field effects.</p></li>
+<li><p>Keep units consistent, especially for area (m<span
+class="math inline">\(^2\)</span>) and field (V/m).</p></li>
+</ul>
+<h1 class="unnumbered" id="previous-year-questions-pyqs">Previous Year
+Questions (PYQs)</h1>
+<p><strong>Q1.</strong> A time-varying potential difference is applied
+between the plates of a parallel-plate capacitor of capacitance <span
+class="math inline">\(2.5\,\mu\text{F}\)</span>. The dielectric constant
+of the medium between the plates is 1. If it produces an instantaneous
+displacement current of <span
+class="math inline">\(0.25\,\text{mA}\)</span>, the magnitude of the
+rate of change of the potential difference will be <u></u> V/s.
+<strong>(JEE Main 2025)</strong></p>
+<p><strong><em>Solution:</em></strong></p>
+<p>We use the formula for displacement current:</p>
+<p><span class="math display">\[I_d = C \frac{dV}{dt}
+\Rightarrow \frac{dV}{dt} = \frac{I_d}{C}\]</span></p>
+<p>Substituting the values:</p>
+<p><span class="math display">\[\frac{dV}{dt} = \frac{0.25 \times
+10^{-3}}{2.5 \times 10^{-6}} = 100 \, \text{V/s}\]</span></p>
+<p><strong>Answer:</strong> <span class="math inline">\(\boxed{100 \,
+\text{V/s}}\)</span></p>
+<p><strong>Q2.</strong> A parallel plate capacitor of area <span
+class="math inline">\(A = 16 \, \text{cm}^2\)</span> and separation
+between the plates <span class="math inline">\(d = 10 \,
+\text{cm}\)</span>, is charged by a DC current. Consider a hypothetical
+plane surface of area <span class="math inline">\(A_0 = 3.2 \,
+\text{cm}^2\)</span> inside the capacitor and parallel to the plates. At
+an instant, the current through the circuit is <span
+class="math inline">\(6\,\text{A}\)</span>. At the same instant, the
+displacement current through <span class="math inline">\(A_0\)</span> is
+<u></u> mA. <strong>(JEE Main 2025)</strong></p>
+<p><strong><em>Solution:</em></strong></p>
+<p>The total displacement current between the plates is equal to the
+conduction current: <span class="math display">\[I_d^{\text{total}} = I
+= 6\,\text{A}\]</span></p>
+<p>Displacement current through the smaller area <span
+class="math inline">\(A_0\)</span> is proportional to its area:</p>
+<p><span class="math display">\[I_d = I \times
+\frac{A_0}{A}\]</span></p>
+<p>Converting areas to consistent units:</p>
+<p><span class="math display">\[\frac{A_0}{A} = \frac{3.2}{16} =
+0.2\]</span></p>
+<p><span class="math display">\[I_d = 6 \times 0.2 = 1.2\,\text{A} =
+1200\,\text{mA}\]</span></p>
+<p><strong>Answer:</strong> <span class="math inline">\(\boxed{1200 \,
+\text{mA}}\)</span></p>
+</body>
+</html>

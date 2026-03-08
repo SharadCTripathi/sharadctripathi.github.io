@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Dr. Sharad Chandra Tripathi" />
+  <title>Law of Conservation of Linear Momentum and Its Applications</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Law of Conservation of Linear Momentum and Its
+Applications</h1>
+<p class="author">Dr. Sharad Chandra Tripathi</p>
+</header>
+<h1 class="unnumbered"
+id="what-is-the-law-of-conservation-of-linear-momentum">What Is the Law
+of Conservation of Linear Momentum?</h1>
+<p>The Law of Conservation of Linear Momentum is a fundamental principle
+of physics that arises directly from Newton’s Second Law of Motion.
+According to the second law:</p>
+<p><span class="math display">\[\vec{F}_{\text{net}} =
+\frac{d\vec{p}}{dt}\]</span></p>
+<p>where <span class="math inline">\(\vec{F}_{\text{net}}\)</span> is
+the net external force on a system, and <span
+class="math inline">\(\vec{p} = m\vec{v}\)</span> is the linear
+momentum.</p>
+<p>If the net external force acting on a system is zero, i.e.,</p>
+<p><span class="math display">\[\vec{F}_{\text{net}} = 0\]</span></p>
+<p>then,</p>
+<p><span class="math display">\[\frac{d\vec{p}}{dt} = 0 \Rightarrow
+\vec{p} = \text{constant}\]</span></p>
+<p>This means the total linear momentum of an isolated system (no
+external forces) remains conserved over time. It holds true for all
+types of interactions—collisions, explosions, and more—provided the
+system is closed and isolated.</p>
+<p>In mathematical form, for a two-body system:</p>
+<p><span class="math display">\[m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2
+v_2\]</span></p>
+<p>Here,</p>
+<ul>
+<li><p><span class="math inline">\(m_1, m_2\)</span>: Masses of the
+objects</p></li>
+<li><p><span class="math inline">\(u_1, u_2\)</span>: Initial
+velocities</p></li>
+<li><p><span class="math inline">\(v_1, v_2\)</span>: Final
+velocities</p></li>
+</ul>
+<h1 class="unnumbered" id="key-concepts-and-definitions">Key Concepts
+and Definitions</h1>
+<ul>
+<li><p><strong>Linear Momentum (<span
+class="math inline">\(\vec{p}\)</span>):</strong> <span
+class="math display">\[\vec{p} = m \vec{v}\]</span> A vector quantity
+representing motion. Direction is the same as velocity.</p></li>
+<li><p><strong>Isolated System:</strong> A system not influenced by any
+external net force.</p></li>
+<li><p><strong>Impulse:</strong> <span
+class="math display">\[\text{Impulse} = F \cdot \Delta t = \Delta
+p\]</span> The product of force and time equals change in
+momentum.</p></li>
+<li><p><strong>Elastic Collision:</strong> Both momentum and kinetic
+energy are conserved.</p></li>
+<li><p><strong>Inelastic Collision:</strong> Only momentum is conserved;
+kinetic energy is partially lost.</p></li>
+<li><p><strong>Perfectly Inelastic Collision:</strong> Maximum kinetic
+energy is lost; objects stick together after collision.</p></li>
+</ul>
+<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
+<ul>
+<li><p>Momentum is conserved only when <span
+class="math inline">\(\vec{F}_{\text{ext}} = 0\)</span>.</p></li>
+<li><p>Internal forces do not affect total momentum of a
+system.</p></li>
+<li><p>Total momentum before and after interaction is the same in an
+isolated system.</p></li>
+<li><p>In explosions, initial total momentum is often zero if system
+starts at rest.</p></li>
+<li><p>Direction is crucial: Always assign appropriate signs to
+velocities.</p></li>
+</ul>
+<h1 class="unnumbered" id="examples">Examples</h1>
+<ol>
+<li><p><strong>Recoil of a Gun:</strong> A gun of mass 5 kg fires a
+bullet of mass 0.05 kg with velocity 400 m/s. Find recoil velocity of
+the gun.</p>
+<p><span class="math display">\[\text{Initial momentum} = 0 \quad
+(\text{system at rest})\]</span></p>
+<p><span class="math display">\[0 = m_{\text{bullet}} v_{\text{bullet}}
++ m_{\text{gun}} v_{\text{gun}}
+  \Rightarrow 0 = (0.05)(400) + 5(v)
+  \Rightarrow v = -4\,\text{m/s}\]</span></p>
+<p><em>Negative sign indicates recoil in opposite
+direction.</em></p></li>
+<li><p><strong>Perfectly Inelastic Collision:</strong> A 3 kg cart
+moving at 4 m/s collides head-on with a 2 kg cart moving at 3 m/s in
+opposite direction. They stick together after collision.</p>
+<p><span class="math display">\[m_1 = 3\,\text{kg},\ u_1 =
+4\,\text{m/s}; \quad
+  m_2 = 2\,\text{kg},\ u_2 = -3\,\text{m/s}\]</span></p>
+<p><span class="math display">\[\text{Initial momentum} = 3 \cdot 4 + 2
+\cdot (-3) = 12 - 6 = 6\,\text{kg m/s}\]</span></p>
+<p><span class="math display">\[\text{Combined mass} = 5\,\text{kg}
+\Rightarrow v = \frac{6}{5} = 1.2\,\text{m/s}\]</span></p></li>
+</ol>
+<h1 class="unnumbered" id="concept-questions-with-explanations">Concept
+Questions with Explanations</h1>
+<ol>
+<li><p><strong>Why is momentum conserved in absence of external
+forces?</strong><br />
+Because <span class="math inline">\(\vec{F}_{\text{ext}} =
+\frac{d\vec{p}}{dt}\)</span>. If <span
+class="math inline">\(\vec{F}_{\text{ext}} = 0\)</span>, then <span
+class="math inline">\(\frac{d\vec{p}}{dt} = 0 \Rightarrow \vec{p} =
+\text{constant}\)</span>.</p></li>
+<li><p><strong>What role does direction play in momentum?</strong><br />
+Momentum is a vector, so the direction must be considered. Opposite
+directions imply opposite signs.</p></li>
+<li><p><strong>Does momentum conservation apply in all
+collisions?</strong><br />
+Yes, provided there are no external forces. However, kinetic energy may
+or may not be conserved.</p></li>
+<li><p><strong>What is the momentum of a system at rest?</strong><br />
+Zero. But after internal action (like explosion), individual parts may
+move, yet total momentum remains zero.</p></li>
+<li><p><strong>In which situations is impulse useful?</strong><br />
+Impulse is useful when force is not constant. It relates directly to the
+change in momentum.</p></li>
+</ol>
+<h1 class="unnumbered" id="super-tips-for-solving-fast">Super Tips for
+Solving Fast</h1>
+<ul>
+<li><p>Use momentum conservation: <span class="math display">\[m_1 u_1 +
+m_2 u_2 = m_1 v_1 + m_2 v_2\]</span></p></li>
+<li><p>For perfectly inelastic collision: <span class="math display">\[v
+= \frac{m_1 u_1 + m_2 u_2}{m_1 + m_2}\]</span></p></li>
+<li><p>Treat direction using signs. Rightward (positive), Leftward
+(negative).</p></li>
+<li><p>In explosion problems, momentum before = 0 if system was at
+rest.</p></li>
+<li><p>For 2D problems (like oblique collisions), break momentum into x
+and y components and apply conservation separately.</p></li>
+</ul>
+<h1 class="unnumbered" id="previous-year-questions-pyqs">Previous Year
+Questions (PYQs)</h1>
+<p><strong>Q1.</strong> An artillery piece of mass <span
+class="math inline">\(M_1\)</span> fires a shell of mass <span
+class="math inline">\(M_2\)</span> horizontally. Instantaneously after
+the firing, the ratio of kinetic energy of the artillery and that of the
+shell is: <strong>(JEE 2024)</strong></p>
+<ol>
+<li><p><span class="math inline">\(\frac{M_1}{M_1 +
+M_2}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{M_2}{M_1}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{M_1}{M_2}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{M_2}{M_1 +
+M_2}\)</span></p></li>
+</ol>
+<p><strong><em>Solution:</em></strong></p>
+<p>Given:</p>
+<ul>
+<li><p>Mass of artillery = <span
+class="math inline">\(M_1\)</span></p></li>
+<li><p>Mass of shell = <span class="math inline">\(M_2\)</span></p></li>
+<li><p>Initially, the system is at rest. After firing, due to
+conservation of momentum, both move in opposite directions.</p></li>
+</ul>
+<p>Let:</p>
+<ul>
+<li><p>Velocity of shell after firing = <span
+class="math inline">\(v\)</span></p></li>
+<li><p>Recoil velocity of artillery = <span
+class="math inline">\(V\)</span></p></li>
+</ul>
+<p>By the <strong>law of conservation of linear momentum</strong>,
+initial momentum is zero (system was at rest):</p>
+<p><span class="math display">\[M_1 (-V) + M_2 v = 0 \Rightarrow M_1 V =
+M_2 v
+\Rightarrow V = \frac{M_2}{M_1} v\]</span></p>
+<p>Now, calculate the kinetic energies:</p>
+<ul>
+<li><p>K.E. of artillery: <span class="math display">\[KE_1 =
+\frac{1}{2} M_1 V^2 = \frac{1}{2} M_1 \left( \frac{M_2}{M_1} v \right)^2
+= \frac{1}{2} \cdot \frac{M_2^2}{M_1} v^2\]</span></p></li>
+<li><p>K.E. of shell: <span class="math display">\[KE_2 = \frac{1}{2}
+M_2 v^2\]</span></p></li>
+</ul>
+<p>Take the ratio <span
+class="math inline">\(\frac{KE_1}{KE_2}\)</span>:</p>
+<p><span class="math display">\[\frac{KE_1}{KE_2} = \frac{\frac{1}{2}
+\cdot \frac{M_2^2}{M_1} v^2}{\frac{1}{2} M_2 v^2}
+= \frac{M_2}{M_1}\]</span></p>
+<p><strong>Answer:</strong> <span
+class="math inline">\(\boxed{\frac{M_2}{M_1}}\)</span></p>
+</body>
+</html>
