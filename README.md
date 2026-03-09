@@ -1,6 +1,7 @@
 <p align="center">
   <img src="assets/website_banner.png" width="100%">
 </p>
+
 # Dr. Sharad Chandra Tripathi – Academic Website
 
 Personal academic website of **Dr. Sharad Chandra Tripathi**, physicist specializing in **Solar Physics, Space Weather, Ionospheric Physics, Plasma Physics, and Computational Physics**.
