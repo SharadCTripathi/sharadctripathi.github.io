@@ -1,396 +1,378 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Dr. Sharad Chandra Tripathi" />
-  <title>Oscillation and Its Applications</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="/usr/share/javascript/mathjax/MathJax.js"
-  type="text/javascript"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Oscillation and Its Applications | Physics Article by Dr. Sharad Chandra Tripathi</title>
+
+<meta name="description" content="Understand oscillation and simple harmonic motion with formulas, concepts, energy relations, examples, and solved JEE questions. A complete physics learning guide.">
+<meta name="keywords" content="Oscillation, Simple Harmonic Motion, SHM, Angular Frequency, Physics Tutorial, Pendulum Motion, Spring Oscillation, Resonance, JEE Physics">
+<meta name="author" content="Dr. Sharad Chandra Tripathi">
+<link rel="canonical" href="https://example.com/oscillation-and-its-applications">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+.article-page {
+  background: #f9f9f9;
+  font-family: "Georgia", serif;
+  color: #222;
+  padding: 20px 0;
+}
+.article-page main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 25px;
+}
+.article-page section {
+  background: #ffffff;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.article-page section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.article-page h1 {
+  font-size: 2.2em;
+  color: #002147;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.article-page .header-author {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.article-page h2 {
+  font-size: 2em;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 8px;
+}
+.article-page h3 {
+  font-size: 1.5em;
+  color: #0056b3;
+  margin-bottom: 15px;
+}
+.article-page p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 18px;
+  line-height: 1.75;
+}
+.article-page ul, .article-page ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+.article-page li {
+  margin-bottom: 10px;
+}
+.article-page .work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.article-page .math-display {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+  font-size: 1.2em;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+.article-page span.math-inline {
+  font-size: 1.05em;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.article-page .footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+</style>
 </head>
+
 <body>
-<header id="title-block-header">
-<h1 class="title">Oscillation and Its Applications</h1>
-<p class="author">Dr. Sharad Chandra Tripathi</p>
-</header>
-<h1 class="unnumbered" id="what-is-oscillation">What Is
-Oscillation?</h1>
-<p>Oscillation refers to the repetitive back-and-forth movement of a
-system about a mean position. It’s a common phenomenon found in nature
-and physics—from the swinging of a pendulum to the vibrations of a
-guitar string or atoms in a molecule. The key characteristic of
-oscillatory motion is that it is periodic, meaning it repeats itself
-after a regular interval of time.</p>
-<p>Oscillatory systems can be mechanical (like a mass on a spring),
-electrical (like LC circuits), or even biological (like heartbeats). In
-fact, oscillations also appear in chemical reactions, population
-dynamics in ecology, and even in financial markets, making them a
-universal concept across disciplines. Understanding oscillations helps
-us grasp the principles of how systems evolve over time and respond to
-various forces.</p>
-<h1 class="unnumbered" id="types-of-oscillations">Types of
-Oscillations</h1>
-<p>Oscillations are broadly categorized into the following types:</p>
+
+<div class="article-page">
+<main>
+
+<h1>Oscillation and Its Applications</h1>
+<p class="header-author">by Dr. Sharad Chandra Tripathi</p>
+
+<section>
+<h2>What Is Oscillation?</h2>
+
+<p>Oscillation refers to the repetitive back-and-forth movement of a system about a mean position. It's a common phenomenon found in nature and physics—from the swinging of a pendulum to the vibrations of a guitar string or atoms in a molecule. The key characteristic of oscillatory motion is that it is periodic, meaning it repeats itself after a regular interval of time.</p>
+
+<p>Oscillatory systems can be mechanical (like a mass on a spring), electrical (like LC circuits), or even biological (like heartbeats). In fact, oscillations also appear in chemical reactions, population dynamics in ecology, and even in financial markets, making them a universal concept across disciplines. Understanding oscillations helps us grasp the principles of how systems evolve over time and respond to various forces.</p>
+
+</section>
+
+<section>
+<h2>Types of Oscillations</h2>
+
 <ul>
-<li><p><strong>Free Oscillations:</strong> These occur when a system is
-displaced from its equilibrium position and allowed to move without any
-external force or damping. A classic example is an ideal mass-spring
-system oscillating freely after being pulled and released.</p></li>
-<li><p><strong>Damped Oscillations:</strong> In real systems, resistive
-forces like friction cause oscillations to lose energy over time, so
-their amplitude gradually decreases. For instance, shock absorbers in
-vehicles use damping to reduce unwanted vibrations. Eventually, if
-energy loss continues, the oscillations stop completely.</p></li>
-<li><p><strong>Forced Oscillations:</strong> These arise when an
-external periodic force drives the system. If the driving frequency
-matches the system’s natural frequency, a phenomenon called resonance
-occurs, resulting in large amplitude oscillations that can sometimes
-cause damage.</p></li>
-<li><p><strong>Simple Harmonic Motion (SHM):</strong> This is a special
-case of oscillation where the restoring force is directly proportional
-to displacement and acts in the opposite direction. SHM is the
-fundamental type, as it models many physical systems and forms the basis
-for understanding more complex oscillatory behaviors.</p></li>
+
+<li><strong>Free Oscillations:</strong>  
+These occur when a system is displaced from its equilibrium position and allowed to move without any external force or damping. A classic example is an ideal mass-spring system oscillating freely after being pulled and released.</li>
+
+<li><strong>Damped Oscillations:</strong>  
+In real systems, resistive forces like friction cause oscillations to lose energy over time, so their amplitude gradually decreases. For instance, shock absorbers in vehicles use damping to reduce unwanted vibrations. Eventually, if energy loss continues, the oscillations stop completely.</li>
+
+<li><strong>Forced Oscillations:</strong>  
+These arise when an external periodic force drives the system. If the driving frequency matches the system's natural frequency, a phenomenon called resonance occurs, resulting in large amplitude oscillations that can sometimes cause damage.</li>
+
+<li><strong>Simple Harmonic Motion (SHM):</strong>  
+This is a special case of oscillation where the restoring force is directly proportional to displacement and acts in the opposite direction. SHM is the fundamental type, as it models many physical systems and forms the basis for understanding more complex oscillatory behaviors.</li>
+
 </ul>
-<h1 class="unnumbered" id="key-concepts-and-definitions">Key Concepts
-and Definitions</h1>
+
+</section>
+
+<section>
+<h2>Key Concepts and Definitions</h2>
+
 <ul>
-<li><p><strong>Amplitude (A):</strong> The maximum displacement of the
-system from its mean (equilibrium) position.</p></li>
-<li><p><strong>Time Period (T):</strong> The time taken to complete one
-full oscillation cycle.</p></li>
-<li><p><strong>Frequency (f):</strong> The number of oscillations
-occurring in one second. It is the reciprocal of the period: <span
-class="math display">\[f = \frac{1}{T}\]</span></p></li>
-<li><p><strong>Angular Frequency (<span
-class="math inline">\(\omega\)</span>):</strong> Related to frequency
-by: <span class="math display">\[\omega = 2\pi f =
-\frac{2\pi}{T}\]</span></p></li>
-<li><p><strong>Phase:</strong> This term describes the state of
-oscillation (the position and direction of motion) at a particular
-instant in time. It helps specify exactly where in its cycle the system
-is.</p></li>
-<li><p><strong>Restoring Force:</strong> A force that always acts to
-bring the system back to its equilibrium. In SHM, it follows Hooke’s
-law: <span class="math display">\[F = -kx\]</span> where <span
-class="math inline">\(k\)</span> is the force constant and <span
-class="math inline">\(x\)</span> is the displacement. The negative sign
-shows the force opposes displacement, pulling the system back toward the
-center.</p></li>
+
+<li><strong>Amplitude (A):</strong>  
+The maximum displacement of the system from its mean (equilibrium) position.</li>
+
+<li><strong>Time Period (T):</strong>  
+The time taken to complete one full oscillation cycle.</li>
+
+<li><strong>Frequency (f):</strong>  
+The number of oscillations occurring in one second. It is the reciprocal of the period:</li>
+
+<p class="math-display">\[ f = \frac{1}{T} \]</p>
+
+<li><strong>Angular Frequency (<span class="math-inline">\( \omega \)</span>):</strong>  
+Related to frequency by:</li>
+
+<p class="math-display">\[ \omega = 2\pi f = \frac{2\pi}{T} \]</p>
+
+<li><strong>Phase:</strong>  
+This term describes the state of oscillation at a particular instant in time.</li>
+
+<li><strong>Restoring Force:</strong>  
+A force that always acts to bring the system back to its equilibrium.</li>
+
+<p class="math-display">\[ F = -kx \]</p>
+
+<p>where <span class="math-inline">\( k \)</span> is the force constant and <span class="math-inline">\( x \)</span> is the displacement.</p>
+
 </ul>
-<h1 class="unnumbered" id="mathematical-form-of-shm">Mathematical Form
-of SHM</h1>
-<p>The displacement <span class="math inline">\(x(t)\)</span> of a
-particle undergoing SHM is described by the equation:</p>
-<p><span class="math display">\[x(t) = A \sin(\omega t +
-\phi)\]</span></p>
-<p>Here:</p>
+
+</section>
+
+<section>
+<h2>Mathematical Form of SHM</h2>
+
+<p>The displacement <span class="math-inline">\( x(t) \)</span> of a particle undergoing SHM is described by the equation:</p>
+
+<p class="math-display">\[ x(t) = A \sin(\omega t + \phi) \]</p>
+
 <ul>
-<li><p><span class="math inline">\(x(t)\)</span> is the displacement at
-time <span class="math inline">\(t\)</span></p></li>
-<li><p><span class="math inline">\(A\)</span> is the amplitude, or
-maximum displacement</p></li>
-<li><p><span class="math inline">\(\omega\)</span> is the angular
-frequency</p></li>
-<li><p><span class="math inline">\(\phi\)</span> is the phase constant,
-which sets the initial condition of the motion</p></li>
+
+<li><span class="math-inline">\( x(t) \)</span> is the displacement at time <span class="math-inline">\( t \)</span></li>
+<li><span class="math-inline">\( A \)</span> is the amplitude</li>
+<li><span class="math-inline">\( \omega \)</span> is the angular frequency</li>
+<li><span class="math-inline">\( \phi \)</span> is the phase constant</li>
+
 </ul>
-<p>This equation shows that the particle’s position varies smoothly and
-periodically over time. The phase constant <span
-class="math inline">\(\phi\)</span> is especially useful when the
-oscillation does not start from the equilibrium position.</p>
-<p>Velocity and acceleration, which are the first and second derivatives
-of displacement with respect to time, are:</p>
-<p><span class="math display">\[v(t) = \frac{dx}{dt} = A\omega
-\cos(\omega t + \phi)\]</span></p>
-<p><span class="math display">\[a(t) = \frac{d^2x}{dt^2} = -A\omega^2
-\sin(\omega t + \phi)\]</span></p>
-<p>Notice the negative sign in acceleration indicates that it always
-points toward the mean position, confirming the restoring nature of the
-force driving the oscillation.</p>
-<h1 class="unnumbered" id="energy-in-simple-harmonic-motion">Energy in
-Simple Harmonic Motion</h1>
-<p>In ideal SHM, total mechanical energy remains constant because energy
-keeps shifting between kinetic and potential forms without loss.</p>
+
+<p>Velocity and acceleration are:</p>
+
+<p class="math-display">\[ v(t) = \frac{dx}{dt} = A\omega \cos(\omega t + \phi) \]</p>
+
+<p class="math-display">\[ a(t) = \frac{d^2x}{dt^2} = -A\omega^2 \sin(\omega t + \phi) \]</p>
+
+</section>
+
+<section>
+<h2>Energy in Simple Harmonic Motion</h2>
+
 <ul>
-<li><p><strong>Potential Energy (PE):</strong> Stored energy due to
-displacement, <span class="math display">\[PE =
-\frac{1}{2}kx^2\]</span></p></li>
-<li><p><strong>Kinetic Energy (KE):</strong> Energy due to motion, <span
-class="math display">\[KE = \frac{1}{2}mv^2 = \frac{1}{2}k(A^2 -
-x^2)\]</span></p></li>
-<li><p><strong>Total Energy (E):</strong> Sum of kinetic and potential
-energy, <span class="math display">\[E = KE + PE = \frac{1}{2}kA^2 =
-\text{constant}\]</span></p></li>
+
+<li><strong>Potential Energy (PE):</strong></li>
+
+<p class="math-display">\[ PE = \frac{1}{2}kx^2 \]</p>
+
+<li><strong>Kinetic Energy (KE):</strong></li>
+
+<p class="math-display">\[ KE = \frac{1}{2}mv^2 = \frac{1}{2}k(A^2 - x^2) \]</p>
+
+<li><strong>Total Energy (E):</strong></li>
+
+<p class="math-display">\[ E = KE + PE = \frac{1}{2}kA^2 = \text{constant} \]</p>
+
 </ul>
-<p>Thus, the system’s energy continuously oscillates between kinetic and
-potential forms, but their sum remains unchanged throughout the motion.
-This conservation holds true assuming no damping or external forces act
-on the system.</p>
-<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
+
+</section>
+
+<section>
+<h2>Shortcut Concepts</h2>
+
 <ul>
-<li><p>SHM can be visualized as the projection of uniform circular
-motion onto one dimension.</p></li>
-<li><p>Displacement, velocity, and acceleration vary sinusoidally with
-time.</p></li>
-<li><p>Maximum speed is: <span class="math display">\[v_{\text{max}} =
-A\omega\]</span></p></li>
-<li><p>Maximum acceleration is: <span
-class="math display">\[a_{\text{max}} = A\omega^2\]</span></p></li>
-<li><p>The time taken for the particle to move from mean position to
-extreme position is one-quarter of the time period: <span
-class="math display">\[\frac{T}{4}\]</span></p></li>
+
+<li>SHM can be visualized as the projection of uniform circular motion onto one dimension.</li>
+
+<li>Maximum speed:</li>
+
+<p class="math-display">\[ v_{\text{max}} = A\omega \]</p>
+
+<li>Maximum acceleration:</li>
+
+<p class="math-display">\[ a_{\text{max}} = A\omega^2 \]</p>
+
+<li>Time from mean to extreme position:</li>
+
+<p class="math-display">\[ \frac{T}{4} \]</p>
+
 </ul>
-<h1 class="unnumbered" id="examples">Examples</h1>
+
+</section>
+
+<section>
+<h2>Examples</h2>
+
 <ol>
-<li><p><strong>Mass-Spring System:</strong> A block of mass <span
-class="math inline">\(m\)</span> attached to a spring with spring
-constant <span class="math inline">\(k\)</span> executes SHM. Its time
-period is: <span class="math display">\[T = 2\pi
-\sqrt{\frac{m}{k}}\]</span> This formula shows how mass and spring
-stiffness affect the speed of oscillation.</p></li>
-<li><p><strong>Simple Pendulum:</strong> A bob of mass <span
-class="math inline">\(m\)</span> suspended from a string of length <span
-class="math inline">\(L\)</span> swings back and forth. For small
-angular displacements, the motion approximates SHM with time period:
-<span class="math display">\[T = 2\pi \sqrt{\frac{L}{g}}\]</span> where
-<span class="math inline">\(g\)</span> is acceleration due to
-gravity.</p></li>
-<li><p><strong>Energy Distribution at Half Amplitude:</strong> When
-displacement is <span class="math inline">\(x = \frac{A}{2}\)</span>,
-potential energy is: <span class="math display">\[PE =
-\frac{1}{2}k\left(\frac{A}{2}\right)^2 = \frac{1}{8}kA^2\]</span>
-Kinetic energy is the remainder of total energy: <span
-class="math display">\[KE = \frac{1}{2}kA^2 - \frac{1}{8}kA^2 =
-\frac{3}{8}kA^2\]</span> So the ratio of potential to kinetic energy is:
-<span class="math display">\[\frac{PE}{KE} =
-\frac{1}{3}\]</span></p></li>
+
+<li><strong>Mass-Spring System</strong></li>
+
+<p class="math-display">\[ T = 2\pi \sqrt{\frac{m}{k}} \]</p>
+
+<li><strong>Simple Pendulum</strong></li>
+
+<p class="math-display">\[ T = 2\pi \sqrt{\frac{L}{g}} \]</p>
+
+<li><strong>Energy Distribution at Half Amplitude</strong></li>
+
+<p class="math-display">\[ PE = \frac{1}{2}k\left(\frac{A}{2}\right)^2 = \frac{1}{8}kA^2 \]</p>
+
+<p class="math-display">\[ KE = \frac{3}{8}kA^2 \]</p>
+
+<p class="math-display">\[ \frac{PE}{KE} = \frac{1}{3} \]</p>
+
 </ol>
-<h1 class="unnumbered" id="concept-questions-with-explanations">Concept
-Questions with Explanations</h1>
+
+</section>
+
+<section>
+<h2>Concept Questions with Explanations</h2>
+
 <ol>
-<li><p><strong>Is SHM possible without a restoring force?</strong><br />
-No. SHM fundamentally requires a restoring force proportional and
-opposite to displacement, otherwise the system won’t oscillate
-periodically.</p></li>
-<li><p><strong>Why is SHM considered the simplest form of
-oscillation?</strong><br />
-Because it is described by linear differential equations leading to
-sinusoidal motion, making it mathematically tractable. More complex
-oscillations involve nonlinearities.</p></li>
-<li><p><strong>Can total energy in SHM ever be zero?</strong><br />
-Only if the amplitude is zero, meaning no motion occurs. Otherwise, the
-total mechanical energy remains constant and positive.</p></li>
-<li><p><strong>What happens when damping is introduced?</strong><br />
-The amplitude decreases gradually over time as energy is lost,
-eventually stopping oscillations. In critical damping, the system
-returns to equilibrium without oscillating, in the shortest possible
-time.</p></li>
-<li><p><strong>What is resonance?</strong><br />
-Resonance happens when the frequency of an external driving force
-matches the natural frequency of the system, causing oscillations of
-very large amplitude.</p></li>
+
+<li><strong>Is SHM possible without a restoring force?</strong><br>
+No. SHM requires a restoring force proportional and opposite to displacement.</li>
+
+<li><strong>Why is SHM the simplest oscillation?</strong><br>
+Because it follows linear differential equations producing sinusoidal motion.</li>
+
+<li><strong>Can total energy be zero?</strong><br>
+Only if amplitude is zero.</li>
+
+<li><strong>What happens when damping is introduced?</strong><br>
+Amplitude decreases over time until motion stops.</li>
+
+<li><strong>What is resonance?</strong><br>
+Occurs when driving frequency equals natural frequency producing large oscillations.</li>
+
 </ol>
-<h1 class="unnumbered" id="super-tips-for-solving-fast">Super Tips for
-Solving Fast</h1>
+
+</section>
+
+<section>
+<h2>Super Tips for Solving Fast</h2>
+
 <ul>
-<li><p>Always verify if the force is proportional to the negative of
-displacement to confirm SHM behavior.</p></li>
-<li><p>Use energy conservation principles when solving problems
-involving velocities or positions.</p></li>
-<li><p>The ratio of potential to kinetic energy at any displacement
-<span class="math inline">\(x\)</span> is: <span
-class="math display">\[\frac{PE}{KE} = \frac{x^2}{A^2 -
-x^2}\]</span></p></li>
-<li><p>At half amplitude, <span class="math inline">\(x =
-\frac{A}{2}\)</span>, the ratio simplifies to: <span
-class="math display">\[\frac{PE}{KE} = \frac{(A/2)^2}{A^2 - (A/2)^2} =
-\frac{1}{3}\]</span></p></li>
+
+<li>Verify restoring force proportional to negative displacement.</li>
+
+<li>Use conservation of energy.</li>
+
+<li>Energy ratio formula:</li>
+
+<p class="math-display">\[ \frac{PE}{KE} = \frac{x^2}{A^2 - x^2} \]</p>
+
+<li>At half amplitude:</li>
+
+<p class="math-display">\[ \frac{PE}{KE} = \frac{1}{3} \]</p>
+
 </ul>
-<h1 class="unnumbered" id="previous-year-questions-pyqs">Previous Year
-Questions (PYQs)</h1>
-<p><strong>Q1.</strong> A particle is executing simple harmonic motion.
-The ratio of potential energy and kinetic energy of the particle when
-its displacement is half of its amplitude will be: <strong>[JEE Main,
-2023]</strong></p>
-<ol>
-<li><p>2:1</p></li>
-<li><p>1:3</p></li>
-<li><p>1:4</p></li>
-<li><p>1:1</p></li>
+
+</section>
+
+<section>
+<h2>Previous Year Questions (PYQs)</h2>
+
+<div class="work-item">
+
+<p><strong>Q1.</strong></p>
+
+<p>A particle executing SHM has displacement half of amplitude. Find ratio of potential to kinetic energy.</p>
+
+<p><strong>[JEE Main, 2023]</strong></p>
+
+<ol type="a">
+<li>2:1</li>
+<li>1:3</li>
+<li>1:4</li>
+<li>1:1</li>
 </ol>
-<p><strong><em>Solution:</em></strong></p>
-<p>When <span class="math inline">\(x = \frac{A}{2}\)</span>, use the
-energy ratio formula: <span class="math display">\[\frac{PE}{KE} =
-\frac{x^2}{A^2 - x^2} = \frac{(A/2)^2}{A^2 - (A/2)^2} =
-\frac{A^2/4}{3A^2/4} = \frac{1}{3}\]</span></p>
-<p><strong>Answer:</strong> <span
-class="math inline">\(\boxed{1:3}\)</span></p>
-<p><strong>Declaration:</strong><br />
-This article is an original work authored for educational purposes. It
-has not been copied in whole or in part from any external source. The
-content is intended to support students preparing for JEE/ NEET and may
-be freely used for non-commercial, academic use with proper
-attribution.</p>
-<p><strong>Writer’s Name:</strong> Dr. Sharad Chandra Tripathi</p>
+
+<p><strong>Solution:</strong></p>
+
+<p class="math-display">\[
+\frac{PE}{KE} =
+\frac{(A/2)^2}{A^2-(A/2)^2}
+=
+\frac{A^2/4}{3A^2/4}
+=
+\frac{1}{3}
+\]</p>
+
+<p><strong>Answer:</strong> <span class="math-inline">\( \boxed{1:3} \)</span></p>
+
+</div>
+
+</section>
+
+
+<div class="footer">
+<p>© 2026 Dr. Sharad Chandra Tripathi</p>
+</div>
+
+</main>
+</div>
+
 </body>
 </html>
