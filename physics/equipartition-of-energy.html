@@ -19,117 +19,104 @@ svg: { fontCache: 'global' }
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
+<!-- Scoped CSS -->
 <style>
-
-body{
-font-family:Georgia,serif;
-background:#f9f9f9;
-margin:0;
-padding:0;
-color:#222;
+body {
+  font-family: Georgia, serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #222;
 }
-
-main{
-max-width:900px;
-margin:30px auto;
-padding:30px 25px;
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px 25px;
 }
-
-section{
-background:#fff;
-padding:30px 25px;
-margin-bottom:30px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
-transition:transform .2s, box-shadow .2s;
+section {
+  background: #fff;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
-section:hover{
-transform:translateY(-3px);
-box-shadow:0 8px 20px rgba(0,0,0,0.12);
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
-
-h2{
-font-size:2em;
-color:#002147;
-font-weight:700;
-margin-bottom:20px;
-border-bottom:3px solid #FFD700;
-padding-bottom:8px;
+h2 {
+  font-size: 2em;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 8px;
 }
-
-p{
-text-align:justify;
-line-height:1.75;
-margin-bottom:18px;
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 18px;
+  line-height: 1.75;
 }
-
-ul,ol{
-margin-left:30px;
-line-height:1.6;
-margin-bottom:15px;
+ul, ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+  line-height: 1.6;
 }
-
-li{
-margin-bottom:10px;
+li {
+  margin-bottom: 10px;
 }
-
-.math-display{
-display:block;
-text-align:center;
-margin:25px 0;
-font-size:1.2em;
-background:#f4f4f4;
-padding:12px;
-border-radius:6px;
-overflow-x:auto;
+.math-display {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+  font-size: 1.2em;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
 }
-
-.math-inline{
-font-size:1.05em;
-background:#f4f4f4;
-padding:2px 5px;
-border-radius:3px;
-white-space:nowrap;
+.math-inline {
+  font-size: 1.05em;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
 }
-
-.header-title{
-text-align:center;
-margin:20px 0 30px 0;
+.work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
-
-.header-title h1{
-margin-bottom:10px;
+.header-title {
+  text-align: center;
+  margin: 20px 0 30px 0;
 }
-
-.wordcount{
-text-align:right;
-font-style:italic;
+.header-title h1 {
+  margin-bottom: 10px;
 }
-
-.work-item{
-border-left:4px solid #FFD700;
-background:#fffbea;
-border-radius:6px;
-padding:18px;
-margin-bottom:20px;
-box-shadow:0 2px 6px rgba(0,0,0,0.05);
+.header-title .header-author {
+  text-align: center;
+  font-style: italic;
+  margin: 0;
 }
-
-.footer{
-text-align:center;
-margin:50px 0 20px 0;
-font-size:0.9em;
-color:#555;
+.footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
 }
-
-@media(max-width:768px){
-main{padding:25px 15px;}
-h2{font-size:1.8em;}
-.math-display{font-size:1.05em;}
+@media (max-width: 768px) {
+  main { padding: 25px 15px; }
+  h2 { font-size: 1.8em; }
+  .math-display { font-size: 1.05em; }
 }
-
 </style>
+  
 </head>
 
 <body>
@@ -138,7 +125,7 @@ h2{font-size:1.8em;}
 
 <div class="header-title">
 <h1>Equipartition of Energy</h1>
-<p>by Dr. Sharad Chandra Tripathi</p>
+<p class="header-author">by Dr. Sharad Chandra Tripathi</p>
 </div>
 
 <section>
