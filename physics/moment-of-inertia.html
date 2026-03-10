@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Moment of Inertia Explained | Physics Notes by Dr. Sharad Chandra Tripathi</title>
+<title>Moment of Inertia | Physics Article by Dr. Sharad Chandra Tripathi</title>
 
-<meta name="description" content="Learn the concept of moment of inertia with clear explanations, formulas, examples, theorems, and JEE PYQ solutions. Physics notes by Dr. Sharad Chandra Tripathi.">
+<meta name="description" content="Complete explanation of Moment of Inertia with formulas, theorems, worked examples, and JEE PYQ solution. Written by Dr. Sharad Chandra Tripathi.">
 
-<meta name="keywords" content="moment of inertia, rotational mechanics, physics notes, moment of inertia formulas, parallel axis theorem, perpendicular axis theorem, JEE physics problems">
+<meta name="keywords" content="moment of inertia, rotational mechanics, physics notes, JEE physics moment of inertia, parallel axis theorem, perpendicular axis theorem">
 
 <meta name="author" content="Dr. Sharad Chandra Tripathi">
 
@@ -17,10 +18,8 @@
 window.MathJax = {
 tex: {
 inlineMath: [['\\(','\\)']],
-displayMath: [['\\[','\\]']],
-processEscapes: true
-},
-svg: { fontCache: 'global' }
+displayMath: [['\\[','\\]']]
+}
 };
 </script>
 
@@ -28,112 +27,79 @@ svg: { fontCache: 'global' }
 
 <style>
 
-body {
-  font-family: Georgia, serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
-  color: #222;
+body{
+font-family: Georgia, serif;
+background:#f9f9f9;
+margin:0;
+padding:0;
+color:#222;
 }
 
-main {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 30px 25px;
+main{
+max-width:900px;
+margin:40px auto;
+padding:20px;
 }
 
-section {
-  background: #fff;
-  padding: 30px 25px;
-  margin-bottom: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+section{
+background:white;
+padding:30px;
+margin-bottom:30px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 
-section:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+h1{
+text-align:center;
+margin-bottom:5px;
 }
 
-h2 {
-  font-size: 2em;
-  color: #002147;
-  font-weight: 700;
-  margin-bottom: 20px;
-  border-bottom: 3px solid #FFD700;
-  padding-bottom: 8px;
+.author{
+text-align:center;
+font-style:italic;
+margin-bottom:20px;
 }
 
-p {
-  text-align: justify;
-  text-justify: inter-word;
-  margin-bottom: 18px;
-  line-height: 1.75;
+.wordcount{
+text-align:right;
+font-style:italic;
+margin-bottom:25px;
 }
 
-ul, ol {
-  margin-left: 30px;
-  margin-bottom: 15px;
-  line-height: 1.6;
+h2{
+color:#002147;
+border-bottom:3px solid #FFD700;
+padding-bottom:6px;
 }
 
-li {
-  margin-bottom: 10px;
+p{
+line-height:1.75;
+text-align:justify;
 }
 
-.math-display {
-  display: block;
-  text-align: center;
-  margin: 25px 0;
-  font-size: 1.2em;
-  background: #f4f4f4;
-  padding: 12px;
-  border-radius: 6px;
-  overflow-x: auto;
+ul,ol{
+margin-left:30px;
+line-height:1.7;
 }
 
-.work-item {
-  border-left: 4px solid #FFD700;
-  background: #fffbea;
-  border-radius: 6px;
-  padding: 15px 18px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+.math-display{
+text-align:center;
+margin:20px 0;
 }
 
-.header-title {
-  text-align: center;
-  margin: 20px 0 30px 0;
+.work-item{
+background:#fffbea;
+border-left:5px solid #FFD700;
+padding:18px;
+margin-top:15px;
+border-radius:6px;
 }
 
-.header-title h1 {
-  margin-bottom: 10px;
-}
-
-.header-title .header-author {
-  text-align: center;
-  font-style: italic;
-  margin: 0;
-}
-
-.wordcount {
-  text-align: right;
-  font-style: italic;
-  margin-bottom: 20px;
-}
-
-.footer {
-  text-align: center;
-  margin: 50px 0 20px 0;
-  font-size: 0.9em;
-  color: #555;
-}
-
-@media (max-width: 768px) {
-  main { padding: 25px 15px; }
-  h2 { font-size: 1.8em; }
-  .math-display { font-size: 1.05em; }
+.footer{
+text-align:center;
+margin-top:40px;
+color:#666;
+font-size:0.9em;
 }
 
 </style>
@@ -144,10 +110,10 @@ li {
 
 <main>
 
-<div class="header-title">
 <h1>Moment of Inertia</h1>
-<p class="header-author">by Dr. Sharad Chandra Tripathi</p>
-</div>
+<p class="author">by Dr. Sharad Chandra Tripathi</p>
+
+
 
 <section>
 
@@ -201,9 +167,9 @@ So, moment of inertia is how much something resists spinning. It depends on how 
 
 <ul>
 
-<li>
-For a single point mass:
-</li>
+<li>For a single point mass:</li>
+
+</ul>
 
 <div class="math-display">
 \[
@@ -213,9 +179,9 @@ I = m r^2
 
 <p>where \( m \) is the mass and \( r \) is the distance from the axis of rotation.</p>
 
-<li>
-For an extended object, split it into tiny mass elements and sum them:
-</li>
+<ul>
+<li>For an extended object, split it into tiny mass elements and sum them:</li>
+</ul>
 
 <div class="math-display">
 \[
@@ -231,8 +197,6 @@ I = \int r^2 \, dm
 \]
 </div>
 
-</ul>
-
 <p>
 This integral adds up all the tiny contributions to the total resistance to spinning.
 </p>
@@ -242,6 +206,8 @@ This integral adds up all the tiny contributions to the total resistance to spin
 <section>
 
 <h2>Why Should You Care?</h2>
+
+<p>Moment of inertia plays a role in many everyday and technical situations:</p>
 
 <ul>
 
@@ -283,9 +249,9 @@ where \( \tau \) is torque, \( I \) is moment of inertia, and \( \alpha \) is an
 
 <ul>
 
-<li>
-<strong>Thin ring</strong> about its central axis:
-</li>
+<li><strong>Thin ring</strong> about its central axis:</li>
+
+</ul>
 
 <div class="math-display">
 \[
@@ -293,9 +259,11 @@ I = MR^2
 \]
 </div>
 
-<li>
-<strong>Disc</strong> or <strong>solid cylinder</strong> through center:
-</li>
+<ul>
+
+<li><strong>Disc</strong> or <strong>solid cylinder</strong> through center:</li>
+
+</ul>
 
 <div class="math-display">
 \[
@@ -303,17 +271,18 @@ I = \tfrac{1}{2} MR^2
 \]
 </div>
 
-<li>
-<strong>Thin rod</strong>:
+<ul>
+
+<li><strong>Thin rod</strong>:</li>
+
 <ul>
 <li>About center: \( I = \tfrac{1}{12} ML^2 \)</li>
 <li>About one end: \( I = \tfrac{1}{3} ML^2 \)</li>
 </ul>
-</li>
 
-<li>
-<strong>Solid sphere</strong> through its diameter:
-</li>
+<li><strong>Solid sphere</strong> through its diameter:</li>
+
+</ul>
 
 <div class="math-display">
 \[
@@ -321,9 +290,9 @@ I = \tfrac{2}{5} MR^2
 \]
 </div>
 
-<li>
-<strong>Hollow sphere</strong> through its diameter:
-</li>
+<ul>
+<li><strong>Hollow sphere</strong> through its diameter:</li>
+</ul>
 
 <div class="math-display">
 \[
@@ -331,7 +300,9 @@ I = \tfrac{2}{3} MR^2
 \]
 </div>
 
-</ul>
+<p>
+Knowing these helps solve problems quickly without re-deriving each time.
+</p>
 
 </section>
 
@@ -345,15 +316,23 @@ I = \tfrac{2}{3} MR^2
 <strong>Parallel Axis Theorem</strong>
 </li>
 
+</ul>
+
 <div class="math-display">
 \[
 I = I_{\text{CM}} + M d^2
 \]
 </div>
 
+<p>where \( d \) is the distance between axes. Useful for rods, beams, and offset parts.</p>
+
+<ul>
+
 <li>
-<strong>Perpendicular Axis Theorem</strong>
+<strong>Perpendicular Axis Theorem</strong> (for flat shapes)
 </li>
+
+</ul>
 
 <div class="math-display">
 \[
@@ -361,7 +340,9 @@ I_z = I_x + I_y
 \]
 </div>
 
-</ul>
+<p>
+where \( I_z \) is the moment about an axis perpendicular to the plane.
+</p>
 
 </section>
 
@@ -369,17 +350,53 @@ I_z = I_x + I_y
 
 <h2>Worked Example</h2>
 
+<p>
+Let’s say you have a uniform rod, 1 meter long and 2 kg, rotating about one end:
+</p>
+
 <div class="math-display">
 \[
 I = \tfrac{1}{3} ML^2 = \tfrac{1}{3} \times 2 \times 1^2 = \tfrac{2}{3} \text{ kg·m}^2
 \]
 </div>
 
+<p>Now, if the same rod spins about its center:</p>
+
 <div class="math-display">
 \[
 I = \tfrac{1}{12} \times 2 \times 1^2 = \tfrac{1}{6} \text{ kg·m}^2
 \]
 </div>
+
+<p>
+Notice the difference: when rotating about the end, more mass is farther from the axis, increasing the moment of inertia. This means more torque is needed to spin it with the same acceleration.
+</p>
+
+<p>
+This example shows how simply changing the axis changes the dynamics significantly. It also explains why tools like baseball bats feel heavier when held from the end—your hands act as the rotation axis.
+</p>
+
+</section>
+
+<section>
+
+<h2>Key Insights to Remember</h2>
+
+<ul>
+
+<li>Mass positioned farther from the axis increases the moment of inertia and makes rotation more difficult.</li>
+
+<li>A larger moment of inertia always means more resistance to changes in rotational motion.</li>
+
+<li>Torque and moment of inertia determine angular acceleration following \( \tau = I\alpha \).</li>
+
+<li>Remembering standard formulas for common shapes saves time.</li>
+
+<li>Real-life systems from sports to engineering rely on proper mass distribution.</li>
+
+<li>Visual examples like doors, skaters, and spinning wheels help make the concept intuitive.</li>
+
+</ul>
 
 </section>
 
@@ -389,7 +406,7 @@ I = \tfrac{1}{12} \times 2 \times 1^2 = \tfrac{1}{6} \text{ kg·m}^2
 
 <div class="work-item">
 
-<p><strong>Q1.</strong>  
+<p><strong>Q1.</strong>
 A system consists of two identical spheres each of mass 1.5 kg and radius 50 cm at the end of a light rod. The distance between the centres of the two spheres is 5 m. What will be the moment of inertia of the system about an axis perpendicular to the rod passing through its mid-point? <strong>[JEE, 2021]</strong>
 </p>
 
@@ -398,6 +415,7 @@ A system consists of two identical spheres each of mass 1.5 kg and radius 50 cm 
 </div>
 
 </section>
+
 
 <div class="footer">
 © 2026 Dr. Sharad Chandra Tripathi
