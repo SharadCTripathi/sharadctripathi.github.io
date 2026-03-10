@@ -1,373 +1,543 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Dr. Sharad Chandra Tripathi" />
-  <title>Kinetic Theory of Gases and Its Applications</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="/usr/share/javascript/mathjax/MathJax.js"
-  type="text/javascript"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kinetic Theory of Gases and Its Applications | Physics Concepts for JEE NEET</title>
+
+<meta name="description" content="Learn the Kinetic Theory of Gases with formulas, explanations, examples, and JEE-level questions. Covers rms speed, pressure relation, mean free path, Maxwell distribution and applications.">
+
+<meta name="keywords" content="kinetic theory of gases, rms speed formula, molecular motion, gas pressure kinetic theory, mean free path, Maxwell Boltzmann distribution, JEE physics gases">
+
+<meta name="author" content="Dr. Sharad Chandra Tripathi">
+
+<script>
+window.MathJax = {
+tex: {
+inlineMath: [['\\(','\\)']],
+displayMath: [['\\[','\\]']],
+processEscapes: true
+},
+svg: { fontCache: 'global' }
+};
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+
+body {
+  font-family: Georgia, serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px 25px;
+}
+
+section {
+  background: #fff;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+h2 {
+  font-size: 2em;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 8px;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 18px;
+  line-height: 1.75;
+}
+
+ul, ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.math-display {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+  font-size: 1.2em;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.math-inline {
+  font-size: 1.05em;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.header-title {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+
+.header-title h1 {
+  margin-bottom: 10px;
+}
+
+.header-title .header-author {
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+}
+
+.word-count {
+  text-align: right;
+  font-style: italic;
+}
+
+.footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  main { padding: 25px 15px; }
+  h2 { font-size: 1.8em; }
+  .math-display { font-size: 1.05em; }
+}
+
+</style>
+
 </head>
+
 <body>
-<header id="title-block-header">
-<h1 class="title">Kinetic Theory of Gases and Its Applications</h1>
-<p class="author">Dr. Sharad Chandra Tripathi</p>
-</header>
-<h1 class="unnumbered" id="what-is-the-kinetic-theory-of-gases">What Is
-the Kinetic Theory of Gases?</h1>
-<p>Let’s explore what happens inside a gas at the molecular level. The
-Kinetic Theory of Gases helps us understand how a huge number of tiny
-particles, molecules or atoms, zoom around randomly, bump into each
-other, and hit the container walls. All of this chaotic motion,
-surprisingly, gives rise to very predictable things like pressure and
-temperature.</p>
-<p>This theory acts as a bridge between the microscopic world (molecular
-motion) and the macroscopic quantities we measure in labs—pressure,
-volume, temperature, and so on.</p>
+
+<main>
+
+<div class="header-title">
+<h1>Kinetic Theory of Gases and Its Applications</h1>
+<p class="header-author">by Dr. Sharad Chandra Tripathi</p>
+</div>
+
+<section>
+
+<h2>What Is the Kinetic Theory of Gases?</h2>
+
+<p>
+Let’s explore what happens inside a gas at the molecular level. The Kinetic Theory of Gases helps us understand how a huge number of tiny particles, molecules or atoms, zoom around randomly, bump into each other, and hit the container walls. All of this chaotic motion, surprisingly, gives rise to very predictable things like pressure and temperature.
+</p>
+
+<p>
+This theory acts as a bridge between the microscopic world (molecular motion) and the macroscopic quantities we measure in labs—pressure, volume, temperature, and so on.
+</p>
+
 <p>Here are the main assumptions this theory makes:</p>
+
 <ul>
-<li><p>Gases consist of a large number of extremely small
-molecules.</p></li>
-<li><p>These molecules are always moving in random, straight-line paths
-until they collide.</p></li>
-<li><p>All collisions—whether between molecules or with container
-walls—are perfectly elastic (no energy is lost).</p></li>
-<li><p>The actual volume of gas molecules is negligible compared to the
-space they occupy.</p></li>
-<li><p>Except during collisions, no attractive or repulsive forces act
-between molecules.</p></li>
+
+<li>Gases consist of a large number of extremely small molecules.</li>
+
+<li>These molecules are always moving in random, straight-line paths until they collide.</li>
+
+<li>All collisions—whether between molecules or with container walls—are perfectly elastic (no energy is lost).</li>
+
+<li>The actual volume of gas molecules is negligible compared to the space they occupy.</li>
+
+<li>Except during collisions, no attractive or repulsive forces act between molecules.</li>
+
 </ul>
-<p>Of course, these assumptions are idealizations. Real gases deviate
-from them under high pressure or low temperature, but for most practical
-purposes, especially at room temperature and atmospheric pressure, this
-model works beautifully.</p>
-<h1 class="unnumbered" id="key-concepts-and-definitions">Key Concepts
-and Definitions</h1>
-<p>Now let’s break down the most important ideas one by one:</p>
+
+<p>
+Of course, these assumptions are idealizations. Real gases deviate from them under high pressure or low temperature, but for most practical purposes, especially at room temperature and atmospheric pressure, this model works beautifully.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>Key Concepts and Definitions</h2>
+
 <ul>
-<li><p><strong>Pressure of a Gas:</strong> Caused by molecules colliding
-with container walls. <span class="math display">\[P = \frac{1}{3} \rho
-\bar{c}^2\]</span> where <span class="math inline">\(\rho\)</span> is
-the mass density and <span class="math inline">\(\bar{c}\)</span> is the
-root mean square speed. This connects random molecular motion to
-observable pressure.</p></li>
-<li><p><strong>Root Mean Square Speed (rms speed):</strong> <span
-class="math display">\[c_{\text{rms}} = \sqrt{\frac{3kT}{m}} =
-\sqrt{\frac{3RT}{M}}\]</span> Here, <span
-class="math inline">\(k\)</span> is the Boltzmann constant, <span
-class="math inline">\(T\)</span> is temperature, <span
-class="math inline">\(R\)</span> is the gas constant, and <span
-class="math inline">\(M\)</span> is molar mass. This gives us a measure
-of how fast the molecules are moving on average.</p></li>
-<li><p><strong>Molecular Speed Distribution:</strong> Not all molecules
-move at the same speed. In fact, their speeds follow a Maxwell-Boltzmann
-distribution. At any temperature, some molecules are slow, some are
-fast, and most are somewhere in the middle. That’s why we use different
-kinds of averages, like most probable speed, average speed, and rms
-speed, to describe them.</p></li>
-<li><p><strong>Collision Frequency (<span
-class="math inline">\(z\)</span>):</strong> This tells us how often a
-molecule collides with others in one second. <span
-class="math display">\[z \propto n \bar{c}\]</span> where <span
-class="math inline">\(n\)</span> is number density and <span
-class="math inline">\(\bar{c}\)</span> is average speed. As you might
-guess, more molecules or faster speeds means more frequent
-collisions.</p></li>
-<li><p><strong>Mean Free Path (<span
-class="math inline">\(\lambda\)</span>):</strong> The average distance a
-molecule travels before bumping into another. A high-pressure gas has a
-shorter mean free path due to more frequent collisions.</p></li>
-<li><p><strong>Kinetic Energy of One Molecule:</strong> <span
-class="math display">\[KE = \frac{3}{2}kT\]</span> Interesting fact:
-this depends only on temperature—not mass or speed.</p></li>
-<li><p><strong>Kinetic Energy of One Mole of Gas:</strong> <span
-class="math display">\[KE = \frac{3}{2}RT\]</span> This shows that 1
-mole of any ideal gas has the same total kinetic energy at a given
-temperature.</p></li>
-<li><p><strong>Ideal Gas Equation:</strong> <span
-class="math display">\[PV = nRT\]</span> This is the famous equation
-that connects pressure (P), volume (V), temperature (T), and the amount
-of gas (n). Derived using kinetic theory and experimental
-results.</p></li>
-<li><p><strong>Degrees of Freedom:</strong> These refer to the
-independent ways a molecule can store energy—translational, rotational,
-and vibrational. Monoatomic gases like helium only have 3 (just moving
-in 3D space), but diatomic gases like O<sub>2</sub> can rotate and
-eventually vibrate too (at higher temperatures), giving them 5 or even
-more degrees of freedom.</p></li>
+
+<li>
+<strong>Pressure of a Gas:</strong><br>
+Caused by molecules colliding with container walls.
+<div class="math-display">
+\[
+P = \frac{1}{3} \rho \bar{c}^2
+\]
+</div>
+where \( \rho \) is the mass density and \( \bar{c} \) is the root mean square speed.
+</li>
+
+<li>
+<strong>Root Mean Square Speed (rms speed):</strong>
+
+<div class="math-display">
+\[
+c_{\text{rms}} = \sqrt{\frac{3kT}{m}} = \sqrt{\frac{3RT}{M}}
+\]
+</div>
+
+Here \( k \) is Boltzmann constant, \( T \) is temperature, \( R \) is gas constant, and \( M \) is molar mass.
+</li>
+
+<li>
+<strong>Molecular Speed Distribution:</strong><br>
+Not all molecules move at the same speed. Their speeds follow the Maxwell–Boltzmann distribution.
+</li>
+
+<li>
+<strong>Collision Frequency \( (z) \):</strong>
+
+<div class="math-display">
+\[
+z \propto n \bar{c}
+\]
+</div>
+
+where \( n \) is number density and \( \bar{c} \) is average speed.
+</li>
+
+<li>
+<strong>Mean Free Path \( (\lambda) \):</strong><br>
+The average distance a molecule travels before colliding with another molecule.
+</li>
+
+<li>
+<strong>Kinetic Energy of One Molecule:</strong>
+
+<div class="math-display">
+\[
+KE = \frac{3}{2}kT
+\]
+</div>
+</li>
+
+<li>
+<strong>Kinetic Energy of One Mole of Gas:</strong>
+
+<div class="math-display">
+\[
+KE = \frac{3}{2}RT
+\]
+</div>
+</li>
+
+<li>
+<strong>Ideal Gas Equation:</strong>
+
+<div class="math-display">
+\[
+PV = nRT
+\]
+</div>
+</li>
+
+<li>
+<strong>Degrees of Freedom:</strong><br>
+Independent ways a molecule can store energy: translational, rotational and vibrational.
+</li>
+
 </ul>
-<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
-<p>Let’s simplify even further:</p>
+
+</section>
+
+
+<section>
+
+<h2>Shortcut Concepts</h2>
+
 <ul>
-<li><p>Gas pressure = molecules hitting walls.</p></li>
-<li><p>Temperature = average kinetic energy.</p></li>
-<li><p><span class="math inline">\(KE_{\text{avg}} \propto T\)</span>,
-so hotter gas = faster molecules.</p></li>
-<li><p>Lighter gases = higher speed at the same <span
-class="math inline">\(T\)</span>.</p></li>
-<li><p>Specific heat is tied to degrees of freedom (via the
-equipartition theorem).</p></li>
+
+<li>Gas pressure = molecules hitting container walls.</li>
+
+<li>Temperature = average kinetic energy.</li>
+
+<li>\( KE_{\text{avg}} \propto T \)</li>
+
+<li>Lighter gases move faster at the same temperature.</li>
+
+<li>Specific heat relates to degrees of freedom.</li>
+
 </ul>
-<h1 class="unnumbered" id="examples">Examples</h1>
-<p>Let’s solve a few real problems to lock in the ideas.</p>
+
+</section>
+
+
+<section>
+
+<h2>Examples</h2>
+
 <ol>
-<li><p><strong>Calculate rms speed:</strong> Find the rms speed of
-oxygen molecules at <span class="math inline">\(300\,\text{K}\)</span>.
-Molar mass <span class="math inline">\(M = 32
-\,\text{g/mol}\)</span>.</p>
-<p>First, convert molar mass to kg/mol: <span class="math inline">\(M =
-0.032\,\text{kg/mol}\)</span></p>
-<p><span class="math display">\[c_{\text{rms}} = \sqrt{\frac{3RT}{M}} =
-\sqrt{\frac{3 \cdot 8.314 \cdot 300}{0.032}} \approx
-483\,\text{m/s}\]</span></p></li>
-<li><p><strong>Find pressure from rms speed:</strong> A gas with density
-<span class="math inline">\(\rho = 1.5\,\text{kg/m}^3\)</span> has <span
-class="math inline">\(c_{\text{rms}} = 500\,\text{m/s}\)</span>. What’s
-the pressure?</p>
-<p><span class="math display">\[P = \frac{1}{3} \rho c_{\text{rms}}^2 =
-\frac{1}{3} \cdot 1.5 \cdot (500)^2 =
-125,000\,\text{Pa}\]</span></p></li>
-<li><p><strong>Average Kinetic Energy:</strong> What is the average KE
-of a gas molecule at <span class="math inline">\(T =
-300\,\text{K}\)</span>?</p>
-<p><span class="math display">\[KE = \frac{3}{2}kT = \frac{3}{2} \cdot
-1.38 \times 10^{-23} \cdot 300 \approx 6.21 \times
-10^{-21}\,\text{J}\]</span></p></li>
+
+<li>
+<strong>Calculate rms speed</strong>
+
+<p>Find rms speed of oxygen molecules at \( 300\,\text{K} \). Molar mass \( M = 32\,\text{g/mol} \).</p>
+
+<p>Convert molar mass:</p>
+
+<p>\( M = 0.032\,\text{kg/mol} \)</p>
+
+<div class="math-display">
+\[
+c_{\text{rms}} =
+\sqrt{\frac{3RT}{M}} =
+\sqrt{\frac{3 \cdot 8.314 \cdot 300}{0.032}}
+\approx 483\,\text{m/s}
+\]
+</div>
+
+</li>
+
+
+<li>
+
+<strong>Find pressure from rms speed</strong>
+
+<p>
+A gas with density \( \rho = 1.5\,\text{kg/m}^3 \) has \( c_{\text{rms}} = 500\,\text{m/s} \).
+</p>
+
+<div class="math-display">
+\[
+P =
+\frac{1}{3} \rho c_{\text{rms}}^2
+=
+\frac{1}{3} \cdot 1.5 \cdot (500)^2
+=
+125000\,\text{Pa}
+\]
+</div>
+
+</li>
+
+
+<li>
+
+<strong>Average Kinetic Energy</strong>
+
+<div class="math-display">
+\[
+KE =
+\frac{3}{2}kT
+=
+\frac{3}{2} \cdot 1.38 \times 10^{-23} \cdot 300
+\approx 6.21 \times 10^{-21}\,\text{J}
+\]
+</div>
+
+</li>
+
 </ol>
-<h1 class="unnumbered" id="concept-questions-with-explanations">Concept
-Questions with Explanations</h1>
-<p>Here are some quick questions that often confuse students—but won’t
-confuse you anymore:</p>
+
+</section>
+
+
+<section>
+
+<h2>Concept Questions with Explanations</h2>
+
 <ol>
-<li><p><strong>What causes gas pressure?</strong><br />
-It’s just billions of molecules slamming into container walls every
-second. Each tiny hit adds up to measurable pressure.</p></li>
-<li><p><strong>Why is temperature linked to molecular
-energy?</strong><br />
-Because temperature is literally a measure of average kinetic energy. If
-temperature goes up, molecules move faster.</p></li>
-<li><p><strong>Do all gas molecules in a sample move at the same
-speed?</strong><br />
-Not at all. Speeds vary and follow the Maxwell-Boltzmann distribution.
-That’s why we talk about rms speed and average speed.</p></li>
-<li><p><strong>What is the mean free path?</strong><br />
-It’s the average distance a molecule travels before a collision. Higher
-pressure or denser gases = shorter mean free path.</p></li>
-<li><p><strong>What changes if a gas is compressed?</strong><br />
-Molecules are packed closer, so collisions happen more often. Pressure
-rises, mean free path decreases, and if done quickly, temperature may
-increase too (adiabatic compression).</p></li>
+
+<li>
+<strong>What causes gas pressure?</strong><br>
+Billions of molecules colliding with container walls every second.
+</li>
+
+<li>
+<strong>Why is temperature linked to molecular energy?</strong><br>
+Temperature measures average kinetic energy of molecules.
+</li>
+
+<li>
+<strong>Do all molecules move at the same speed?</strong><br>
+No. Speeds follow Maxwell–Boltzmann distribution.
+</li>
+
+<li>
+<strong>What is mean free path?</strong><br>
+Average distance traveled before collision.
+</li>
+
+<li>
+<strong>What happens when gas is compressed?</strong><br>
+Collisions increase and pressure rises.
+</li>
+
 </ol>
-<h1 class="unnumbered" id="super-tips-for-solving-fast">Super Tips for
-Solving Fast</h1>
-<p>Here are some rapid tricks to help you ace problems:</p>
+
+</section>
+
+
+<section>
+
+<h2>Super Tips for Solving Fast</h2>
+
 <ul>
-<li><p>For rms speed: <span class="math display">\[c_{\text{rms}} =
-\sqrt{\frac{3RT}{M}} \quad \text{(make sure } M \text{ is in
-kg/mol)}\]</span></p></li>
-<li><p>Given density and speed? Use: <span class="math display">\[P =
-\frac{1}{3} \rho \bar{c}^2\]</span></p></li>
-<li><p>Average molecular energy: <span
-class="math display">\[KE_{\text{avg}} = \frac{3}{2}kT\]</span></p></li>
-<li><p>SI Units reminder: <span class="math display">\[R =
-8.314\,\text{J/mol·K}, \quad k = 1.38 \times
-10^{-23}\,\text{J/K}\]</span></p></li>
-<li><p>Gas law conversions: <span class="math display">\[PV = nRT, \quad
-\frac{P_1V_1}{T_1} = \frac{P_2V_2}{T_2} \quad \text{(when } n \text{ is
-constant)}\]</span></p></li>
+
+<li>
+
+For rms speed
+
+<div class="math-display">
+\[
+c_{\text{rms}} =
+\sqrt{\frac{3RT}{M}}
+\]
+</div>
+
+</li>
+
+<li>
+
+Pressure relation
+
+<div class="math-display">
+\[
+P = \frac{1}{3}\rho \bar{c}^2
+\]
+</div>
+
+</li>
+
+<li>
+
+Average kinetic energy
+
+<div class="math-display">
+\[
+KE_{\text{avg}} =
+\frac{3}{2}kT
+\]
+</div>
+
+</li>
+
+<li>
+
+Constants
+
+<div class="math-display">
+\[
+R = 8.314\,\text{J/mol·K}
+\quad
+k = 1.38 \times 10^{-23}\,\text{J/K}
+\]
+</div>
+
+</li>
+
+<li>
+
+Gas law relations
+
+<div class="math-display">
+\[
+PV = nRT
+\quad
+\frac{P_1V_1}{T_1} =
+\frac{P_2V_2}{T_2}
+\]
+</div>
+
+</li>
+
 </ul>
-<h1 class="unnumbered" id="previous-year-questions-pyqs">Previous Year
-Questions (PYQs)</h1>
-<p><strong>Q1.</strong> The number of air molecules per cm<span
-class="math inline">\(^3\)</span> increased from <span
-class="math inline">\(3 \times 10^{19}\)</span> to <span
-class="math inline">\(12 \times 10^{19}\)</span>. The ratio of collision
-frequency of air molecules before and after the increase in number
-respectively is:<br />
-<strong>[JEE, 2023]</strong></p>
-<ol>
-<li><p>0.75</p></li>
-<li><p>0.50</p></li>
-<li><p>1.25</p></li>
-<li><p>0.25</p></li>
+
+</section>
+
+
+<section>
+
+<h2>Previous Year Questions (PYQs)</h2>
+
+<div class="work-item">
+
+<p>
+<strong>Q1.</strong><br>
+The number of air molecules per cm<sup>3</sup> increased from \(3 \times 10^{19}\) to \(12 \times 10^{19}\).  
+Find ratio of collision frequencies.  
+<strong>[JEE 2023]</strong>
+</p>
+
+<ol type="a">
+<li>0.75</li>
+<li>0.50</li>
+<li>1.25</li>
+<li>0.25</li>
 </ol>
+
 <p><strong><em>Solution:</em></strong></p>
-<p>Collision frequency <span class="math inline">\(z \propto n\)</span>,
-where <span class="math inline">\(n\)</span> is the number density of
-molecules.<br />
-So, if <span class="math inline">\(n\)</span> increases from <span
-class="math inline">\(3 \times 10^{19}\)</span> to <span
-class="math inline">\(12 \times 10^{19}\)</span>, the ratio of initial
-to final collision frequency is: <span
-class="math display">\[\frac{z_1}{z_2} = \frac{n_1}{n_2} = \frac{3
-\times 10^{19}}{12 \times 10^{19}} = \frac{1}{4} = 0.25\]</span></p>
-<p><strong>Answer:</strong> <span
-class="math inline">\(\boxed{0.25}\)</span></p>
-<p><strong>Declaration:</strong><br />
-This article is an original work authored for educational purposes. It
-has not been copied in whole or in part from any external source. The
-content is intended to support students preparing for JEE/ NEET and may
-be freely used for non-commercial, academic use with proper
-attribution.</p>
-<p><strong>Writer’s Name:</strong> Dr. Sharad Chandra Tripathi</p>
+
+<p>
+Collision frequency \( z \propto n \)
+</p>
+
+<div class="math-display">
+\[
+\frac{z_1}{z_2}
+=
+\frac{n_1}{n_2}
+=
+\frac{3 \times 10^{19}}{12 \times 10^{19}}
+=
+\frac{1}{4}
+=
+0.25
+\]
+</div>
+
+<p><strong>Answer: \( \boxed{0.25} \)</strong></p>
+
+</div>
+
+</section>
+
+<div class="footer">
+© 2026 Dr. Sharad Chandra Tripathi
+</div>
+
+</main>
+
 </body>
 </html>
