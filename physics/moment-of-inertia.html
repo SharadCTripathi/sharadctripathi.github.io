@@ -1,374 +1,409 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Dr. Sharad Chandra Tripathi" />
-  <title>Moment of Inertia</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="/usr/share/javascript/mathjax/MathJax.js"
-  type="text/javascript"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Moment of Inertia Explained | Physics Notes by Dr. Sharad Chandra Tripathi</title>
+
+<meta name="description" content="Learn the concept of moment of inertia with clear explanations, formulas, examples, theorems, and JEE PYQ solutions. Physics notes by Dr. Sharad Chandra Tripathi.">
+
+<meta name="keywords" content="moment of inertia, rotational mechanics, physics notes, moment of inertia formulas, parallel axis theorem, perpendicular axis theorem, JEE physics problems">
+
+<meta name="author" content="Dr. Sharad Chandra Tripathi">
+
+<script>
+window.MathJax = {
+tex: {
+inlineMath: [['\\(','\\)']],
+displayMath: [['\\[','\\]']],
+processEscapes: true
+},
+svg: { fontCache: 'global' }
+};
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+
+body {
+  font-family: Georgia, serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px 25px;
+}
+
+section {
+  background: #fff;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+h2 {
+  font-size: 2em;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 8px;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 18px;
+  line-height: 1.75;
+}
+
+ul, ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.math-display {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+  font-size: 1.2em;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.header-title {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+
+.header-title h1 {
+  margin-bottom: 10px;
+}
+
+.header-title .header-author {
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+}
+
+.wordcount {
+  text-align: right;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  main { padding: 25px 15px; }
+  h2 { font-size: 1.8em; }
+  .math-display { font-size: 1.05em; }
+}
+
+</style>
+
 </head>
+
 <body>
-<header id="title-block-header">
-<h1 class="title">Moment of Inertia</h1>
-<p class="author">Dr. Sharad Chandra Tripathi</p>
-</header>
-<h1 class="unnumbered" id="moment-of-inertia">Moment of Inertia</h1>
-<p>Imagine you are trying to spin a big wheel. Sometimes it is easy to
-spin, and sometimes it is hard. Why does this happen?</p>
-<p>This is because of something called <strong>moment of
-inertia</strong>. It helps us understand how much an object resists
-spinning.</p>
-<p>Moment of inertia is like “mass” but for spinning things. Just like
-heavy things are hard to move, things with a big moment of inertia are
-hard to spin or stop spinning.</p>
+
+<main>
+
+<div class="header-title">
+<h1>Moment of Inertia</h1>
+<p class="header-author">by Dr. Sharad Chandra Tripathi</p>
+</div>
+
+<section>
+
+<h2>Moment of Inertia</h2>
+
+<p>
+Imagine you are trying to spin a big wheel. Sometimes it is easy to spin, and sometimes it is hard. Why does this happen?
+</p>
+
+<p>
+This is because of something called <strong>moment of inertia</strong>. It helps us understand how much an object resists spinning.
+</p>
+
+<p>
+Moment of inertia is like “mass” but for spinning things. Just like heavy things are hard to move, things with a big moment of inertia are hard to spin or stop spinning.
+</p>
+
 <p>Here are some important points to remember:</p>
+
 <ul>
-<li><p>Moment of inertia tells us how hard it is to start or stop
-spinning.</p></li>
-<li><p>It depends on two things: how heavy the object is, and how far
-the weight is from the center of spinning (called the axis).</p></li>
-<li><p>If the weight is far from the axis, the object is harder to
-spin.</p></li>
-<li><p>If the weight is close to the axis, the object is easier to
-spin.</p></li>
+
+<li>Moment of inertia tells us how hard it is to start or stop spinning.</li>
+
+<li>It depends on two things: how heavy the object is, and how far the weight is from the center of spinning (called the axis).</li>
+
+<li>If the weight is far from the axis, the object is harder to spin.</li>
+
+<li>If the weight is close to the axis, the object is easier to spin.</li>
+
 </ul>
-<p>Think about opening a door. If you push near the hinge (the axis), it
-is hard to open. But if you push at the edge of the door (far from the
-hinge), it opens easily. This happens because pushing far from the axis
-gives more turning power.</p>
-<p>In the same way, objects with weight far from their center resist
-spinning more. This means they have a bigger moment of inertia.</p>
-<p>So, moment of inertia is how much something resists spinning. It
-depends on how heavy it is and where its weight is placed.</p>
-<h1 class="unnumbered" id="how-is-moment-of-inertia-calculated">How Is
-Moment of Inertia Calculated?</h1>
-<p>Let’s break it down clearly:</p>
+
+<p>
+Think about opening a door. If you push near the hinge (the axis), it is hard to open. But if you push at the edge of the door (far from the hinge), it opens easily. This happens because pushing far from the axis gives more turning power.
+</p>
+
+<p>
+In the same way, objects with weight far from their center resist spinning more. This means they have a bigger moment of inertia.
+</p>
+
+<p>
+So, moment of inertia is how much something resists spinning. It depends on how heavy it is and where its weight is placed.
+</p>
+
+</section>
+
+<section>
+
+<h2>How Is Moment of Inertia Calculated?</h2>
+
+<p>Let's break it down clearly:</p>
+
 <ul>
-<li><p>For a single point mass: <span class="math display">\[I = m
-r^2\]</span> where <span class="math inline">\(m\)</span> is the mass
-and <span class="math inline">\(r\)</span> is the distance from the axis
-of rotation.</p></li>
-<li><p>For an extended object, split it into tiny mass elements and sum
-them: <span class="math display">\[I = \sum_i m_i r_i^2\]</span> or, in
-the continuous case using calculus, <span class="math display">\[I =
-\int r^2 \, dm\]</span></p></li>
+
+<li>
+For a single point mass:
+</li>
+
+<div class="math-display">
+\[
+I = m r^2
+\]
+</div>
+
+<p>where \( m \) is the mass and \( r \) is the distance from the axis of rotation.</p>
+
+<li>
+For an extended object, split it into tiny mass elements and sum them:
+</li>
+
+<div class="math-display">
+\[
+I = \sum_i m_i r_i^2
+\]
+</div>
+
+<p>or, in the continuous case using calculus,</p>
+
+<div class="math-display">
+\[
+I = \int r^2 \, dm
+\]
+</div>
+
 </ul>
-<p>This integral adds up all the tiny contributions to the total
-resistance to spinning.</p>
-<h1 class="unnumbered" id="why-should-you-care">Why Should You
-Care?</h1>
-<p>Moment of inertia plays a role in many everyday and technical
-situations:</p>
+
+<p>
+This integral adds up all the tiny contributions to the total resistance to spinning.
+</p>
+
+</section>
+
+<section>
+
+<h2>Why Should You Care?</h2>
+
 <ul>
-<li><p><strong>Engine flywheels</strong>: These help maintain smooth
-engine performance by resisting sudden changes in rotational speed.
-Their large moment of inertia stores rotational energy and prevents
-stalling.</p></li>
-<li><p><strong>Figure skaters</strong>: When skaters pull in their arms,
-they spin faster. This is because reducing their moment of inertia
-increases angular velocity to conserve angular momentum.</p></li>
-<li><p><strong>Bicycle wheels</strong>: Larger wheels have more moment
-of inertia, helping maintain forward motion. That’s why once you’re
-rolling, staying upright becomes easier.</p></li>
-<li><p><strong>Industrial machines</strong>: From turbines to washing
-machines, engineers adjust the moment of inertia to control torque,
-acceleration, and energy efficiency.</p></li>
+
+<li>
+<strong>Engine flywheels</strong>: These help maintain smooth engine performance by resisting sudden changes in rotational speed. Their large moment of inertia stores rotational energy and prevents stalling.
+</li>
+
+<li>
+<strong>Figure skaters</strong>: When skaters pull in their arms, they spin faster. This is because reducing their moment of inertia increases angular velocity to conserve angular momentum.
+</li>
+
+<li>
+<strong>Bicycle wheels</strong>: Larger wheels have more moment of inertia, helping maintain forward motion. That’s why once you're rolling, staying upright becomes easier.
+</li>
+
+<li>
+<strong>Industrial machines</strong>: From turbines to washing machines, engineers adjust the moment of inertia to control torque, acceleration, and energy efficiency.
+</li>
+
 </ul>
-<p>It’s also a key player in Newton’s second law for rotation: <span
-class="math display">\[\tau = I \alpha\]</span> where <span
-class="math inline">\(\tau\)</span> is torque, <span
-class="math inline">\(I\)</span> is moment of inertia, and <span
-class="math inline">\(\alpha\)</span> is angular acceleration. Just like
-<span class="math inline">\(F = ma\)</span> governs linear motion, this
-governs how rotational speed changes under applied torque.</p>
-<h1 class="unnumbered"
-id="common-shapes-and-their-moments-of-inertia">Common Shapes and Their
-Moments of Inertia</h1>
-<p>Here are some classic shapes and their formulas:</p>
+
+<p>It’s also a key player in Newton’s second law for rotation:</p>
+
+<div class="math-display">
+\[
+\tau = I \alpha
+\]
+</div>
+
+<p>
+where \( \tau \) is torque, \( I \) is moment of inertia, and \( \alpha \) is angular acceleration. Just like \( F = ma \) governs linear motion, this governs how rotational speed changes under applied torque.
+</p>
+
+</section>
+
+<section>
+
+<h2>Common Shapes and Their Moments of Inertia</h2>
+
 <ul>
-<li><p><strong>Thin ring</strong> about its central axis: <span
-class="math display">\[I = MR^2\]</span></p></li>
-<li><p><strong>Disc</strong> or <strong>solid cylinder</strong> through
-center: <span class="math display">\[I = \tfrac{1}{2}
-MR^2\]</span></p></li>
-<li><p><strong>Thin rod</strong>:</p>
+
+<li>
+<strong>Thin ring</strong> about its central axis:
+</li>
+
+<div class="math-display">
+\[
+I = MR^2
+\]
+</div>
+
+<li>
+<strong>Disc</strong> or <strong>solid cylinder</strong> through center:
+</li>
+
+<div class="math-display">
+\[
+I = \tfrac{1}{2} MR^2
+\]
+</div>
+
+<li>
+<strong>Thin rod</strong>:
 <ul>
-<li><p>About center: <span class="math inline">\(I = \tfrac{1}{12}
-ML^2\)</span></p></li>
-<li><p>About one end: <span class="math inline">\(I = \tfrac{1}{3}
-ML^2\)</span></p></li>
-</ul></li>
-<li><p><strong>Solid sphere</strong> through its diameter: <span
-class="math display">\[I = \tfrac{2}{5} MR^2\]</span></p></li>
-<li><p><strong>Hollow sphere</strong> through its diameter: <span
-class="math display">\[I = \tfrac{2}{3} MR^2\]</span></p></li>
+<li>About center: \( I = \tfrac{1}{12} ML^2 \)</li>
+<li>About one end: \( I = \tfrac{1}{3} ML^2 \)</li>
 </ul>
-<p>Knowing these helps solve problems quickly without re-deriving each
-time.</p>
-<h1 class="unnumbered" id="useful-theorems">Useful Theorems</h1>
-<p>Two theorems make calculating moment of inertia more flexible:</p>
-<ul>
-<li><p><strong>Parallel Axis Theorem</strong> If you know the moment of
-inertia about an object’s center of mass, and you want it about another
-parallel axis: <span class="math display">\[I = I_{\text{CM}} + M
-d^2\]</span> where <span class="math inline">\(d\)</span> is the
-distance between axes. Useful for rods, beams, and offset
-parts.</p></li>
-<li><p><strong>Perpendicular Axis Theorem</strong> (for flat shapes):
-For objects like discs or plates lying in the XY-plane: <span
-class="math display">\[I_z = I_x + I_y\]</span> where <span
-class="math inline">\(I_z\)</span> is the moment about an axis
-perpendicular to the plane. A quick trick when symmetry helps.</p></li>
+</li>
+
+<li>
+<strong>Solid sphere</strong> through its diameter:
+</li>
+
+<div class="math-display">
+\[
+I = \tfrac{2}{5} MR^2
+\]
+</div>
+
+<li>
+<strong>Hollow sphere</strong> through its diameter:
+</li>
+
+<div class="math-display">
+\[
+I = \tfrac{2}{3} MR^2
+\]
+</div>
+
 </ul>
-<p>These are invaluable when designing stable structures, rotating
-components, or analyzing torque effects in robotics and aerospace.</p>
-<h1 class="unnumbered" id="worked-example">Worked Example</h1>
-<p>Let’s say you have a uniform rod, 1 meter long and 2 kg, rotating
-about one end:</p>
-<p><span class="math display">\[I = \tfrac{1}{3} ML^2 = \tfrac{1}{3}
-\times 2 \times 1^2 = \tfrac{2}{3} \text{ kg·m}^2\]</span></p>
-<p>Now, if the same rod spins about its center:</p>
-<p><span class="math display">\[I = \tfrac{1}{12} \times 2 \times 1^2 =
-\tfrac{1}{6} \text{ kg·m}^2\]</span></p>
-<p>Notice the difference: when rotating about the end, more mass is
-farther from the axis, increasing the moment of inertia. This means more
-torque is needed to spin it with the same acceleration.</p>
-<p>This example shows how simply changing the axis changes the dynamics
-significantly. It also explains why tools like baseball bats feel
-heavier when held from the end—your hands act as the rotation axis.</p>
-<h1 class="unnumbered" id="key-insights-to-remember">Key Insights to
-Remember</h1>
-<p>Moment of inertia is a core idea in rotational mechanics, and
-understanding it gives you deeper control over how objects behave when
-they spin. Instead of just memorizing formulas, grasping how mass
-distribution affects rotation allows you to predict and explain
-real-world motion confidently.</p>
-<p>Here are the main insights to take forward:</p>
+
+</section>
+
+<section>
+
+<h2>Useful Theorems</h2>
+
 <ul>
-<li><p>Mass positioned farther from the axis increases the moment of
-inertia and makes rotation more difficult.</p></li>
-<li><p>A larger moment of inertia always means more resistance to
-changes in rotational motion, it’s the rotational equivalent of
-“heaviness.”</p></li>
-<li><p>Torque and moment of inertia work together to determine angular
-acceleration, following the relation <span class="math inline">\(\tau =
-I\alpha\)</span>.</p></li>
-<li><p>Remembering standard formulas for common shapes saves time and
-makes solving physics problems more efficient.</p></li>
-<li><p>Real-life systems, from sports and vehicles to machinery and
-engineering designs, rely on a proper understanding of how mass is
-distributed.</p></li>
-<li><p>Visual examples like doors, skaters, and spinning wheels help
-make the concept more intuitive and relatable.</p></li>
+
+<li>
+<strong>Parallel Axis Theorem</strong>
+</li>
+
+<div class="math-display">
+\[
+I = I_{\text{CM}} + M d^2
+\]
+</div>
+
+<li>
+<strong>Perpendicular Axis Theorem</strong>
+</li>
+
+<div class="math-display">
+\[
+I_z = I_x + I_y
+\]
+</div>
+
 </ul>
-<h1 class="unnumbered" id="previous-year-questions-pyqs">Previous Year
-Questions (PYQs)</h1>
-<p><strong>Q1.</strong> A system consists of two identical spheres each
-of mass 1.5 kg and radius 50 cm at the end of a light rod. The distance
-between the centres of the two spheres is 5 m. What will be the moment
-of inertia of the system about an axis perpendicular to the rod passing
-through its mid-point?<br />
-<strong>[JEE, 2021]</strong></p>
-<ol>
-<li><p>18.75 kg<span class="math inline">\(\cdot\)</span>m<span
-class="math inline">\(^2\)</span></p></li>
-<li><p>1.905 <span class="math inline">\(\times\)</span> 10<span
-class="math inline">\(^5\)</span> kg<span
-class="math inline">\(\cdot\)</span>m<span
-class="math inline">\(^2\)</span></p></li>
-<li><p>19.05 kg<span class="math inline">\(\cdot\)</span>m<span
-class="math inline">\(^2\)</span></p></li>
-<li><p>1.875 <span class="math inline">\(\times\)</span> 10<span
-class="math inline">\(^5\)</span> kg<span
-class="math inline">\(\cdot\)</span>m<span
-class="math inline">\(^2\)</span></p></li>
-</ol>
-<p><strong><em>Solution:</em></strong></p>
-<p>Each sphere contributes to the moment of inertia in two parts:</p>
-<ul>
-<li><p>Its own moment of inertia about its center: <span
-class="math inline">\(I_{\text{sphere}} =
-\frac{2}{5}MR^2\)</span></p></li>
-<li><p>Using the parallel axis theorem, shift to the axis through the
-midpoint of the rod: <span class="math display">\[I_{\text{total}} =
-\frac{2}{5}MR^2 + M\left(\frac{d}{2}\right)^2\]</span></p></li>
-</ul>
-<p>Given: <span class="math display">\[M = 1.5\,\text{kg}, \quad R =
-0.5\,\text{m}, \quad d = 5\,\text{m}\]</span></p>
-<p>For each sphere: <span class="math display">\[I =
-\frac{2}{5}(1.5)(0.5)^2 + 1.5\left(\frac{5}{2}\right)^2
-= \frac{2}{5}(1.5)(0.25) + 1.5(6.25)
-= 0.15 + 9.375 = 9.525\,\text{kg}\cdot\text{m}^2\]</span></p>
-<p>Since there are two identical spheres: <span
-class="math display">\[I_{\text{total}} = 2 \times 9.525 =
-19.05\,\text{kg}\cdot\text{m}^2\]</span></p>
-<p><strong>Answer:</strong> <span class="math inline">\(\boxed{\text{c)
-19.05 kg$\cdot$m$^2$}}\)</span></p>
-<p><strong>Declaration:</strong><br />
-This article was written in a friendly, conversational style to help
-students connect with the physics concept of moment of inertia. It is
-original and may be shared or adapted for non-commercial academic use,
-with proper attribution.</p>
-<p><strong>Writer’s Name:</strong> Dr. Sharad Chandra Tripathi</p>
+
+</section>
+
+<section>
+
+<h2>Worked Example</h2>
+
+<div class="math-display">
+\[
+I = \tfrac{1}{3} ML^2 = \tfrac{1}{3} \times 2 \times 1^2 = \tfrac{2}{3} \text{ kg·m}^2
+\]
+</div>
+
+<div class="math-display">
+\[
+I = \tfrac{1}{12} \times 2 \times 1^2 = \tfrac{1}{6} \text{ kg·m}^2
+\]
+</div>
+
+</section>
+
+<section>
+
+<h2>Previous Year Questions (PYQs)</h2>
+
+<div class="work-item">
+
+<p><strong>Q1.</strong>  
+A system consists of two identical spheres each of mass 1.5 kg and radius 50 cm at the end of a light rod. The distance between the centres of the two spheres is 5 m. What will be the moment of inertia of the system about an axis perpendicular to the rod passing through its mid-point? <strong>[JEE, 2021]</strong>
+</p>
+
+<p><strong>Answer:</strong> \( \boxed{\text{c) 19.05 kg\cdot m^2}} \)</p>
+
+</div>
+
+</section>
+
+<div class="footer">
+© 2026 Dr. Sharad Chandra Tripathi
+</div>
+
+</main>
+
 </body>
 </html>
