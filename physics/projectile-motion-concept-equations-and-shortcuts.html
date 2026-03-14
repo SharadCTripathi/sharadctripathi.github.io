@@ -1,287 +1,334 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Dr. Sharad Chandra Tripathi" />
-  <title>Projectile Motion: Concept, Equations, and Shortcuts</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="/usr/share/javascript/mathjax/MathJax.js"
-  type="text/javascript"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projectile Motion: Concept, Equations, and Shortcuts</title>
+
+<meta name="description" content="Projectile motion explained with equations, trajectory formula, time of flight, maximum height, range, solved examples and NEET PYQs.">
+<meta name="keywords" content="Projectile Motion, Range Formula, Time of Flight, Maximum Height, Trajectory Equation, Physics Projectile Motion, NEET Physics">
+<meta name="author" content="Dr. Sharad Chandra Tripathi">
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+.article-page {
+  background: #f9f9f9;
+  font-family: "Georgia", serif;
+  color: #222;
+  padding: 20px 0;
+}
+.article-page main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 25px;
+}
+.article-page section {
+  background: #ffffff;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.article-page h1 {
+  font-size: 2.2em;
+  color: #002147;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.article-page .header-author {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.article-page h2 {
+  font-size: 2em;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 8px;
+}
+.article-page p {
+  text-align: justify;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+.article-page ul, .article-page ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+}
+.article-page li { margin-bottom: 10px; }
+.article-page .math-display {
+  text-align: center;
+  margin: 25px 0;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+}
+.footer {
+  text-align:center;
+  margin-top:40px;
+}
+</style>
 </head>
+
 <body>
-<header id="title-block-header">
-<h1 class="title">Projectile Motion: Concept, Equations, and
-Shortcuts</h1>
-<p class="author">Dr. Sharad Chandra Tripathi</p>
-</header>
-<h1 class="unnumbered" id="what-is-projectile-motion">What Is Projectile
-Motion?</h1>
-<p>Projectile motion refers to the motion of an object that is thrown or
-projected into the air and is subject only to acceleration due to
-gravity. It is a two-dimensional motion in which the object moves along
-a curved trajectory known as a <em>parabola</em>.</p>
-<p>The only force acting on the object (after projection) is gravity,
-which acts vertically downward. The horizontal and vertical motions are
-treated separately and analyzed using the equations of motion.</p>
-<h1 class="unnumbered" id="key-equations">Key Equations</h1>
-<p>If a particle is projected with an initial velocity <span
-class="math inline">\(u\)</span> at an angle <span
-class="math inline">\(\theta\)</span> from the horizontal:</p>
+
+<div class="article-page">
+<main>
+
+<h1>Projectile Motion: Concept, Equations, and Shortcuts</h1>
+<p class="header-author">by Dr. Sharad Chandra Tripathi</p>
+
+
+<section>
+<h2>What Is Projectile Motion?</h2>
+
+<p>Projectile motion refers to the motion of an object that is thrown or projected into the air and is subject only to acceleration due to gravity. It is a two-dimensional motion in which the object moves along a curved trajectory known as a <em>parabola</em>.</p>
+
+<p>The only force acting on the object (after projection) is gravity, which acts vertically downward. The horizontal and vertical motions are treated separately and analyzed using the equations of motion.</p>
+
+</section>
+
+
+<section>
+<h2>Key Equations</h2>
+
+<p>If a particle is projected with an initial velocity \( u \) at an angle \( \theta \) from the horizontal:</p>
+
 <ul>
-<li><p><strong>Initial velocity components:</strong> <span
-class="math display">\[u_x = u \cos \theta, \quad u_y = u \sin
-\theta\]</span></p></li>
-<li><p><strong>Time of Flight:</strong> <span class="math display">\[T =
-\frac{2u \sin \theta}{g}\]</span></p></li>
-<li><p><strong>Maximum Height:</strong> <span class="math display">\[H =
-\frac{u^2 \sin^2 \theta}{2g}\]</span></p></li>
-<li><p><strong>Horizontal Range:</strong> <span class="math display">\[R
-= \frac{u^2 \sin 2\theta}{g}\]</span></p></li>
-<li><p><strong>Equation of Trajectory:</strong> <span
-class="math display">\[y = x \tan \theta - \frac{g x^2}{2u^2 \cos^2
-\theta}\]</span></p></li>
+
+<li><strong>Initial velocity components:</strong></li>
+
 </ul>
-<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
+
+<div class="math-display">
+\[
+u_x = u \cos \theta, \quad u_y = u \sin \theta
+\]
+</div>
+
 <ul>
-<li><p>Horizontal velocity remains constant throughout motion.</p></li>
-<li><p>Vertical motion is uniformly accelerated motion (acceleration =
-<span class="math inline">\(-g\)</span>).</p></li>
-<li><p>At the highest point, vertical velocity is zero.</p></li>
-<li><p>Maximum range occurs when <span class="math inline">\(\theta =
-45^\circ\)</span>.</p></li>
-<li><p>Time to reach maximum height = <span
-class="math inline">\(\frac{T}{2}\)</span>.</p></li>
+<li><strong>Time of Flight:</strong></li>
 </ul>
-<h1 class="unnumbered" id="examples">Examples</h1>
+
+<div class="math-display">
+\[
+T = \frac{2u \sin \theta}{g}
+\]
+</div>
+
+<ul>
+<li><strong>Maximum Height:</strong></li>
+</ul>
+
+<div class="math-display">
+\[
+H = \frac{u^2 \sin^2 \theta}{2g}
+\]
+</div>
+
+<ul>
+<li><strong>Horizontal Range:</strong></li>
+</ul>
+
+<div class="math-display">
+\[
+R = \frac{u^2 \sin 2\theta}{g}
+\]
+</div>
+
+<ul>
+<li><strong>Equation of Trajectory:</strong></li>
+</ul>
+
+<div class="math-display">
+\[
+y = x \tan \theta - \frac{g x^2}{2u^2 \cos^2 \theta}
+\]
+</div>
+
+</section>
+
+
+<section>
+<h2>Shortcut Concepts</h2>
+
+<ul>
+
+<li>Horizontal velocity remains constant throughout motion.</li>
+
+<li>Vertical motion is uniformly accelerated motion (acceleration = \( -g \)).</li>
+
+<li>At the highest point, vertical velocity is zero.</li>
+
+<li>Maximum range occurs when \( \theta = 45^\circ \).</li>
+
+<li>Time to reach maximum height = \( \frac{T}{2} \).</li>
+
+</ul>
+
+</section>
+
+
+<section>
+<h2>Examples</h2>
+
 <ol>
-<li><p>A projectile is fired with <span class="math inline">\(u =
-20\,\text{m/s}\)</span> at <span class="math inline">\(\theta =
-30^\circ\)</span>:</p>
-<p><span class="math display">\[T = \frac{2u \sin \theta}{g} = \frac{2
-\cdot 20 \cdot \frac{1}{2}}{10} = 2\,\text{s}\]</span></p>
-<p><span class="math display">\[H = \frac{u^2 \sin^2 \theta}{2g} =
-\frac{400 \cdot \frac{1}{4}}{20} = 5\,\text{m}\]</span></p>
-<p><span class="math display">\[R = \frac{u^2 \sin 2\theta}{g} =
-\frac{400 \cdot \sin 60^\circ}{10} \approx \frac{400 \cdot 0.866}{10} =
-34.64\,\text{m}\]</span></p></li>
-<li><p>A stone is thrown horizontally from a height of 80 m with speed
-10 m/s.</p>
+
+<li>A projectile is fired with \( u = 20\,\text{m/s} \) at \( \theta = 30^\circ \):</li>
+
+</ol>
+
+<div class="math-display">
+\[
+T = \frac{2u \sin \theta}{g} = \frac{2 \cdot 20 \cdot \frac{1}{2}}{10} = 2\,\text{s}
+\]
+</div>
+
+<div class="math-display">
+\[
+H = \frac{u^2 \sin^2 \theta}{2g} = \frac{400 \cdot \frac{1}{4}}{20} = 5\,\text{m}
+\]
+</div>
+
+<div class="math-display">
+\[
+R = \frac{u^2 \sin 2\theta}{g} =
+\frac{400 \cdot \sin 60^\circ}{10}
+\approx \frac{400 \cdot 0.866}{10}
+= 34.64\,\text{m}
+\]
+</div>
+
+<ol start="2">
+
+<li>A stone is thrown horizontally from a height of 80 m with speed 10 m/s.</li>
+
+</ol>
+
 <p>Time to hit ground:</p>
-<p><span class="math display">\[t = \sqrt{\frac{2h}{g}} =
-\sqrt{\frac{160}{10}} = 4\,\text{s}\]</span></p>
+
+<div class="math-display">
+\[
+t = \sqrt{\frac{2h}{g}} =
+\sqrt{\frac{160}{10}} =
+4\,\text{s}
+\]
+</div>
+
 <p>Horizontal distance covered:</p>
-<p><span class="math display">\[x = u \cdot t = 10 \cdot 4 =
-40\,\text{m}\]</span></p></li>
-</ol>
-<h1 class="unnumbered" id="concept-questions-with-explanations">Concept
-Questions with Explanations</h1>
+
+<div class="math-display">
+\[
+x = u \cdot t = 10 \cdot 4 = 40\,\text{m}
+\]
+</div>
+
+</section>
+
+
+<section>
+<h2>Concept Questions with Explanations</h2>
+
 <ol>
-<li><p><strong>Is the horizontal acceleration zero in projectile
-motion?</strong><br />
-Yes, no force acts horizontally (neglecting air resistance).</p></li>
-<li><p><strong>What is the shape of the projectile path?</strong><br />
-A parabola due to quadratic dependence of vertical displacement on
-horizontal distance.</p></li>
-<li><p><strong>At what point is vertical velocity zero?</strong><br />
-At the highest point of the trajectory.</p></li>
-<li><p><strong>Can two angles give the same range?</strong><br />
-Yes, angles <span class="math inline">\(\theta\)</span> and <span
-class="math inline">\(90^\circ - \theta\)</span> yield same range if
-projected with same speed.</p></li>
-<li><p><strong>What affects time of flight most?</strong><br />
-Vertical component of velocity (<span class="math inline">\(u \sin
-\theta\)</span>).</p></li>
+
+<li><strong>Is the horizontal acceleration zero in projectile motion?</strong><br>
+Yes, no force acts horizontally (neglecting air resistance).</li>
+
+<li><strong>What is the shape of the projectile path?</strong><br>
+A parabola due to quadratic dependence of vertical displacement on horizontal distance.</li>
+
+<li><strong>At what point is vertical velocity zero?</strong><br>
+At the highest point of the trajectory.</li>
+
+<li><strong>Can two angles give the same range?</strong><br>
+Yes, angles \( \theta \) and \( 90^\circ - \theta \) yield same range if projected with same speed.</li>
+
+<li><strong>What affects time of flight most?</strong><br>
+Vertical component of velocity \( (u \sin \theta) \).</li>
+
 </ol>
-<h1 class="unnumbered" id="super-tips-for-solving-fast">Super Tips for
-Solving Fast</h1>
+
+</section>
+
+
+<section>
+<h2>Super Tips for Solving Fast</h2>
+
 <ul>
-<li><p>Use symmetry: time to rise = time to fall.</p></li>
-<li><p>Horizontal motion: <span class="math inline">\(x = u_x
-t\)</span>; vertical motion: use kinematic equations.</p></li>
-<li><p>Always resolve velocity into components before applying
-formulas.</p></li>
-<li><p>Range is maximum when <span class="math inline">\(\theta =
-45^\circ\)</span>.</p></li>
+
+<li>Use symmetry: time to rise = time to fall.</li>
+
+<li>Horizontal motion: \( x = u_x t \); vertical motion: use kinematic equations.</li>
+
+<li>Always resolve velocity into components before applying formulas.</li>
+
+<li>Range is maximum when \( \theta = 45^\circ \).</li>
+
 </ul>
-<h1 class="unnumbered" id="previous-year-questions-pyqs">Previous Year
-Questions (PYQs)</h1>
-<p><strong>Q1.</strong> A bullet is fired from a gun at the speed of
-<span class="math inline">\(280\,\text{m/s}\)</span> in the direction
-<span class="math inline">\(30^\circ\)</span> above the horizontal. The
-maximum height attained by the bullet is: <strong>(NEET 2023)</strong>
-<strong>Given:</strong> <span class="math inline">\(g =
-9.8\,\text{m/s}^2, \sin 30^\circ = 0.5\)</span></p>
-<ol>
-<li><p>2000 m</p></li>
-<li><p>1000 m</p></li>
-<li><p>3000 m</p></li>
-<li><p>2800 m</p></li>
+
+</section>
+
+
+<section>
+<h2>Previous Year Questions (PYQs)</h2>
+
+<p><strong>Q1.</strong><br>
+A bullet is fired from a gun at the speed of \( 280\,\text{m/s} \) in the direction \( 30^\circ \) above the horizontal. The maximum height attained by the bullet is:<br>
+
+<strong>(NEET 2023)</strong><br>
+
+<strong>Given:</strong> \( g = 9.8\,\text{m/s}^2, \sin 30^\circ = 0.5 \)</p>
+
+<ol type="a">
+<li>2000 m</li>
+<li>1000 m</li>
+<li>3000 m</li>
+<li>2800 m</li>
 </ol>
+
 <p><strong><em>Solution:</em></strong></p>
-<p><span class="math display">\[H = \frac{u^2 \sin^2 \theta}{2g} =
+
+<div class="math-display">
+\[
+H =
+\frac{u^2 \sin^2 \theta}{2g}
+=
 \frac{(280)^2 \cdot (0.5)^2}{2 \cdot 9.8}
-= \frac{78400 \cdot 0.25}{19.6} = \frac{19600}{19.6} =
-1000\,\text{m}\]</span></p>
-<p><strong>Answer:</strong> <span class="math inline">\(\boxed{1000 \,
-\text{m}}\)</span></p>
+=
+\frac{78400 \cdot 0.25}{19.6}
+=
+\frac{19600}{19.6}
+=
+1000\,\text{m}
+\]
+</div>
+
+<p><strong>Answer:</strong> \( \boxed{1000 \, \text{m}} \)</p>
+
+</section>
+
+
+<div class="footer">
+<p>© 2026 Dr. Sharad Chandra Tripathi</p>
+</div>
+
+</main>
+</div>
+
 </body>
 </html>
