@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Viscosity and Buoyancy</title>
 
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
-<!-- Scoped CSS for Article -->
 <style>
 .article-page {
   background: #f9f9f9;
@@ -25,7 +35,6 @@
   margin-bottom: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 .article-page h1 {
   font-size: 2.2em;
@@ -71,7 +80,6 @@
   border-radius: 6px;
   padding: 15px 18px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 .article-page .math-display {
   display: block;
@@ -81,7 +89,6 @@
   background: #f4f4f4;
   padding: 12px;
   border-radius: 6px;
-  overflow-x: auto;
 }
 .article-page span.math-inline {
   font-size: 1.05em;
@@ -89,46 +96,34 @@
   padding: 2px 5px;
   border-radius: 3px;
 }
-.article-page pre, .article-page code {
-  background: #f4f4f4;
-  padding: 6px 12px;
-  border-radius: 5px;
-  overflow-x: auto;
-  font-family: "Courier New", monospace;
-}
-.article-page p strong {
-  color: #002147;
-}
 .article-page .footer {
   text-align: center;
   margin: 50px 0 20px 0;
   font-size: 0.9em;
   color: #555;
 }
-@media (max-width: 768px) {
-  .article-page main { padding: 25px 15px; }
-  .article-page h2 { font-size: 1.8em; }
-  .article-page h3 { font-size: 1.4em; }
-  .article-page .math-display { font-size: 1.05em; }
-}
 </style>
 </head>
 
 <body>
 
+<div class="article-page">
+<main>
+
 <h1>Viscosity and Buoyancy</h1>
+
 <p class="header-author">by Dr. Sharad Chandra Tripathi</p>
 
 
-
 <p>
-Have you ever wondered why honey flows more slowly than water? Or why a ball dropped in oil sinks more slowly than in air? The answer lies in a property called <b>viscosity</b>. And when you think of floating objects or things submerged in water, that is where <b>buoyancy</b> comes in.
+Have you ever wondered why honey flows more slowly than water? Or why a ball dropped in oil sinks more slowly than in air? The answer lies in a property called <strong>viscosity</strong>. And when you think of floating objects or things submerged in water, that is where <strong>buoyancy</strong> comes in.
 </p>
 
 <p>
 These two concepts, viscosity and buoyancy, are crucial in fluid mechanics and have real-life applications, from designing submarines to understanding blood flow in veins. Let us dive in.
 </p>
 
+<section>
 <h2>What is Viscosity?</h2>
 
 <p>
@@ -139,47 +134,47 @@ Viscosity is a measure of a fluid’s resistance to flow. Simply put, it is how 
 If a fluid flows easily, it has low viscosity. If it flows slowly, it has high viscosity.
 </p>
 
-<p><b>Why does this happen?</b><br>
+<p><strong>Why does this happen?</strong><br>
 Because in fluids, different layers slide over each other when the fluid flows. Viscosity is the internal friction between these layers.
 </p>
 
 <h3>Viscous Force</h3>
 
 <p>
-When a fluid flows over a surface or within itself, a force opposes this motion. This is called the <b>viscous force</b>.
+When a fluid flows over a surface or within itself, a force opposes this motion. This is called the <strong>viscous force</strong>.
 </p>
 
 <p>
 Imagine two parallel layers of a fluid, one moving faster than the other. The layer below resists the motion of the one above, much like friction.
 </p>
 
-<p>
-Mathematically, viscous force \( F \) is given by:
-</p>
+<p>Mathematically, viscous force <span class="math-inline">\( F \)</span> is given by:</p>
 
-<div class="math">
+<p class="math-display">
 \[
 F = \eta A \frac{dv}{dx}
 \]
-</div>
+</p>
+
+<p>Where:</p>
 
 <ul>
-<li>\( \eta \) is the coefficient of viscosity</li>
-<li>\( A \) is the area of the layer</li>
-<li>\( \frac{dv}{dx} \) is the velocity gradient (rate of change of velocity with distance)</li>
+<li><span class="math-inline">\( \eta \)</span> is the coefficient of viscosity</li>
+<li><span class="math-inline">\( A \)</span> is the area of the layer</li>
+<li><span class="math-inline">\( \frac{dv}{dx} \)</span> is the velocity gradient (rate of change of velocity with distance)</li>
 </ul>
 
-<p><b>Unit of viscosity:</b> \( \text{Pa} \cdot \text{s} \) or \( \text{N} \cdot \text{s/m}^2 \)</p>
+<p><strong>Unit of viscosity:</strong> <span class="math-inline">\( \text{Pa} \cdot \text{s} \)</span> or <span class="math-inline">\( \text{N} \cdot \text{s/m}^2 \)</span></p>
 
-<p><b>CGS unit:</b> Poise, where \( 1 \, \text{Pa} \cdot \text{s} = 10 \, \text{Poise} \)</p>
+<p><strong>CGS unit:</strong> Poise, where <span class="math-inline">\( 1 \, \text{Pa} \cdot \text{s} = 10 \, \text{Poise} \)</span></p>
 
 <h3>Types of Fluids</h3>
 
 <ul>
-<li><b>Ideal Fluid:</b> No viscosity (purely theoretical)</li>
-<li><b>Real Fluid:</b> Has viscosity</li>
-<li><b>Newtonian Fluid:</b> Obeys Newton’s law of viscosity (e.g., water, air)</li>
-<li><b>Non-Newtonian Fluid:</b> Does not obey Newton’s law (e.g., ketchup, blood)</li>
+<li><strong>Ideal Fluid:</strong> No viscosity (purely theoretical)</li>
+<li><strong>Real Fluid:</strong> Has viscosity</li>
+<li><strong>Newtonian Fluid:</strong> Obeys Newton’s law of viscosity (e.g., water, air)</li>
+<li><strong>Non-Newtonian Fluid:</strong> Does not obey Newton’s law (e.g., ketchup, blood)</li>
 </ul>
 
 <h3>Stoke's Law: Drag on a Sphere</h3>
@@ -188,20 +183,18 @@ F = \eta A \frac{dv}{dx}
 Ever seen a ball falling in oil? It moves slowly because of viscous drag.
 </p>
 
-<p>
-When a sphere moves through a viscous fluid, it experiences a resisting force given by:
-</p>
+<p>When a sphere moves through a viscous fluid, it experiences a resisting force given by:</p>
 
-<div class="math">
+<p class="math-display">
 \[
 F = 6 \pi \eta r v
 \]
-</div>
+</p>
 
 <ul>
-<li>\( \eta \) = viscosity of the fluid</li>
-<li>\( r \) = radius of the sphere</li>
-<li>\( v \) = velocity of the sphere</li>
+<li><span class="math-inline">\( \eta \)</span> = viscosity of the fluid</li>
+<li><span class="math-inline">\( r \)</span> = radius of the sphere</li>
+<li><span class="math-inline">\( v \)</span> = velocity of the sphere</li>
 </ul>
 
 <p>
@@ -211,29 +204,33 @@ This law is valid for small spherical objects moving slowly (laminar flow).
 <h3>Terminal Velocity</h3>
 
 <p>
-As an object falls through a fluid, it speeds up until the net force becomes zero. At this point, it moves with constant speed. This is called <b>terminal velocity</b>.
+As an object falls through a fluid, it speeds up until the net force becomes zero. At this point, it moves with constant speed. This is called <strong>terminal velocity</strong>.
 </p>
 
 <p>
-For a sphere of radius \( r \), terminal velocity \( v_t \) is:
+For a sphere of radius <span class="math-inline">\( r \)</span>, terminal velocity <span class="math-inline">\( v_t \)</span> is:
 </p>
 
-<div class="math">
+<p class="math-display">
 \[
 v_t = \frac{2r^2(\rho - \sigma)g}{9\eta}
 \]
-</div>
+</p>
 
 <ul>
-<li>\( \rho \) = density of the sphere</li>
-<li>\( \sigma \) = density of fluid</li>
-<li>\( g \) = acceleration due to gravity</li>
-<li>\( \eta \) = viscosity of fluid</li>
+<li><span class="math-inline">\( \rho \)</span> = density of the sphere</li>
+<li><span class="math-inline">\( \sigma \)</span> = density of fluid</li>
+<li><span class="math-inline">\( g \)</span> = acceleration due to gravity</li>
+<li><span class="math-inline">\( \eta \)</span> = viscosity of fluid</li>
 </ul>
 
 <p>
 So, if the object is denser than the fluid, it sinks. If lighter, it floats.
 </p>
+
+</section>
+
+<section>
 
 <h2>Buoyancy: The Upward Force</h2>
 
@@ -245,79 +242,85 @@ Have you ever felt lighter in a swimming pool? That is because of buoyancy, the 
 This concept was first explained by Archimedes over 2000 years ago.
 </p>
 
-<p><b>Archimedes’ Principle:</b><br>
+<p><strong>Archimedes’ Principle:</strong><br>
 When a body is immersed in a fluid, it experiences an upward force equal to the weight of the fluid displaced.
 </p>
 
-<div class="math">
+<p class="math-display">
 \[
 F_B = \text{Weight of displaced fluid} = \sigma V g
 \]
-</div>
+</p>
 
 <ul>
-<li>\( \sigma \) = density of fluid</li>
-<li>\( V \) = volume of fluid displaced</li>
-<li>\( g \) = acceleration due to gravity</li>
+<li><span class="math-inline">\( \sigma \)</span> = density of fluid</li>
+<li><span class="math-inline">\( V \)</span> = volume of fluid displaced</li>
+<li><span class="math-inline">\( g \)</span> = acceleration due to gravity</li>
 </ul>
 
 <h3>Apparent Weight</h3>
 
-<div class="math">
+<p class="math-display">
 \[
 \text{Apparent weight} = \text{Actual weight} - \text{Buoyant force}
 \]
-</div>
+</p>
 
 <h3>Conditions for Floating and Sinking</h3>
 
 <ul>
-<li>If \( \rho < \sigma \): The object floats.</li>
-<li>If \( \rho > \sigma \): The object sinks.</li>
-<li>If \( \rho = \sigma \): The object remains suspended.</li>
+<li>If <span class="math-inline">\( \rho < \sigma \)</span>: The object floats.</li>
+<li>If <span class="math-inline">\( \rho > \sigma \)</span>: The object sinks.</li>
+<li>If <span class="math-inline">\( \rho = \sigma \)</span>: The object remains suspended.</li>
 </ul>
+
+</section>
+
+<section>
 
 <h2>Viscosity and Temperature</h2>
 
 <ul>
-<li><b>For liquids:</b> Viscosity decreases with temperature.</li>
-<li><b>For gases:</b> Viscosity increases with temperature.</li>
+<li><strong>For liquids:</strong> Viscosity decreases with temperature.</li>
+<li><strong>For gases:</strong> Viscosity increases with temperature.</li>
 </ul>
 
 <p>
 That is why hot honey flows faster than cold honey.
 </p>
 
+</section>
+
+<section>
+
 <h2>Reynolds Number: Laminar vs Turbulent Flow</h2>
 
-<p>
-How do we know if the flow is smooth or chaotic?
-</p>
+<p>We use the <strong>Reynolds number</strong> <span class="math-inline">\( Re \)</span>:</p>
 
-<p>
-We use the <b>Reynolds number</b> \( Re \):
-</p>
-
-<div class="math">
+<p class="math-display">
 \[
 Re = \frac{\rho v D}{\eta}
 \]
-</div>
+</p>
 
 <ul>
-<li>\( \rho \) = density of fluid</li>
-<li>\( v \) = velocity</li>
-<li>\( D \) = characteristic length</li>
-<li>\( \eta \) = viscosity</li>
+<li><span class="math-inline">\( \rho \)</span> = density of fluid</li>
+<li><span class="math-inline">\( v \)</span> = velocity</li>
+<li><span class="math-inline">\( D \)</span> = characteristic length</li>
+<li><span class="math-inline">\( \eta \)</span> = viscosity</li>
 </ul>
 
-<p><b>Critical values:</b></p>
+<p><strong>Critical values:</strong></p>
 
 <ul>
-<li>\( Re < 2000 \): Laminar flow (smooth)</li>
-<li>\( Re > 3000 \): Turbulent flow (chaotic)</li>
+<li><span class="math-inline">\( Re < 2000 \)</span>: Laminar flow (smooth)</li>
+<li><span class="math-inline">\( Re > 3000 \)</span>: Turbulent flow (chaotic)</li>
 <li>In between: Transitional</li>
 </ul>
+
+</section>
+
+<section>
 
 <h2>Applications in Real Life</h2>
 
@@ -328,94 +331,135 @@ Re = \frac{\rho v D}{\eta}
 <li>Designing parachutes and air-drops</li>
 </ul>
 
+</section>
+
+<section>
+
 <h2>Shortcut Concepts</h2>
 
 <ul>
 <li>Viscosity is internal friction in fluids.</li>
-<li>Viscous force: \( F = \eta A \frac{dv}{dx} \)</li>
-<li>Stoke’s Law: \( F = 6\pi \eta r v \)</li>
-<li>Terminal velocity: \( v_t = \frac{2r^2(\rho - \sigma)g}{9\eta} \)</li>
-<li>Buoyant force: \( F_B = \sigma V g \)</li>
+<li>Viscous force: <span class="math-inline">\( F = \eta A \frac{dv}{dx} \)</span></li>
+<li>Stoke’s Law: <span class="math-inline">\( F = 6\pi \eta r v \)</span></li>
+<li>Terminal velocity: <span class="math-inline">\( v_t = \frac{2r^2(\rho - \sigma)g}{9\eta} \)</span></li>
+<li>Buoyant force: <span class="math-inline">\( F_B = \sigma V g \)</span></li>
 <li>Apparent weight = Actual weight - Buoyancy</li>
 <li>Reynolds number decides flow type: Laminar or Turbulent</li>
 </ul>
 
+</section>
+
+<section>
+
 <h2>Quick Review Questions</h2>
 
 <ol>
-<li><b>What happens to viscosity of a liquid when it is heated?</b><br>It decreases.</li>
+<li><strong>What happens to viscosity of a liquid when it is heated?</strong><br>
+It decreases.</li>
 
-<li><b>A ball falls slowly in glycerin. What force is acting against gravity?</b><br>
+<li><strong>A ball falls slowly in glycerin. What force is acting against gravity?</strong><br>
 Viscous drag force and buoyant force.</li>
 
-<li><b>Why do objects feel lighter in water?</b><br>
+<li><strong>Why do objects feel lighter in water?</strong><br>
 Because of the upward buoyant force.</li>
 
-<li><b>Which has higher viscosity: water or honey?</b><br>
+<li><strong>Which has higher viscosity: water or honey?</strong><br>
 Honey.</li>
 
-<li><b>What does Reynolds number signify?</b><br>
+<li><strong>What does Reynolds number signify?</strong><br>
 It tells us whether fluid flow is laminar or turbulent.</li>
 </ol>
 
+</section>
+
+<section>
+
 <h2>Previous Year Question (PYQ)</h2>
 
-<p><b>Q.1</b><br>
-The diameter of an air bubble which was initially \(2 \, \text{mm}\), rises steadily through a solution of density \(1750 \, \text{kg/m}^3\) at the rate of \(0.35 \, \text{cm/s}\). The coefficient of viscosity of the solution is ______ poise (to nearest integer).  
-(The density of air is negligible.) <b>[JEE, 2022]</b>
+<div class="work-item">
+
+<p><strong>Q.1</strong><br>
+The diameter of an air bubble which was initially <span class="math-inline">\(2 \, \text{mm}\)</span>, rises steadily through a solution of density <span class="math-inline">\(1750 \, \text{kg/m}^3\)</span> at the rate of <span class="math-inline">\(0.35 \, \text{cm/s}\)</span>. The coefficient of viscosity of the solution is ........ poise (to nearest integer).  
+(The density of air is negligible.) <strong>[JEE, 2022]</strong>
 </p>
 
-<div class="solution">
+<p><strong><em>Solution:</em></strong></p>
 
-<p><b>Given values</b></p>
+<p><strong>Given values</strong></p>
 
 <ul>
-<li>Diameter \(D = 2 \, \text{mm}\) → Radius \(r = 1 \times 10^{-3} \, \text{m}\)</li>
-<li>Terminal velocity \(v = 0.0035 \, \text{m/s}\)</li>
-<li>Density \( \rho = 1750 \, \text{kg/m}^3 \)</li>
-<li>Density of air negligible</li>
-<li>\( g = 9.8 \, \text{m/s}^2 \)</li>
+<li>Diameter <span class="math-inline">\(D = 2 \, \text{mm}\)</span> ⇒ Radius <span class="math-inline">\(r = 1 \, \text{mm} = 1 \times 10^{-3} \, \text{m}\)</span></li>
+<li>Terminal velocity <span class="math-inline">\(v = 0.35 \, \text{cm/s} = 0.0035 \, \text{m/s}\)</span></li>
+<li>Density of solution <span class="math-inline">\( \rho = 1750 \, \text{kg/m}^3 \)</span></li>
+<li>Density of air is negligible: <span class="math-inline">\( \sigma \approx 0 \)</span></li>
+<li>Acceleration due to gravity <span class="math-inline">\( g = 9.8 \, \text{m/s}^2 \)</span></li>
+<li><span class="math-inline">\( \pi = \frac{22}{7} \)</span></li>
 </ul>
 
-<div class="math">
-\[
-6\pi \eta r v = \frac{4}{3}\pi r^3 \rho g
-\]
-</div>
+<p><strong>Use Stoke’s law and buoyant force equilibrium</strong></p>
 
-<div class="math">
+<p class="math-display">
+\[
+F_{\text{viscous}} = F_{\text{buoyant}} = V \rho g
+\]
+</p>
+
+<p class="math-display">
+\[
+F = 6\pi \eta r v
+\quad \text{and} \quad
+V = \frac{4}{3} \pi r^3
+\]
+</p>
+
+<p class="math-display">
+\[
+6\pi \eta r v = \frac{4}{3} \pi r^3 \rho g
+\]
+</p>
+
+<p class="math-display">
 \[
 \eta = \frac{2}{9} r^2 \rho g / v
 \]
-</div>
-
-<div class="math">
-\[
-\eta \approx 1.089 \, \text{Ns/m}^2
-\]
-</div>
-
-<p>
-Convert to poise:
 </p>
 
-<div class="math">
+<p><strong>Plug in the values</strong></p>
+
+<p class="math-display">
+\[
+\eta = \frac{2}{9} \cdot (1 \times 10^{-3})^2 \cdot 1750 \cdot 9.8 / (0.0035)
+\]
+</p>
+
+<p class="math-display">
+\[
+= \frac{2 \cdot 10^{-6} \cdot 1750 \cdot 9.8}{9 \cdot 0.0035}
+= \frac{34.3 \cdot 10^{-3}}{0.0315}
+\approx 1.089 \, \text{Ns/m}^2
+\]
+</p>
+
+<p>Convert to poise:</p>
+
+<p class="math-display">
 \[
 1 \, \text{Ns/m}^2 = 10 \, \text{poise}
+\Rightarrow \eta \approx 10.89 \, \text{poise}
 \]
-</div>
-
-<p>
-\( \eta \approx 10.89 \, \text{poise} \)
 </p>
 
-<p><b>Answer:</b> \( \boxed{11} \, \text{poise} \)</p>
+<p><strong>Answer (nearest integer):</strong> <span class="math-inline">\( \boxed{11} \, \text{poise} \)</span></p>
 
 </div>
 
-<!-- Footer -->
+
+
 <div class="footer">
 <p>© 2026 Dr. Sharad Chandra Tripathi</p>
+</div>
+
+</main>
 </div>
 
 </body>
