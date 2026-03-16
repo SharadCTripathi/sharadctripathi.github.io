@@ -6,69 +6,111 @@
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+<!-- Scoped CSS for Article -->
 <style>
-
-body{
-    font-family: Georgia, "Times New Roman", serif;
-    line-height:1.7;
-    margin:40px auto;
-    max-width:850px;
-    font-size:18px;
-    color:#222;
+.article-page {
+  background: #f9f9f9;
+  font-family: "Georgia", serif;
+  color: #222;
+  padding: 20px 0;
 }
-
-h1{
-    text-align:center;
-    font-size:34px;
-    margin-bottom:5px;
+.article-page main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 25px;
 }
-
-h2{
-    font-size:26px;
-    margin-top:40px;
+.article-page section {
+  background: #ffffff;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
-h3{
-    font-size:22px;
-    margin-top:25px;
+.article-page h1 {
+  font-size: 2.2em;
+  color: #002147;
+  text-align: center;
+  margin-bottom: 5px;
 }
-
-p{
-    margin:16px 0;
+.article-page .header-author {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 20px;
 }
-
-ul,ol{
-    margin-left:25px;
+.article-page h2 {
+  font-size: 2em;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 8px;
 }
-
-.math{
-    text-align:center;
-    margin:20px 0;
+.article-page h3 {
+  font-size: 1.5em;
+  color: #0056b3;
+  margin-bottom: 15px;
 }
-
-.wordcount{
-    text-align:right;
-    margin-top:-10px;
+.article-page p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 18px;
+  line-height: 1.75;
 }
-
-.box{
-    background:#f7f7f7;
-    padding:18px;
-    border-left:5px solid #444;
-    margin:25px 0;
+.article-page ul, .article-page ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+  line-height: 1.6;
 }
-
-.solution{
-    background:#fbfbfb;
-    border-left:5px solid #555;
-    padding:20px;
-    margin-top:20px;
+.article-page li {
+  margin-bottom: 10px;
 }
-
-footer{
-    margin-top:40px;
+.article-page .work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
-
+.article-page .math-display {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+  font-size: 1.2em;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+.article-page span.math-inline {
+  font-size: 1.05em;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+.article-page pre, .article-page code {
+  background: #f4f4f4;
+  padding: 6px 12px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: "Courier New", monospace;
+}
+.article-page p strong {
+  color: #002147;
+}
+.article-page .footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+@media (max-width: 768px) {
+  .article-page main { padding: 25px 15px; }
+  .article-page h2 { font-size: 1.8em; }
+  .article-page h3 { font-size: 1.4em; }
+  .article-page .math-display { font-size: 1.05em; }
+}
 </style>
 </head>
 
