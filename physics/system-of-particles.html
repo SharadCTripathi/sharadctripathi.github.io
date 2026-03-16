@@ -1,335 +1,391 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Dr. Sharad Chandra Tripathi" />
-  <title>System of Particles and Centre of Mass</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="/usr/share/javascript/mathjax/MathJax.js"
-  type="text/javascript"></script>
+<meta charset="UTF-8">
+
+<title>System of Particles and Centre of Mass</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+body {
+  font-family: Georgia, serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px 25px;
+}
+section {
+  background: #fff;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+h2 {
+  font-size: 2em;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 8px;
+}
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 18px;
+  line-height: 1.75;
+}
+ul, ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+li {
+  margin-bottom: 10px;
+}
+.math-display {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+  font-size: 1.2em;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+.math-inline {
+  font-size: 1.05em;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.header-title {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+.header-title h1 {
+  margin-bottom: 10px;
+}
+.header-title .header-author {
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+}
+.footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+@media (max-width: 768px) {
+  main { padding: 25px 15px; }
+  h2 { font-size: 1.8em; }
+  .math-display { font-size: 1.05em; }
+}
+</style>
+
 </head>
+
 <body>
-<header id="title-block-header">
-<h1 class="title">System of Particles and Centre of Mass</h1>
-<p class="author">Dr. Sharad Chandra Tripathi</p>
+
+<main>
+
+<header class="header-title">
+<h1>System of Particles and Centre of Mass</h1>
+<p class="header-author">Dr. Sharad Chandra Tripathi</p>
 </header>
-<h1 class="unnumbered"
-id="what-is-the-centre-of-mass-of-a-system-of-particles">What Is the
-Centre of Mass of a System of Particles?</h1>
-<p>In physics, a system of particles consists of multiple bodies that
-may interact with each other and with external forces. To describe the
-motion of such a system in a simplified way, we use the concept of the
-<strong>Centre of Mass (COM)</strong>. This point behaves as if the
-entire mass of the system were concentrated there.</p>
-<p>Instead of tracking each particle’s individual motion, we often study
-the motion of the COM. This is particularly helpful in analyzing
-translational motion, collisions, explosions.</p>
-<p>The concept of COM is not limited to rigid bodies or simple masses,
-it extends to systems with variable mass distributions and continuous
-bodies like rods, discs, or even irregularly shaped objects. In
-rotational dynamics, the axis of rotation often passes through the COM,
-because it minimizes the net torque required.</p>
-<p>The COM is particularly important in analyzing mechanical systems,
-orbital motion of celestial bodies, and structural stability in
-engineering. In fact, walking, running, or even balancing are daily
-examples of COM application in biomechanics.</p>
-<h1 class="unnumbered" id="key-concepts-and-definitions">Key Concepts
-and Definitions</h1>
-<p>Let’s break down the key ideas related to systems of particles and
-their centre of mass:</p>
+
+<section>
+
+<h2>What Is the Centre of Mass of a System of Particles?</h2>
+
+<p>
+In physics, a system of particles consists of multiple bodies that may interact with each other and with external forces. To describe the motion of such a system in a simplified way, we use the concept of the <strong>Centre of Mass (COM)</strong>. This point behaves as if the entire mass of the system were concentrated there.
+</p>
+
+<p>
+Instead of tracking each particle’s individual motion, we often study the motion of the COM. This is particularly helpful in analyzing translational motion, collisions, explosions.
+</p>
+
+<p>
+The concept of COM is not limited to rigid bodies or simple masses, it extends to systems with variable mass distributions and continuous bodies like rods, discs, or even irregularly shaped objects. In rotational dynamics, the axis of rotation often passes through the COM, because it minimizes the net torque required.
+</p>
+
+<p>
+The COM is particularly important in analyzing mechanical systems, orbital motion of celestial bodies, and structural stability in engineering. In fact, walking, running, or even balancing are daily examples of COM application in biomechanics.
+</p>
+
+</section>
+
+<section>
+
+<h2>Key Concepts and Definitions</h2>
+
+<p>Let’s break down the key ideas related to systems of particles and their centre of mass:</p>
+
 <ul>
-<li><p><strong>Centre of Mass in 1D:</strong> <span
-class="math display">\[x_{\text{COM}} = \frac{m_1x_1 + m_2x_2 + \cdots +
-m_nx_n}{m_1 + m_2 + \cdots + m_n}\]</span> It’s the weighted average of
-positions based on mass. This expression can also be extended to two and
-three dimensions using the y and z coordinates.</p></li>
-<li><p><strong>Motion of COM:</strong> If no external force acts, the
-velocity of the COM remains constant. Even if individual particles move
-internally, the overall COM of the system follows Newton’s laws as if it
-were a single particle.</p></li>
-<li><p><strong>Shifting of COM:</strong> If a particle in the system
-moves, the COM shifts, unless another particle moves in such a way that
-the net COM position remains unchanged. This concept is essential in
-systems where internal rearrangements happen, like rockets ejecting
-fuel.</p></li>
-<li><p><strong>COM of Two Particles:</strong> For masses <span
-class="math inline">\(m_1\)</span> and <span
-class="math inline">\(m_2\)</span> at positions <span
-class="math inline">\(x_1\)</span> and <span
-class="math inline">\(x_2\)</span>, <span
-class="math display">\[x_{\text{COM}} = \frac{m_1x_1 + m_2x_2}{m_1 +
-m_2}\]</span> The COM lies closer to the heavier mass. If both masses
-are equal, the COM lies exactly midway.</p></li>
-<li><p><strong>Conservation of Momentum:</strong> If no net external
-force acts on the system, <span
-class="math display">\[\vec{P}_{\text{total}} = M\vec{v}_{\text{COM}} =
-\text{constant}\]</span> This is a cornerstone of all COM-based motion
-analysis.</p></li>
+
+<li>
+<strong>Centre of Mass in 1D:</strong>
+
+<div class="math-display">
+\[
+x_{\text{COM}} = \frac{m_1x_1 + m_2x_2 + \cdots + m_nx_n}{m_1 + m_2 + \cdots + m_n}
+\]
+</div>
+
+It’s the weighted average of positions based on mass. This expression can also be extended to two and three dimensions using the y and z coordinates.
+</li>
+
+<li>
+<strong>Motion of COM:</strong>  
+If no external force acts, the velocity of the COM remains constant. Even if individual particles move internally, the overall COM of the system follows Newton’s laws as if it were a single particle.
+</li>
+
+<li>
+<strong>Shifting of COM:</strong>  
+If a particle in the system moves, the COM shifts, unless another particle moves in such a way that the net COM position remains unchanged. This concept is essential in systems where internal rearrangements happen, like rockets ejecting fuel.
+</li>
+
+<li>
+<strong>COM of Two Particles:</strong>  
+For masses \( m_1 \) and \( m_2 \) at positions \( x_1 \) and \( x_2 \),
+
+<div class="math-display">
+\[
+x_{\text{COM}} = \frac{m_1x_1 + m_2x_2}{m_1 + m_2}
+\]
+</div>
+
+The COM lies closer to the heavier mass. If both masses are equal, the COM lies exactly midway.
+</li>
+
+<li>
+<strong>Conservation of Momentum:</strong>  
+If no net external force acts on the system,
+
+<div class="math-display">
+\[
+\vec{P}_{\text{total}} = M\vec{v}_{\text{COM}} = \text{constant}
+\]
+</div>
+
+This is a cornerstone of all COM-based motion analysis.
+</li>
+
 </ul>
-<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
-<p>Here are some quick takeaways to solve COM problems efficiently:</p>
+
+</section>
+
+<section>
+
+<h2>Shortcut Concepts</h2>
+
 <ul>
-<li><p>To keep COM unchanged: movement of one mass must be balanced by
-movement of another.</p></li>
-<li><p>Heavier masses need to move smaller distances to balance lighter
-masses moving longer distances.</p></li>
-<li><p>Internal forces don’t affect the motion of the COM.</p></li>
-<li><p>Always apply conservation of momentum for isolated
-systems.</p></li>
-<li><p>COM motion is independent of internal energy transformations
-within the system.</p></li>
+<li>To keep COM unchanged: movement of one mass must be balanced by movement of another.</li>
+<li>Heavier masses need to move smaller distances to balance lighter masses moving longer distances.</li>
+<li>Internal forces don’t affect the motion of the COM.</li>
+<li>Always apply conservation of momentum for isolated systems.</li>
+<li>COM motion is independent of internal energy transformations within the system.</li>
 </ul>
-<h1 class="unnumbered" id="examples">Examples</h1>
-<p>Let’s reinforce our understanding with some basic examples:</p>
+
+</section>
+
+<section>
+
+<h2>Examples</h2>
+
 <ol>
-<li><p><strong>COM of two particles:</strong> A 2 kg mass is at 0 cm,
-and a 4 kg mass is at 6 cm. <span class="math display">\[x_{\text{COM}}
-= \frac{2 \cdot 0 + 4 \cdot 6}{2 + 4} = \frac{24}{6} =
-4\,\text{cm}\]</span> So the COM lies 4 cm from the origin, closer to
-the heavier particle.</p></li>
-<li><p><strong>COM of uniform rod:</strong> A uniform rod of length 2 m
-has its COM at its midpoint: 1 m. This holds true regardless of
-orientation or placement.</p></li>
-<li><p><strong>Effect of movement on COM:</strong> If a 1 kg block at 0
-cm moves to 4 cm, and a 3 kg block at 6 cm moves to <span
-class="math inline">\(x\)</span>, find <span
-class="math inline">\(x\)</span> such that COM remains unchanged. <span
-class="math display">\[\text{Initial COM} = \frac{1 \cdot 0 + 3 \cdot
-6}{4} = 4.5\,\text{cm}\]</span> <span class="math display">\[\text{Final
-COM} = \frac{1 \cdot 4 + 3 \cdot x}{4} = 4.5 \Rightarrow x =
-4.5\]</span></p></li>
+
+<li>
+<strong>COM of two particles:</strong>  
+A 2 kg mass is at 0 cm, and a 4 kg mass is at 6 cm.
+
+<div class="math-display">
+\[
+x_{\text{COM}} = \frac{2 \cdot 0 + 4 \cdot 6}{2 + 4} = \frac{24}{6} = 4\,\text{cm}
+\]
+</div>
+
+So the COM lies 4 cm from the origin, closer to the heavier particle.
+</li>
+
+<li>
+<strong>COM of uniform rod:</strong>  
+A uniform rod of length 2 m has its COM at its midpoint: 1 m. This holds true regardless of orientation or placement.
+</li>
+
+<li>
+<strong>Effect of movement on COM:</strong>  
+If a 1 kg block at 0 cm moves to 4 cm, and a 3 kg block at 6 cm moves to \( x \), find \( x \) such that COM remains unchanged.
+
+<div class="math-display">
+\[
+\text{Initial COM} = \frac{1 \cdot 0 + 3 \cdot 6}{4} = 4.5\,\text{cm}
+\]
+</div>
+
+<div class="math-display">
+\[
+\text{Final COM} = \frac{1 \cdot 4 + 3 \cdot x}{4} = 4.5 \Rightarrow x = 4.5
+\]
+</div>
+
+</li>
+
 </ol>
-<h1 class="unnumbered" id="concept-questions-with-explanations">Concept
-Questions with Explanations</h1>
+
+</section>
+
+<section>
+
+<h2>Concept Questions with Explanations</h2>
+
 <ol>
-<li><p><strong>Is COM always within the body?</strong><br />
-No. For hollow or oddly shaped objects, the COM can lie outside the
-material. A ring or a boomerang are classic examples.</p></li>
-<li><p><strong>Does gravity act at the COM?</strong><br />
-Yes, the net gravitational force on a body acts at its COM. That’s why
-hanging an object from its COM allows it to balance perfectly.</p></li>
-<li><p><strong>Can COM move if no external force acts?</strong><br />
-No. In an isolated system, the COM either remains at rest or moves at
-constant velocity. Internal movements can’t change COM’s
-velocity.</p></li>
-<li><p><strong>Do internal forces shift COM?</strong><br />
-No. Internal forces, even if they rearrange particles, do not affect the
-COM’s motion.</p></li>
-<li><p><strong>What affects the COM location?</strong><br />
-Mass distribution and particle positions determine the COM. Adding mass
-or shifting particles will change its location accordingly.</p></li>
+
+<li>
+<strong>Is COM always within the body?</strong><br>
+No. For hollow or oddly shaped objects, the COM can lie outside the material. A ring or a boomerang are classic examples.
+</li>
+
+<li>
+<strong>Does gravity act at the COM?</strong><br>
+Yes, the net gravitational force on a body acts at its COM. That’s why hanging an object from its COM allows it to balance perfectly.
+</li>
+
+<li>
+<strong>Can COM move if no external force acts?</strong><br>
+No. In an isolated system, the COM either remains at rest or moves at constant velocity. Internal movements can’t change COM’s velocity.
+</li>
+
+<li>
+<strong>Do internal forces shift COM?</strong><br>
+No. Internal forces, even if they rearrange particles, do not affect the COM’s motion.
+</li>
+
+<li>
+<strong>What affects the COM location?</strong><br>
+Mass distribution and particle positions determine the COM. Adding mass or shifting particles will change its location accordingly.
+</li>
+
 </ol>
-<h1 class="unnumbered" id="super-tips-for-solving-fast">Super Tips for
-Solving Fast</h1>
-<p>To solve problems involving COM:</p>
+
+</section>
+
+<section>
+
+<h2>Super Tips for Solving Fast</h2>
+
 <ul>
-<li><p>Use weighted average formula for COM in 1D, 2D, or 3D.</p></li>
-<li><p>Treat each motion individually, and apply the condition: COM
-unchanged <span class="math inline">\(\Rightarrow\)</span> total
-weighted position must remain the same.</p></li>
-<li><p>For symmetrical bodies, COM lies at the geometric
-center.</p></li>
-<li><p>Always keep track of direction—signs matter!</p></li>
-<li><p>Use relative motion to simplify problems where objects move
-toward or away from each other.</p></li>
+<li>Use weighted average formula for COM in 1D, 2D, or 3D.</li>
+<li>Treat each motion individually, and apply the condition: COM unchanged \( \Rightarrow \) total weighted position must remain the same.</li>
+<li>For symmetrical bodies, COM lies at the geometric center.</li>
+<li>Always keep track of direction—signs matter!</li>
+<li>Use relative motion to simplify problems where objects move toward or away from each other.</li>
 </ul>
-<h1 class="unnumbered" id="previous-year-questions-pyqs">Previous Year
-Questions (PYQs)</h1>
-<p><strong>Q1.</strong> Two blocks of masses 10 kg and 30 kg are placed
-on the same straight line with coordinates (0,0) cm and (x,0) cm,
-respectively. The block of 10 kg is moved on the same line through a
-distance of 6 cm towards the other block. The distance through which the
-block of 30 kg must be moved to keep the position of centre of mass of
-the system unchanged is:<br />
-<strong>[JEE, 2022]</strong></p>
-<ol>
-<li><p>4 cm towards the 10 kg block</p></li>
-<li><p>2 cm away from the 10 kg block</p></li>
-<li><p>2 cm towards the 10 kg block</p></li>
-<li><p>4 cm away from the 10 kg block</p></li>
-</ol>
+
+</section>
+
+<section>
+
+<h2>Previous Year Questions (PYQs)</h2>
+
+<div class="work-item">
+
+<p><strong>Q1.</strong><br>
+Two blocks of masses 10 kg and 30 kg are placed on the same straight line with coordinates (0,0) cm and (x,0) cm, respectively. The block of 10 kg is moved on the same line through a distance of 6 cm towards the other block. The distance through which the block of 30 kg must be moved to keep the position of centre of mass of the system unchanged is:<br>
+<strong>[JEE, 2022]</strong>
+</p>
+
+<p>
+(a) 4 cm towards the 10 kg block<br>
+(b) 2 cm away from the 10 kg block<br>
+(c) 2 cm towards the 10 kg block<br>
+(d) 4 cm away from the 10 kg block
+</p>
+
 <p><strong><em>Solution:</em></strong></p>
-<p>Let the initial positions be: <span class="math display">\[x_1 =
-0\,\text{cm}, \quad x_2 = x\,\text{cm}\]</span></p>
-<p>Initial COM: <span class="math display">\[x_{\text{COM}} = \frac{10
-\cdot 0 + 30 \cdot x}{40} = \frac{3x}{4}\]</span></p>
-<p>After moving: <span class="math display">\[x_1&#39; = 6\,\text{cm
-(towards 30 kg block)}, \quad x_2&#39; = x + d\]</span></p>
-<p>New COM: <span class="math display">\[x&#39;_{\text{COM}} = \frac{10
-\cdot 6 + 30(x + d)}{40}
-= \frac{60 + 30x + 30d}{40}\]</span></p>
-<p>Equating both COMs: <span class="math display">\[\frac{3x}{4} =
-\frac{60 + 30x + 30d}{40}
-\Rightarrow 30x = 60 + 30x + 30d \Rightarrow 0 = 60 + 30d \Rightarrow d
-= -2\,\text{cm}\]</span></p>
-<p>So the 30 kg block must move 2 cm **towards** the 10 kg block.</p>
-<p><strong>Answer:</strong> <span class="math inline">\(\boxed{\text{c)
-2 cm towards the 10 kg block}}\)</span></p>
-<p><strong>Declaration:</strong><br />
-This article is an original work authored for educational purposes. It
-has not been copied in whole or in part from any external source. The
-content is intended to support students preparing for JEE/NEET and may
-be freely used for non-commercial, academic use with proper
-attribution.</p>
-<p><strong>Writer’s Name:</strong> Dr. Sharad Chandra Tripathi</p>
+
+<p>Let the initial positions be:</p>
+
+<div class="math-display">
+\[
+x_1 = 0\,\text{cm}, \quad x_2 = x\,\text{cm}
+\]
+</div>
+
+<p>Initial COM:</p>
+
+<div class="math-display">
+\[
+x_{\text{COM}} = \frac{10 \cdot 0 + 30 \cdot x}{40} = \frac{3x}{4}
+\]
+</div>
+
+<p>After moving:</p>
+
+<div class="math-display">
+\[
+x_1' = 6\,\text{cm (towards 30 kg block)}, \quad x_2' = x + d
+\]
+</div>
+
+<p>New COM:</p>
+
+<div class="math-display">
+\[
+x'_{\text{COM}} = \frac{10 \cdot 6 + 30(x + d)}{40}
+= \frac{60 + 30x + 30d}{40}
+\]
+</div>
+
+<p>Equating both COMs:</p>
+
+<div class="math-display">
+\[
+\frac{3x}{4} = \frac{60 + 30x + 30d}{40}
+\Rightarrow 30x = 60 + 30x + 30d \Rightarrow 0 = 60 + 30d \Rightarrow d = -2\,\text{cm}
+\]
+</div>
+
+<p>
+So the 30 kg block must move 2 cm <strong>towards</strong> the 10 kg block.
+</p>
+
+<p><strong>Answer:</strong> \( \boxed{\text{c) 2 cm towards the 10 kg block}} \)</p>
+
+</div>
+
+</section>
+
+
+<div class="footer">
+<p>© 2026 Dr. Sharad Chandra Tripathi</p>
+</div>
+
+</main>
+
 </body>
 </html>
