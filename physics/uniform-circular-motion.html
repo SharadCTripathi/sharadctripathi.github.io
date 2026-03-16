@@ -1,314 +1,372 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Dr. Sharad Chandra Tripathi" />
-  <title>Uniform Circular Motion: Concept, Equations, and Shortcuts</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="/usr/share/javascript/mathjax/MathJax.js"
-  type="text/javascript"></script>
+<meta charset="UTF-8">
+
+<title>Uniform Circular Motion: Concept, Equations, and Shortcuts</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+body {
+  font-family: Georgia, serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px 25px;
+}
+section {
+  background: #fff;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+h2 {
+  font-size: 2em;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 8px;
+}
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 18px;
+  line-height: 1.75;
+}
+ul, ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+li {
+  margin-bottom: 10px;
+}
+.math-display {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+  font-size: 1.2em;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+.math-inline {
+  font-size: 1.05em;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.header-title {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+.header-title h1 {
+  margin-bottom: 10px;
+}
+.header-title .header-author {
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+}
+.footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+@media (max-width: 768px) {
+  main { padding: 25px 15px; }
+  h2 { font-size: 1.8em; }
+  .math-display { font-size: 1.05em; }
+}
+</style>
+
 </head>
+
 <body>
-<header id="title-block-header">
-<h1 class="title">Uniform Circular Motion: Concept, Equations, and
-Shortcuts</h1>
-<p class="author">Dr. Sharad Chandra Tripathi</p>
+
+<main>
+
+<header class="header-title">
+<h1>Uniform Circular Motion: Concept, Equations, and Shortcuts</h1>
+<p class="header-author">Dr. Sharad Chandra Tripathi</p>
 </header>
-<h1 class="unnumbered" id="what-is-uniform-circular-motion">What Is
-Uniform Circular Motion?</h1>
-<p>Uniform Circular Motion (UCM) refers to the motion of an object
-traveling at constant speed along a circular path. Although the speed
-remains constant, the direction of the velocity continuously changes,
-meaning the object is accelerating. This acceleration is called
-<em>centripetal acceleration</em>, and it always points toward the
-center of the circular path.</p>
-<p>Such motion is common in daily life—examples include a satellite
-orbiting Earth, a fan blade spinning, or a car turning in a circular
-track. UCM is an example of two-dimensional motion with constant
-magnitude of velocity but changing direction.</p>
-<h1 class="unnumbered" id="key-equations">Key Equations</h1>
-<p>For a body of mass <span class="math inline">\(m\)</span> moving in a
-circle of radius <span class="math inline">\(r\)</span> with constant
-speed <span class="math inline">\(v\)</span>:</p>
+
+<section>
+
+<h2>What Is Uniform Circular Motion?</h2>
+
+<p>
+Uniform Circular Motion (UCM) refers to the motion of an object traveling at constant speed along a circular path. Although the speed remains constant, the direction of the velocity continuously changes, meaning the object is accelerating. This acceleration is called <em>centripetal acceleration</em>, and it always points toward the center of the circular path.
+</p>
+
+<p>
+Such motion is common in daily life—examples include a satellite orbiting Earth, a fan blade spinning, or a car turning in a circular track. UCM is an example of two-dimensional motion with constant magnitude of velocity but changing direction.
+</p>
+
+</section>
+
+<section>
+
+<h2>Key Equations</h2>
+
+<p>For a body of mass \( m \) moving in a circle of radius \( r \) with constant speed \( v \):</p>
+
 <ul>
-<li><p><strong>Centripetal Acceleration:</strong> <span
-class="math display">\[a_c = \frac{v^2}{r}\]</span></p></li>
-<li><p><strong>Centripetal Force:</strong> <span
-class="math display">\[F_c = m a_c = \frac{mv^2}{r}\]</span></p></li>
-<li><p><strong>Angular Velocity:</strong> <span
-class="math display">\[\omega = \frac{v}{r}\]</span></p></li>
-<li><p><strong>Relation Between Linear and Angular Quantities:</strong>
-<span class="math display">\[v = r \omega, \quad a_c = r
-\omega^2\]</span></p></li>
-<li><p><strong>Time Period and Frequency:</strong> <span
-class="math display">\[T = \frac{2\pi r}{v}, \quad f = \frac{1}{T} =
-\frac{\omega}{2\pi}\]</span></p></li>
+
+<li><strong>Centripetal Acceleration:</strong>
+<div class="math-display">
+\[
+a_c = \frac{v^2}{r}
+\]
+</div>
+</li>
+
+<li><strong>Centripetal Force:</strong>
+<div class="math-display">
+\[
+F_c = m a_c = \frac{mv^2}{r}
+\]
+</div>
+</li>
+
+<li><strong>Angular Velocity:</strong>
+<div class="math-display">
+\[
+\omega = \frac{v}{r}
+\]
+</div>
+</li>
+
+<li><strong>Relation Between Linear and Angular Quantities:</strong>
+<div class="math-display">
+\[
+v = r \omega, \quad a_c = r \omega^2
+\]
+</div>
+</li>
+
+<li><strong>Time Period and Frequency:</strong>
+<div class="math-display">
+\[
+T = \frac{2\pi r}{v}, \quad f = \frac{1}{T} = \frac{\omega}{2\pi}
+\]
+</div>
+</li>
+
 </ul>
-<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
+
+</section>
+
+<section>
+
+<h2>Shortcut Concepts</h2>
+
 <ul>
-<li><p>Speed is constant, but velocity is not (due to changing
-direction).</p></li>
-<li><p>Acceleration is always directed toward the center
-(centripetal).</p></li>
-<li><p>No work is done by centripetal force (force is perpendicular to
-displacement).</p></li>
-<li><p>Angular velocity remains constant in UCM.</p></li>
-<li><p>Frequency is the number of revolutions per second.</p></li>
+<li>Speed is constant, but velocity is not (due to changing direction).</li>
+<li>Acceleration is always directed toward the center (centripetal).</li>
+<li>No work is done by centripetal force (force is perpendicular to displacement).</li>
+<li>Angular velocity remains constant in UCM.</li>
+<li>Frequency is the number of revolutions per second.</li>
 </ul>
-<h1 class="unnumbered" id="examples">Examples</h1>
+
+</section>
+
+<section>
+
+<h2>Examples</h2>
+
 <ol>
-<li><p>A stone tied to a string of length 2 m is whirled in a horizontal
-circle with speed 4 m/s. Find centripetal force if the mass is 0.5
-kg.</p>
-<p><span class="math display">\[F_c = \frac{mv^2}{r} = \frac{0.5 \cdot
-16}{2} = 4\,\text{N}\]</span></p></li>
-<li><p>A car moves in a circle of radius 10 m with angular speed <span
-class="math inline">\(2\,\text{rad/s}\)</span>. Find linear speed and
-centripetal acceleration.</p>
-<p><span class="math display">\[v = r \omega = 10 \cdot 2 =
-20\,\text{m/s}\]</span></p>
-<p><span class="math display">\[a_c = \frac{v^2}{r} = \frac{400}{10} =
-40\,\text{m/s}^2\]</span></p></li>
+
+<li>
+A stone tied to a string of length 2 m is whirled in a horizontal circle with speed 4 m/s. Find centripetal force if the mass is 0.5 kg.
+
+<div class="math-display">
+\[
+F_c = \frac{mv^2}{r} = \frac{0.5 \cdot 16}{2} = 4\,\text{N}
+\]
+</div>
+</li>
+
+<li>
+A car moves in a circle of radius 10 m with angular speed \( 2\,\text{rad/s} \). Find linear speed and centripetal acceleration.
+
+<div class="math-display">
+\[
+v = r \omega = 10 \cdot 2 = 20\,\text{m/s}
+\]
+</div>
+
+<div class="math-display">
+\[
+a_c = \frac{v^2}{r} = \frac{400}{10} = 40\,\text{m/s}^2
+\]
+</div>
+</li>
+
 </ol>
-<h1 class="unnumbered" id="concept-questions-with-explanations">Concept
-Questions with Explanations</h1>
+
+</section>
+
+<section>
+
+<h2>Concept Questions with Explanations</h2>
+
 <ol>
-<li><p><strong>Is there acceleration in UCM?</strong><br />
-Yes, even though speed is constant, direction changes continuously,
-resulting in centripetal acceleration.</p></li>
-<li><p><strong>Is centripetal force a separate force?</strong><br />
-No, it is the net inward force (like tension, gravity, or friction) that
-causes circular motion.</p></li>
-<li><p><strong>Can work be done in UCM?</strong><br />
-No, since force is perpendicular to displacement, no work is
-done.</p></li>
-<li><p><strong>What provides centripetal force in planetary
-motion?</strong><br />
-Gravitational force acts as the centripetal force.</p></li>
-<li><p><strong>What happens if centripetal force is
-removed?</strong><br />
-The object will move tangentially to the circle due to inertia.</p></li>
+
+<li>
+<strong>Is there acceleration in UCM?</strong><br>
+Yes, even though speed is constant, direction changes continuously, resulting in centripetal acceleration.
+</li>
+
+<li>
+<strong>Is centripetal force a separate force?</strong><br>
+No, it is the net inward force (like tension, gravity, or friction) that causes circular motion.
+</li>
+
+<li>
+<strong>Can work be done in UCM?</strong><br>
+No, since force is perpendicular to displacement, no work is done.
+</li>
+
+<li>
+<strong>What provides centripetal force in planetary motion?</strong><br>
+Gravitational force acts as the centripetal force.
+</li>
+
+<li>
+<strong>What happens if centripetal force is removed?</strong><br>
+The object will move tangentially to the circle due to inertia.
+</li>
+
 </ol>
-<h1 class="unnumbered" id="super-tips-for-solving-fast">Super Tips for
-Solving Fast</h1>
+
+</section>
+
+<section>
+
+<h2>Super Tips for Solving Fast</h2>
+
 <ul>
-<li><p>Remember: Centripetal acceleration <span class="math inline">\(a
-= \frac{v^2}{r}\)</span> and not zero.</p></li>
-<li><p>For angular motion, use <span class="math inline">\(v =
-r\omega\)</span> and <span class="math inline">\(a =
-r\omega^2\)</span>.</p></li>
-<li><p>Always identify what provides the centripetal force (tension,
-gravity, friction).</p></li>
-<li><p>Time period is total time for one complete circle: <span
-class="math inline">\(T = \frac{2\pi r}{v}\)</span>.</p></li>
+<li>Remember: Centripetal acceleration \( a = \frac{v^2}{r} \) and not zero.</li>
+<li>For angular motion, use \( v = r\omega \) and \( a = r\omega^2 \).</li>
+<li>Always identify what provides the centripetal force (tension, gravity, friction).</li>
+<li>Time period is total time for one complete circle: \( T = \frac{2\pi r}{v} \).</li>
 </ul>
-<h1 class="unnumbered" id="previous-year-questions-pyqs">Previous Year
-Questions (PYQs)</h1>
-<p><strong>Q1.</strong> Two particles A and B are moving in uniform
-circular motion in concentric circles of radii <span
-class="math inline">\(r_A\)</span> and <span
-class="math inline">\(r_B\)</span> with speeds <span
-class="math inline">\(v_A\)</span> and <span
-class="math inline">\(v_B\)</span> respectively. Their time periods of
-rotation are the same. The ratio of angular speed of A to that of B will
-be: <strong>(NEET 2019)</strong></p>
-<ol>
-<li><p><span class="math inline">\(v_A : v_B\)</span></p></li>
-<li><p><span class="math inline">\(1 : 1\)</span></p></li>
-<li><p><span class="math inline">\(r_B : r_A\)</span></p></li>
-<li><p><span class="math inline">\(r_A : r_B\)</span></p></li>
-</ol>
+
+</section>
+
+<section>
+
+<h2>Previous Year Questions (PYQs)</h2>
+
+<div class="work-item">
+
+<p><strong>Q1.</strong><br>
+Two particles A and B are moving in uniform circular motion in concentric circles of radii \( r_A \) and \( r_B \) with speeds \( v_A \) and \( v_B \) respectively. Their time periods of rotation are the same. The ratio of angular speed of A to that of B will be:<br>
+<strong>(NEET 2019)</strong>
+</p>
+
+<p>
+(a) \( v_A : v_B \)<br>
+(b) \( 1 : 1 \)<br>
+(c) \( r_B : r_A \)<br>
+(d) \( r_A : r_B \)
+</p>
+
 <p><strong><em>Solution:</em></strong></p>
+
 <p>Given:</p>
+
 <ul>
-<li><p>Particles A and B perform uniform circular motion.</p></li>
-<li><p>They move in concentric circles with radii <span
-class="math inline">\(r_A\)</span> and <span
-class="math inline">\(r_B\)</span>, and linear speeds <span
-class="math inline">\(v_A\)</span> and <span
-class="math inline">\(v_B\)</span>.</p></li>
-<li><p>Their time periods are equal, i.e., <span
-class="math inline">\(T_A = T_B = T\)</span>.</p></li>
+<li>Particles A and B perform uniform circular motion.</li>
+<li>They move in concentric circles with radii \( r_A \) and \( r_B \), and linear speeds \( v_A \) and \( v_B \).</li>
+<li>Their time periods are equal, i.e., \( T_A = T_B = T \).</li>
 </ul>
-<p>We know the relation between linear speed <span
-class="math inline">\(v\)</span>, radius <span
-class="math inline">\(r\)</span>, and time period <span
-class="math inline">\(T\)</span>:</p>
-<p><span class="math display">\[v = \frac{2\pi r}{T}\]</span></p>
+
+<p>We know the relation between linear speed \( v \), radius \( r \), and time period \( T \):</p>
+
+<div class="math-display">
+\[
+v = \frac{2\pi r}{T}
+\]
+</div>
+
 <p>Applying this to A and B:</p>
-<p><span class="math display">\[v_A = \frac{2\pi r_A}{T}, \quad v_B =
-\frac{2\pi r_B}{T}\]</span></p>
-<p>Now, angular speed <span class="math inline">\(\omega\)</span> is
-given by:</p>
-<p><span class="math display">\[\omega = \frac{v}{r}\]</span></p>
+
+<div class="math-display">
+\[
+v_A = \frac{2\pi r_A}{T}, \quad v_B = \frac{2\pi r_B}{T}
+\]
+</div>
+
+<p>Now, angular speed \( \omega \) is given by:</p>
+
+<div class="math-display">
+\[
+\omega = \frac{v}{r}
+\]
+</div>
+
 <p>So,</p>
-<p><span class="math display">\[\omega_A = \frac{v_A}{r_A} = \frac{2\pi
-r_A / T}{r_A} = \frac{2\pi}{T}\]</span></p>
-<p><span class="math display">\[\omega_B = \frac{v_B}{r_B} = \frac{2\pi
-r_B / T}{r_B} = \frac{2\pi}{T}\]</span></p>
+
+<div class="math-display">
+\[
+\omega_A = \frac{v_A}{r_A} = \frac{2\pi r_A / T}{r_A} = \frac{2\pi}{T}
+\]
+</div>
+
+<div class="math-display">
+\[
+\omega_B = \frac{v_B}{r_B} = \frac{2\pi r_B / T}{r_B} = \frac{2\pi}{T}
+\]
+</div>
+
 <p>Thus,</p>
-<p><span class="math display">\[\omega_A = \omega_B \Rightarrow
-\frac{\omega_A}{\omega_B} = 1 : 1\]</span></p>
-<p><strong>Answer:</strong> <span class="math inline">\(\boxed{1 :
-1}\)</span></p>
+
+<div class="math-display">
+\[
+\omega_A = \omega_B \Rightarrow \frac{\omega_A}{\omega_B} = 1 : 1
+\]
+</div>
+
+<p><strong>Answer:</strong> \( \boxed{1 : 1} \)</p>
+
+</div>
+
+</section>
+
+<div class="footer">
+<p>© 2026 Dr. Sharad Chandra Tripathi</p>
+</div>
+
+</main>
+
 </body>
 </html>
