@@ -1,383 +1,501 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Superposition of Waves</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="/usr/share/javascript/mathjax/MathJax.js"
-  type="text/javascript"></script>
+<meta charset="UTF-8">
+
+<title>Superposition of Waves</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+body {
+  font-family: Georgia, serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px 25px;
+}
+section {
+  background: #fff;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+h2 {
+  font-size: 2em;
+  color: #002147;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 8px;
+}
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 18px;
+  line-height: 1.75;
+}
+ul, ol {
+  margin-left: 30px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+li {
+  margin-bottom: 10px;
+}
+.math-display {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+  font-size: 1.2em;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+.math-inline {
+  font-size: 1.05em;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.header-title {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+.header-title h1 {
+  margin-bottom: 10px;
+}
+.header-title .header-author {
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+}
+.footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+@media (max-width: 768px) {
+  main { padding: 25px 15px; }
+  h2 { font-size: 1.8em; }
+  .math-display { font-size: 1.05em; }
+}
+</style>
+
 </head>
+
 <body>
-<header id="title-block-header">
-<h1 class="title">Superposition of Waves</h1>
+
+<main>
+
+<header class="header-title">
+<h1>Superposition of Waves</h1>
+<p class="header-author">by Dr. Sharad Chandra Tripathi</p>
 </header>
-<p>Have you ever watched ripples on the surface of a pond when two
-stones are thrown at different points? When the circular waves from each
-stone meet, they interact with each other. Sometimes the ripples add up
-and become stronger, and sometimes they cancel each other out. This
-fascinating phenomenon is called the <strong>Superposition of
-Waves</strong>.</p>
-<p>It is one of the most fundamental and powerful principles in wave
-physics. It explains how musical instruments produce harmony, how
-noise-cancelling headphones work, and how light and sound can form
-interference patterns. Let us dive into this beautiful concept.</p>
-<h1 class="unnumbered" id="what-is-superposition-of-waves">What is
-Superposition of Waves?</h1>
-<p>The <strong>Principle of Superposition</strong> states:</p>
-<p><em>When two or more waves meet at a point in a medium, the resultant
-displacement is the algebraic sum of the displacements due to the
-individual waves.</em></p>
-<p>Mathematically, if two waves have displacements <span
-class="math inline">\(y_1\)</span> and <span
-class="math inline">\(y_2\)</span>, then the resultant wave at a point
-is:</p>
-<p><span class="math display">\[y = y_1 + y_2\]</span></p>
-<p>This principle holds true for all types of waves—mechanical waves
-(like sound or water), electromagnetic waves (like light), and matter
-waves.</p>
-<h1 class="unnumbered" id="conditions-for-superposition">Conditions for
-Superposition</h1>
-<p>For effective superposition:</p>
+
+
+<section>
+
+<p>
+Have you ever watched ripples on the surface of a pond when two stones are thrown at different points? When the circular waves from each stone meet, they interact with each other. Sometimes the ripples add up and become stronger, and sometimes they cancel each other out. This fascinating phenomenon is called the <strong>Superposition of Waves</strong>.
+</p>
+
+<p>
+It is one of the most fundamental and powerful principles in wave physics. It explains how musical instruments produce harmony, how noise-cancelling headphones work, and how light and sound can form interference patterns. Let us dive into this beautiful concept.
+</p>
+
+</section>
+
+<section>
+
+<h2>What is Superposition of Waves?</h2>
+
+<p>
+The <strong>Principle of Superposition</strong> states:
+</p>
+
+<p>
+<em>When two or more waves meet at a point in a medium, the resultant displacement is the algebraic sum of the displacements due to the individual waves.</em>
+</p>
+
+<p>
+Mathematically, if two waves have displacements \( y_1 \) and \( y_2 \), then the resultant wave at a point is:
+</p>
+
+<div class="math-display">
+\[
+y = y_1 + y_2
+\]
+</div>
+
+<p>
+This principle holds true for all types of waves—mechanical waves (like sound or water), electromagnetic waves (like light), and matter waves.
+</p>
+
+</section>
+
+<section>
+
+<h2>Conditions for Superposition</h2>
+
 <ul>
-<li><p>The waves should be of the same type (e.g., sound with sound,
-light with light).</p></li>
-<li><p>They should overlap in space and time.</p></li>
-<li><p>The medium must be linear (obey Hooke’s law).</p></li>
+<li>The waves should be of the same type (e.g., sound with sound, light with light).</li>
+<li>They should overlap in space and time.</li>
+<li>The medium must be linear (obey Hooke’s law).</li>
 </ul>
-<h1 class="unnumbered" id="types-of-interference">Types of
-Interference</h1>
-<p>When two waves superpose, they interfere with each other. There are
-two main types:</p>
-<h2 class="unnumbered" id="constructive-interference">1. Constructive
-Interference</h2>
-<p>If the two waves are in phase (peaks align with peaks and troughs
-with troughs), the amplitudes add up:</p>
-<p><span class="math display">\[y = y_1 + y_2 = 2A \cos(kx - \omega
-t)\]</span></p>
-<p>Result: Maximum amplitude, loud sound, or bright light.</p>
-<p><strong>Condition:</strong> Path difference <span
-class="math inline">\(= n\lambda\)</span>, where <span
-class="math inline">\(n = 0,1,2,...\)</span></p>
-<h2 class="unnumbered" id="destructive-interference">2. Destructive
-Interference</h2>
-<p>If the waves are out of phase (peak meets trough), the amplitudes
-cancel out:</p>
-<p><span class="math display">\[y = y_1 + y_2 = 0 \quad \text{(in ideal
-case)}\]</span></p>
-<p>Result: Minimum amplitude, silence, or darkness.</p>
-<p><strong>Condition:</strong> Path difference <span
-class="math inline">\(= (2n+1)\frac{\lambda}{2}\)</span></p>
-<h1 class="unnumbered" id="interference-pattern">Interference
-Pattern</h1>
-<p>The alternate regions of constructive and destructive interference
-form an <strong>interference pattern</strong>. This pattern is visible
-in water ripples, sound zones, and light fringes (as in Young’s double
-slit experiment).</p>
-<h1 class="unnumbered"
-id="mathematical-representation-of-superposition">Mathematical
-Representation of Superposition</h1>
+
+</section>
+
+<section>
+
+<h2>Types of Interference</h2>
+
+<p>When two waves superpose, they interfere with each other. There are two main types:</p>
+
+<h3>1. Constructive Interference</h3>
+
+<p>
+If the two waves are in phase (peaks align with peaks and troughs with troughs), the amplitudes add up:
+</p>
+
+<div class="math-display">
+\[
+y = y_1 + y_2 = 2A \cos(kx - \omega t)
+\]
+</div>
+
+<p>
+Result: Maximum amplitude, loud sound, or bright light.
+</p>
+
+<p>
+<strong>Condition:</strong> Path difference \( = n\lambda \), where \( n = 0,1,2,... \)
+</p>
+
+<h3>2. Destructive Interference</h3>
+
+<p>
+If the waves are out of phase (peak meets trough), the amplitudes cancel out:
+</p>
+
+<div class="math-display">
+\[
+y = y_1 + y_2 = 0 \quad \text{(in ideal case)}
+\]
+</div>
+
+<p>
+Result: Minimum amplitude, silence, or darkness.
+</p>
+
+<p>
+<strong>Condition:</strong> Path difference \( = (2n+1)\frac{\lambda}{2} \)
+</p>
+
+</section>
+
+<section>
+
+<h2>Interference Pattern</h2>
+
+<p>
+The alternate regions of constructive and destructive interference form an <strong>interference pattern</strong>. This pattern is visible in water ripples, sound zones, and light fringes (as in Young’s double slit experiment).
+</p>
+
+</section>
+
+<section>
+
+<h2>Mathematical Representation of Superposition</h2>
+
 <p>Let two waves travelling in the same direction be:</p>
-<p><span class="math display">\[y_1 = A \sin(kx - \omega t)\]</span>
-<span class="math display">\[y_2 = A \sin(kx - \omega t +
-\phi)\]</span></p>
+
+<div class="math-display">
+\[
+y_1 = A \sin(kx - \omega t)
+\]
+</div>
+
+<div class="math-display">
+\[
+y_2 = A \sin(kx - \omega t + \phi)
+\]
+</div>
+
 <p>Using the identity:</p>
-<p><span class="math display">\[\sin a + \sin b = 2 \sin\left(\frac{a +
-b}{2}\right) \cos\left(\frac{a - b}{2}\right)\]</span></p>
+
+<div class="math-display">
+\[
+\sin a + \sin b = 2 \sin\left(\frac{a + b}{2}\right) \cos\left(\frac{a - b}{2}\right)
+\]
+</div>
+
 <p>The resultant displacement is:</p>
-<p><span class="math display">\[y = 2A \cos\left(\frac{\phi}{2}\right)
-\sin\left(kx - \omega t + \frac{\phi}{2}\right)\]</span></p>
+
+<div class="math-display">
+\[
+y = 2A \cos\left(\frac{\phi}{2}\right) \sin\left(kx - \omega t + \frac{\phi}{2}\right)
+\]
+</div>
+
 <p>Thus, the resultant amplitude becomes:</p>
-<p><span class="math display">\[A_{\text{res}} = 2A
-\cos\left(\frac{\phi}{2}\right)\]</span></p>
-<p>So the amplitude depends on the phase difference <span
-class="math inline">\(\phi\)</span>. If <span class="math inline">\(\phi
-= 0\)</span>, it is maximum (constructive), and if <span
-class="math inline">\(\phi = \pi\)</span>, it is zero (destructive).</p>
-<h1 class="unnumbered" id="beats-sound-waves-superposing">Beats: Sound
-Waves Superposing</h1>
-<p>When two sound waves of slightly different frequencies interfere,
-they produce periodic variations in loudness. This phenomenon is known
-as <strong>beats</strong>.</p>
-<h2 class="unnumbered" id="beat-frequency">Beat Frequency</h2>
-<p>If two frequencies <span class="math inline">\(f_1\)</span> and <span
-class="math inline">\(f_2\)</span> interfere, the beat frequency is:</p>
-<p><span class="math display">\[f_{\text{beat}} = |f_1 -
-f_2|\]</span></p>
-<p>Number of beats heard per second equals the difference in
-frequencies. This is used in tuning musical instruments.</p>
-<h2 class="unnumbered" id="expression-for-beats">Expression for
-Beats</h2>
+
+<div class="math-display">
+\[
+A_{\text{res}} = 2A \cos\left(\frac{\phi}{2}\right)
+\]
+</div>
+
+<p>
+So the amplitude depends on the phase difference \( \phi \). If \( \phi = 0 \), it is maximum (constructive), and if \( \phi = \pi \), it is zero (destructive).
+</p>
+
+</section>
+
+<section>
+
+<h2>Beats: Sound Waves Superposing</h2>
+
+<p>
+When two sound waves of slightly different frequencies interfere, they produce periodic variations in loudness. This phenomenon is known as <strong>beats</strong>.
+</p>
+
+<h3>Beat Frequency</h3>
+
+<p>If two frequencies \( f_1 \) and \( f_2 \) interfere, the beat frequency is:</p>
+
+<div class="math-display">
+\[
+f_{\text{beat}} = |f_1 - f_2|
+\]
+</div>
+
+<p>
+Number of beats heard per second equals the difference in frequencies. This is used in tuning musical instruments.
+</p>
+
+<h3>Expression for Beats</h3>
+
 <p>Let:</p>
-<p><span class="math display">\[y_1 = A \sin(2\pi f_1 t), \quad y_2 = A
-\sin(2\pi f_2 t)\]</span></p>
+
+<div class="math-display">
+\[
+y_1 = A \sin(2\pi f_1 t), \quad y_2 = A \sin(2\pi f_2 t)
+\]
+</div>
+
 <p>Using trigonometric identity:</p>
-<p><span class="math display">\[y = y_1 + y_2 = 2A \cos[\pi(f_1 - f_2)t]
-\cdot \sin[\pi(f_1 + f_2)t]\]</span></p>
-<p>This represents a wave of average frequency modulated by a varying
-amplitude.</p>
-<h1 class="unnumbered" id="stationary-waves-standing-waves">Stationary
-Waves (Standing Waves)</h1>
-<p>When two identical waves travelling in opposite directions interfere,
-a <strong>stationary wave</strong> is formed.</p>
+
+<div class="math-display">
+\[
+y = y_1 + y_2 = 2A \cos[\pi(f_1 - f_2)t] \cdot \sin[\pi(f_1 + f_2)t]
+\]
+</div>
+
+<p>
+This represents a wave of average frequency modulated by a varying amplitude.
+</p>
+
+</section>
+
+<section>
+
+<h2>Stationary Waves (Standing Waves)</h2>
+
+<p>
+When two identical waves travelling in opposite directions interfere, a <strong>stationary wave</strong> is formed.
+</p>
+
 <p>Let:</p>
-<p><span class="math display">\[y_1 = A \sin(kx - \omega t), \quad y_2 =
-A \sin(kx + \omega t)\]</span></p>
+
+<div class="math-display">
+\[
+y_1 = A \sin(kx - \omega t), \quad y_2 = A \sin(kx + \omega t)
+\]
+</div>
+
 <p>The superposed wave is:</p>
-<p><span class="math display">\[y = 2A \sin(kx) \cos(\omega
-t)\]</span></p>
-<p>This wave has fixed points of zero displacement (nodes) and points of
-maximum displacement (antinodes).</p>
-<h2 class="unnumbered"
-id="characteristics-of-stationary-waves">Characteristics of Stationary
-Waves</h2>
+
+<div class="math-display">
+\[
+y = 2A \sin(kx) \cos(\omega t)
+\]
+</div>
+
+<p>
+This wave has fixed points of zero displacement (nodes) and points of maximum displacement (antinodes).
+</p>
+
+<h3>Characteristics of Stationary Waves</h3>
+
 <ul>
-<li><p>Energy is not transmitted.</p></li>
-<li><p>Nodes and antinodes are fixed.</p></li>
-<li><p>Formed in organ pipes, strings, etc.</p></li>
+<li>Energy is not transmitted.</li>
+<li>Nodes and antinodes are fixed.</li>
+<li>Formed in organ pipes, strings, etc.</li>
 </ul>
-<h1 class="unnumbered"
-id="conditions-for-nodes-and-antinodes">Conditions for Nodes and
-Antinodes</h1>
+
+</section>
+
+<section>
+
+<h2>Conditions for Nodes and Antinodes</h2>
+
 <ul>
-<li><p>Nodes: <span class="math inline">\(\sin(kx) = 0 \Rightarrow x = n
-\frac{\lambda}{2}\)</span></p></li>
-<li><p>Antinodes: <span class="math inline">\(\sin(kx) = \pm 1
-\Rightarrow x = (2n + 1)\frac{\lambda}{4}\)</span></p></li>
+<li>Nodes: \( \sin(kx) = 0 \Rightarrow x = n \frac{\lambda}{2} \)</li>
+<li>Antinodes: \( \sin(kx) = \pm 1 \Rightarrow x = (2n + 1)\frac{\lambda}{4} \)</li>
 </ul>
-<p>Where <span class="math inline">\(n = 0, 1, 2, \ldots\)</span></p>
-<h1 class="unnumbered" id="applications-of-superposition">Applications
-of Superposition</h1>
+
+<p>Where \( n = 0, 1, 2, \ldots \)</p>
+
+</section>
+
+<section>
+
+<h2>Applications of Superposition</h2>
+
 <ul>
-<li><p>Tuning musical instruments using beats</p></li>
-<li><p>Noise-cancelling headphones (destructive interference)</p></li>
-<li><p>Designing auditorium acoustics</p></li>
-<li><p>Formation of stationary waves in pipes and strings</p></li>
-<li><p>Radio and TV signal processing</p></li>
-<li><p>Optical interference in lenses and coatings</p></li>
+<li>Tuning musical instruments using beats</li>
+<li>Noise-cancelling headphones (destructive interference)</li>
+<li>Designing auditorium acoustics</li>
+<li>Formation of stationary waves in pipes and strings</li>
+<li>Radio and TV signal processing</li>
+<li>Optical interference in lenses and coatings</li>
 </ul>
-<h1 class="unnumbered" id="shortcut-concepts">Shortcut Concepts</h1>
+
+</section>
+
+<section>
+
+<h2>Shortcut Concepts</h2>
+
 <ul>
-<li><p>Resultant wave: <span class="math inline">\(y = y_1 +
-y_2\)</span></p></li>
-<li><p>Constructive interference: <span class="math inline">\(\phi = 0,
-\, \Delta x = n\lambda\)</span></p></li>
-<li><p>Destructive interference: <span class="math inline">\(\phi = \pi,
-\, \Delta x = (2n+1)\frac{\lambda}{2}\)</span></p></li>
-<li><p>Beat frequency: <span class="math inline">\(f_{\text{beat}} =
-|f_1 - f_2|\)</span></p></li>
-<li><p>Standing wave: <span class="math inline">\(y = 2A \sin(kx)
-\cos(\omega t)\)</span></p></li>
-<li><p>Nodes at: <span class="math inline">\(x = n
-\frac{\lambda}{2}\)</span>, Antinodes at: <span class="math inline">\(x
-= (2n+1) \frac{\lambda}{4}\)</span></p></li>
+<li>Resultant wave: \( y = y_1 + y_2 \)</li>
+<li>Constructive interference: \( \phi = 0, \, \Delta x = n\lambda \)</li>
+<li>Destructive interference: \( \phi = \pi, \, \Delta x = (2n+1)\frac{\lambda}{2} \)</li>
+<li>Beat frequency: \( f_{\text{beat}} = |f_1 - f_2| \)</li>
+<li>Standing wave: \( y = 2A \sin(kx) \cos(\omega t) \)</li>
+<li>Nodes at: \( x = n \frac{\lambda}{2} \), Antinodes at: \( x = (2n+1) \frac{\lambda}{4} \)</li>
 </ul>
-<h1 class="unnumbered" id="quick-review-questions">Quick Review
-Questions</h1>
+
+</section>
+
+<section>
+
+<h2>Quick Review Questions</h2>
+
 <ol>
-<li><p>What is the principle of superposition?</p></li>
-<li><p>What are nodes and antinodes in a stationary wave?</p></li>
-<li><p>When do beats occur in sound waves?</p></li>
-<li><p>What is the beat frequency if two sound waves have frequencies
-256 Hz and 260 Hz?</p></li>
-<li><p>What is the condition for constructive interference?</p></li>
+<li>What is the principle of superposition?</li>
+<li>What are nodes and antinodes in a stationary wave?</li>
+<li>When do beats occur in sound waves?</li>
+<li>What is the beat frequency if two sound waves have frequencies 256 Hz and 260 Hz?</li>
+<li>What is the condition for constructive interference?</li>
 </ol>
-<h1 class="unnumbered" id="previous-year-question-pyq">Previous Year
-Question (PYQ)</h1>
-<p><strong>Q.1</strong> The velocity of sound in a gas in which two
-wavelengths 4.08 m and 4.16 m produce 40 beats in 12 seconds, will be:
-<strong>[JEE, 2022]</strong></p>
-<ol>
-<li><p>282.8 m/s</p></li>
-<li><p>175.5 m/s</p></li>
-<li><p>353.6 m/s</p></li>
-<li><p>707.2 m/s</p></li>
-</ol>
+
+</section>
+
+<section>
+
+<h2>Previous Year Question (PYQ)</h2>
+
+<div class="work-item">
+
+<p><strong>Q.1</strong><br>
+The velocity of sound in a gas in which two wavelengths 4.08 m and 4.16 m produce 40 beats in 12 seconds, will be: <strong>[JEE, 2022]</strong>
+</p>
+
+<p>
+Options:<br>
+(a) 282.8 m/s<br>
+(b) 175.5 m/s<br>
+(c) 353.6 m/s<br>
+(d) 707.2 m/s
+</p>
+
 <p><strong><em>Solution:</em></strong></p>
+
 <p><strong>Step 1: Calculate beat frequency</strong></p>
-<p><span class="math display">\[f_{\text{beat}} = \frac{40}{12} =
-\frac{10}{3} \, \text{Hz}\]</span></p>
-<p><strong>Step 2: Let the speed of sound be <span
-class="math inline">\(v\)</span></strong></p>
-<p>Frequencies: <span class="math display">\[f_1 = \frac{v}{\lambda_1} =
-\frac{v}{4.08}, \quad f_2 = \frac{v}{4.16}\]</span></p>
-<p>Beat frequency: <span class="math display">\[|f_1 - f_2| = \left|
-\frac{v}{4.08} - \frac{v}{4.16} \right| = \frac{10}{3}\]</span></p>
-<p><span class="math display">\[\left| \frac{v}{4.08} - \frac{v}{4.16}
-\right| = \frac{10}{3}
-\Rightarrow v \left| \frac{1}{4.08} - \frac{1}{4.16} \right| =
-\frac{10}{3}\]</span></p>
-<p><span class="math display">\[\frac{1}{4.08} - \frac{1}{4.16} =
-\frac{4.16 - 4.08}{4.08 \times 4.16} = \frac{0.08}{16.9728} \approx
-0.004712\]</span></p>
+
+<div class="math-display">
+\[
+f_{\text{beat}} = \frac{40}{12} = \frac{10}{3} \, \text{Hz}
+\]
+</div>
+
+<p><strong>Step 2: Let the speed of sound be \( v \)</strong></p>
+
+<p>Frequencies:</p>
+
+<div class="math-display">
+\[
+f_1 = \frac{v}{4.08}, \quad f_2 = \frac{v}{4.16}
+\]
+</div>
+
+<p>Beat frequency:</p>
+
+<div class="math-display">
+\[
+|f_1 - f_2| = \left| \frac{v}{4.08} - \frac{v}{4.16} \right| = \frac{10}{3}
+\]
+</div>
+
+<div class="math-display">
+\[
+\left| \frac{v}{4.08} - \frac{v}{4.16} \right| = \frac{10}{3}
+\Rightarrow v \left| \frac{1}{4.08} - \frac{1}{4.16} \right| = \frac{10}{3}
+\]
+</div>
+
+<div class="math-display">
+\[
+\frac{1}{4.08} - \frac{1}{4.16} = \frac{4.16 - 4.08}{4.08 \times 4.16} = \frac{0.08}{16.9728} \approx 0.004712
+\]
+</div>
+
 <p>Now:</p>
-<p><span class="math display">\[v \times 0.004712 = \frac{10}{3}
-\Rightarrow v = \frac{10}{3 \times 0.004712} \approx \frac{10}{0.014136}
-\approx 707.2 \, \text{m/s}\]</span></p>
+
+<div class="math-display">
+\[
+v \times 0.004712 = \frac{10}{3} \Rightarrow v = \frac{10}{3 \times 0.004712} \approx \frac{10}{0.014136} \approx 707.2 \, \text{m/s}
+\]
+</div>
+
 <p><strong>Answer: (d) 707.2 m/s</strong></p>
-<p><strong>Declaration:</strong><br />
-This article is an original work written for educational purposes. It
-has not been copied from any external source. The content is intended to
-help students preparing for JEE or NEET and may be freely used for
-academic, non-commercial purposes with proper credit.</p>
-<p><strong>Writer’s Name:</strong> Dr. Sharad Chandra Tripathi</p>
+
+</div>
+
+</section>
+
+<div class="footer">
+<p>© 2026 Dr. Sharad Chandra Tripathi</p>
+</div>
+
+</main>
+
 </body>
 </html>
