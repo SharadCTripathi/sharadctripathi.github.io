@@ -106,6 +106,30 @@ window.MathJax = {
   font-size: 0.9em;
   color: #555;
 }
+/* Article Image Container */
+.article-page .article-image {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+
+/* Article Image (optimized for diagrams + illustrations) */
+.article-page .article-image img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain; /* prevents important parts from getting cropped */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: #f4f4f4; /* subtle background for uneven images */
+  padding: 5px;
+}
+
+/* Image Credit */
+.article-page .image-credit {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 8px;
+  font-style: italic;
+}
 </style>
 </head>
 
