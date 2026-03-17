@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wave-Particle Duality: Concept, Examples, and Shortcuts</title>
+
+<meta property="og:title" content="Wave-Particle Duality: Concept, Examples, and Shortcuts">
+<meta property="og:description" content="Complete guide to wave-particle duality with formulas, shortcuts, and PYQs for JEE and physics exams.">
+<meta property="og:image" content="https://yourdomain.com/images/wave-particle.png">
+<meta property="og:url" content="https://yourdomain.com/wave-particle-duality.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <script>
 window.MathJax = {
   tex: {
@@ -223,6 +231,22 @@ window.MathJax = {
     background: #1e1e1e;
   }
 }
+.toast {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 2000;
+}
+.toast.show {
+  opacity: 1;
+}  
 </style>
 </head>
 
@@ -470,23 +494,25 @@ v = at = \frac{e\sigma}{2m\epsilon_0} t.
 
 <!-- Desktop Floating Share -->
 <div class="share-bar" id="shareBar">
-  <a id="fb" class="share-btn fb" data-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-  <a id="wa" class="share-btn wa" data-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-  <a id="li" class="share-btn li" data-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-  <a id="tw" class="share-btn tw" data-label="X"><i class="fab fa-x-twitter"></i></a>
-  <a id="copy" class="share-btn copy" data-label="Copy Link"><i class="fas fa-link"></i></a>
-  <a id="native" class="share-btn native" data-label="Share"><i class="fas fa-share-nodes"></i></a>
+  <a id="fb" class="share-btn fb" data-label="Facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a id="wa" class="share-btn wa" data-label="WhatsApp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a id="li" class="share-btn li" data-label="LinkedIn" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <a id="tw" class="share-btn tw" data-label="X" target="_blank" rel="noopener" aria-label="Share on Twitter"><i class="fab fa-x-twitter"></i></a>
+  <a id="copy" class="share-btn copy" data-label="Copy Link" aria-label="Copy Link"><i class="fas fa-link"></i></a>
+  <a id="native" class="share-btn native" data-label="Share" aria-label="Native Share"><i class="fas fa-share-nodes"></i></a>
 </div>
 
 <!-- Mobile Bottom Bar -->
 <div class="share-bottom">
-  <a id="fb-m" class="share-btn fb"><i class="fab fa-facebook-f"></i></a>
-  <a id="wa-m" class="share-btn wa"><i class="fab fa-whatsapp"></i></a>
-  <a id="li-m" class="share-btn li"><i class="fab fa-linkedin-in"></i></a>
-  <a id="tw-m" class="share-btn tw"><i class="fab fa-x-twitter"></i></a>
+  <a id="fb-m" class="share-btn fb" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+  <a id="wa-m" class="share-btn wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+  <a id="li-m" class="share-btn li" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+  <a id="tw-m" class="share-btn tw" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
   <a id="copy-m" class="share-btn copy"><i class="fas fa-link"></i></a>
   <a id="native-m" class="share-btn native"><i class="fas fa-share-nodes"></i></a>
 </div>
+
+<div id="toast" class="toast">Link copied!</div>
 
 <script>
 const url = encodeURIComponent(window.location.href);
@@ -499,7 +525,6 @@ const links = {
   twitter: `https://twitter.com/intent/tweet?text=${text}&url=${url}`
 };
 
-/* Assign links */
 ["fb","wa","li","tw","fb-m","wa-m","li-m","tw-m"].forEach(id => {
   if(document.getElementById(id)){
     if(id.includes("fb")) document.getElementById(id).href = links.facebook;
@@ -509,16 +534,18 @@ const links = {
   }
 });
 
-/* Copy link */
+/* ✅ Modern Copy */
 function copyLink() {
   navigator.clipboard.writeText(window.location.href);
-  alert("Link copied!");
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
 document.getElementById("copy").onclick = copyLink;
 document.getElementById("copy-m").onclick = copyLink;
 
-/* Native Share (Mobile best UX) */
+/* Native Share */
 function nativeShare() {
   if (navigator.share) {
     navigator.share({
@@ -533,18 +560,18 @@ function nativeShare() {
 document.getElementById("native").onclick = nativeShare;
 document.getElementById("native-m").onclick = nativeShare;
 
-/* Slide-in animation on scroll */
+/* ✅ Earlier animation trigger */
 const shareBar = document.getElementById("shareBar");
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
+  if (window.scrollY > 150) {
     shareBar.classList.add("visible");
   } else {
     shareBar.classList.remove("visible");
   }
 });
 </script>
-
+  
   <!-- Footer -->
 <div class="footer">
 <p>© 2026 Dr. Sharad Chandra Tripathi</p>
