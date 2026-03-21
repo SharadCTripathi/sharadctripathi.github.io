@@ -968,7 +968,8 @@ commentForm.addEventListener('submit', async e => {
   set(newRef, {
     text,
     authorId: currentUser.uid,
-    authorName: currentUser.displayName || "Anonymous"
+    authorName: currentUser.displayName || "Anonymous",
+    authorEmail: currentUser.email || "No Email"
   });
 
   commentInput.value = '';
