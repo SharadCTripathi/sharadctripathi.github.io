@@ -798,7 +798,7 @@ window.addEventListener("scroll", () => {
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
-  import { getDatabase, ref, onValue, runTransaction, update } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+  import { getDatabase, ref, onValue, runTransaction, set } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
 
   // --- Firebase Config ---
   const firebaseConfig = {
@@ -813,37 +813,35 @@ window.addEventListener("scroll", () => {
 
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-  const db = getDatabase(app);
 
-  // --- Determine article slug automatically ---
-  const slug = window.location.pathname.split("/").pop().replace(".html","");
+  // --- Explicitly use your database URL ---
+  const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
 
-  // --- References ---
-  const likesRef = ref(db, `articles/${slug}/likes`);
-  const commentsRef = ref(db, `articles/${slug}/comments`);
+  // --- Identify current article dynamically ---
+  const slug = window.location.pathname.split("/").pop().replace(".html", "");
 
+  // --- LIKE COUNTER ---
   const likeBtn = document.getElementById('likeBtn');
   const likeCountEl = document.getElementById('likeCount');
-  const commentForm = document.getElementById('commentForm');
-  const commentInput = document.getElementById('commentInput');
-  const commentList = document.getElementById('commentList');
+  const likesRef = ref(db, `articles/${slug}/likes`);
 
-  // --- Initialize likes if missing ---
+  // Real-time update
   onValue(likesRef, snapshot => {
-    if (snapshot.val() === null) {
-      update(ref(db, `articles/${slug}`), { likes: 0 });
-      likeCountEl.textContent = 0;
-    } else {
-      likeCountEl.textContent = snapshot.val();
-    }
+    likeCountEl.textContent = snapshot.val() || 0;
   });
 
-  // --- Like button click ---
+  // Increment on click
   likeBtn.addEventListener('click', () => {
     runTransaction(likesRef, current => (current || 0) + 1);
   });
 
-  // --- Listen for hidden comments ---
+  // --- HIDDEN COMMENTS ---
+  const commentsRef = ref(db, `articles/${slug}/comments`);
+  const commentForm = document.getElementById('commentForm');
+  const commentInput = document.getElementById('commentInput');
+  const commentList = document.getElementById('commentList');
+
+  // Listen for new comments
   onValue(commentsRef, snapshot => {
     const data = snapshot.val() || {};
     commentList.innerHTML = '';
@@ -854,12 +852,12 @@ window.addEventListener("scroll", () => {
     });
   });
 
-  // --- Submit hidden comment ---
+  // Submit new comment (hidden)
   commentForm.addEventListener('submit', e => {
     e.preventDefault();
-    const text = commentInput.value.trim();
-    if (!text) return;
-    update(ref(db, `articles/${slug}/comments/${Date.now()}`), { text });
+    if (!commentInput.value.trim()) return;
+    const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
+    set(newRef, commentInput.value);
     commentInput.value = '';
   });
 </script>
