@@ -731,87 +731,154 @@ window.addEventListener("scroll", () => {
 </script>  
 
   
-<!-- 🔹 Firebase Like Button + Hidden Comment Script Start -->
+<!-- 🔹 Firebase Like Button + Private Comment Script Start -->
 <div class="article-interactions">
   <button id="likeBtn">👍 Like</button> 
   <span id="likeCount">0</span> Likes
 
   <div class="comments-section">
+    <div id="userStatus">
+      <button id="loginBtn">Login to Comment</button>
+    </div>
+
     <form id="commentForm">
-      <input type="text" id="commentInput" placeholder="Add a hidden comment">
+      <input type="text" id="commentInput" placeholder="Add your private comment">
       <button type="submit">Post</button>
     </form>
+
     <ul id="commentList"></ul>
   </div>
 </div>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
-  import { getDatabase, ref, onValue, runTransaction, set } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+import { getDatabase, ref, onValue, runTransaction, set, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, reload } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
-  // --- Firebase Config ---
-  const firebaseConfig = {
-    apiKey: "AIzaSyDOyBe7KNKTsBJ9TSi_6MthpAADkuy-vRk",
-    authDomain: "physics-articles.firebaseapp.com",
-    projectId: "physics-articles",
-    storageBucket: "physics-articles.firebasestorage.app",
-    messagingSenderId: "135090013624",
-    appId: "1:135090013624:web:51cb07d9f71c99d4c8fb4d",
-    measurementId: "G-MP5LDG0R0S"
-  };
+// --- Firebase Config ---
+const firebaseConfig = {
+  apiKey: "AIzaSyAjegFC3uioTtpZtRm3nZNR1UgUovSnSTE",
+  authDomain: "physics-articles.firebaseapp.com",
+  projectId: "physics-articles",
+  storageBucket: "physics-articles.firebasestorage.app",
+  messagingSenderId: "135090013624",
+  appId: "1:135090013624:web:51cb07d9f71c99d4c8fb4d",
+  measurementId: "G-MP5LDG0R0S"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
 
-  // --- Explicitly use your database URL ---
-  const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
+// --- Auth Setup ---
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+let currentUser = null;
 
-  // --- Identify current article dynamically ---
-  const slug = window.location.pathname.split("/").pop().replace(".html", "");
+const loginBtn = document.getElementById("loginBtn");
+const userStatusDiv = document.getElementById("userStatus");
+const commentList = document.getElementById("commentList");
+const commentForm = document.getElementById('commentForm');
+const commentInput = document.getElementById('commentInput');
 
-  // --- LIKE COUNTER ---
-  const likeBtn = document.getElementById('likeBtn');
-  const likeCountEl = document.getElementById('likeCount');
-  const likesRef = ref(db, `articles/${slug}/likes`);
+// --- Login Button ---
+loginBtn.addEventListener("click", () => {
+  signInWithPopup(auth, provider)
+    .catch(err => console.error("Login error:", err));
+});
 
-  // Real-time update
-  onValue(likesRef, snapshot => {
-    likeCountEl.textContent = snapshot.val() || 0;
-  });
+// --- Update User Status ---
+function updateUserStatus(user) {
+  if (user) {
+    loginBtn.style.display = "none";
+    userStatusDiv.innerHTML = `Logged in as <b>${user.displayName || "User"}</b>`;
+  } else {
+    loginBtn.style.display = "inline-block";
+    loginBtn.textContent = "Login to Comment";
+    commentList.innerHTML = '';
+  }
+}
 
-  // Increment on click
-  likeBtn.addEventListener('click', () => {
-    runTransaction(likesRef, current => (current || 0) + 1);
-  });
+// --- Current Article Slug ---
+const slug = window.location.pathname.split("/").pop().replace(".html", "");
 
-  // --- HIDDEN COMMENTS ---
+// --- LIKE COUNTER ---
+const likeBtnEl = document.getElementById('likeBtn');
+const likeCountEl = document.getElementById('likeCount');
+const likesRef = ref(db, `articles/${slug}/likes`);
+
+onValue(likesRef, snapshot => {
+  likeCountEl.textContent = snapshot.val() || 0;
+});
+
+likeBtnEl.addEventListener('click', () => {
+  runTransaction(likesRef, current => (current || 0) + 1);
+});
+
+// --- COMMENTS (PRIVATE PER USER, WITH NAME) ---
+function loadUserComments() {
+  if (!currentUser) return;
+
   const commentsRef = ref(db, `articles/${slug}/comments`);
-  const commentForm = document.getElementById('commentForm');
-  const commentInput = document.getElementById('commentInput');
-  const commentList = document.getElementById('commentList');
+  const userQuery = query(
+    commentsRef,
+    orderByChild("authorId"),
+    equalTo(currentUser.uid)
+  );
 
-  // Listen for new comments
-  onValue(commentsRef, snapshot => {
+  onValue(userQuery, snapshot => {
     const data = snapshot.val() || {};
     commentList.innerHTML = '';
+
+    if (Object.keys(data).length === 0) {
+      commentList.innerHTML = '<li style="color:#888;font-size:12px;">No comments yet (visible only to you)</li>';
+      return;
+    }
+
     Object.values(data).forEach(comment => {
       const li = document.createElement('li');
-      li.textContent = comment;
+      li.innerHTML = `<b>${comment.authorName || "You"}:</b> ${comment.text}`;
       commentList.appendChild(li);
     });
   });
+}
 
-  // Submit new comment (hidden)
-  commentForm.addEventListener('submit', e => {
-    e.preventDefault();
-    if (!commentInput.value.trim()) return;
-    const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
-    set(newRef, commentInput.value);
-    commentInput.value = '';
+// --- Auth State Changed ---
+onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+  updateUserStatus(user);
+  if (user) loadUserComments();
+});
+
+// --- Submit Comment ---
+commentForm.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  if (!currentUser) {
+    alert("Please login to comment");
+    return;
+  }
+
+  const text = commentInput.value.trim();
+  if (!text) return;
+
+  // Ensure displayName is loaded
+  await reload(currentUser);
+
+  const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
+  set(newRef, {
+    text,
+    authorId: currentUser.uid,
+    authorName: currentUser.displayName || "Anonymous",
+    authorEmail: currentUser.email || "anonymous@example.com"
   });
+
+  commentInput.value = '';
+  loadUserComments(); // Refresh comment list after posting
+});
 </script>
-<!-- 🔹 Firebase Like Button + Hidden Comment Script End -->
+<!-- 🔹 Firebase Like Button + Private Comment Script End -->
   
 <div class="footer">
   <p>
