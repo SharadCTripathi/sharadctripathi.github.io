@@ -515,6 +515,231 @@ v = \sqrt{6 g h} = \sqrt{6 g \cdot \frac{S}{4}} = \sqrt{\frac{3 g S}{2}}
 </div>
 </section>
 
+<div class="share-bar" id="shareBar">
+  <a id="fb" class="share-btn fb" data-label="Facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a id="wa" class="share-btn wa" data-label="WhatsApp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a id="li" class="share-btn li" data-label="LinkedIn" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <a id="tw" class="share-btn tw" data-label="X" target="_blank" rel="noopener" aria-label="Share on Twitter"><i class="fab fa-x-twitter"></i></a>
+  <a id="copy" class="share-btn copy" data-label="Copy Link" aria-label="Copy Link"><i class="fas fa-link"></i></a>
+  <a id="native" class="share-btn native" data-label="Share" aria-label="Native Share"><i class="fas fa-share-nodes"></i></a>
+</div>
+
+<div class="share-bottom">
+  <a id="fb-m" class="share-btn fb" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+  <a id="wa-m" class="share-btn wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+  <a id="li-m" class="share-btn li" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+  <a id="tw-m" class="share-btn tw" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+  <a id="copy-m" class="share-btn copy"><i class="fas fa-link"></i></a>
+  <a id="native-m" class="share-btn native"><i class="fas fa-share-nodes"></i></a>
+</div>
+
+<div id="toast" class="toast">Link copied!</div>
+
+<script>
+const url = encodeURIComponent(window.location.href);
+const text = encodeURIComponent(document.title);
+
+const links = {
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+  whatsapp: `https://api.whatsapp.com/send?text=${text}%20${url}`,
+  linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+  twitter: `https://twitter.com/intent/tweet?text=${text}&url=${url}`
+};
+
+["fb","wa","li","tw","fb-m","wa-m","li-m","tw-m"].forEach(id => {
+  if(document.getElementById(id)){
+    if(id.includes("fb")) document.getElementById(id).href = links.facebook;
+    if(id.includes("wa")) document.getElementById(id).href = links.whatsapp;
+    if(id.includes("li")) document.getElementById(id).href = links.linkedin;
+    if(id.includes("tw")) document.getElementById(id).href = links.twitter;
+  }
+});
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href);
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2000);
+}
+
+document.getElementById("copy").onclick = copyLink;
+document.getElementById("copy-m").onclick = copyLink;
+
+
+function nativeShare() {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      url: window.location.href
+    });
+  } else {
+    alert("Sharing not supported on this device");
+  }
+}
+
+document.getElementById("native").onclick = nativeShare;
+document.getElementById("native-m").onclick = nativeShare;
+
+const shareBar = document.getElementById("shareBar");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 150) {
+    shareBar.classList.add("visible");
+  } else {
+    shareBar.classList.remove("visible");
+  }
+});
+</script>
+
+<!-- 🔹 Firebase Like Button + Private Comment Script Start -->
+<div class="article-interactions">
+  <button id="likeBtn">👍 Like</button> 
+  <span id="likeCount">0</span> Likes
+
+  <div class="comments-section">
+    <div id="userStatus">
+      <button id="loginBtn">Login to Comment</button>
+    </div>
+
+    <form id="commentForm">
+      <input type="text" id="commentInput" placeholder="Add your private comment">
+      <button type="submit">Post</button>
+    </form>
+
+    <ul id="commentList"></ul>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+import { getDatabase, ref, onValue, runTransaction, set, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, reload } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+// --- Firebase Config ---
+const firebaseConfig = {
+  apiKey: "AIzaSyAjegFC3uioTtpZtRm3nZNR1UgUovSnSTE",
+  authDomain: "physics-articles.firebaseapp.com",
+  projectId: "physics-articles",
+  storageBucket: "physics-articles.firebasestorage.app",
+  messagingSenderId: "135090013624",
+  appId: "1:135090013624:web:51cb07d9f71c99d4c8fb4d",
+  measurementId: "G-MP5LDG0R0S"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
+
+// --- Auth Setup ---
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+let currentUser = null;
+
+const loginBtn = document.getElementById("loginBtn");
+const userStatusDiv = document.getElementById("userStatus");
+const commentList = document.getElementById("commentList");
+const commentForm = document.getElementById('commentForm');
+const commentInput = document.getElementById('commentInput');
+
+// --- Login Button ---
+loginBtn.addEventListener("click", () => {
+  signInWithPopup(auth, provider)
+    .catch(err => console.error("Login error:", err));
+});
+
+// --- Update User Status ---
+function updateUserStatus(user) {
+  if (user) {
+    loginBtn.style.display = "none";
+    userStatusDiv.innerHTML = `Logged in as <b>${user.displayName || "User"}</b>`;
+  } else {
+    loginBtn.style.display = "inline-block";
+    loginBtn.textContent = "Login to Comment";
+    commentList.innerHTML = '';
+  }
+}
+
+// --- Current Article Slug ---
+const slug = window.location.pathname.split("/").pop().replace(".html", "");
+
+// --- LIKE COUNTER ---
+const likeBtnEl = document.getElementById('likeBtn');
+const likeCountEl = document.getElementById('likeCount');
+const likesRef = ref(db, `articles/${slug}/likes`);
+
+onValue(likesRef, snapshot => {
+  likeCountEl.textContent = snapshot.val() || 0;
+});
+
+likeBtnEl.addEventListener('click', () => {
+  runTransaction(likesRef, current => (current || 0) + 1);
+});
+
+// --- COMMENTS (PRIVATE PER USER, WITH NAME) ---
+function loadUserComments() {
+  if (!currentUser) return;
+
+  const commentsRef = ref(db, `articles/${slug}/comments`);
+  const userQuery = query(
+    commentsRef,
+    orderByChild("authorId"),
+    equalTo(currentUser.uid)
+  );
+
+  onValue(userQuery, snapshot => {
+    const data = snapshot.val() || {};
+    commentList.innerHTML = '';
+
+    if (Object.keys(data).length === 0) {
+      commentList.innerHTML = '<li style="color:#888;font-size:12px;">No comments yet (visible only to you)</li>';
+      return;
+    }
+
+    Object.values(data).forEach(comment => {
+      const li = document.createElement('li');
+      li.innerHTML = `<b>${comment.authorName || "You"}:</b> ${comment.text}`;
+      commentList.appendChild(li);
+    });
+  });
+}
+
+// --- Auth State Changed ---
+onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+  updateUserStatus(user);
+  if (user) loadUserComments();
+});
+
+// --- Submit Comment ---
+commentForm.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  if (!currentUser) {
+    alert("Please login to comment");
+    return;
+  }
+
+  const text = commentInput.value.trim();
+  if (!text) return;
+
+  // Ensure displayName is loaded
+  await reload(currentUser);
+
+  const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
+  set(newRef, {
+    text,
+    authorId: currentUser.uid,
+    authorName: currentUser.displayName || "Anonymous",
+    authorEmail: currentUser.email || "anonymous@example.com"
+  });
+
+  commentInput.value = '';
+  loadUserComments(); // Refresh comment list after posting
+});
+</script>
+<!-- 🔹 Firebase Like Button + Private Comment Script End -->
+  
 <div class="footer">
   <p>
     © 2026 Dr. Sharad Chandra Tripathi. All rights reserved. 
@@ -525,7 +750,6 @@ v = \sqrt{6 g h} = \sqrt{6 g \cdot \frac{S}{4}} = \sqrt{\frac{3 g S}{2}}
     No part of this website, including notes, articles, or code, may be copied, reproduced, or distributed without permission.
   </p>
 </div>
-
 </main>
 </div>
 
