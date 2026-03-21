@@ -40,6 +40,7 @@ window.MathJax = {
   margin-bottom: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 .article-page h1 {
   font-size: 2.2em;
@@ -60,26 +61,280 @@ window.MathJax = {
   border-bottom: 3px solid #FFD700;
   padding-bottom: 8px;
 }
+.article-page h3 {
+  font-size: 1.5em;
+  color: #0056b3;
+  margin-bottom: 15px;
+}
 .article-page p {
   text-align: justify;
-  line-height: 1.75;
+  text-justify: inter-word;
   margin-bottom: 18px;
+  line-height: 1.75;
 }
 .article-page ul, .article-page ol {
   margin-left: 30px;
   margin-bottom: 15px;
+  line-height: 1.6;
 }
-.article-page li { margin-bottom: 10px; }
+.article-page li {
+  margin-bottom: 10px;
+}
+.article-page .work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
 .article-page .math-display {
+  display: block;
   text-align: center;
   margin: 25px 0;
+  font-size: 1.2em;
   background: #f4f4f4;
   padding: 12px;
   border-radius: 6px;
+  overflow-x: auto;
 }
-.footer {
-  text-align:center;
-  margin-top:40px;
+.article-page span.math-inline {
+  font-size: 1.05em;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+.article-page .footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.article-page .article-image {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+.article-page .article-image img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain; /* prevents important parts from getting cropped */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: #f4f4f4; /* subtle background for uneven images */
+  padding: 5px;
+}
+.article-page .image-credit {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 8px;
+  font-style: italic;
+}
+.share-bar {
+  position: fixed;
+  left: 20px;
+  top: 60%;
+  transform: translateY(-50%) translateX(-80px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+.share-bar.visible {
+  transform: translateY(-50%) translateX(0);
+}
+.share-bottom {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--card-bg, #fff);
+  padding: 10px 0;
+  justify-content: space-around;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+.share-btn {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.fb { background: #1877f2; }
+.wa { background: #25d366; }
+.li { background: #0077b5; }
+.tw { background: #000; }
+.copy { background: #6c757d; }
+.native { background: #ff9800; }
+
+.share-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+.share-btn::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 55px;
+  background: #333;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+.share-btn:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .share-bar { display: none; }
+  .share-bottom { display: flex; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .share-bottom {
+    background: #1e1e1e;
+  }
+}
+.toast {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 2000;
+}
+.toast.show {
+  opacity: 1;
+}
+/* 🔹 Article Interaction Container */
+.article-interactions {
+  margin-top: 20px;
+  padding: 12px;
+  border-top: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+}
+
+/* 🔹 Like Button */
+.article-interactions button#likeBtn {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.article-interactions button#likeBtn:hover {
+  background-color: #1976d2;
+  transform: scale(1.05);
+}
+
+/* 🔹 Like Count */
+.article-interactions #likeCount {
+  font-weight: bold;
+  margin-left: 6px;
+  margin-right: 4px;
+}
+
+/* 🔹 Comments Section */
+.article-interactions .comments-section {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+/* 🔹 Login Button */
+.article-interactions #loginBtn {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+.article-interactions #loginBtn:hover {
+  background-color: #f57c00;
+}
+
+/* 🔹 Comment Form */
+.article-interactions .comments-section form {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+/* 🔹 Comment Input */
+.article-interactions .comments-section input#commentInput {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* 🔹 Submit Button */
+.article-interactions .comments-section button[type="submit"] {
+  padding: 6px 12px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+.article-interactions .comments-section button[type="submit"]:hover {
+  background-color: #43a047;
+}
+
+/* 🔹 Comment List */
+.article-interactions .comments-section ul#commentList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* 🔹 Individual Comment */
+.article-interactions .comments-section ul#commentList li {
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  color: #333;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+/* 🔹 Empty State (optional improvement) */
+.article-interactions .comments-section ul#commentList:empty::before {
+  content: "No comments yet (visible only to you)";
+  font-size: 12px;
+  color: #888;
 }
 </style>
 </head>
