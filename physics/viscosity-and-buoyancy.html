@@ -231,78 +231,120 @@ window.MathJax = {
 .toast.show {
   opacity: 1;
 }
+/* 🔹 Article Interaction Container */
 .article-interactions {
   margin-top: 20px;
-  padding: 10px;
+  padding: 12px;
   border-top: 1px solid #ddd;
   font-family: Arial, sans-serif;
 }
 
+/* 🔹 Like Button */
 .article-interactions button#likeBtn {
-  background-color: #2196f3; /* changed to blue */
-  color: #fff; /* white text for contrast */
+  background-color: #2196f3;
+  color: #fff;
   border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
+  padding: 7px 14px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .article-interactions button#likeBtn:hover {
-  background-color: #1976d2; /* slightly darker blue on hover */
+  background-color: #1976d2;
+  transform: scale(1.05);
 }
 
+/* 🔹 Like Count */
 .article-interactions #likeCount {
   font-weight: bold;
-  margin-left: 5px;
+  margin-left: 6px;
+  margin-right: 4px;
 }
 
+/* 🔹 Comments Section */
 .article-interactions .comments-section {
   margin-top: 15px;
-  padding: 8px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #eee;
 }
 
+/* 🔹 Login Button */
+.article-interactions #loginBtn {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+.article-interactions #loginBtn:hover {
+  background-color: #f57c00;
+}
+
+/* 🔹 Comment Form */
 .article-interactions .comments-section form {
   display: flex;
-  gap: 5px;
+  gap: 6px;
   margin-bottom: 10px;
 }
 
+/* 🔹 Comment Input */
 .article-interactions .comments-section input#commentInput {
   flex: 1;
-  padding: 5px 8px;
+  padding: 6px 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 13px;
 }
 
+/* 🔹 Submit Button */
 .article-interactions .comments-section button[type="submit"] {
-  padding: 5px 10px;
+  padding: 6px 12px;
   background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 13px;
   transition: background-color 0.2s ease;
 }
 
 .article-interactions .comments-section button[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #43a047;
 }
 
+/* 🔹 Comment List */
 .article-interactions .comments-section ul#commentList {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
 
+/* 🔹 Individual Comment */
 .article-interactions .comments-section ul#commentList li {
-  padding: 4px 6px;
+  padding: 6px 8px;
   border-bottom: 1px solid #eee;
   font-size: 13px;
   color: #333;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+/* 🔹 Empty State (optional improvement) */
+.article-interactions .comments-section ul#commentList:empty::before {
+  content: "No comments yet (visible only to you)";
+  font-size: 12px;
+  color: #888;
 }
 </style>
   
@@ -787,16 +829,19 @@ window.addEventListener("scroll", () => {
 });
 </script>
 
-<!-- 🔹 Firebase Like Button + Hidden Comment Script Start -->
+<!-- 🔹 Firebase Like Button + Private Comment Script Start -->
 <div class="article-interactions">
   <button id="likeBtn">👍 Like</button> 
   <span id="likeCount">0</span> Likes
 
   <div class="comments-section">
+    <button id="loginBtn">Login to Comment</button>
+
     <form id="commentForm">
-      <input type="text" id="commentInput" placeholder="Add a hidden comment">
+      <input type="text" id="commentInput" placeholder="Add your private comment">
       <button type="submit">Post</button>
     </form>
+
     <ul id="commentList"></ul>
   </div>
 </div>
@@ -804,7 +849,13 @@ window.addEventListener("scroll", () => {
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
-  import { getDatabase, ref, onValue, runTransaction, set } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+  import { 
+    getDatabase, ref, onValue, runTransaction, set, query, orderByChild, equalTo 
+  } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+  import { 
+    getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged 
+  } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
   // --- Firebase Config ---
   const firebaseConfig = {
@@ -819,9 +870,16 @@ window.addEventListener("scroll", () => {
 
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-
-  // --- Explicitly use your database URL ---
   const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
+
+  // --- Auth Setup ---
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  let currentUser = null;
+
+  document.getElementById("loginBtn").addEventListener("click", () => {
+    signInWithPopup(auth, provider);
+  });
 
   // --- Identify current article dynamically ---
   const slug = window.location.pathname.split("/").pop().replace(".html", "");
@@ -831,43 +889,72 @@ window.addEventListener("scroll", () => {
   const likeCountEl = document.getElementById('likeCount');
   const likesRef = ref(db, `articles/${slug}/likes`);
 
-  // Real-time update
   onValue(likesRef, snapshot => {
     likeCountEl.textContent = snapshot.val() || 0;
   });
 
-  // Increment on click
   likeBtn.addEventListener('click', () => {
     runTransaction(likesRef, current => (current || 0) + 1);
   });
 
-  // --- HIDDEN COMMENTS ---
-  const commentsRef = ref(db, `articles/${slug}/comments`);
+  // --- COMMENTS (PRIVATE PER USER) ---
   const commentForm = document.getElementById('commentForm');
   const commentInput = document.getElementById('commentInput');
   const commentList = document.getElementById('commentList');
 
-  // Listen for new comments
-  onValue(commentsRef, snapshot => {
-    const data = snapshot.val() || {};
-    commentList.innerHTML = '';
-    Object.values(data).forEach(comment => {
-      const li = document.createElement('li');
-      li.textContent = comment;
-      commentList.appendChild(li);
+  function loadUserComments() {
+    const commentsRef = ref(db, `articles/${slug}/comments`);
+
+    const userQuery = query(
+      commentsRef,
+      orderByChild("authorId"),
+      equalTo(currentUser.uid)
+    );
+
+    onValue(userQuery, snapshot => {
+      const data = snapshot.val() || {};
+      commentList.innerHTML = '';
+
+      Object.values(data).forEach(comment => {
+        const li = document.createElement('li');
+        li.textContent = comment.text;
+        commentList.appendChild(li);
+      });
     });
+  }
+
+  onAuthStateChanged(auth, (user) => {
+    currentUser = user;
+
+    if (user) {
+      loadUserComments();
+    } else {
+      commentList.innerHTML = '';
+    }
   });
 
-  // Submit new comment (hidden)
+  // --- Submit Comment ---
   commentForm.addEventListener('submit', e => {
     e.preventDefault();
+
+    if (!currentUser) {
+      alert("Please login to comment");
+      return;
+    }
+
     if (!commentInput.value.trim()) return;
+
     const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
-    set(newRef, commentInput.value);
+
+    set(newRef, {
+      text: commentInput.value,
+      authorId: currentUser.uid
+    });
+
     commentInput.value = '';
   });
 </script>
-<!-- 🔹 Firebase Like Button + Hidden Comment Script End -->
+<!-- 🔹 Firebase Like Button + Private Comment Script End -->
   
   
 
