@@ -225,47 +225,36 @@ window.MathJax = {
 .toast.show {
   opacity: 1;
 }
-.article-interactions {
-  margin: 20px 0;
-  font-family: sans-serif;
-}
-
-#likeBtn {
-  cursor: pointer;
-  padding: 6px 12px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 5px;
-}
-
-#likeBtn:hover {
-  background-color: #e0e0e0;
-}
-
-#likeCount {
-  font-weight: bold;
-}
-
-.comments-section {
-  display: none; /* hidden by default */
-  margin-top: 15px;
-}
-
-.comments-section input {
-  padding: 5px;
-  width: 200px;
-  margin-right: 5px;
-}
-
-.comments-section button {
-  padding: 5px 10px;
-}
-
-#commentList li {
-  font-size: 0.9em;
-  margin: 2px 0;
-}
+ .article-interactions {
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+  #likeBtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  #likeBtn:hover { background-color: #0056b3; }
+  .comments-section {
+    display: none; /* hidden by default */
+    margin-top: 15px;
+  }
+  #commentForm input {
+    padding: 6px;
+    width: 200px;
+    margin-right: 6px;
+  }
+  #commentForm button {
+    padding: 6px 12px;
+  }
+  #commentList li {
+    font-size: 0.9em;
+    margin: 4px 0;
+  }
 </style>
   
 </head>
@@ -749,7 +738,6 @@ window.addEventListener("scroll", () => {
 });
 </script>
 
-<!-- 🔹 Firebase Like Button + Hidden Comment Script Start -->
 <div class="article-interactions">
   <button id="likeBtn">👍 Like</button> 
   <span id="likeCount">0</span> Likes
@@ -783,8 +771,8 @@ window.addEventListener("scroll", () => {
   const analytics = getAnalytics(app);
   const db = getDatabase(app);
 
-  // --- Identify the current article ---
-  const slug = window.location.pathname.split("/").pop().replace(".html", ""); 
+  // --- Identify the current article automatically ---
+  const slug = window.location.pathname.split("/").pop().replace(".html", "");
 
   // --- LIKE COUNTER ---
   const likeBtn = document.getElementById('likeBtn');
@@ -799,12 +787,13 @@ window.addEventListener("scroll", () => {
     runTransaction(likesRef, current => (current || 0) + 1);
   });
 
-  // --- HIDDEN COMMENTS ---
+  // --- HIDDEN COMMENTS (for admin) ---
   const commentsRef = ref(db, `articles/${slug}/comments`);
   const commentForm = document.getElementById('commentForm');
   const commentInput = document.getElementById('commentInput');
   const commentList = document.getElementById('commentList');
 
+  // Listen for comments
   onValue(commentsRef, snapshot => {
     const data = snapshot.val() || {};
     commentList.innerHTML = '';
@@ -815,6 +804,7 @@ window.addEventListener("scroll", () => {
     });
   });
 
+  // Submit comment (requires Firebase auth for admin if rules restrict write)
   commentForm.addEventListener('submit', e => {
     e.preventDefault();
     if (!commentInput.value.trim()) return;
@@ -823,8 +813,6 @@ window.addEventListener("scroll", () => {
     commentInput.value = '';
   });
 </script>
-<!-- 🔹 Firebase Like Button + Hidden Comment Script End -->
-
   
   
 
