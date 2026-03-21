@@ -852,7 +852,7 @@ window.addEventListener("scroll", () => {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
 import { getDatabase, ref, onValue, runTransaction, set, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, reload } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
 // --- Firebase Config ---
 const firebaseConfig = {
@@ -950,7 +950,7 @@ onAuthStateChanged(auth, (user) => {
 });
 
 // --- Submit Comment ---
-commentForm.addEventListener('submit', e => {
+commentForm.addEventListener('submit', async e => {
   e.preventDefault();
 
   if (!currentUser) {
@@ -961,6 +961,9 @@ commentForm.addEventListener('submit', e => {
   const text = commentInput.value.trim();
   if (!text) return;
 
+  // Ensure displayName is loaded
+  await reload(currentUser);
+
   const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
   set(newRef, {
     text,
@@ -969,6 +972,7 @@ commentForm.addEventListener('submit', e => {
   });
 
   commentInput.value = '';
+  loadUserComments(); // Refresh comment list after posting
 });
 </script>
 <!-- 🔹 Firebase Like Button + Private Comment Script End -->
