@@ -914,7 +914,7 @@ likeBtnEl.addEventListener('click', () => {
   runTransaction(likesRef, current => (current || 0) + 1);
 });
 
-// --- COMMENTS (PRIVATE PER USER) ---
+// --- COMMENTS (PRIVATE PER USER, WITH NAME) ---
 function loadUserComments() {
   if (!currentUser) return;
 
@@ -936,7 +936,7 @@ function loadUserComments() {
 
     Object.values(data).forEach(comment => {
       const li = document.createElement('li');
-      li.textContent = comment.text;
+      li.innerHTML = `<b>${comment.authorName || "You"}:</b> ${comment.text}`;
       commentList.appendChild(li);
     });
   });
@@ -964,7 +964,8 @@ commentForm.addEventListener('submit', e => {
   const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
   set(newRef, {
     text,
-    authorId: currentUser.uid
+    authorId: currentUser.uid,
+    authorName: currentUser.displayName || "Anonymous"
   });
 
   commentInput.value = '';
