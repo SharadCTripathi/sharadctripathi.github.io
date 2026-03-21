@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Projectile Motion: Concept, Equations, and Shortcuts</title>
 
-<meta name="description" content="Projectile motion explained with equations, trajectory formula, time of flight, maximum height, range, solved examples and NEET PYQs.">
-<meta name="keywords" content="Projectile Motion, Range Formula, Time of Flight, Maximum Height, Trajectory Equation, Physics Projectile Motion, NEET Physics">
-<meta name="author" content="Dr. Sharad Chandra Tripathi">
-
+<meta property="og:title" content="Projectile Motion: Formulas, Concepts, Examples, and Shortcuts">
+<meta property="og:description" content="Complete guide to projectile motion with key formulas, trajectory equation, solved examples, shortcut concepts, and previous year questions for quick exam revision.">
+<meta property="og:image" content="https://yourdomain.com/images/projectile-motion.png">
+<meta property="og:url" content="https://yourdomain.com/projectile-motion.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
 <script>
 window.MathJax = {
   tex: {
@@ -20,7 +23,7 @@ window.MathJax = {
   svg: { fontCache: 'global' }
 };
 </script>
-
+  
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
 <style>
@@ -41,6 +44,7 @@ window.MathJax = {
   margin-bottom: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 .article-page h1 {
   font-size: 2.2em;
@@ -61,26 +65,238 @@ window.MathJax = {
   border-bottom: 3px solid #FFD700;
   padding-bottom: 8px;
 }
+.article-page h3 {
+  font-size: 1.5em;
+  color: #0056b3;
+  margin-bottom: 15px;
+}
 .article-page p {
   text-align: justify;
-  line-height: 1.75;
+  text-justify: inter-word;
   margin-bottom: 18px;
+  line-height: 1.75;
 }
 .article-page ul, .article-page ol {
   margin-left: 30px;
   margin-bottom: 15px;
+  line-height: 1.6;
 }
-.article-page li { margin-bottom: 10px; }
+.article-page li {
+  margin-bottom: 10px;
+}
+.article-page .work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
 .article-page .math-display {
+  display: block;
   text-align: center;
   margin: 25px 0;
+  font-size: 1.2em;
   background: #f4f4f4;
   padding: 12px;
   border-radius: 6px;
+  overflow-x: auto;
 }
-.footer {
-  text-align:center;
-  margin-top:40px;
+.article-page span.math-inline {
+  font-size: 1.05em;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+.article-page .footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.article-page .article-image {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+.article-page .article-image img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain; /* prevents important parts from getting cropped */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: #f4f4f4; /* subtle background for uneven images */
+  padding: 5px;
+}
+.article-page .image-credit {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 8px;
+  font-style: italic;
+}
+.share-bar {
+  position: fixed;
+  left: 20px;
+  top: 60%;
+  transform: translateY(-50%) translateX(-80px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+.share-bar.visible {
+  transform: translateY(-50%) translateX(0);
+}
+.share-bottom {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--card-bg, #fff);
+  padding: 10px 0;
+  justify-content: space-around;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+.share-btn {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.fb { background: #1877f2; }
+.wa { background: #25d366; }
+.li { background: #0077b5; }
+.tw { background: #000; }
+.copy { background: #6c757d; }
+.native { background: #ff9800; }
+
+.share-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+.share-btn::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 55px;
+  background: #333;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+.share-btn:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .share-bar { display: none; }
+  .share-bottom { display: flex; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .share-bottom {
+    background: #1e1e1e;
+  }
+}
+.toast {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 2000;
+}
+.toast.show {
+  opacity: 1;
+}
+.article-interactions {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+}
+
+.article-interactions button#likeBtn {
+  background-color: #2196f3; /* changed to blue */
+  color: #fff; /* white text for contrast */
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.article-interactions button#likeBtn:hover {
+  background-color: #1976d2; /* slightly darker blue on hover */
+}
+
+.article-interactions #likeCount {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.article-interactions .comments-section {
+  margin-top: 15px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.article-interactions .comments-section form {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.article-interactions .comments-section input#commentInput {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.article-interactions .comments-section button[type="submit"] {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.article-interactions .comments-section button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.article-interactions .comments-section ul#commentList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.article-interactions .comments-section ul#commentList li {
+  padding: 4px 6px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  color: #333;
 }
 </style>
 </head>
@@ -97,9 +313,17 @@ window.MathJax = {
 <section>
 <h2>What Is Projectile Motion?</h2>
 
+<p>Think about the last time you tossed a ball to a friend, kicked a football, or even watched water arc out of a fountain. There’s something oddly satisfying about that curved path, right? It rises, slows down, pauses for a split second, and then falls back down. It almost feels intentional—like the object “knows” where to go.</p>
+
+<p>But here’s the fascinating part: that entire motion follows a very precise set of physical laws. What looks like a casual throw is actually a perfect demonstration of physics in action.</p>
+
 <p>Projectile motion refers to the motion of an object that is thrown or projected into the air and is subject only to acceleration due to gravity. It is a two-dimensional motion in which the object moves along a curved trajectory known as a <em>parabola</em>.</p>
 
+<p>If you observe carefully, every such motion—whether it's a cricket ball, a basketball shot, or even a stone you throw—traces this same parabolic shape. That’s not a coincidence. It’s a direct consequence of how gravity acts.</p>
+
 <p>The only force acting on the object (after projection) is gravity, which acts vertically downward. The horizontal and vertical motions are treated separately and analyzed using the equations of motion.</p>
+
+<p>This separation is one of the smartest tricks in physics. In reality, motion is happening all at once—but by splitting it into horizontal and vertical parts, we make a complex problem beautifully simple. Horizontally, nothing interferes. Vertically, gravity takes over completely. And together, they create that elegant curve you see.</p>
 
 </section>
 
@@ -108,6 +332,8 @@ window.MathJax = {
 <h2>Key Equations</h2>
 
 <p>If a particle is projected with an initial velocity \( u \) at an angle \( \theta \) from the horizontal:</p>
+
+<p>Let’s build this step by step, just like you would think about it in real life. When you throw something at an angle, part of your effort goes into pushing it forward, and part goes into lifting it upward.</p>
 
 <ul>
 
@@ -121,6 +347,8 @@ u_x = u \cos \theta, \quad u_y = u \sin \theta
 \]
 </div>
 
+<p>These components tell us exactly how much of the velocity is doing what. The horizontal part keeps the object moving forward steadily, while the vertical part fights against gravity.</p>
+
 <ul>
 <li><strong>Time of Flight:</strong></li>
 </ul>
@@ -130,6 +358,8 @@ u_x = u \cos \theta, \quad u_y = u \sin \theta
 T = \frac{2u \sin \theta}{g}
 \]
 </div>
+
+<p>Notice something subtle here: the time of flight depends only on the vertical component \( u \sin \theta \). No matter how fast you throw something horizontally, it won’t stay in the air longer unless you throw it upward more strongly.</p>
 
 <ul>
 <li><strong>Maximum Height:</strong></li>
@@ -141,6 +371,8 @@ H = \frac{u^2 \sin^2 \theta}{2g}
 \]
 </div>
 
+<p>This comes from the idea that as the object rises, its vertical velocity decreases until it becomes zero at the top. All that upward motion energy gets “used up” against gravity.</p>
+
 <ul>
 <li><strong>Horizontal Range:</strong></li>
 </ul>
@@ -151,6 +383,8 @@ R = \frac{u^2 \sin 2\theta}{g}
 \]
 </div>
 
+<p>This equation hides a beautiful symmetry. Angles like 30° and 60° give the same range. So if you throw a ball shallow or steep—but with complementary angles—it lands at the same distance.</p>
+
 <ul>
 <li><strong>Equation of Trajectory:</strong></li>
 </ul>
@@ -160,6 +394,8 @@ R = \frac{u^2 \sin 2\theta}{g}
 y = x \tan \theta - \frac{g x^2}{2u^2 \cos^2 \theta}
 \]
 </div>
+
+<p>This equation mathematically describes that curved path you see. The first term tries to make the motion straight, while the second term (because of gravity) bends it downward, creating a parabola.</p>
 
 </section>
 
@@ -181,6 +417,22 @@ y = x \tan \theta - \frac{g x^2}{2u^2 \cos^2 \theta}
 
 </ul>
 
+<p>Let’s connect these to intuition:</p>
+
+<ul>
+
+<li>Since no force acts horizontally, nothing changes that motion—so it stays constant.</li>
+
+<li>Gravity keeps pulling downward the entire time, which is why vertical motion is uniformly accelerated.</li>
+
+<li>At the top, the object “pauses” vertically for an instant before coming down—that’s where vertical velocity becomes zero.</li>
+
+<li>The 45° angle gives the perfect balance between height and distance.</li>
+
+<li>The motion is symmetric, so going up takes the same time as coming down.</li>
+
+</ul>
+
 </section>
 
 
@@ -193,17 +445,23 @@ y = x \tan \theta - \frac{g x^2}{2u^2 \cos^2 \theta}
 
 </ol>
 
+<p>Let’s interpret what’s happening, not just calculate.</p>
+
 <div class="math-display">
 \[
 T = \frac{2u \sin \theta}{g} = \frac{2 \cdot 20 \cdot \frac{1}{2}}{10} = 2\,\text{s}
 \]
 </div>
 
+<p>The object stays in the air for 2 seconds—this is controlled entirely by how much upward velocity it has.</p>
+
 <div class="math-display">
 \[
 H = \frac{u^2 \sin^2 \theta}{2g} = \frac{400 \cdot \frac{1}{4}}{20} = 5\,\text{m}
 \]
 </div>
+
+<p>It reaches only 5 meters high, because most of the velocity is directed forward rather than upward.</p>
 
 <div class="math-display">
 \[
@@ -214,11 +472,15 @@ R = \frac{u^2 \sin 2\theta}{g} =
 \]
 </div>
 
+<p>So it travels quite far horizontally—that’s the trade-off between height and range.</p>
+
 <ol start="2">
 
 <li>A stone is thrown horizontally from a height of 80 m with speed 10 m/s.</li>
 
 </ol>
+
+<p>This situation feels different because there’s no initial upward motion.</p>
 
 <p>Time to hit ground:</p>
 
@@ -230,6 +492,8 @@ t = \sqrt{\frac{2h}{g}} =
 \]
 </div>
 
+<p>Here’s something surprising: the time depends only on height, not on horizontal speed.</p>
+
 <p>Horizontal distance covered:</p>
 
 <div class="math-display">
@@ -237,6 +501,8 @@ t = \sqrt{\frac{2h}{g}} =
 x = u \cdot t = 10 \cdot 4 = 40\,\text{m}
 \]
 </div>
+
+<p>The horizontal motion simply continues at constant speed while gravity decides how long the motion lasts.</p>
 
 </section>
 
@@ -263,6 +529,8 @@ Vertical component of velocity \( (u \sin \theta) \).</li>
 
 </ol>
 
+<p>Each of these ideas comes directly from how gravity influences only one direction of motion.</p>
+
 </section>
 
 
@@ -280,6 +548,8 @@ Vertical component of velocity \( (u \sin \theta) \).</li>
 <li>Range is maximum when \( \theta = 45^\circ \).</li>
 
 </ul>
+
+<p>In exams, the faster you recognize the pattern, the easier everything becomes. The moment you see a projectile, split it into horizontal and vertical parts—that’s half the problem solved already.</p>
 
 </section>
 
@@ -320,8 +590,169 @@ H =
 
 <p><strong>Answer:</strong> \( \boxed{1000 \, \text{m}} \)</p>
 
+<p>Once you understand the concept, this becomes a one-line problem instead of a long calculation.</p>
+
 </section>
 
+<div class="share-bar" id="shareBar">
+  <a id="fb" class="share-btn fb" data-label="Facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a id="wa" class="share-btn wa" data-label="WhatsApp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a id="li" class="share-btn li" data-label="LinkedIn" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <a id="tw" class="share-btn tw" data-label="X" target="_blank" rel="noopener" aria-label="Share on Twitter"><i class="fab fa-x-twitter"></i></a>
+  <a id="copy" class="share-btn copy" data-label="Copy Link" aria-label="Copy Link"><i class="fas fa-link"></i></a>
+  <a id="native" class="share-btn native" data-label="Share" aria-label="Native Share"><i class="fas fa-share-nodes"></i></a>
+</div>
+
+<div class="share-bottom">
+  <a id="fb-m" class="share-btn fb" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+  <a id="wa-m" class="share-btn wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+  <a id="li-m" class="share-btn li" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+  <a id="tw-m" class="share-btn tw" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+  <a id="copy-m" class="share-btn copy"><i class="fas fa-link"></i></a>
+  <a id="native-m" class="share-btn native"><i class="fas fa-share-nodes"></i></a>
+</div>
+
+<div id="toast" class="toast">Link copied!</div>
+
+<script>
+const url = encodeURIComponent(window.location.href);
+const text = encodeURIComponent(document.title);
+
+const links = {
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+  whatsapp: `https://api.whatsapp.com/send?text=${text}%20${url}`,
+  linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+  twitter: `https://twitter.com/intent/tweet?text=${text}&url=${url}`
+};
+
+["fb","wa","li","tw","fb-m","wa-m","li-m","tw-m"].forEach(id => {
+  if(document.getElementById(id)){
+    if(id.includes("fb")) document.getElementById(id).href = links.facebook;
+    if(id.includes("wa")) document.getElementById(id).href = links.whatsapp;
+    if(id.includes("li")) document.getElementById(id).href = links.linkedin;
+    if(id.includes("tw")) document.getElementById(id).href = links.twitter;
+  }
+});
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href);
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2000);
+}
+
+document.getElementById("copy").onclick = copyLink;
+document.getElementById("copy-m").onclick = copyLink;
+
+
+function nativeShare() {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      url: window.location.href
+    });
+  } else {
+    alert("Sharing not supported on this device");
+  }
+}
+
+document.getElementById("native").onclick = nativeShare;
+document.getElementById("native-m").onclick = nativeShare;
+
+const shareBar = document.getElementById("shareBar");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 150) {
+    shareBar.classList.add("visible");
+  } else {
+    shareBar.classList.remove("visible");
+  }
+});
+</script>
+
+<!-- 🔹 Firebase Like Button + Hidden Comment Script Start -->
+<div class="article-interactions">
+  <button id="likeBtn">👍 Like</button> 
+  <span id="likeCount">0</span> Likes
+
+  <div class="comments-section">
+    <form id="commentForm">
+      <input type="text" id="commentInput" placeholder="Add a hidden comment">
+      <button type="submit">Post</button>
+    </form>
+    <ul id="commentList"></ul>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+  import { getDatabase, ref, onValue, runTransaction, set } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+  // --- Firebase Config ---
+  const firebaseConfig = {
+    apiKey: "AIzaSyDOyBe7KNKTsBJ9TSi_6MthpAADkuy-vRk",
+    authDomain: "physics-articles.firebaseapp.com",
+    projectId: "physics-articles",
+    storageBucket: "physics-articles.firebasestorage.app",
+    messagingSenderId: "135090013624",
+    appId: "1:135090013624:web:51cb07d9f71c99d4c8fb4d",
+    measurementId: "G-MP5LDG0R0S"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  // --- Explicitly use your database URL ---
+  const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
+
+  // --- Identify current article dynamically ---
+  const slug = window.location.pathname.split("/").pop().replace(".html", "");
+
+  // --- LIKE COUNTER ---
+  const likeBtn = document.getElementById('likeBtn');
+  const likeCountEl = document.getElementById('likeCount');
+  const likesRef = ref(db, `articles/${slug}/likes`);
+
+  // Real-time update
+  onValue(likesRef, snapshot => {
+    likeCountEl.textContent = snapshot.val() || 0;
+  });
+
+  // Increment on click
+  likeBtn.addEventListener('click', () => {
+    runTransaction(likesRef, current => (current || 0) + 1);
+  });
+
+  // --- HIDDEN COMMENTS ---
+  const commentsRef = ref(db, `articles/${slug}/comments`);
+  const commentForm = document.getElementById('commentForm');
+  const commentInput = document.getElementById('commentInput');
+  const commentList = document.getElementById('commentList');
+
+  // Listen for new comments
+  onValue(commentsRef, snapshot => {
+    const data = snapshot.val() || {};
+    commentList.innerHTML = '';
+    Object.values(data).forEach(comment => {
+      const li = document.createElement('li');
+      li.textContent = comment;
+      commentList.appendChild(li);
+    });
+  });
+
+  // Submit new comment (hidden)
+  commentForm.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!commentInput.value.trim()) return;
+    const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
+    set(newRef, commentInput.value);
+    commentInput.value = '';
+  });
+</script>
+<!-- 🔹 Firebase Like Button + Hidden Comment Script End -->
+  
+  
 
 <div class="footer">
   <p>
@@ -333,6 +764,7 @@ H =
     No part of this website, including notes, articles, or code, may be copied, reproduced, or distributed without permission.
   </p>
 </div>
+
 
 </main>
 </div>
