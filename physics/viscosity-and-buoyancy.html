@@ -835,7 +835,9 @@ window.addEventListener("scroll", () => {
   <span id="likeCount">0</span> Likes
 
   <div class="comments-section">
-    <button id="loginBtn">Login to Comment</button>
+    <div id="userStatus">
+      <button id="loginBtn">Login to Comment</button>
+    </div>
 
     <form id="commentForm">
       <input type="text" id="commentInput" placeholder="Add your private comment">
@@ -854,7 +856,7 @@ window.addEventListener("scroll", () => {
   } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
 
   import { 
-    getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged 
+    getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut 
   } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
   // --- Firebase Config ---
@@ -877,15 +879,32 @@ window.addEventListener("scroll", () => {
   const provider = new GoogleAuthProvider();
   let currentUser = null;
 
-  document.getElementById("loginBtn").addEventListener("click", () => {
-    signInWithPopup(auth, provider);
+  const loginBtn = document.getElementById("loginBtn");
+  const userStatusDiv = document.getElementById("userStatus");
+
+  loginBtn.addEventListener("click", () => {
+    signInWithPopup(auth, provider)
+      .catch(err => console.error("Login error:", err));
   });
+
+  // Optional: logout if needed (can add a button later)
+  function updateUserStatus(user) {
+    if (user) {
+      userStatusDiv.innerHTML = `Logged in as <b>${user.displayName || "User"}</b>`;
+    } else {
+      userStatusDiv.innerHTML = `<button id="loginBtn">Login to Comment</button>`;
+      document.getElementById("loginBtn").addEventListener("click", () => {
+        signInWithPopup(auth, provider)
+          .catch(err => console.error("Login error:", err));
+      });
+    }
+  }
 
   // --- Identify current article dynamically ---
   const slug = window.location.pathname.split("/").pop().replace(".html", "");
 
   // --- LIKE COUNTER ---
-  const likeBtn = document.getElementById('likeBtn');
+  const likeBtnEl = document.getElementById('likeBtn');
   const likeCountEl = document.getElementById('likeCount');
   const likesRef = ref(db, `articles/${slug}/likes`);
 
@@ -893,7 +912,7 @@ window.addEventListener("scroll", () => {
     likeCountEl.textContent = snapshot.val() || 0;
   });
 
-  likeBtn.addEventListener('click', () => {
+  likeBtnEl.addEventListener('click', () => {
     runTransaction(likesRef, current => (current || 0) + 1);
   });
 
@@ -903,8 +922,9 @@ window.addEventListener("scroll", () => {
   const commentList = document.getElementById('commentList');
 
   function loadUserComments() {
-    const commentsRef = ref(db, `articles/${slug}/comments`);
+    if (!currentUser) return;
 
+    const commentsRef = ref(db, `articles/${slug}/comments`);
     const userQuery = query(
       commentsRef,
       orderByChild("authorId"),
@@ -920,17 +940,18 @@ window.addEventListener("scroll", () => {
         li.textContent = comment.text;
         commentList.appendChild(li);
       });
+
+      if (Object.keys(data).length === 0) {
+        commentList.innerHTML = '<li style="color:#888;font-size:12px;">No comments yet (visible only to you)</li>';
+      }
     });
   }
 
   onAuthStateChanged(auth, (user) => {
     currentUser = user;
-
-    if (user) {
-      loadUserComments();
-    } else {
-      commentList.innerHTML = '';
-    }
+    updateUserStatus(user);
+    if (user) loadUserComments();
+    else commentList.innerHTML = '';
   });
 
   // --- Submit Comment ---
@@ -957,7 +978,6 @@ window.addEventListener("scroll", () => {
 <!-- 🔹 Firebase Like Button + Private Comment Script End -->
   
   
-
 <div class="footer">
   <p>
     © 2026 Dr. Sharad Chandra Tripathi. All rights reserved. 
