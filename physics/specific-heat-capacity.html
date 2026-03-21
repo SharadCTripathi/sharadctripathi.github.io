@@ -1,47 +1,63 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Specific Heat Capacity – Definition, Formula, Examples, PYQ (JEE/NEET)</title>
 
-<meta name="description" content="Learn specific heat capacity with definition, formula Q = mcΔT, examples, calorimetry, and JEE/NEET previous year solved question. Physics concept explained clearly.">
+<meta property="og:title" content="Specific Heat Capacity: Concepts, Formulas, Examples, and Shortcuts">
+<meta property="og:description" content="Explore specific heat capacity with key formulas, examples, calorimetry, molar heat, types, and exam-focused shortcuts to master thermal physics concepts.">
+<meta property="og:image" content="https://yourdomain.com/images/specific-heat-capacity.png">
+<meta property="og:url" content="https://yourdomain.com/specific-heat-capacity.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+  
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
-<meta name="keywords" content="Specific Heat Capacity, Q=mcΔT, Calorimetry, Heat Capacity, JEE Physics, NEET Physics, Thermodynamics, Physics Concepts">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- MathJax -->
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-<!-- Scoped CSS -->
 <style>
-body {
-  font-family: Georgia, serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
+.article-page {
+  background: #f9f9f9;
+  font-family: "Georgia", serif;
   color: #222;
+  padding: 20px 0;
 }
-main {
+.article-page main {
   max-width: 900px;
-  margin: 30px auto;
-  padding: 30px 25px;
+  margin: auto;
+  padding: 40px 25px;
 }
-section {
-  background: #fff;
+.article-page section {
+  background: #ffffff;
   padding: 30px 25px;
   margin-bottom: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-section:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+.article-page h1 {
+  font-size: 2.2em;
+  color: #002147;
+  text-align: center;
+  margin-bottom: 5px;
 }
-h2 {
+.article-page .header-author {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.article-page h2 {
   font-size: 2em;
   color: #002147;
   font-weight: 700;
@@ -49,21 +65,34 @@ h2 {
   border-bottom: 3px solid #FFD700;
   padding-bottom: 8px;
 }
-p {
+.article-page h3 {
+  font-size: 1.5em;
+  color: #0056b3;
+  margin-bottom: 15px;
+}
+.article-page p {
   text-align: justify;
   text-justify: inter-word;
   margin-bottom: 18px;
   line-height: 1.75;
 }
-ul, ol {
+.article-page ul, .article-page ol {
   margin-left: 30px;
   margin-bottom: 15px;
   line-height: 1.6;
 }
-li {
+.article-page li {
   margin-bottom: 10px;
 }
-.math-display {
+.article-page .work-item {
+  border-left: 4px solid #FFD700;
+  background: #fffbea;
+  border-radius: 6px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.article-page .math-display {
   display: block;
   text-align: center;
   margin: 25px 0;
@@ -73,67 +102,227 @@ li {
   border-radius: 6px;
   overflow-x: auto;
 }
-.math-inline {
+.article-page span.math-inline {
   font-size: 1.05em;
   background: #f4f4f4;
   padding: 2px 5px;
   border-radius: 3px;
-  white-space: nowrap;
 }
-.work-item {
-  border-left: 4px solid #FFD700;
-  background: #fffbea;
-  border-radius: 6px;
-  padding: 15px 18px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-.header-title {
-  text-align: center;
-  margin: 20px 0 30px 0;
-}
-.header-title h1 {
-  margin-bottom: 10px;
-}
-.header-title .header-author {
-  text-align: center;
-  font-style: italic;
-  margin: 0;
-}
-.footer {
+.article-page .footer {
   text-align: center;
   margin: 50px 0 20px 0;
   font-size: 0.9em;
   color: #555;
 }
+.article-page .article-image {
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+.article-page .article-image img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain; /* prevents important parts from getting cropped */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: #f4f4f4; /* subtle background for uneven images */
+  padding: 5px;
+}
+.article-page .image-credit {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 8px;
+  font-style: italic;
+}
+.share-bar {
+  position: fixed;
+  left: 20px;
+  top: 60%;
+  transform: translateY(-50%) translateX(-80px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+.share-bar.visible {
+  transform: translateY(-50%) translateX(0);
+}
+.share-bottom {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--card-bg, #fff);
+  padding: 10px 0;
+  justify-content: space-around;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+.share-btn {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.fb { background: #1877f2; }
+.wa { background: #25d366; }
+.li { background: #0077b5; }
+.tw { background: #000; }
+.copy { background: #6c757d; }
+.native { background: #ff9800; }
+
+.share-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+.share-btn::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 55px;
+  background: #333;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+.share-btn:hover::after {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
-  main { padding: 25px 15px; }
-  h2 { font-size: 1.8em; }
-  .math-display { font-size: 1.05em; }
+  .share-bar { display: none; }
+  .share-bottom { display: flex; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .share-bottom {
+    background: #1e1e1e;
+  }
+}
+.toast {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 2000;
+}
+.toast.show {
+  opacity: 1;
+}
+.article-interactions {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+}
+
+.article-interactions button#likeBtn {
+  background-color: #2196f3; /* changed to blue */
+  color: #fff; /* white text for contrast */
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.article-interactions button#likeBtn:hover {
+  background-color: #1976d2; /* slightly darker blue on hover */
+}
+
+.article-interactions #likeCount {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.article-interactions .comments-section {
+  margin-top: 15px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.article-interactions .comments-section form {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.article-interactions .comments-section input#commentInput {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.article-interactions .comments-section button[type="submit"] {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.article-interactions .comments-section button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.article-interactions .comments-section ul#commentList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.article-interactions .comments-section ul#commentList li {
+  padding: 4px 6px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  color: #333;
 }
 </style>
-
 </head>
 
 
 <body>
-
+<div class="article-page">
 <main>
 
-<header class="header-title">
 <h1>Specific Heat Capacity</h1>
 <p class="header-author">by Dr. Sharad Chandra Tripathi</p>
-</header>
+  
+<div class="article-image">
+  <img src="images/specific-heat-capacity.png" alt="Specific Heat Capacity Illustration">
+  <p class="image-credit">Image generated by Google AI</p>
+</div>
 
 
 <section>
 
 <p>
-Why does water take longer to heat than metal? Why does sand get hot quickly on a sunny day but cools down just as fast at night? The answer lies in a property called <strong>specific heat capacity</strong>. It tells us how much heat is required to raise the temperature of a substance and helps explain the thermal behavior of everything from oceans to engine blocks.
+Why does water take longer to heat than metal? Why does sand get hot quickly on a sunny day but cools down just as fast at night? The answer lies in a property called <strong>specific heat capacity</strong>. This property is not just an abstract number, it is a window into how energy interacts with matter, governing the pace at which substances respond to heat. It helps explain why oceans moderate climate, why cookware is made from certain metals, and even why our bodies resist sudden temperature changes.
 </p>
 
 <p>
-Let us understand this concept in depth.
+Let us understand this concept in depth, and see how it connects everyday observations with the underlying physics.
 </p>
 
 </section>
@@ -144,7 +333,7 @@ Let us understand this concept in depth.
 <h2>What is Specific Heat Capacity?</h2>
 
 <p>
-<strong>Specific heat capacity</strong> is defined as the amount of heat energy required to raise the temperature of one gram of a substance by one degree Celsius (or one kelvin).
+<strong>Specific heat capacity</strong> is defined as the amount of heat energy required to raise the temperature of one gram of a substance by one degree Celsius (or one kelvin). Think of it as a "thermal inertia", just as mass resists motion, substances resist temperature change.
 </p>
 
 <p>Mathematically, it is expressed as:</p>
@@ -167,7 +356,7 @@ Q = mc\Delta T
 <p><strong>SI unit:</strong> \( \text{J/kg} \cdot \text{K} \)<br>
 <strong>CGS unit:</strong> \( \text{cal/g}^\circ \text{C} \)</p>
 
-<p><strong>Note:</strong> 1 calorie = 4.186 joules</p>
+<p><strong>Note:</strong> 1 calorie = 4.186 joules. This connection reminds us that specific heat links the microscopic energy absorbed by atoms and molecules to macroscopic temperature changes we can feel.</p>
 
 </section>
 
@@ -177,7 +366,7 @@ Q = mc\Delta T
 <h2>Heat Capacity vs Specific Heat Capacity</h2>
 
 <p>
-<strong>Heat Capacity (C):</strong> It is the amount of heat required to raise the temperature of the entire object by 1°C. It depends on mass and material.
+<strong>Heat Capacity (C):</strong> It is the amount of heat required to raise the temperature of the entire object by 1°C. Heat capacity reflects both the material's intrinsic property and the total quantity of substance present.
 </p>
 
 <div class="math-display">
@@ -187,7 +376,7 @@ C = mc
 </div>
 
 <p>
-So, specific heat capacity is the heat capacity per unit mass.
+So, specific heat capacity is essentially the "per-unit-mass" version of heat capacity. While heat capacity tells us how hard it is to warm the whole object, specific heat tells us how resilient each gram is against temperature change.
 </p>
 
 </section>
@@ -198,14 +387,16 @@ So, specific heat capacity is the heat capacity per unit mass.
 <h2>Water Has High Specific Heat</h2>
 
 <p>
-Water has a very high specific heat capacity, around \( 4186 \, \text{J/kg} \cdot \text{K} \). This is why:
+Water has a very high specific heat capacity, around \( 4186 \, \text{J/kg} \cdot \text{K} \). This unusually high value arises from the hydrogen bonds between water molecules, which store energy in vibrations rather than translating it immediately into temperature change. That is why:
 </p>
 
 <ul>
-<li>Oceans regulate Earth’s temperature.</li>
-<li>Water-based coolants are used in engines.</li>
-<li>Human body (mostly water) resists sudden temperature changes.</li>
+<li>Oceans regulate Earth’s temperature, absorbing heat in summer and releasing it in winter like giant thermal batteries.</li>
+<li>Water-based coolants are used in engines, efficiently carrying away heat to prevent overheating.</li>
+<li>Human body (mostly water) resists sudden temperature changes, helping us survive in varying climates.</li>
 </ul>
+
+<p>Interestingly, if you spill a cup of water on a hot pan, it takes time to boil, while metals quickly change temperature because they lack this "thermal buffering" network.</p>
 
 </section>
 
@@ -225,7 +416,17 @@ Suppose you supply 4200 J of heat to 1 kg of water. The temperature of water wil
 </div>
 
 <p>
-But if you supplied the same heat to copper (with a much lower \( c \)), the temperature rise would be much more.
+Compare this with copper, which has a specific heat around \( 385 \, \text{J/kg} \cdot \text{K} \). If you supply the same 4200 J, the temperature rise of copper is much larger:
+</p>
+
+<div class="math-display">
+\[
+\Delta T_{\text{Cu}} = \frac{4200}{1 \times 385} \approx 10.9^\circ \text{C}
+\]
+</div>
+
+<p>
+This simple calculation explains why metal surfaces burn your hands faster in the sun compared to water bodies, despite equal sunlight exposure.
 </p>
 
 </section>
@@ -246,7 +447,7 @@ C_{\text{molar}} = \frac{Q}{n \Delta T}
 </div>
 
 <p>
-Where \( n \) is the number of moles. Molar specific heat is often used in thermodynamics, especially for gases.
+Where \( n \) is the number of moles. Molar specific heat is particularly useful in thermodynamics, especially for gases, because it relates energy changes directly to the number of particles rather than mass. This links the microscopic kinetic energy of molecules with macroscopic thermal phenomena.
 </p>
 
 </section>
@@ -257,8 +458,8 @@ Where \( n \) is the number of moles. Molar specific heat is often used in therm
 <h2>Types of Specific Heat</h2>
 
 <ul>
-<li><strong>At constant volume</strong> (\( C_V \)): Heat required at constant volume.</li>
-<li><strong>At constant pressure</strong> (\( C_P \)): Heat required at constant pressure.</li>
+<li><strong>At constant volume</strong> (\( C_V \)): Heat required at constant volume, where no work is done on the surroundings. The energy solely increases internal kinetic energy.</li>
+<li><strong>At constant pressure</strong> (\( C_P \)): Heat required at constant pressure, where some energy may do work by expanding the gas, requiring extra energy input.</li>
 </ul>
 
 <p>For gases,</p>
@@ -269,7 +470,7 @@ C_P - C_V = R
 \]
 </div>
 
-<p>Where \( R \) is the universal gas constant.</p>
+<p>Where \( R \) is the universal gas constant. This elegantly connects microscopic particle motion with macroscopic gas behavior—an insight that underpins engines, weather systems, and even breathing mechanisms in biology.</p>
 
 </section>
 
@@ -279,7 +480,7 @@ C_P - C_V = R
 <h2>Calorimetry and Heat Exchange</h2>
 
 <p>
-<strong>Calorimetry</strong> is the study of measuring heat changes during physical or chemical processes. It is based on the principle of conservation of energy:
+<strong>Calorimetry</strong> is the study of measuring heat changes during physical or chemical processes. It rests on the principle of conservation of energy: energy lost by a hot object equals energy gained by a cold one.
 </p>
 
 <div class="math-display">
@@ -301,6 +502,8 @@ m_1 c_1 (T_1 - T_f) = m_2 c_2 (T_f - T_2)
 <li>\( T_f \) is final equilibrium temperature</li>
 </ul>
 
+<p>This principle explains why mixing hot and cold water results in a predictable temperature, and underlies technologies from calorimeters to HVAC systems.</p>
+
 </section>
 
 
@@ -311,10 +514,12 @@ m_1 c_1 (T_1 - T_f) = m_2 c_2 (T_f - T_2)
 <p>The amount of temperature increase due to heat depends on:</p>
 
 <ul>
-<li><strong>Mass:</strong> More mass means slower temperature rise.</li>
-<li><strong>Specific Heat:</strong> High \( c \) means more energy needed.</li>
-<li><strong>Energy supplied:</strong> More heat causes greater temperature change.</li>
+<li><strong>Mass:</strong> More mass means more "thermal inertia," so temperature rises slower.</li>
+<li><strong>Specific Heat:</strong> High \( c \) means more energy is needed for the same temperature rise.</li>
+<li><strong>Energy supplied:</strong> More heat causes greater temperature change, but distribution depends on material properties.</li>
 </ul>
+
+<p>Subtle observation: a thin layer of sand heats faster than the ocean surface not just because of low mass, but because its specific heat is small, revealing the interplay of material property and geometry.</p>
 
 </section>
 
@@ -324,10 +529,10 @@ m_1 c_1 (T_1 - T_f) = m_2 c_2 (T_f - T_2)
 <h2>Role in Daily Life and Industry</h2>
 
 <ul>
-<li><strong>Cooking utensils:</strong> Made of materials with low specific heat so they heat up quickly.</li>
-<li><strong>Thermal buffering:</strong> Water in hot-water bottles or heat pads stores energy longer.</li>
-<li><strong>Climate control:</strong> Coastal areas have moderate climates due to the high specific heat of water.</li>
-<li><strong>Metallurgy:</strong> Understanding temperature changes during heating and forging processes.</li>
+<li><strong>Cooking utensils:</strong> Materials like copper or aluminum with low specific heat heat up quickly, improving cooking efficiency.</li>
+<li><strong>Thermal buffering:</strong> Water in hot-water bottles or heat pads stores energy longer, releasing it gradually for comfort.</li>
+<li><strong>Climate control:</strong> Coastal areas have moderate climates due to the high specific heat of water, which absorbs heat in summer and releases it in winter, acting as Earth’s giant heat reservoir.</li>
+<li><strong>Metallurgy:</strong> Understanding temperature changes during heating and forging ensures metals reach desired properties without cracking.</li>
 </ul>
 
 </section>
@@ -338,7 +543,7 @@ m_1 c_1 (T_1 - T_f) = m_2 c_2 (T_f - T_2)
 <h2>Mechanical Work and Heat</h2>
 
 <p>
-Mechanical work (like hammering) can convert kinetic energy into heat, raising the temperature of an object. For example, when a hammer hits a metal nail, part of the kinetic energy of the hammer is transferred as thermal energy to the nail.
+Mechanical work (like hammering or friction) can convert kinetic energy into heat, raising an object’s temperature. Imagine a blacksmith hammering a red-hot nail: each blow transfers part of the hammer’s kinetic energy into the nail’s molecules, increasing internal energy.
 </p>
 
 <p><strong>Kinetic energy:</strong></p>
@@ -350,8 +555,7 @@ E = \frac{1}{2} m v^2
 </div>
 
 <p>
-If only a fraction of this energy is absorbed by the object, we can calculate the resulting temperature rise using:
-</p>
+If only a fraction of this energy is absorbed, the resulting temperature rise is:</p>
 
 <div class="math-display">
 \[
@@ -359,9 +563,7 @@ Q = mc\Delta T
 \]
 </div>
 
-<p>
-<strong>Note:</strong> The fraction of energy converted to heat depends on the efficiency of transfer, surface contact, and material properties.
-</p>
+<p><strong>Note:</strong> Efficiency depends on contact area, material properties, and energy losses like sound or deformation. This principle is used in industrial forging, friction welding, and even in designing safety gear against impacts.</p>
 
 </section>
 
@@ -374,9 +576,9 @@ Q = mc\Delta T
 <li>Specific heat \( c \): Heat required per unit mass per unit rise in temperature.</li>
 <li>Formula: \( Q = mc\Delta T \)</li>
 <li>High \( c \) → heats up slowly; low \( c \) → heats up quickly.</li>
-<li>Water has highest known specific heat among common substances.</li>
-<li>\( C = mc \), heat capacity is the total heat needed.</li>
-<li>Mechanical energy can convert to heat, causing temperature rise.</li>
+<li>Water has highest known specific heat among common substances, making it an excellent thermal buffer.</li>
+<li>\( C = mc \), heat capacity is the total heat needed for the object.</li>
+<li>Mechanical energy can convert to heat, causing temperature rise depending on material and energy transfer.</li>
 </ul>
 
 </section>
@@ -409,7 +611,7 @@ If you supply 1000 J to 500 g of copper (\( c = 0.385 \, \text{J/g°C} \)), what
 
 <li>
 Which heats faster: water or copper? <br>
-Copper, because it has lower specific heat.
+Copper, because it has lower specific heat, demonstrating the difference in thermal response between metals and liquids.
 </li>
 
 <li>
@@ -474,7 +676,165 @@ Q = mc\Delta T \Rightarrow \Delta T = \frac{Q}{mc}
 
 </section>
 
+<div class="share-bar" id="shareBar">
+  <a id="fb" class="share-btn fb" data-label="Facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a id="wa" class="share-btn wa" data-label="WhatsApp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a id="li" class="share-btn li" data-label="LinkedIn" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <a id="tw" class="share-btn tw" data-label="X" target="_blank" rel="noopener" aria-label="Share on Twitter"><i class="fab fa-x-twitter"></i></a>
+  <a id="copy" class="share-btn copy" data-label="Copy Link" aria-label="Copy Link"><i class="fas fa-link"></i></a>
+  <a id="native" class="share-btn native" data-label="Share" aria-label="Native Share"><i class="fas fa-share-nodes"></i></a>
+</div>
 
+<div class="share-bottom">
+  <a id="fb-m" class="share-btn fb" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+  <a id="wa-m" class="share-btn wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+  <a id="li-m" class="share-btn li" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+  <a id="tw-m" class="share-btn tw" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+  <a id="copy-m" class="share-btn copy"><i class="fas fa-link"></i></a>
+  <a id="native-m" class="share-btn native"><i class="fas fa-share-nodes"></i></a>
+</div>
+
+<div id="toast" class="toast">Link copied!</div>
+
+<script>
+const url = encodeURIComponent(window.location.href);
+const text = encodeURIComponent(document.title);
+
+const links = {
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+  whatsapp: `https://api.whatsapp.com/send?text=${text}%20${url}`,
+  linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+  twitter: `https://twitter.com/intent/tweet?text=${text}&url=${url}`
+};
+
+["fb","wa","li","tw","fb-m","wa-m","li-m","tw-m"].forEach(id => {
+  if(document.getElementById(id)){
+    if(id.includes("fb")) document.getElementById(id).href = links.facebook;
+    if(id.includes("wa")) document.getElementById(id).href = links.whatsapp;
+    if(id.includes("li")) document.getElementById(id).href = links.linkedin;
+    if(id.includes("tw")) document.getElementById(id).href = links.twitter;
+  }
+});
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href);
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2000);
+}
+
+document.getElementById("copy").onclick = copyLink;
+document.getElementById("copy-m").onclick = copyLink;
+
+
+function nativeShare() {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      url: window.location.href
+    });
+  } else {
+    alert("Sharing not supported on this device");
+  }
+}
+
+document.getElementById("native").onclick = nativeShare;
+document.getElementById("native-m").onclick = nativeShare;
+
+const shareBar = document.getElementById("shareBar");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 150) {
+    shareBar.classList.add("visible");
+  } else {
+    shareBar.classList.remove("visible");
+  }
+});
+</script>
+
+<!-- 🔹 Firebase Like Button + Hidden Comment Script Start -->
+<div class="article-interactions">
+  <button id="likeBtn">👍 Like</button> 
+  <span id="likeCount">0</span> Likes
+
+  <div class="comments-section">
+    <form id="commentForm">
+      <input type="text" id="commentInput" placeholder="Add a hidden comment">
+      <button type="submit">Post</button>
+    </form>
+    <ul id="commentList"></ul>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+  import { getDatabase, ref, onValue, runTransaction, set } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+  // --- Firebase Config ---
+  const firebaseConfig = {
+    apiKey: "AIzaSyDOyBe7KNKTsBJ9TSi_6MthpAADkuy-vRk",
+    authDomain: "physics-articles.firebaseapp.com",
+    projectId: "physics-articles",
+    storageBucket: "physics-articles.firebasestorage.app",
+    messagingSenderId: "135090013624",
+    appId: "1:135090013624:web:51cb07d9f71c99d4c8fb4d",
+    measurementId: "G-MP5LDG0R0S"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  // --- Explicitly use your database URL ---
+  const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
+
+  // --- Identify current article dynamically ---
+  const slug = window.location.pathname.split("/").pop().replace(".html", "");
+
+  // --- LIKE COUNTER ---
+  const likeBtn = document.getElementById('likeBtn');
+  const likeCountEl = document.getElementById('likeCount');
+  const likesRef = ref(db, `articles/${slug}/likes`);
+
+  // Real-time update
+  onValue(likesRef, snapshot => {
+    likeCountEl.textContent = snapshot.val() || 0;
+  });
+
+  // Increment on click
+  likeBtn.addEventListener('click', () => {
+    runTransaction(likesRef, current => (current || 0) + 1);
+  });
+
+  // --- HIDDEN COMMENTS ---
+  const commentsRef = ref(db, `articles/${slug}/comments`);
+  const commentForm = document.getElementById('commentForm');
+  const commentInput = document.getElementById('commentInput');
+  const commentList = document.getElementById('commentList');
+
+  // Listen for new comments
+  onValue(commentsRef, snapshot => {
+    const data = snapshot.val() || {};
+    commentList.innerHTML = '';
+    Object.values(data).forEach(comment => {
+      const li = document.createElement('li');
+      li.textContent = comment;
+      commentList.appendChild(li);
+    });
+  });
+
+  // Submit new comment (hidden)
+  commentForm.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!commentInput.value.trim()) return;
+    const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
+    set(newRef, commentInput.value);
+    commentInput.value = '';
+  });
+</script>
+<!-- 🔹 Firebase Like Button + Hidden Comment Script End -->
+  
+  
 
 <div class="footer">
   <p>
