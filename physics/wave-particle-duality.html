@@ -225,7 +225,6 @@ window.MathJax = {
 .toast.show {
   opacity: 1;
 }  
-  /* 🔹 Article Interactions Styling */
 .article-interactions {
   margin-top: 20px;
   padding: 10px;
@@ -234,8 +233,8 @@ window.MathJax = {
 }
 
 .article-interactions button#likeBtn {
-  background-color: #1e90ff; /* Blue */
-  color: #fff;
+  background-color: #2196f3; /* changed to blue */
+  color: #fff; /* white text for contrast */
   border: none;
   padding: 6px 12px;
   border-radius: 5px;
@@ -245,7 +244,7 @@ window.MathJax = {
 }
 
 .article-interactions button#likeBtn:hover {
-  background-color: #0b78e3;
+  background-color: #1976d2; /* slightly darker blue on hover */
 }
 
 .article-interactions #likeCount {
@@ -254,7 +253,7 @@ window.MathJax = {
 }
 
 .article-interactions .comments-section {
-  margin-top: 10px;
+  margin-top: 15px;
   padding: 8px;
   background-color: #f9f9f9;
   border-radius: 5px;
@@ -273,8 +272,7 @@ window.MathJax = {
   border-radius: 4px;
 }
 
-.article-interactions .comments-section button[type="submit"],
-.article-interactions .comments-section button#toggleComments {
+.article-interactions .comments-section button[type="submit"] {
   padding: 5px 10px;
   background-color: #4caf50;
   color: #fff;
@@ -284,8 +282,7 @@ window.MathJax = {
   transition: background-color 0.2s ease;
 }
 
-.article-interactions .comments-section button[type="submit"]:hover,
-.article-interactions .comments-section button#toggleComments:hover {
+.article-interactions .comments-section button[type="submit"]:hover {
   background-color: #45a049;
 }
 
@@ -678,11 +675,10 @@ window.addEventListener("scroll", () => {
 
 <!-- 🔹 Firebase Like Button + Hidden Comment Script Start -->
 <div class="article-interactions">
-  <button id="likeBtn">👍 Like</button>
+  <button id="likeBtn">👍 Like</button> 
   <span id="likeCount">0</span> Likes
 
-  <div class="comments-section" style="display:none;">
-    <button id="toggleComments" type="button">Show Hidden Comments</button>
+  <div class="comments-section">
     <form id="commentForm">
       <input type="text" id="commentInput" placeholder="Add a hidden comment">
       <button type="submit">Post</button>
@@ -709,20 +705,24 @@ window.addEventListener("scroll", () => {
 
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-  const db = getDatabase(app);
 
-  // --- Identify the current article ---
-  const slug = window.location.pathname.split("/").pop().replace(".html","");
+  // --- Explicitly use your database URL ---
+  const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
+
+  // --- Identify current article dynamically ---
+  const slug = window.location.pathname.split("/").pop().replace(".html", "");
 
   // --- LIKE COUNTER ---
   const likeBtn = document.getElementById('likeBtn');
   const likeCountEl = document.getElementById('likeCount');
   const likesRef = ref(db, `articles/${slug}/likes`);
 
+  // Real-time update
   onValue(likesRef, snapshot => {
     likeCountEl.textContent = snapshot.val() || 0;
   });
 
+  // Increment on click
   likeBtn.addEventListener('click', () => {
     runTransaction(likesRef, current => (current || 0) + 1);
   });
@@ -732,14 +732,8 @@ window.addEventListener("scroll", () => {
   const commentForm = document.getElementById('commentForm');
   const commentInput = document.getElementById('commentInput');
   const commentList = document.getElementById('commentList');
-  const commentsSection = document.querySelector('.comments-section');
-  const toggleBtn = document.getElementById('toggleComments');
 
-  toggleBtn.addEventListener('click', () => {
-    commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
-    toggleBtn.textContent = commentsSection.style.display === 'none' ? 'Show Hidden Comments' : 'Hide Hidden Comments';
-  });
-
+  // Listen for new comments
   onValue(commentsRef, snapshot => {
     const data = snapshot.val() || {};
     commentList.innerHTML = '';
@@ -750,6 +744,7 @@ window.addEventListener("scroll", () => {
     });
   });
 
+  // Submit new comment (hidden)
   commentForm.addEventListener('submit', e => {
     e.preventDefault();
     if (!commentInput.value.trim()) return;
