@@ -223,7 +223,80 @@ window.MathJax = {
 }
 .toast.show {
   opacity: 1;
-}  
+}
+  .article-interactions {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+}
+
+.article-interactions button#likeBtn {
+  background-color: #2196f3; /* changed to blue */
+  color: #fff; /* white text for contrast */
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.article-interactions button#likeBtn:hover {
+  background-color: #1976d2; /* slightly darker blue on hover */
+}
+
+.article-interactions #likeCount {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.article-interactions .comments-section {
+  margin-top: 15px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.article-interactions .comments-section form {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.article-interactions .comments-section input#commentInput {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.article-interactions .comments-section button[type="submit"] {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.article-interactions .comments-section button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.article-interactions .comments-section ul#commentList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.article-interactions .comments-section ul#commentList li {
+  padding: 4px 6px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  color: #333;
+}
 </style>
 </head>
 
@@ -788,6 +861,90 @@ window.addEventListener("scroll", () => {
   }
 });
 </script>
+
+
+<!-- 🔹 Firebase Like Button + Hidden Comment Script Start -->
+<div class="article-interactions">
+  <button id="likeBtn">👍 Like</button> 
+  <span id="likeCount">0</span> Likes
+
+  <div class="comments-section">
+    <form id="commentForm">
+      <input type="text" id="commentInput" placeholder="Add a hidden comment">
+      <button type="submit">Post</button>
+    </form>
+    <ul id="commentList"></ul>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+  import { getDatabase, ref, onValue, runTransaction, set } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+  // --- Firebase Config ---
+  const firebaseConfig = {
+    apiKey: "AIzaSyDOyBe7KNKTsBJ9TSi_6MthpAADkuy-vRk",
+    authDomain: "physics-articles.firebaseapp.com",
+    projectId: "physics-articles",
+    storageBucket: "physics-articles.firebasestorage.app",
+    messagingSenderId: "135090013624",
+    appId: "1:135090013624:web:51cb07d9f71c99d4c8fb4d",
+    measurementId: "G-MP5LDG0R0S"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  // --- Explicitly use your database URL ---
+  const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
+
+  // --- Identify current article dynamically ---
+  const slug = window.location.pathname.split("/").pop().replace(".html", "");
+
+  // --- LIKE COUNTER ---
+  const likeBtn = document.getElementById('likeBtn');
+  const likeCountEl = document.getElementById('likeCount');
+  const likesRef = ref(db, `articles/${slug}/likes`);
+
+  // Real-time update
+  onValue(likesRef, snapshot => {
+    likeCountEl.textContent = snapshot.val() || 0;
+  });
+
+  // Increment on click
+  likeBtn.addEventListener('click', () => {
+    runTransaction(likesRef, current => (current || 0) + 1);
+  });
+
+  // --- HIDDEN COMMENTS ---
+  const commentsRef = ref(db, `articles/${slug}/comments`);
+  const commentForm = document.getElementById('commentForm');
+  const commentInput = document.getElementById('commentInput');
+  const commentList = document.getElementById('commentList');
+
+  // Listen for new comments
+  onValue(commentsRef, snapshot => {
+    const data = snapshot.val() || {};
+    commentList.innerHTML = '';
+    Object.values(data).forEach(comment => {
+      const li = document.createElement('li');
+      li.textContent = comment;
+      commentList.appendChild(li);
+    });
+  });
+
+  // Submit new comment (hidden)
+  commentForm.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!commentInput.value.trim()) return;
+    const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
+    set(newRef, commentInput.value);
+    commentInput.value = '';
+  });
+</script>
+<!-- 🔹 Firebase Like Button + Hidden Comment Script End -->
+
   
 <div class="footer">
   <p>
