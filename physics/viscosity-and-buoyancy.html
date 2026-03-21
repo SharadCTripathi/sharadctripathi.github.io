@@ -225,29 +225,36 @@ window.MathJax = {
 .toast.show {
   opacity: 1;
 }
-  .article-interactions {
+.article-interactions {
   margin: 20px 0;
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
 }
 
-.article-interactions button {
+#likeBtn {
   cursor: pointer;
   padding: 6px 12px;
-  font-size: 14px;
-  border: none;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #1e88e5;
-  color: white;
-  transition: background-color 0.2s ease;
+  margin-right: 5px;
 }
 
-.article-interactions button:hover {
-  background-color: #1565c0;
+#likeBtn:hover {
+  background-color: #e0e0e0;
+}
+
+#likeCount {
+  font-weight: bold;
+}
+
+.comments-section {
+  display: none; /* hidden by default */
+  margin-top: 15px;
 }
 
 .comments-section input {
   padding: 5px;
-  width: 70%;
+  width: 200px;
   margin-right: 5px;
 }
 
@@ -255,11 +262,9 @@ window.MathJax = {
   padding: 5px 10px;
 }
 
-.comments-section ul li {
-  padding: 3px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 13px;
-  color: #333;
+#commentList li {
+  font-size: 0.9em;
+  margin: 2px 0;
 }
 </style>
   
@@ -746,49 +751,60 @@ window.addEventListener("scroll", () => {
 
 <!-- 🔹 Firebase Like Button + Hidden Comment Script Start -->
 <div class="article-interactions">
-  <button id="likeBtn">👍 Like</button> <span id="likeCount">0</span> Likes
+  <button id="likeBtn">👍 Like</button> 
+  <span id="likeCount">0</span> Likes
 
-  <div class="comments-section" style="display:none; margin-top:15px;">
+  <div class="comments-section">
     <form id="commentForm">
       <input type="text" id="commentInput" placeholder="Add a hidden comment">
       <button type="submit">Post</button>
     </form>
-    <ul id="commentList" style="list-style:none; padding-left:0; margin-top:5px;"></ul>
+    <ul id="commentList"></ul>
   </div>
 </div>
-<!-- 🔹 Firebase Like Button + Hidden Comment Script End -->
-
 
 <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
   import { getDatabase, ref, onValue, runTransaction, set } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
 
-  const db = getDatabase();
+  // --- Firebase Config ---
+  const firebaseConfig = {
+    apiKey: "AIzaSyDOyBe7KNKTsBJ9TSi_6MthpAADkuy-vRk",
+    authDomain: "physics-articles.firebaseapp.com",
+    projectId: "physics-articles",
+    storageBucket: "physics-articles.firebasestorage.app",
+    messagingSenderId: "135090013624",
+    appId: "1:135090013624:web:51cb07d9f71c99d4c8fb4d",
+    measurementId: "G-MP5LDG0R0S"
+  };
 
-  // Unique key for the current article (use path to avoid collisions)
-  const pageKey = window.location.pathname.replace(/\//g, '_'); // "_superposition-of-waves.html"
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getDatabase(app);
 
-  // ---------- LIKE COUNTER ----------
+  // --- Identify the current article ---
+  const slug = window.location.pathname.split("/").pop().replace(".html", ""); 
+
+  // --- LIKE COUNTER ---
   const likeBtn = document.getElementById('likeBtn');
   const likeCountEl = document.getElementById('likeCount');
-  const likesRef = ref(db, `likes${pageKey}`);
+  const likesRef = ref(db, `articles/${slug}/likes`);
 
-  // Update real-time count
   onValue(likesRef, snapshot => {
     likeCountEl.textContent = snapshot.val() || 0;
   });
 
-  // Increment on click
   likeBtn.addEventListener('click', () => {
     runTransaction(likesRef, current => (current || 0) + 1);
   });
 
-  // ---------- HIDDEN COMMENTS ----------
-  const commentsRef = ref(db, `comments${pageKey}`);
+  // --- HIDDEN COMMENTS ---
+  const commentsRef = ref(db, `articles/${slug}/comments`);
   const commentForm = document.getElementById('commentForm');
   const commentInput = document.getElementById('commentInput');
   const commentList = document.getElementById('commentList');
 
-  // Listen for comments (for admin visibility)
   onValue(commentsRef, snapshot => {
     const data = snapshot.val() || {};
     commentList.innerHTML = '';
@@ -799,16 +815,15 @@ window.addEventListener("scroll", () => {
     });
   });
 
-  // Submit new comment
   commentForm.addEventListener('submit', e => {
     e.preventDefault();
     if (!commentInput.value.trim()) return;
-    const newRef = ref(db, `comments${pageKey}/${Date.now()}`);
+    const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
     set(newRef, commentInput.value);
     commentInput.value = '';
   });
 </script>
-
+<!-- 🔹 Firebase Like Button + Hidden Comment Script End -->
 
   
   
