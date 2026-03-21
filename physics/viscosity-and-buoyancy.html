@@ -849,134 +849,128 @@ window.addEventListener("scroll", () => {
 </div>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
-  import { 
-    getDatabase, ref, onValue, runTransaction, set, query, orderByChild, equalTo 
-  } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+import { getDatabase, ref, onValue, runTransaction, set, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
-  import { 
-    getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut 
-  } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+// --- Firebase Config ---
+const firebaseConfig = {
+  apiKey: "AIzaSyAjegFC3uioTtpZtRm3nZNR1UgUovSnSTE",
+  authDomain: "physics-articles.firebaseapp.com",
+  projectId: "physics-articles",
+  storageBucket: "physics-articles.firebasestorage.app",
+  messagingSenderId: "135090013624",
+  appId: "1:135090013624:web:51cb07d9f71c99d4c8fb4d",
+  measurementId: "G-MP5LDG0R0S"
+};
 
-  // --- Firebase Config ---
-  const firebaseConfig = {
-    apiKey: "AIzaSyAjegFC3uioTtpZtRm3nZNR1UgUovSnSTE",
-    authDomain: "physics-articles.firebaseapp.com",
-    projectId: "physics-articles",
-    storageBucket: "physics-articles.firebasestorage.app",
-    messagingSenderId: "135090013624",
-    appId: "1:135090013624:web:51cb07d9f71c99d4c8fb4d",
-    measurementId: "G-MP5LDG0R0S"
-  };
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
 
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const db = getDatabase(app, "https://physics-articles-default-rtdb.asia-southeast1.firebasedatabase.app");
+// --- Auth Setup ---
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+let currentUser = null;
 
-  // --- Auth Setup ---
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
-  let currentUser = null;
+const loginBtn = document.getElementById("loginBtn");
+const userStatusDiv = document.getElementById("userStatus");
+const commentList = document.getElementById("commentList");
+const commentForm = document.getElementById('commentForm');
+const commentInput = document.getElementById('commentInput');
 
-  const loginBtn = document.getElementById("loginBtn");
-  const userStatusDiv = document.getElementById("userStatus");
+// --- Login Button ---
+loginBtn.addEventListener("click", () => {
+  signInWithPopup(auth, provider)
+    .catch(err => console.error("Login error:", err));
+});
 
-  loginBtn.addEventListener("click", () => {
-    signInWithPopup(auth, provider)
-      .catch(err => console.error("Login error:", err));
-  });
-
-  // Optional: logout if needed (can add a button later)
-  function updateUserStatus(user) {
-    if (user) {
-      userStatusDiv.innerHTML = `Logged in as <b>${user.displayName || "User"}</b>`;
-    } else {
-      userStatusDiv.innerHTML = `<button id="loginBtn">Login to Comment</button>`;
-      document.getElementById("loginBtn").addEventListener("click", () => {
-        signInWithPopup(auth, provider)
-          .catch(err => console.error("Login error:", err));
-      });
-    }
+// --- Update User Status ---
+function updateUserStatus(user) {
+  if (user) {
+    loginBtn.style.display = "none";
+    userStatusDiv.innerHTML = `Logged in as <b>${user.displayName || "User"}</b>`;
+  } else {
+    loginBtn.style.display = "inline-block";
+    loginBtn.textContent = "Login to Comment";
+    commentList.innerHTML = '';
   }
+}
 
-  // --- Identify current article dynamically ---
-  const slug = window.location.pathname.split("/").pop().replace(".html", "");
+// --- Current Article Slug ---
+const slug = window.location.pathname.split("/").pop().replace(".html", "");
 
-  // --- LIKE COUNTER ---
-  const likeBtnEl = document.getElementById('likeBtn');
-  const likeCountEl = document.getElementById('likeCount');
-  const likesRef = ref(db, `articles/${slug}/likes`);
+// --- LIKE COUNTER ---
+const likeBtnEl = document.getElementById('likeBtn');
+const likeCountEl = document.getElementById('likeCount');
+const likesRef = ref(db, `articles/${slug}/likes`);
 
-  onValue(likesRef, snapshot => {
-    likeCountEl.textContent = snapshot.val() || 0;
-  });
+onValue(likesRef, snapshot => {
+  likeCountEl.textContent = snapshot.val() || 0;
+});
 
-  likeBtnEl.addEventListener('click', () => {
-    runTransaction(likesRef, current => (current || 0) + 1);
-  });
+likeBtnEl.addEventListener('click', () => {
+  runTransaction(likesRef, current => (current || 0) + 1);
+});
 
-  // --- COMMENTS (PRIVATE PER USER) ---
-  const commentForm = document.getElementById('commentForm');
-  const commentInput = document.getElementById('commentInput');
-  const commentList = document.getElementById('commentList');
+// --- COMMENTS (PRIVATE PER USER) ---
+function loadUserComments() {
+  if (!currentUser) return;
 
-  function loadUserComments() {
-    if (!currentUser) return;
+  const commentsRef = ref(db, `articles/${slug}/comments`);
+  const userQuery = query(
+    commentsRef,
+    orderByChild("authorId"),
+    equalTo(currentUser.uid)
+  );
 
-    const commentsRef = ref(db, `articles/${slug}/comments`);
-    const userQuery = query(
-      commentsRef,
-      orderByChild("authorId"),
-      equalTo(currentUser.uid)
-    );
+  onValue(userQuery, snapshot => {
+    const data = snapshot.val() || {};
+    commentList.innerHTML = '';
 
-    onValue(userQuery, snapshot => {
-      const data = snapshot.val() || {};
-      commentList.innerHTML = '';
-
-      Object.values(data).forEach(comment => {
-        const li = document.createElement('li');
-        li.textContent = comment.text;
-        commentList.appendChild(li);
-      });
-
-      if (Object.keys(data).length === 0) {
-        commentList.innerHTML = '<li style="color:#888;font-size:12px;">No comments yet (visible only to you)</li>';
-      }
-    });
-  }
-
-  onAuthStateChanged(auth, (user) => {
-    currentUser = user;
-    updateUserStatus(user);
-    if (user) loadUserComments();
-    else commentList.innerHTML = '';
-  });
-
-  // --- Submit Comment ---
-  commentForm.addEventListener('submit', e => {
-    e.preventDefault();
-
-    if (!currentUser) {
-      alert("Please login to comment");
+    if (Object.keys(data).length === 0) {
+      commentList.innerHTML = '<li style="color:#888;font-size:12px;">No comments yet (visible only to you)</li>';
       return;
     }
 
-    if (!commentInput.value.trim()) return;
-
-    const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
-
-    set(newRef, {
-      text: commentInput.value,
-      authorId: currentUser.uid
+    Object.values(data).forEach(comment => {
+      const li = document.createElement('li');
+      li.textContent = comment.text;
+      commentList.appendChild(li);
     });
-
-    commentInput.value = '';
   });
+}
+
+// --- Auth State Changed ---
+onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+  updateUserStatus(user);
+  if (user) loadUserComments();
+});
+
+// --- Submit Comment ---
+commentForm.addEventListener('submit', e => {
+  e.preventDefault();
+
+  if (!currentUser) {
+    alert("Please login to comment");
+    return;
+  }
+
+  const text = commentInput.value.trim();
+  if (!text) return;
+
+  const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
+  set(newRef, {
+    text,
+    authorId: currentUser.uid
+  });
+
+  commentInput.value = '';
+});
 </script>
 <!-- 🔹 Firebase Like Button + Private Comment Script End -->
-  
   
 <div class="footer">
   <p>
