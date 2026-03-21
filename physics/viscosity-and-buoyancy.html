@@ -738,6 +738,7 @@ window.addEventListener("scroll", () => {
 });
 </script>
 
+<!-- 🔹 Firebase Like Button + Hidden Comment Script Start -->
 <div class="article-interactions">
   <button id="likeBtn">👍 Like</button> 
   <span id="likeCount">0</span> Likes
@@ -754,7 +755,7 @@ window.addEventListener("scroll", () => {
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
-  import { getDatabase, ref, onValue, runTransaction, set } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+  import { getDatabase, ref, onValue, runTransaction, update } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
 
   // --- Firebase Config ---
   const firebaseConfig = {
@@ -771,29 +772,35 @@ window.addEventListener("scroll", () => {
   const analytics = getAnalytics(app);
   const db = getDatabase(app);
 
-  // --- Identify the current article automatically ---
-  const slug = window.location.pathname.split("/").pop().replace(".html", "");
+  // --- Determine article slug automatically ---
+  const slug = window.location.pathname.split("/").pop().replace(".html","");
 
-  // --- LIKE COUNTER ---
+  // --- References ---
+  const likesRef = ref(db, `articles/${slug}/likes`);
+  const commentsRef = ref(db, `articles/${slug}/comments`);
+
   const likeBtn = document.getElementById('likeBtn');
   const likeCountEl = document.getElementById('likeCount');
-  const likesRef = ref(db, `articles/${slug}/likes`);
-
-  onValue(likesRef, snapshot => {
-    likeCountEl.textContent = snapshot.val() || 0;
-  });
-
-  likeBtn.addEventListener('click', () => {
-    runTransaction(likesRef, current => (current || 0) + 1);
-  });
-
-  // --- HIDDEN COMMENTS (for admin) ---
-  const commentsRef = ref(db, `articles/${slug}/comments`);
   const commentForm = document.getElementById('commentForm');
   const commentInput = document.getElementById('commentInput');
   const commentList = document.getElementById('commentList');
 
-  // Listen for comments
+  // --- Initialize likes if missing ---
+  onValue(likesRef, snapshot => {
+    if (snapshot.val() === null) {
+      update(ref(db, `articles/${slug}`), { likes: 0 });
+      likeCountEl.textContent = 0;
+    } else {
+      likeCountEl.textContent = snapshot.val();
+    }
+  });
+
+  // --- Like button click ---
+  likeBtn.addEventListener('click', () => {
+    runTransaction(likesRef, current => (current || 0) + 1);
+  });
+
+  // --- Listen for hidden comments ---
   onValue(commentsRef, snapshot => {
     const data = snapshot.val() || {};
     commentList.innerHTML = '';
@@ -804,15 +811,16 @@ window.addEventListener("scroll", () => {
     });
   });
 
-  // Submit comment (requires Firebase auth for admin if rules restrict write)
+  // --- Submit hidden comment ---
   commentForm.addEventListener('submit', e => {
     e.preventDefault();
-    if (!commentInput.value.trim()) return;
-    const newRef = ref(db, `articles/${slug}/comments/${Date.now()}`);
-    set(newRef, commentInput.value);
+    const text = commentInput.value.trim();
+    if (!text) return;
+    update(ref(db, `articles/${slug}/comments/${Date.now()}`), { text });
     commentInput.value = '';
   });
 </script>
+<!-- 🔹 Firebase Like Button + Hidden Comment Script End -->
   
   
 
