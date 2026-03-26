@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kepler's Laws of Planetary Motion</title>
 
-<title>Kepler's Laws of Planetary Motion | Physics Explained for JEE NEET</title>
+<meta property="og:title" content="Kepler's Laws of Planetary Motion: Complete Guide with Examples">
+<meta property="og:description" content="Learn Kepler's Three Laws of Planetary Motion with clear explanations, diagrams, formulas, solved examples, shortcut concepts, and previous year questions (PYQs) for JEE/NEET.">
+<meta property="og:image" content="https://yourdomain.com/images/keplers-laws.png">
+<meta property="og:url" content="https://yourdomain.com/keplers-laws.html">
+<meta property="og:type" content="article">
 
-<meta name="description" content="A detailed explanation of Kepler's Laws of Planetary Motion including ellipse orbits, equal area law, and orbital period relation with examples, equations, and JEE level questions.">
-
-<meta name="keywords" content="Kepler laws, planetary motion, Kepler first law, Kepler second law, Kepler third law, orbital mechanics, JEE physics, astronomy basics">
-
+<meta name="description" content="Comprehensive guide to Kepler's Laws of Planetary Motion including first, second, and third laws, orbital formulas, examples, shortcut concepts, fun facts, and JEE/NEET PYQs with solutions.">
 <meta name="author" content="Dr. Sharad Chandra Tripathi">
 
-<!-- MathJax configuration -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kepler's Laws of Planetary Motion: Laws, Formulas, Examples & PYQs">
+<meta name="twitter:description" content="Master Kepler's Laws with formulas, orbital concepts, solved examples, shortcuts, and previous year questions for exams.">
+<meta name="twitter:image" content="https://yourdomain.com/images/keplers-laws.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
 <script>
 window.MathJax = {
-tex: {
-inlineMath: [['\\(','\\)']],
-displayMath: [['\\[','\\]']],
-processEscapes: true
-},
-svg: { fontCache: 'global' }
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
 };
 </script>
-
+  
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
+  
 <style>
 .article-page {
   background: #f9f9f9;
@@ -226,15 +232,12 @@ svg: { fontCache: 'global' }
 .toast.show {
   opacity: 1;
 }
-/* 🔹 Article Interaction Container */
 .article-interactions {
   margin-top: 20px;
   padding: 12px;
   border-top: 1px solid #ddd;
   font-family: Arial, sans-serif;
 }
-
-/* 🔹 Like Button */
 .article-interactions button#likeBtn {
   background-color: #2196f3;
   color: #fff;
@@ -245,20 +248,15 @@ svg: { fontCache: 'global' }
   font-size: 14px;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
-
 .article-interactions button#likeBtn:hover {
   background-color: #1976d2;
   transform: scale(1.05);
 }
-
-/* 🔹 Like Count */
 .article-interactions #likeCount {
   font-weight: bold;
   margin-left: 6px;
   margin-right: 4px;
 }
-
-/* 🔹 Comments Section */
 .article-interactions .comments-section {
   margin-top: 15px;
   padding: 10px;
@@ -266,8 +264,6 @@ svg: { fontCache: 'global' }
   border-radius: 6px;
   border: 1px solid #eee;
 }
-
-/* 🔹 Login Button */
 .article-interactions #loginBtn {
   display: inline-block;
   margin-bottom: 10px;
@@ -280,19 +276,14 @@ svg: { fontCache: 'global' }
   font-size: 13px;
   transition: background-color 0.2s ease;
 }
-
 .article-interactions #loginBtn:hover {
   background-color: #f57c00;
 }
-
-/* 🔹 Comment Form */
 .article-interactions .comments-section form {
   display: flex;
   gap: 6px;
   margin-bottom: 10px;
 }
-
-/* 🔹 Comment Input */
 .article-interactions .comments-section input#commentInput {
   flex: 1;
   padding: 6px 8px;
@@ -300,8 +291,6 @@ svg: { fontCache: 'global' }
   border-radius: 4px;
   font-size: 13px;
 }
-
-/* 🔹 Submit Button */
 .article-interactions .comments-section button[type="submit"] {
   padding: 6px 12px;
   background-color: #4caf50;
@@ -312,19 +301,14 @@ svg: { fontCache: 'global' }
   font-size: 13px;
   transition: background-color 0.2s ease;
 }
-
 .article-interactions .comments-section button[type="submit"]:hover {
   background-color: #43a047;
 }
-
-/* 🔹 Comment List */
 .article-interactions .comments-section ul#commentList {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
-
-/* 🔹 Individual Comment */
 .article-interactions .comments-section ul#commentList li {
   padding: 6px 8px;
   border-bottom: 1px solid #eee;
@@ -334,8 +318,6 @@ svg: { fontCache: 'global' }
   border-radius: 4px;
   margin-bottom: 5px;
 }
-
-/* 🔹 Empty State (optional improvement) */
 .article-interactions .comments-section ul#commentList:empty::before {
   content: "No comments yet (visible only to you)";
   font-size: 12px;
@@ -346,85 +328,76 @@ svg: { fontCache: 'global' }
 </head>
 
 <body>
-
+<div class="article-page">
 <main>
 
-<div class="header-title">
 <h1>Kepler's Laws of Planetary Motion</h1>
 <p class="header-author">by Dr. Sharad Chandra Tripathi</p>
-</div>
 
+<div class="article-image">
+  <img src="images/keplers-laws.png" alt="Kepler's Laws Illustration">
+  <p class="image-credit">Image generated by Google AI</p>
+</div>
+  
 <section>
 
 <p>
-Have you ever looked up at the night sky and wondered how planets know where to go? Why do they seem to follow smooth, repeating paths around the Sun? Long before rockets and space missions, a man named Kepler figured out some of the biggest clues to this mystery.
+Have you ever gazed up at the night sky and wondered how planets “know” where to go? Why do they seem to glide along smooth, predictable paths around the Sun? Long before rockets or space probes, a brilliant astronomer named Johannes Kepler uncovered some of the key clues to this cosmic choreography.
 </p>
 
 <p>
-Kepler’s Laws of Planetary Motion explain how planets move in space. These ideas are not just old facts, they are still used in astronomy and space science.
+Kepler’s Laws of Planetary Motion don’t just belong in history books—they’re still the foundation of modern astronomy and space science. From plotting satellite orbits to sending probes to distant planets, Kepler’s insights remain indispensable.
 </p>
 
 </section>
-
 
 <section>
 
 <h2>Kepler's First Law: The Orbit is an Ellipse</h2>
 
 <p>
-The first thing Kepler discovered is that planets do not move in perfect circles around the Sun. Instead, their paths are shaped like ellipses, a bit like stretched-out circles. The Sun is not at the center of this shape; it is slightly off-center, at one of two special points called foci.
+The first remarkable thing Kepler discovered is that planets don’t move in perfect circles around the Sun. Instead, their orbits are ellipses—a shape that looks like a slightly stretched-out circle. And here’s the twist: the Sun isn’t at the center of this ellipse; it sits at one of two special points called foci. This tiny offset makes all the difference in planetary motion.
 </p>
 
 <p>
-You can think of an ellipse as a squashed circle. How much it is squashed is called its <strong>eccentricity</strong> \( (e) \). If \( e = 0 \), the shape is a perfect circle. The more stretched out it is, the higher the eccentricity.
+Imagine squishing a circle from two opposite sides. The amount it’s squashed is called its <strong>eccentricity</strong> \( (e) \). If \( e = 0 \), congratulations! You have a perfect circle. As the eccentricity increases, the ellipse gets more elongated.  
+So when you hear that Mercury’s orbit has an eccentricity of 0.205, it’s actually quite a bit more stretched than Earth’s almost circular orbit.
 </p>
 
 <p>
-This means that a planet does not stay the same distance from the Sun all the time. When it is closest, we call that point <strong>perihelion</strong>. When it is farthest, it is called <strong>aphelion</strong>.
+Because of this elliptical shape, a planet doesn’t stay the same distance from the Sun all the time. The closest point in its orbit is called <strong>perihelion</strong>, and the farthest point is <strong>aphelion</strong>. The variation in distance also subtly affects the planet’s speed and the intensity of sunlight it receives—something that even influences seasons on planets!
 </p>
 
 </section>
-
 
 <section>
 
 <h2>Kepler's Second Law: Planets Sweep Equal Areas in Equal Time</h2>
 
 <p>
-Kepler noticed something interesting about the way planets move. If you imagine a line from the planet to the Sun, the area that line sweeps out over a fixed amount of time always stays the same.
+Kepler noticed something truly elegant about planetary motion. Imagine drawing an imaginary line from a planet to the Sun. As the planet moves along its orbit, this line sweeps out areas in space. Kepler found that the area swept out in a given amount of time is always the same, no matter where the planet is in its orbit.
 </p>
 
 <p>
-Whether the planet is close to the Sun or far from it, the area covered in that time is equal.
+What does this mean in simple terms? Planets speed up when they are closer to the Sun and slow down when they are farther away. This isn’t magic—it’s gravity doing its work. The closer a planet is, the stronger the Sun’s gravitational pull, so the planet accelerates. Farther away, the pull weakens, and the planet leisurely drifts along.
 </p>
 
 <p>
-This tells us that planets move faster when they are closer to the Sun and slower when they are farther away.
-</p>
-
-<p>
-<strong>Why?</strong>  
-It is because gravity pulls harder when the planet is nearer the Sun, speeding it up. When it is farther away, the pull is weaker, so the planet slows down.
-</p>
-
-<p>
-This also explains why the seasons on Earth are not all exactly the same length.
+This also explains why the length of seasons on Earth isn’t perfectly equal. For instance, our Northern Hemisphere’s winter is slightly shorter than summer, due to Earth moving a bit faster when closer to the Sun.
 </p>
 
 </section>
-
 
 <section>
 
 <h2>Kepler's Third Law: The Farther a Planet, the Longer the Orbit</h2>
 
 <p>
-The third law connects how far a planet is from the Sun with how long it takes to go around it. Basically, the farther a planet is, the longer its year.
+The third law connects a planet’s distance from the Sun to the length of its “year.” In essence, the farther a planet is from the Sun, the longer it takes to complete one orbit.
 </p>
 
 <p>
-Mathematically, the square of the time it takes to orbit (in Earth years) is proportional to the cube of the average distance from the Sun (in astronomical units, or AU):
-</p>
+Mathematically, the law says:</p>
 
 <div class="math-display">
 \[
@@ -432,16 +405,16 @@ T^2 \propto r^3
 \]
 </div>
 
-<p>Where:</p>
+<p>
+Where:</p>
 
 <ul>
-<li>\( T \) is the orbital time (in years)</li>
-<li>\( r \) is the average distance from the Sun (in AU)</li>
+<li>\( T \) = orbital period (in Earth years)</li>
+<li>\( r \) = average distance from the Sun (in astronomical units, AU)</li>
 </ul>
 
 <p>
-For example, Earth is 1 AU away and takes 1 year. Jupiter is about 5.2 AU away, so:
-</p>
+Let’s see it in action. Earth is 1 AU from the Sun and takes 1 year to orbit. Jupiter, on the other hand, is about 5.2 AU away. Plugging in:</p>
 
 <div class="math-display">
 \[
@@ -450,29 +423,23 @@ T^2 = (5.2)^3 = 140.6 \Rightarrow T \approx 11.8 \text{ years}
 </div>
 
 <p>
-And yes, Jupiter takes about 11.8 years to complete one orbit.
+And indeed, Jupiter takes nearly 12 Earth years to make one trip around the Sun. Simple, elegant, and powerful.
 </p>
 
 </section>
 
-
 <section>
 
 <p>
-You might wonder why this is important today. When scientists plan missions to other planets, they use these same laws to figure out where planets will be, how fast they are moving, and how long it will take to get there. Even satellites and space stations use similar ideas.
+You might wonder: why does this still matter today? Every spacecraft mission—whether sending satellites to orbit Earth or probes to Mars and beyond—relies on Kepler’s laws to calculate orbits, speeds, and travel times. Even the International Space Station moves according to these same principles.
 </p>
 
 <p>
-Kepler’s work also helped pave the way for Newton’s law of gravity, which explains the force that holds everything together in space.
+Kepler’s work also set the stage for Isaac Newton’s law of universal gravitation. While Kepler described how planets move, Newton explained why: the gravitational force between the Sun and planets holds everything together.
 </p>
 
 <p>
-Kepler came up with his laws by studying data. Later, Newton used his own laws of motion and gravity to explain why the planets move the way Kepler said they do.
-</p>
-
-<p>
-By combining Kepler’s Third Law with Newton’s Law of Gravitation, we get:
-</p>
+Combining Kepler’s Third Law with Newton’s Law of Gravitation gives us an even more general formula:</p>
 
 <div class="math-display">
 \[
@@ -480,19 +447,18 @@ T^2 = \frac{4\pi^2}{G M} r^3
 \]
 </div>
 
-<p>where:</p>
+<p>Where:</p>
 
 <ul>
-<li>\( G \) is the gravitational constant</li>
-<li>\( M \) is the mass of the central object (like the Sun)</li>
+<li>\( G \) = gravitational constant</li>
+<li>\( M \) = mass of the central object (like the Sun)</li>
 </ul>
 
 <p>
-This formula can be used to figure out the orbits of moons, satellites, and even exoplanets around other stars.
+This formula is universal. It can predict the orbits of moons, artificial satellites, or even exoplanets orbiting distant stars. It’s amazing how a law derived from careful observations of Mars centuries ago applies to the vast cosmos today.
 </p>
 
 </section>
-
 
 <section>
 
@@ -500,16 +466,15 @@ This formula can be used to figure out the orbits of moons, satellites, and even
 
 <ul>
 
-<li>Halley’s Comet moves in a very stretched-out ellipse. It comes close to the Sun and then goes far into space and it still follows Kepler’s Laws.</li>
+<li>Halley’s Comet travels in a highly elongated ellipse. It swings close to the Sun, then rockets out far into the depths of space, yet its motion perfectly follows Kepler’s Laws.</li>
 
-<li>Kepler figured out these laws by carefully studying the motion of Mars, long before calculators or computers.</li>
+<li>Kepler derived these laws painstakingly by analyzing Tycho Brahe’s meticulous observations of Mars—long before calculators or computers existed.</li>
 
-<li>The word "planet" comes from a Greek word that means "wanderer," because planets seemed to move oddly across the night sky. Kepler helped explain why.</li>
+<li>The word "planet" comes from the Greek word for "wanderer," because planets seemed to drift unpredictably across the night sky. Kepler was the one who decoded their wandering paths.</li>
 
 </ul>
 
 </section>
-
 
 <section>
 
@@ -519,33 +484,32 @@ This formula can be used to figure out the orbits of moons, satellites, and even
 
 <li>
 <strong>Why does a planet move faster when it is near the Sun?</strong><br>
-Because the Sun’s gravity is stronger when the planet is closer, pulling it more and making it speed up.
+Because the Sun’s gravity is stronger at closer distances, pulling the planet more and accelerating it along its orbit.
 </li>
 
 <li>
 <strong>If a planet is twice as far from the Sun as Earth, how long is its year?</strong><br>
-Use \( T^2 = r^3 \). If \( r = 2 \), then \( T^2 = 8 \), so \( T \approx 2.83 \) years.
+Using \( T^2 = r^3 \), for \( r = 2 \): \( T^2 = 8 \Rightarrow T \approx 2.83 \) years.
 </li>
 
 <li>
 <strong>Are all orbits ellipses?</strong><br>
-For objects that are bound by gravity, yes. But objects escaping gravity, like some comets, can follow different paths like parabolas or hyperbolas.
+Objects bound by gravity follow elliptical orbits. However, objects not bound, like some comets, can trace parabolic or hyperbolic paths.
 </li>
 
 <li>
 <strong>Does the Sun stay still?</strong><br>
-Not exactly. The Sun also moves slightly because of the pull from big planets like Jupiter.
+Not exactly. The Sun moves slightly due to the gravitational pull of massive planets like Jupiter.
 </li>
 
 <li>
 <strong>Do Kepler’s Laws work outside our solar system?</strong><br>
-Yes! They apply anywhere that one object orbits another due to gravity.
+Absolutely! Anywhere one body orbits another due to gravity, these laws hold true.
 </li>
 
 </ol>
 
 </section>
-
 
 <section>
 
@@ -555,16 +519,15 @@ Yes! They apply anywhere that one object orbits another due to gravity.
 
 <li>Planet orbits are ellipses, not perfect circles.</li>
 
-<li>Planets move faster when they are closer to the Sun.</li>
+<li>Planets move faster when closer to the Sun.</li>
 
 <li>Farther planets take longer to orbit: \( T^2 \propto r^3 \).</li>
 
-<li>Kepler described how orbits work; Newton explained why.</li>
+<li>Kepler described the motion; Newton explained the underlying gravitational force.</li>
 
 </ul>
 
 </section>
-
 
 <section>
 
@@ -610,7 +573,6 @@ Let the second satellite’s time be \( T_2 \), with radius \( R_2 = 9R \):
 </div>
 
 </section>
-
 
 <div class="share-bar" id="shareBar">
   <a id="fb" class="share-btn fb" data-label="Facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
