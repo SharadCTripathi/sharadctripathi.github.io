@@ -5,19 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Equipartition of Energy</title>
 
-<!-- MathJax configuration -->
+<meta property="og:title" content="Equipartition of Energy: Complete Guide with Degrees of Freedom & Formulas">
+<meta property="og:description" content="Master the law of equipartition of energy with clear concepts, degrees of freedom, formulas, specific heat relations, examples, applications, shortcuts, and JEE/NEET PYQs.">
+<meta property="og:image" content="https://yourdomain.com/images/equipartition-of-energy.png">
+<meta property="og:url" content="https://yourdomain.com/equipartition-of-energy.html">
+<meta property="og:type" content="article">
+
+<meta name="description" content="Comprehensive notes on equipartition of energy including degrees of freedom, internal energy, specific heat, formulas, examples, applications, shortcuts, and JEE/NEET PYQs with solutions.">
+<meta name="author" content="Dr. Sharad Chandra Tripathi">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Equipartition of Energy: Degrees of Freedom, Formulas & PYQs">
+<meta name="twitter:description" content="Learn equipartition of energy with intuitive explanations, degrees of freedom, formulas, specific heat concepts, shortcuts, and exam-ready previous year questions.">
+<meta name="twitter:image" content="https://yourdomain.com/images/equipartition-of-energy.png">  
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
 <script>
 window.MathJax = {
-tex: {
-inlineMath: [['\\(','\\)']],
-displayMath: [['\\[','\\]']],
-processEscapes: true
-},
-svg: { fontCache: 'global' }
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
 };
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></scrip
 
 <style>
 .article-page {
@@ -191,7 +206,6 @@ svg: { fontCache: 'global' }
 .share-btn:hover::after {
   opacity: 1;
 }
-
 @media (max-width: 768px) {
   .share-bar { display: none; }
   .share-bottom { display: flex; }
@@ -218,15 +232,12 @@ svg: { fontCache: 'global' }
 .toast.show {
   opacity: 1;
 }
-/* 🔹 Article Interaction Container */
 .article-interactions {
   margin-top: 20px;
   padding: 12px;
   border-top: 1px solid #ddd;
   font-family: Arial, sans-serif;
 }
-
-/* 🔹 Like Button */
 .article-interactions button#likeBtn {
   background-color: #2196f3;
   color: #fff;
@@ -237,20 +248,15 @@ svg: { fontCache: 'global' }
   font-size: 14px;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
-
 .article-interactions button#likeBtn:hover {
   background-color: #1976d2;
   transform: scale(1.05);
 }
-
-/* 🔹 Like Count */
 .article-interactions #likeCount {
   font-weight: bold;
   margin-left: 6px;
   margin-right: 4px;
 }
-
-/* 🔹 Comments Section */
 .article-interactions .comments-section {
   margin-top: 15px;
   padding: 10px;
@@ -258,8 +264,6 @@ svg: { fontCache: 'global' }
   border-radius: 6px;
   border: 1px solid #eee;
 }
-
-/* 🔹 Login Button */
 .article-interactions #loginBtn {
   display: inline-block;
   margin-bottom: 10px;
@@ -272,19 +276,14 @@ svg: { fontCache: 'global' }
   font-size: 13px;
   transition: background-color 0.2s ease;
 }
-
 .article-interactions #loginBtn:hover {
   background-color: #f57c00;
 }
-
-/* 🔹 Comment Form */
 .article-interactions .comments-section form {
   display: flex;
   gap: 6px;
   margin-bottom: 10px;
 }
-
-/* 🔹 Comment Input */
 .article-interactions .comments-section input#commentInput {
   flex: 1;
   padding: 6px 8px;
@@ -292,8 +291,6 @@ svg: { fontCache: 'global' }
   border-radius: 4px;
   font-size: 13px;
 }
-
-/* 🔹 Submit Button */
 .article-interactions .comments-section button[type="submit"] {
   padding: 6px 12px;
   background-color: #4caf50;
@@ -304,19 +301,14 @@ svg: { fontCache: 'global' }
   font-size: 13px;
   transition: background-color 0.2s ease;
 }
-
 .article-interactions .comments-section button[type="submit"]:hover {
   background-color: #43a047;
 }
-
-/* 🔹 Comment List */
 .article-interactions .comments-section ul#commentList {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
-
-/* 🔹 Individual Comment */
 .article-interactions .comments-section ul#commentList li {
   padding: 6px 8px;
   border-bottom: 1px solid #eee;
@@ -326,8 +318,6 @@ svg: { fontCache: 'global' }
   border-radius: 4px;
   margin-bottom: 5px;
 }
-
-/* 🔹 Empty State (optional improvement) */
 .article-interactions .comments-section ul#commentList:empty::before {
   content: "No comments yet (visible only to you)";
   font-size: 12px;
@@ -339,14 +329,22 @@ svg: { fontCache: 'global' }
 
 <body>
 
+<div class="article-page">
 <main>
 
-<div class="header-title">
 <h1>Equipartition of Energy</h1>
 <p class="header-author">by Dr. Sharad Chandra Tripathi</p>
-</div>
 
+<div class="article-image">
+  <img src="images/equipartition-of-energy.png" alt="Equipartition of Energy Illustration">
+  <p class="image-credit">Image generated by Google AI</p>
+</div>
+  
 <section>
+
+<p>
+Think about a regular day—you pour tea into a cup, feel the warmth in your hands, maybe notice how steam rises and slowly disappears into the air. What you’re witnessing, without realizing it, is energy constantly moving, redistributing, and transforming at a microscopic level. The warmth you feel is not just “heat” in a vague sense—it is the collective motion of countless molecules, each carrying and sharing energy in its own tiny way. This invisible choreography is exactly what physics tries to describe.
+</p>
 
 <p>
 Energy is one of the fundamental concepts in physics. It manifests in various forms such as kinetic energy, potential energy, thermal energy, and more. When studying gases and their microscopic behavior, the <strong>equipartition of energy</strong> principle becomes crucial in understanding how energy is shared among the different ways a molecule can move or vibrate.
@@ -363,6 +361,10 @@ The <strong>law of equipartition of energy</strong> states that at thermal equil
 </p>
 
 <p>
+A subtle but very important point here is that this result comes from classical statistical mechanics and assumes that energy can vary continuously. This assumption works extremely well at ordinary temperatures but begins to fail when quantum effects become important (we will revisit this later).
+</p>
+
+<p>
 <strong>Degrees of freedom</strong> are independent ways in which a molecule can store energy, such as translational, rotational, and vibrational motions.
 </p>
 
@@ -371,9 +373,29 @@ The <strong>law of equipartition of energy</strong> states that at thermal equil
 <ul>
 <li><strong>Translational Degrees of Freedom:</strong> Movement along the x, y, and z axes. Every molecule has three translational degrees of freedom.</li>
 
+<li>
+<strong>Deeper Insight:</strong> These correspond directly to the kinetic energy expression:
+\[
+E = \frac{1}{2} m(v_x^2 + v_y^2 + v_z^2)
+\]
+Each squared velocity term contributes \( \frac{1}{2} k_B T \), which is why there are exactly 3 translational degrees of freedom.
+</li>
+
 <li><strong>Rotational Degrees of Freedom:</strong> Rotation about different axes. Linear molecules have two rotational degrees of freedom, while nonlinear molecules have three.</li>
 
+<li>
+<strong>Subtle Point:</strong> Rotation about the molecular axis in linear molecules does not contribute significantly because the moment of inertia is extremely small, making its energy spacing too large to be thermally excited at ordinary temperatures.
+</li>
+
 <li><strong>Vibrational Degrees of Freedom:</strong> Molecules can vibrate in ways that involve stretching or bending bonds. Each vibrational mode counts as two degrees of freedom (one kinetic and one potential).</li>
+
+<li>
+<strong>Important Insight:</strong> A vibrational mode behaves like a harmonic oscillator:
+\[
+E = \frac{1}{2}k x^2 + \frac{1}{2}mv^2
+\]
+This is why it contributes twice—one for potential energy and one for kinetic energy.
+</li>
 </ul>
 
 <h3>Energy Contribution Per Degree of Freedom</h3>
@@ -410,6 +432,10 @@ U = \frac{f}{2} RT
 This formula allows us to calculate important thermodynamic quantities like the molar specific heat at constant volume \( C_V \).
 </p>
 
+<p>
+<strong>Physical Interpretation:</strong> Increasing temperature doesn’t “create” new types of energy—it simply increases how much energy each degree of freedom carries.
+</p>
+
 <h3>Equipartition and Specific Heats</h3>
 
 <p>
@@ -426,6 +452,10 @@ C_V = \left(\frac{dU}{dT}\right)_V = \frac{f}{2} R
 This means the more degrees of freedom a molecule has, the higher its specific heat capacity, because more energy is needed to raise the temperature of the gas.
 </p>
 
+<p>
+<strong>Conceptual Insight:</strong> Think of degrees of freedom as “energy storage slots.” More slots → more energy required → higher heat capacity.
+</p>
+
 <h3>Example: Monatomic, Diatomic, and Polyatomic Gases</h3>
 
 <ul>
@@ -437,6 +467,9 @@ This means the more degrees of freedom a molecule has, the higher its specific h
 C_V = \frac{3}{2} R
 \]
 </div>
+<p>
+<strong>Why no rotation?</strong> For single atoms, rotation does not change configuration—so it doesn’t store energy meaningfully.
+</p>
 </li>
 
 <li>
@@ -446,6 +479,9 @@ C_V = \frac{3}{2} R
 f = 3 + 2 = 5, \quad C_V = \frac{5}{2} R
 \]
 </div>
+<p>
+<strong>Important Note:</strong> This explains why experimentally measured \( C_V \) matches theory only when we correctly account for active degrees of freedom.
+</p>
 </li>
 
 <li>
@@ -460,6 +496,14 @@ f = 3 + 2 = 5, \quad C_V = \frac{5}{2} R
 Vibrational modes contribute two degrees of freedom each, one kinetic and one potential. However, these modes require more energy to activate and thus often become significant only at higher temperatures. This explains why the molar specific heat of gases increases with temperature, as more vibrational modes get excited.
 </p>
 
+<p>
+<strong>Deep Insight (Quantum Link):</strong> Vibrational energy levels are quantized:
+\[
+E_n = \left(n + \frac{1}{2}\right)h\nu
+\]
+At low temperatures, thermal energy \( k_B T \) is too small to excite these levels, so vibrations remain inactive.
+</p>
+
 <h3>Limitations of Equipartition Theorem</h3>
 
 <ul>
@@ -467,6 +511,8 @@ Vibrational modes contribute two degrees of freedom each, one kinetic and one po
 <li><strong>Quantum effects:</strong> At low temperatures, quantum mechanics restricts the excitation of vibrational modes.</li>
 
 <li><strong>Frozen degrees of freedom:</strong> Some modes remain inactive due to insufficient thermal energy.</li>
+
+<li><strong>Failure at very low temperatures:</strong> Heat capacities approach zero instead of constant values predicted by classical theory.</li>
 
 </ul>
 
@@ -494,6 +540,8 @@ Modern physics accounts for these limitations by using quantum statistical mecha
 
 <li>Vibrational modes contribute 2 degrees of freedom each but may be inactive at low temperatures.</li>
 
+<li><strong>Golden Tip:</strong> Always check temperature before counting vibrational modes in exams.</li>
+
 </ul>
 
 </section>
@@ -511,6 +559,8 @@ Modern physics accounts for these limitations by using quantum statistical mecha
 <li><strong>Engineering:</strong> Important for designing engines and refrigeration systems where gas properties matter.</li>
 
 <li><strong>Astrophysics and atmospheric science:</strong> Helps describe behavior of gases under varying temperatures and pressures.</li>
+
+<li><strong>Everyday Life:</strong> Explains why air heats up quickly but water takes longer—different degrees of freedom and energy storage.</li>
 
 </ul>
 
@@ -588,6 +638,10 @@ C_V = \frac{f}{2} R = \frac{7}{2} R
 </div>
 
 <p><strong>Answer: (b) \( \frac{7}{2} R \)</strong></p>
+
+<p>
+<strong>Exam Insight:</strong> Questions often test whether you remember that each vibrational mode contributes <strong>two</strong> degrees—not one.
+</p>
 
 </div>
 
