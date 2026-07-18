@@ -372,4 +372,77 @@ footer {
     .work-institution h3 {
         font-size: 1.3em;
     }
+
+/* ===========================
+   Space Science Laboratory
+   GNSS/NavIC Facility Layout
+=========================== */
+
+.lab-intro {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin: 25px 0;
+}
+
+.lab-text {
+    flex: 2;
+    min-width: 0;
+}
+
+.lab-images {
+    flex: 1;
+    max-width: 320px;   /* controls image column width */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lab-images figure {
+    margin: 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.12);
+}
+
+.lab-images img {
+    width: 100%;
+    height: 200px;       /* fixed image height */
+    object-fit: contain; /* keeps complete equipment visible */
+    background: #f8f8f8;
+    display: block;
+}
+
+.lab-images figcaption {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.95em;
+    font-weight: bold;
+    color: #002147;
+    background: #fafafa;
+}
+
+
+/* ===========================
+   Mobile View
+=========================== */
+
+@media (max-width: 768px) {
+
+    .lab-intro {
+        flex-direction: column;
+    }
+
+    .lab-images {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .lab-images img {
+        height: 250px;
+    }
+
+}
 }
