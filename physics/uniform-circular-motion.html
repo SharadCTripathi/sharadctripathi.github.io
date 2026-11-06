@@ -317,9 +317,62 @@ window.MathJax = {
 }
 </style>
 
+  <!-- Common Stylesheet, Favicons & Portal Script -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
 </head>
 
 <body>
+
+<!-- ===================================================== -->
+<!-- HEADER -->
+<!-- ===================================================== -->
+<header class="site-header">
+  <picture>
+    <source srcset="/header-banner.webp" type="image/webp">
+    <img src="/header-banner.jpg" alt="Physics education and research website of Dr Sharad Chandra Tripathi" class="banner" width="1536" height="420" fetchpriority="high">
+  </picture>
+
+  <div class="header-content">
+    <picture>
+      <source srcset="/profile.webp" type="image/webp">
+      <img src="/profile.jpg" alt="Dr Sharad Chandra Tripathi" class="profile" width="135" height="135">
+    </picture>
+
+    <h1>Dr. Sharad Chandra Tripathi</h1>
+
+    <p>
+      Senior Assistant Professor of Physics <br>
+      School of Advanced Sciences and Languages (SASL) <br>
+      VIT Bhopal University
+    </p>
+
+    <div class="header-badges">
+      <span class="badge-pill">Space Weather</span>
+      <span class="badge-pill">Ionospheric Physics</span>
+      <span class="badge-pill">Computational Physics</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================================================== -->
+<!-- NAVIGATION -->
+<!-- ===================================================== -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/research.html">Research</a>
+      <a href="/teaching.html">Teaching</a>
+      <a href="/physics/" class="active">Physics Articles</a>
+      <a href="/news.html">News</a>
+    </div>
+    <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Theme">🌙 Dark</button>
+  </div>
+</nav>
+
 <div class="article-page">
 <main>
 
@@ -898,16 +951,16 @@ commentForm.addEventListener('submit', async e => {
 </script>
 <!-- 🔹 Firebase Like Button + Private Comment Script End -->
   
-<div class="footer">
+<footer>
   <p>
-    © 2026 Dr. Sharad Chandra Tripathi. All rights reserved. 
+    © <span class="current-year">2026</span> Dr. Sharad Chandra Tripathi. All rights reserved. 
     Content is licensed under 
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">
       CC BY-NC-SA 4.0
     </a>.
     No part of this website, including notes, articles, or code, may be copied, reproduced, or distributed without permission.
   </p>
-</div>
+</footer>
 </main>
 
 </body>
