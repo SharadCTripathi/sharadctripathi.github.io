@@ -6,41 +6,68 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>News | Dr. Sharad Chandra Tripathi</title>
+<title>News & Announcements | Dr. Sharad Chandra Tripathi</title>
 
+<meta name="description" content="Recent academic news, laboratory updates, research announcements, and outreach events from Dr. Sharad Chandra Tripathi.">
+<meta name="author" content="Dr. Sharad Chandra Tripathi">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://sharadctripathi.github.io/news.html">
+
+<!-- Security & Privacy Hardening -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.png" type="image/png">
+
+<!-- Styles & Scripts -->
 <link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 
 </head>
 
 <body>
 
-<!-- ===========================
-     Header Banner (IDENTICAL TO INDEX.HTML)
-=========================== -->
+<!-- ===================================================== -->
+<!-- HEADER -->
+<!-- ===================================================== -->
 <header class="site-header">
 
-    <!-- Header Banner -->
-    <img src="header-banner.jpg" alt="Header banner" class="banner">
+  <picture>
+    <source srcset="header-banner.webp" type="image/webp">
+    <img src="header-banner.jpg" alt="Header banner of Dr Sharad Chandra Tripathi news website" class="banner" width="1536" height="420" fetchpriority="high">
+  </picture>
 
-    <div class="header-content">
-        <!-- Profile Image -->
-        <img src="profile.jpg" alt="Dr Sharad Chandra Tripathi" class="profile">
+  <div class="header-content">
 
-        <h1>Dr. Sharad Chandra Tripathi</h1>
+    <picture>
+      <source srcset="profile.webp" type="image/webp">
+      <img src="profile.jpg" alt="Dr Sharad Chandra Tripathi" class="profile" width="135" height="135">
+    </picture>
 
-        <p>
-        Senior Assistant Professor of Physics <br>
-        School of Advanced Sciences and Languages (SASL) <br>
-        VIT Bhopal University <br>
-        Ionospheric Physics | Space Weather | Computational Physics
-        </p>
+    <h1>Dr. Sharad Chandra Tripathi</h1>
+
+    <p>
+      Senior Assistant Professor of Physics <br>
+      School of Advanced Sciences and Languages (SASL) <br>
+      VIT Bhopal University
+    </p>
+
+    <div class="header-badges">
+      <span class="badge-pill">Space Weather</span>
+      <span class="badge-pill">Ionospheric Physics</span>
+      <span class="badge-pill">Computational Physics</span>
     </div>
+
+  </div>
 
 </header>
 
-<!-- ===========================
-     Navigation Bar
-=========================== -->
+<!-- ===================================================== -->
+<!-- NAVIGATION -->
+<!-- ===================================================== -->
 <nav class="navbar">
   <div class="nav-container">
     <a href="/index.html">Home</a>
@@ -48,6 +75,7 @@
     <a href="/teaching.html">Teaching</a>
     <a href="/physics/">Physics Articles</a>
     <a href="/news.html" class="active">News</a>
+    <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Theme">🌙 Dark</button>
   </div>
 </nav>
 
@@ -57,17 +85,17 @@
 
 <h2>Recent Updates & Announcements</h2>
 
-<ul class="news-list">
-    <li>
+<ul class="news-list" style="margin-top: 20px; line-height: 1.8;">
+    <li style="margin-bottom: 16px;">
       <strong>Space Science Laboratory Facility:</strong> Ongoing observational data collection on ionospheric perturbations and Total Electron Content (TEC) utilizing high-precision NavIC/GNSS receiving systems at VIT Bhopal University.
     </li>
-    <li>
+    <li style="margin-bottom: 16px;">
       <strong>Computational Physics Curriculum:</strong> Updated course materials, Python lab modules, and simulation notebooks uploaded for student access.
     </li>
-    <li>
+    <li style="margin-bottom: 16px;">
       <strong>Student Outreach & Innovation:</strong> Facilitating regional student outreach initiatives and collaborative STEM programs across schools and colleges.
     </li>
-    <li>
+    <li style="margin-bottom: 16px;">
       <strong>Unnat Bharat Abhiyan (UBA):</strong> Leading sustainable rural community engagements and technological interventions in adopted villages.
     </li>
 </ul>
@@ -78,9 +106,9 @@
 
 <footer>
   <p>
-    © 2026 Dr. Sharad Chandra Tripathi. All rights reserved. 
+    © <span class="current-year">2026</span> Dr. Sharad Chandra Tripathi. All rights reserved. 
     Content is licensed under 
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color: #ffdd57; text-decoration: underline;">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">
       CC BY-NC-SA 4.0
     </a>.
     No part of this website, including notes, articles, or code, may be copied, reproduced, or distributed without permission.

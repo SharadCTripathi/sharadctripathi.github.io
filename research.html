@@ -25,8 +25,17 @@
 <!-- Canonical URL -->
 <link rel="canonical" href="https://sharadctripathi.github.io/research.html">
 
-<!-- Website CSS -->
+<!-- Security & Privacy Hardening -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- Website Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.png" type="image/png">
+
+<!-- Website CSS & Script -->
 <link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 
 
 <!-- ===================================================== -->
@@ -104,28 +113,34 @@ gtag('config', 'G-PJDWHZTWG8');
 
 <header class="site-header">
 
-<img src="header-banner.jpg"
-alt="Header banner of Dr Sharad Chandra Tripathi research website"
-class="banner">
+  <picture>
+    <source srcset="header-banner.webp" type="image/webp">
+    <img src="header-banner.jpg" alt="Header banner of Dr Sharad Chandra Tripathi research website" class="banner" width="1536" height="420" fetchpriority="high">
+  </picture>
 
-<div class="header-content">
+  <div class="header-content">
 
-<img src="profile.jpg"
-alt="Dr Sharad Chandra Tripathi physicist and researcher"
-class="profile">
+    <picture>
+      <source srcset="profile.webp" type="image/webp">
+      <img src="profile.jpg" alt="Dr Sharad Chandra Tripathi physicist and researcher" class="profile" width="135" height="135">
+    </picture>
 
-<h1>Dr. Sharad Chandra Tripathi</h1>
+    <h1>Dr. Sharad Chandra Tripathi</h1>
 
-<p>
-Senior Assistant Professor of Physics <br>
-School of Advanced Sciences and Languages (SASL) <br>
-VIT Bhopal University <br>
-Ionospheric Physics | Space Weather | Computational Physics
-</p>
+    <p>
+      Senior Assistant Professor of Physics <br>
+      School of Advanced Sciences and Languages (SASL) <br>
+      VIT Bhopal University
+    </p>
 
-</div>
+    <div class="header-badges">
+      <span class="badge-pill">Space Weather</span>
+      <span class="badge-pill">Ionospheric Physics</span>
+      <span class="badge-pill">Computational Physics</span>
+    </div>
+
+  </div>
 </header>
-
 
 
 <!-- ===================================================== -->
@@ -138,9 +153,9 @@ Ionospheric Physics | Space Weather | Computational Physics
     <a href="/teaching.html">Teaching</a>
     <a href="/physics/">Physics Articles</a>
     <a href="/news.html">News</a>
+    <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Theme">🌙 Dark</button>
   </div>
 </nav>
-
 
 
 <main>
@@ -158,6 +173,16 @@ Ionospheric Physics | Space Weather | Computational Physics
 <p>
 The research activities of Dr. Sharad Chandra Tripathi focus on ionospheric physics, solar-terrestrial interactions, plasma dynamics, and space weather phenomena. The work integrates observational data analysis, space science instrumentation, and computational physics methods to investigate how solar activity influences Earth's ionosphere and magnetosphere.
 </p>
+
+<!-- Live Solar Observatory Feature Link -->
+<div class="solar-link-card">
+  <div class="solar-link-info">
+    <span class="live-pill"><span class="pulse-ring"></span> NASA SDO Live Telemetry</span>
+    <h3>Live Sun & Solar Active Regions</h3>
+    <p>Real-time multispectral observations (Photosphere, Magnetogram, Corona, and Chromosphere) from NASA's Solar Dynamics Observatory.</p>
+  </div>
+  <a href="/index.html#solar-observatory" class="cv-btn" style="margin-top:0;">Open Live Observatory &rarr;</a>
+</div>
 
 </section>
 
@@ -474,9 +499,9 @@ fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/works`, {
 
 <footer>
   <p>
-    © 2026 Dr. Sharad Chandra Tripathi. All rights reserved. 
+    © <span class="current-year">2026</span> Dr. Sharad Chandra Tripathi. All rights reserved. 
     Content is licensed under 
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color: #ffdd57; text-decoration: underline;">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">
       CC BY-NC-SA 4.0
     </a>.
     No part of this website, including notes, articles, or code, may be copied, reproduced, or distributed without permission.

@@ -22,7 +22,17 @@
 
 <link rel="canonical" href="https://sharadctripathi.github.io/teaching.html">
 
+<!-- Security & Privacy Hardening -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- Website Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.png" type="image/png">
+
+<!-- Website CSS & Script -->
 <link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 
 
 <!-- ===================================================== -->
@@ -102,26 +112,33 @@ function sendGAEvent(event_name, params = {}) {
 
 <header class="site-header">
 
-<img src="header-banner.jpg"
-alt="Header banner of Dr Sharad Chandra Tripathi teaching page"
-class="banner">
+  <picture>
+    <source srcset="header-banner.webp" type="image/webp">
+    <img src="header-banner.jpg" alt="Header banner of Dr Sharad Chandra Tripathi teaching page" class="banner" width="1536" height="420" fetchpriority="high">
+  </picture>
 
-<div class="header-content">
+  <div class="header-content">
 
-<img src="profile.jpg"
-alt="Dr Sharad Chandra Tripathi physics professor"
-class="profile">
+    <picture>
+      <source srcset="profile.webp" type="image/webp">
+      <img src="profile.jpg" alt="Dr Sharad Chandra Tripathi physics professor" class="profile" width="135" height="135">
+    </picture>
 
-<h1>Dr. Sharad Chandra Tripathi</h1>
+    <h1>Dr. Sharad Chandra Tripathi</h1>
 
-<p>
-Senior Assistant Professor of Physics <br>
-School of Advanced Sciences and Languages (SASL) <br>
-VIT Bhopal University <br>
-Ionospheric Physics | Space Weather | Computational Physics
-</p>
+    <p>
+      Senior Assistant Professor of Physics <br>
+      School of Advanced Sciences and Languages (SASL) <br>
+      VIT Bhopal University
+    </p>
 
-</div>
+    <div class="header-badges">
+      <span class="badge-pill">Space Weather</span>
+      <span class="badge-pill">Ionospheric Physics</span>
+      <span class="badge-pill">Computational Physics</span>
+    </div>
+
+  </div>
 
 </header>
 
@@ -137,6 +154,7 @@ Ionospheric Physics | Space Weather | Computational Physics
     <a href="/teaching.html" class="active">Teaching</a>
     <a href="/physics/">Physics Articles</a>
     <a href="/news.html">News</a>
+    <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Theme">🌙 Dark</button>
   </div>
 </nav>
 
@@ -288,9 +306,9 @@ page_location: window.location.pathname
 
 <footer>
   <p>
-    © 2026 Dr. Sharad Chandra Tripathi. All rights reserved. 
+    © <span class="current-year">2026</span> Dr. Sharad Chandra Tripathi. All rights reserved. 
     Content is licensed under 
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color: #ffdd57; text-decoration: underline;">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">
       CC BY-NC-SA 4.0
     </a>.
     No part of this website, including notes, articles, or code, may be copied, reproduced, or distributed without permission.

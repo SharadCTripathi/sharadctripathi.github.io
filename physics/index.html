@@ -20,9 +20,18 @@
 
 <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://sharadctripathi.github.io/physics-articles.html">
+<link rel="canonical" href="https://sharadctripathi.github.io/physics/">
+
+<!-- Security & Privacy Hardening -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.png" type="image/png">
 
 <link rel="stylesheet" href="/style.css">
+<script src="/script.js" defer></script>
 
 
 <!-- ===================================================== -->
@@ -97,29 +106,35 @@ gtag('config', 'G-PJDWHZTWG8');
 
 <header class="site-header">
 
-<img src="/header-banner.jpg"
-alt="Physics education and research website of Dr Sharad Chandra Tripathi"
-class="banner">
+  <picture>
+    <source srcset="/header-banner.webp" type="image/webp">
+    <img src="/header-banner.jpg" alt="Physics education and research website of Dr Sharad Chandra Tripathi" class="banner" width="1536" height="420" fetchpriority="high">
+  </picture>
 
-<div class="header-content">
+  <div class="header-content">
 
-<img src="/profile.jpg"
-alt="Dr Sharad Chandra Tripathi physicist"
-class="profile">
+    <picture>
+      <source srcset="/profile.webp" type="image/webp">
+      <img src="/profile.jpg" alt="Dr Sharad Chandra Tripathi physicist" class="profile" width="135" height="135">
+    </picture>
 
-<h1>Dr. Sharad Chandra Tripathi</h1>
+    <h1>Dr. Sharad Chandra Tripathi</h1>
 
-<p>
-Senior Assistant Professor of Physics <br>
-School of Advanced Sciences and Languages (SASL) <br>
-VIT Bhopal University <br>
-Ionospheric Physics | Space Weather | Computational Physics
-</p>
+    <p>
+      Senior Assistant Professor of Physics <br>
+      School of Advanced Sciences and Languages (SASL) <br>
+      VIT Bhopal University
+    </p>
 
-</div>
+    <div class="header-badges">
+      <span class="badge-pill">Space Weather</span>
+      <span class="badge-pill">Ionospheric Physics</span>
+      <span class="badge-pill">Computational Physics</span>
+    </div>
+
+  </div>
 
 </header>
-
 
 
 <!-- ===================================================== -->
@@ -127,12 +142,14 @@ Ionospheric Physics | Space Weather | Computational Physics
 <!-- ===================================================== -->
 
 <nav class="navbar">
-  <a href="/index.html">Home</a>
-  <a href="/research.html">Research</a>
-  <a href="/teaching.html">Teaching</a>
-  <!---<a href="/science-blog.html">Science Blog</a>--->
-  <a href="/physics/index.html">Physics Articles</a>
-  <a href="/news.html">News</a>
+  <div class="nav-container">
+    <a href="/index.html">Home</a>
+    <a href="/research.html">Research</a>
+    <a href="/teaching.html">Teaching</a>
+    <a href="/physics/" class="active">Physics Articles</a>
+    <a href="/news.html">News</a>
+    <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Theme">🌙 Dark</button>
+  </div>
 </nav>
 
 
@@ -313,9 +330,9 @@ This section contains conceptual physics articles designed to help students buil
 
 <footer>
   <p>
-    © 2026 Dr. Sharad Chandra Tripathi. All rights reserved. 
+    © <span class="current-year">2026</span> Dr. Sharad Chandra Tripathi. All rights reserved. 
     Content is licensed under 
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color: #ffdd57; text-decoration: underline;">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">
       CC BY-NC-SA 4.0
     </a>.
     No part of this website, including notes, articles, or code, may be copied, reproduced, or distributed without permission.
