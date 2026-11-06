@@ -28,8 +28,13 @@
   <!-- Canonical URL prevents duplicate indexing -->
   <link rel="canonical" href="https://sharadctripathi.github.io/">
 
+  <!-- Security & Privacy Hardening -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <!-- Website favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.png" type="image/png">
 
   <!-- Styles and scripts -->
   <link rel="stylesheet" href="style.css">
@@ -126,21 +131,31 @@
 
 <header class="site-header">
 
-  <!-- Improved ALT text for SEO and accessibility -->
-  <img src="header-banner.jpg" alt="Header banner of Dr Sharad Chandra Tripathi academic physics website" class="banner">
+  <picture>
+    <source srcset="header-banner.webp" type="image/webp">
+    <img src="header-banner.jpg" alt="Header banner of Dr Sharad Chandra Tripathi academic physics website" class="banner" width="1536" height="420" fetchpriority="high">
+  </picture>
 
   <div class="header-content">
 
-    <img src="profile.jpg" alt="Dr Sharad Chandra Tripathi physicist and professor" class="profile">
+    <picture>
+      <source srcset="profile.webp" type="image/webp">
+      <img src="profile.jpg" alt="Dr Sharad Chandra Tripathi physicist and professor" class="profile" width="135" height="135">
+    </picture>
 
     <h1>Dr. Sharad Chandra Tripathi</h1>
 
     <p>
       Senior Assistant Professor of Physics <br>
       School of Advanced Sciences and Languages (SASL) <br>
-      VIT Bhopal University <br>
-      Ionospheric Physics | Space Weather | Computational Physics
+      VIT Bhopal University
     </p>
+
+    <div class="header-badges">
+      <span class="badge-pill">Space Weather</span>
+      <span class="badge-pill">Ionospheric Physics</span>
+      <span class="badge-pill">Computational Physics</span>
+    </div>
 
   </div>
 </header>
@@ -151,12 +166,14 @@
 <!-- ===================================================== -->
 
 <nav class="navbar">
-  <a href="/index.html">Home</a>
-  <a href="/research.html">Research</a>
-  <a href="/teaching.html">Teaching</a>
-  <!---<a href="/science-blog.html">Science Blog</a>--->
-  <a href="/physics/index.html">Physics Articles</a>
-  <a href="/news.html">News</a>
+  <div class="nav-container">
+    <a href="/index.html" class="active">Home</a>
+    <a href="/research.html">Research</a>
+    <a href="/teaching.html">Teaching</a>
+    <a href="/physics/">Physics Articles</a>
+    <a href="/news.html">News</a>
+    <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Theme">🌙 Dark</button>
+  </div>
 </nav>
 
 
@@ -357,19 +374,22 @@ These resources aim to support students, researchers, and science enthusiasts in
 <!-- CONTACT SECTION -->
 <!-- ===================================================== -->
 
-<section>
+<section id="contact">
 
-<h2>Contact Me</h2>
+<h2>Contact & Academic Collaboration</h2>
 
-<p>You can reach out to me for research collaborations or academic discussions:</p>
+<p>You can reach out for research collaborations, student mentoring, or academic discussions:</p>
 
-<div class="contact-emails">
-
-<a href="mailto:risingsharad@gmail.com">risingsharad@gmail.com</a>
-<a href="mailto:drsharadctripathi@gmail.com">drsharadctripathi@gmail.com</a>
-<a href="mailto:sharadchandra.tripathi@vitbhopal.ac.in">sharadchandra.tripathi@vitbhopal.ac.in</a>
-<a href="mailto:ad.studentoutreach@vitbhopal.ac.in">ad.studentoutreach@vitbhopal.ac.in</a>
-
+<div class="contact-container">
+  <button id="reveal-emails-btn" class="reveal-btn">
+    ✉️ Click to View Verified Contact Emails
+  </button>
+  <div id="secure-email-container" style="display:none;"></div>
+  <noscript>
+    <div class="contact-emails">
+      <p>Please enable JavaScript to view protected contact addresses, or reach out via LinkedIn below.</p>
+    </div>
+  </noscript>
 </div>
 
 </section>
@@ -424,9 +444,9 @@ These resources aim to support students, researchers, and science enthusiasts in
 
 <footer>
   <p>
-    © 2026 Dr. Sharad Chandra Tripathi. All rights reserved. 
+    © <span class="current-year">2026</span> Dr. Sharad Chandra Tripathi. All rights reserved. 
     Content is licensed under 
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color: #ffdd57; text-decoration: underline;">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">
       CC BY-NC-SA 4.0
     </a>.
     No part of this website, including notes, articles, or code, may be copied, reproduced, or distributed without permission.

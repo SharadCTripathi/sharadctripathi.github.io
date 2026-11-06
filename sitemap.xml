@@ -1,54 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- XML Sitemap for search engines -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Home Page -->
   <url>
     <loc>https://sharadctripathi.github.io/</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Research Page -->
   <url>
     <loc>https://sharadctripathi.github.io/research.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Teaching Page -->
   <url>
     <loc>https://sharadctripathi.github.io/teaching.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Science Blog -->
   <url>
-    <loc>https://sharadctripathi.github.io/science-blog.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <loc>https://sharadctripathi.github.io/physics/</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
- <!-- Physics Articles -->
-<url>
-  <loc>https://sharadctripathi.github.io/physics/</loc>
-  <lastmod>2026-03-08</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-  
-  <!-- News Page -->
   <url>
     <loc>https://sharadctripathi.github.io/news.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/biot-savart-law.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/bohr-model.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/composition-and-size-of-nucleus-atomic-masses.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/conservation-of-linear-momentum.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/conservative-nonconservative-forces.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/displacement-current.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/doppler-effect.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/equipartition-of-energy.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/keplers-laws.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/kinetic-theory-of-gases.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/laws-of-friction.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/moment-of-inertia.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/oscillation.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/photoelectric-effect.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/projectile-motion.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/specific-heat-capacity.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/superposition-of-waves.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/system-of-particles.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/uniform-circular-motion.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/viscosity-and-buoyancy.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/physics/wave-particle-duality.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

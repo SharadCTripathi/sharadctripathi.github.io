@@ -132,12 +132,13 @@ Ionospheric Physics | Space Weather | Computational Physics
 <!-- NAVIGATION -->
 <!-- ===================================================== -->
 <nav class="navbar">
-  <a href="/index.html">Home</a>
-  <a href="/research.html">Research</a>
-  <a href="/teaching.html">Teaching</a>
-  <!---<a href="/science-blog.html">Science Blog</a>--->
-  <a href="/physics/">Physics Articles</a>
-  <a href="/news.html">News</a>
+  <div class="nav-container">
+    <a href="/index.html">Home</a>
+    <a href="/research.html" class="active">Research</a>
+    <a href="/teaching.html">Teaching</a>
+    <a href="/physics/">Physics Articles</a>
+    <a href="/news.html">News</a>
+  </div>
 </nav>
 
 
@@ -419,47 +420,54 @@ gtag('event', event_name, params);
 }
 
 fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/works`, {
-headers: { 'Accept': 'application/json' }
+  headers: { 'Accept': 'application/json' }
 })
-.then(response => response.json())
+.then(response => {
+  if (!response.ok) throw new Error("ORCID API error");
+  return response.json();
+})
 .then(data => {
+  pubList.textContent = "";
 
-pubList.innerHTML = "";
+  const works = (data.group || []).slice(0, 10);
 
-const works = data.group.slice(0,5);
+  works.forEach(work => {
+    const summary = work['work-summary']?.[0];
+    if (!summary) return;
 
-works.forEach(work => {
+    const titleValue = summary['title']?.['title']?.['value'] || "Untitled Publication";
+    let doiValue = "";
 
-const title = work['work-summary'][0]['title']['title']['value'];
+    const externalIds = summary['external-ids']?.['external-id'] || [];
+    externalIds.forEach(id => {
+      if (id['external-id-type'] === "doi" && id['external-id-value']) {
+        const cleanVal = id['external-id-value'].trim().replace(/^https?:\/\/doi\.org\//, "");
+        doiValue = `https://doi.org/${encodeURI(cleanVal)}`;
+      }
+    });
 
-let doi = "";
+    const li = document.createElement("li");
 
-const externalIds = work['work-summary'][0]['external-ids']['external-id'];
+    if (doiValue && doiValue.startsWith("https://doi.org/")) {
+      const a = document.createElement("a");
+      a.href = doiValue;
+      a.textContent = titleValue; // Safe textContent escaping
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      li.appendChild(a);
+    } else {
+      li.textContent = titleValue;
+    }
 
-externalIds.forEach(id=>{
-if(id['external-id-type']==="doi"){
-doi=`https://doi.org/${id['external-id-value']}`;
-}
-});
-
-const li=document.createElement("li");
-
-if(doi){
-li.innerHTML=`<a href="${doi}" target="_blank" rel="noopener noreferrer">${title}</a>`;
-}
-else{
-li.textContent=title;
-}
-
-pubList.appendChild(li);
-
-});
-
+    pubList.appendChild(li);
+  });
 })
-
-.catch(err=>{
-pubList.innerHTML="<li>Could not fetch publications.</li>";
-console.error(err);
+.catch(err => {
+  pubList.textContent = "";
+  const errLi = document.createElement("li");
+  errLi.textContent = "Could not fetch live publications at this moment. Please visit ORCID profile above.";
+  pubList.appendChild(errLi);
+  console.error(err);
 });
 
 </script>

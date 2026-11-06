@@ -1,0 +1,21 @@
+# Credentials, Secrets & Keys
+*recovery-codes*.txt
+*.key
+*.pem
+*.env
+*.id
+
+# Personal Documents & Identity Files
+*ID*.pdf
+*Aadhar*
+*PAN*
+*Passport*
+
+# OS & Editor Artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*~
+.vscode/
+.idea/
