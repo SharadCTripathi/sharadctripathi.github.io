@@ -239,6 +239,7 @@ body {
   border-radius: 50%;
   border: 3.5px solid var(--accent-gold);
   object-fit: cover;
+  object-position: center 15%;
   margin-bottom: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
