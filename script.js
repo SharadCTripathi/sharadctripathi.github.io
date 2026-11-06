@@ -77,4 +77,52 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 5. Interactive Live Solar Observatory (NASA SDO)
+  const sunImg = document.getElementById('liveSunImg');
+  const sunCaption = document.getElementById('solarCaption');
+  const waveBtns = document.querySelectorAll('.wave-btn');
+  const refreshSunBtn = document.getElementById('refreshSunBtn');
+
+  if (sunImg && waveBtns.length > 0) {
+    let currentSrc = 'latest_512_HMIIC.jpg';
+
+    waveBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        waveBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        currentSrc = btn.dataset.src;
+        sunImg.style.opacity = '0.35';
+
+        // Cache-busting timestamp ensures real-time fresh frame from NASA CDN
+        const timestamp = Date.now();
+        sunImg.src = `https://sdo.gsfc.nasa.gov/assets/img/latest/${currentSrc}?t=${timestamp}`;
+
+        if (sunCaption && btn.dataset.desc) {
+          sunCaption.innerHTML = btn.dataset.desc;
+        }
+
+        sunImg.onload = () => { sunImg.style.opacity = '1'; };
+        sunImg.onerror = () => {
+          sunImg.style.opacity = '1';
+          console.warn('Could not load SDO frame:', currentSrc);
+        };
+      });
+    });
+
+    if (refreshSunBtn) {
+      refreshSunBtn.addEventListener('click', () => {
+        refreshSunBtn.textContent = 'Refreshing...';
+        sunImg.style.opacity = '0.35';
+        const timestamp = Date.now();
+        sunImg.src = `https://sdo.gsfc.nasa.gov/assets/img/latest/${currentSrc}?t=${timestamp}`;
+        sunImg.onload = () => {
+          sunImg.style.opacity = '1';
+          refreshSunBtn.textContent = '✅ Updated';
+          setTimeout(() => { refreshSunBtn.textContent = '🔄 Refresh Latest Frame'; }, 2000);
+        };
+      });
+    }
+  }
 });
