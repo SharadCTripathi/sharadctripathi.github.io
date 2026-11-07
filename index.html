@@ -31,6 +31,8 @@
   <!-- Security & Privacy Hardening -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://sdo.gsfc.nasa.gov https://sharadctripathi.github.io data:; connect-src https://www.google-analytics.com https://analytics.google.com https://services.swpc.noaa.gov; font-src 'self'; frame-ancestors 'none';">
 
   <!-- Website favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -336,28 +338,28 @@ In addition to research, Dr. Tripathi actively contributes to science communicat
     <div class="solar-controls">
       <h3>Observation Wavelength</h3>
       <div class="wavelength-tabs">
-        <button class="wave-btn active" data-src="latest_512_HMIIC.jpg" data-desc="<strong>HMI Intensitygram (Photosphere):</strong> Shows visible sunspots and active region groups currently crossing the solar disk facing Earth.">
+        <button class="wave-btn active" data-src="latest_512_HMIIC.jpg" data-desc="HMI Intensitygram (Photosphere): Shows visible sunspots and active region groups currently crossing the solar disk facing Earth.">
           <span class="btn-icon">☀️</span>
           <div class="btn-text">
             <span class="btn-title">Photosphere & Sunspots (HMI)</span>
             <span class="btn-sub">Visible surface & active region groups</span>
           </div>
         </button>
-        <button class="wave-btn" data-src="latest_512_HMIB.jpg" data-desc="<strong>HMI Magnetogram:</strong> Displays magnetic field polarity (white = positive / outward, black = negative / inward). Complex mixed-polarity active regions drive major solar flares.">
+        <button class="wave-btn" data-src="latest_512_HMIB.jpg" data-desc="HMI Magnetogram: Displays magnetic field polarity (white = positive / outward, black = negative / inward). Complex mixed-polarity active regions drive major solar flares.">
           <span class="btn-icon">🧲</span>
           <div class="btn-text">
             <span class="btn-title">Magnetic Field & Polarity (HMI)</span>
             <span class="btn-sub">Photospheric magnetic flux & flare drivers</span>
           </div>
         </button>
-        <button class="wave-btn" data-src="latest_512_0193.jpg" data-desc="<strong>AIA 193Å (Corona & Coronal Holes):</strong> Highlights high-temperature coronal plasma (~1.25M K) and dark coronal holes emitting high-speed solar wind streams.">
+        <button class="wave-btn" data-src="latest_512_0193.jpg" data-desc="AIA 193Å (Corona & Coronal Holes): Highlights high-temperature coronal plasma (~1.25M K) and dark coronal holes emitting high-speed solar wind streams.">
           <span class="btn-icon">🔥</span>
           <div class="btn-text">
             <span class="btn-title">Corona & Coronal Holes (AIA 193Å)</span>
             <span class="btn-sub">Upper atmosphere & solar wind origin</span>
           </div>
         </button>
-        <button class="wave-btn" data-src="latest_512_0304.jpg" data-desc="<strong>AIA 304Å (Chromosphere & Prominences):</strong> Shows dense plasma (~50,000 K) outlining solar filaments, active prominences, and flare reconnection points.">
+        <button class="wave-btn" data-src="latest_512_0304.jpg" data-desc="AIA 304Å (Chromosphere & Prominences): Shows dense plasma (~50,000 K) outlining solar filaments, active prominences, and flare reconnection points.">
           <span class="btn-icon">⚡</span>
           <div class="btn-text">
             <span class="btn-title">Prominences & Filaments (AIA 304Å)</span>
@@ -385,6 +387,124 @@ In addition to research, Dr. Tripathi actively contributes to science communicat
       </div>
     </div>
   </div>
+</section>
+
+
+<!-- ===================================================== -->
+<!-- SPACE WEATHER MONITORING                            -->
+<!-- ===================================================== -->
+
+<section id="space-weather-monitor" class="solar-section">
+
+  <div class="solar-header">
+    <div class="solar-title-group">
+      <h2>Space Weather Monitor</h2>
+      <p class="solar-subtitle">
+        Live geomagnetic, solar radiation, and solar wind conditions from NOAA Space Weather Prediction Center (SWPC). Data auto-refreshes every 5 minutes.
+      </p>
+    </div>
+    <span class="live-pill"><span class="pulse-ring"></span> NOAA SWPC Live</span>
+  </div>
+
+  <!-- Alert Banner -->
+  <div id="sw-alert-banner" class="sw-alert-banner" style="display:none;"></div>
+
+  <!-- Main Grid -->
+  <div class="sw-grid">
+
+    <!-- Kp Index -->
+    <div class="sw-card" id="sw-kp-card">
+      <div class="sw-card-header">
+        <span class="sw-card-icon">🧲</span>
+        <div>
+          <div class="sw-card-title">Planetary Kp Index</div>
+          <div class="sw-card-sub">Geomagnetic Activity (3-hour)</div>
+        </div>
+        <span class="sw-status-dot" id="sw-kp-status"></span>
+      </div>
+      <div class="sw-kp-display">
+        <div class="sw-big-value" id="sw-kp-value">—</div>
+        <div class="sw-kp-label" id="sw-kp-label">Loading…</div>
+      </div>
+      <div class="sw-kp-bar-track">
+        <div class="sw-kp-bar-fill" id="sw-kp-bar"></div>
+        <div class="sw-kp-ticks">
+          <span>0</span><span>3</span><span>5</span><span>7</span><span>9</span>
+        </div>
+      </div>
+      <div class="sw-kp-scale-labels">
+        <span class="sw-scale-quiet">Quiet</span>
+        <span class="sw-scale-unsettled">Unsettled</span>
+        <span class="sw-scale-storm">Storm</span>
+      </div>
+    </div>
+
+    <!-- X-Ray Flux / Solar Flare Class -->
+    <div class="sw-card" id="sw-xray-card">
+      <div class="sw-card-header">
+        <span class="sw-card-icon">☀️</span>
+        <div>
+          <div class="sw-card-title">Solar X-Ray Flux</div>
+          <div class="sw-card-sub">GOES — Flare Activity</div>
+        </div>
+        <span class="sw-status-dot" id="sw-xray-status"></span>
+      </div>
+      <div class="sw-big-value" id="sw-xray-value">—</div>
+      <div class="sw-card-meta" id="sw-xray-label">Loading…</div>
+      <div class="sw-info-row"><span class="sw-info-key">Flux (1–8 Å)</span><span class="sw-info-val" id="sw-xray-flux">—</span></div>
+      <div class="sw-info-row"><span class="sw-info-key">Updated</span><span class="sw-info-val" id="sw-xray-time">—</span></div>
+    </div>
+
+    <!-- Solar Proton Flux -->
+    <div class="sw-card" id="sw-proton-card">
+      <div class="sw-card-header">
+        <span class="sw-card-icon">⚡</span>
+        <div>
+          <div class="sw-card-title">Solar Proton Flux</div>
+          <div class="sw-card-sub">GOES — ≥10 MeV Integral</div>
+        </div>
+        <span class="sw-status-dot" id="sw-proton-status"></span>
+      </div>
+      <div class="sw-big-value" id="sw-proton-value">—</div>
+      <div class="sw-card-meta" id="sw-proton-label">Loading…</div>
+      <div class="sw-info-row"><span class="sw-info-key">Flux (pfu)</span><span class="sw-info-val" id="sw-proton-flux">—</span></div>
+      <div class="sw-info-row"><span class="sw-info-key">S-Scale Event</span><span class="sw-info-val" id="sw-proton-scale">—</span></div>
+    </div>
+
+    <!-- Solar Wind -->
+    <div class="sw-card" id="sw-wind-card">
+      <div class="sw-card-header">
+        <span class="sw-card-icon">🌬️</span>
+        <div>
+          <div class="sw-card-title">Solar Wind</div>
+          <div class="sw-card-sub">ACE / DSCOVR — L1 Point</div>
+        </div>
+        <span class="sw-status-dot" id="sw-wind-status"></span>
+      </div>
+      <div class="sw-info-row"><span class="sw-info-key">Speed</span><span class="sw-info-val" id="sw-wind-speed">— km/s</span></div>
+      <div class="sw-info-row"><span class="sw-info-key">Density</span><span class="sw-info-val" id="sw-wind-density">— /cm³</span></div>
+      <div class="sw-info-row"><span class="sw-info-key">Temperature</span><span class="sw-info-val" id="sw-wind-temp">— K</span></div>
+      <div class="sw-info-row"><span class="sw-info-key">Bz (IMF)</span><span class="sw-info-val" id="sw-wind-bz">— nT</span></div>
+      <div class="sw-info-row"><span class="sw-info-key">Bt (Total)</span><span class="sw-info-val" id="sw-wind-bt">— nT</span></div>
+    </div>
+
+  </div><!-- /.sw-grid -->
+
+  <!-- NOAA Scales Legend -->
+  <div class="sw-legend">
+    <span class="sw-legend-title">NOAA Storm Scales:</span>
+    <span class="sw-legend-item sw-g1">G1 Minor</span>
+    <span class="sw-legend-item sw-g2">G2 Moderate</span>
+    <span class="sw-legend-item sw-g3">G3 Strong</span>
+    <span class="sw-legend-item sw-g4">G4 Severe</span>
+    <span class="sw-legend-item sw-g5">G5 Extreme</span>
+  </div>
+
+  <div class="sw-footer-row">
+    <span class="sw-data-source">Data: <a href="https://www.swpc.noaa.gov/" target="_blank" rel="noopener noreferrer">NOAA SWPC</a> &amp; GOES Satellites — No API key required</span>
+    <button id="sw-refresh-btn" class="refresh-btn">🔄 Refresh Now</button>
+  </div>
+
 </section>
 
 
