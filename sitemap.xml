@@ -1,159 +1,264 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://sharadctripathi.github.io/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://sharadctripathi.github.io/research.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://sharadctripathi.github.io/teaching.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/profile.jpg</image:loc>
+      <image:title>Dr. Sharad Chandra Tripathi - Senior Assistant Professor of Physics</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/profile.jpg</image:loc>
+      <image:title>Physics Articles and Conceptual Guides for JEE NEET</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/research.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/header-banner.jpg</image:loc>
+      <image:title>Ionospheric Physics and Space Weather Research - Dr. Sharad Chandra Tripathi</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sharadctripathi.github.io/teaching.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/header-banner.jpg</image:loc>
+      <image:title>Computational Physics Courses and Python Laboratory Modules</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/news.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/header-banner.jpg</image:loc>
+      <image:title>Academic News, Space Science Laboratory Events and Announcements</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/biot-savart-law.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/biot-savart-law.png</image:loc>
+      <image:title>Biot Savart Law Circular Loop Magnetic Field Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/bohr-model.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/bohr-model.png</image:loc>
+      <image:title>Bohr Model of Hydrogen Atom and Spectral Energy Levels Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/composition-and-size-of-nucleus-atomic-masses.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/composition-of-nucleus.png</image:loc>
+      <image:title>Composition and Size of Atomic Nucleus and Binding Energy Curve Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/conservation-of-linear-momentum.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/conservation-of-linear-momentum.png</image:loc>
+      <image:title>Conservation of Linear Momentum and Collision Dynamics Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/conservative-nonconservative-forces.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/conservative-nonconservative-forces.png</image:loc>
+      <image:title>Conservative and Non-Conservative Forces Path Dependence Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/displacement-current.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/displacement-current.png</image:loc>
+      <image:title>Displacement Current in Capacitor and Maxwell Equations Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/doppler-effect.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/doppler-effect.png</image:loc>
+      <image:title>Doppler Effect Frequency Wave Shifts Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/equipartition-of-energy.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/equipartition-of-energy.png</image:loc>
+      <image:title>Law of Equipartition of Energy and Degrees of Freedom Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/keplers-laws.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/keplers-laws.png</image:loc>
+      <image:title>Kepler Laws of Planetary Motion and Elliptical Orbits Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/kinetic-theory-of-gases.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/kinetic-theory-of-gases.png</image:loc>
+      <image:title>Kinetic Theory of Gases and Molecular Velocity Distribution Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/laws-of-friction.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/laws-of-friction.png</image:loc>
+      <image:title>Laws of Static and Kinetic Friction on Incline Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/moment-of-inertia.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/moment-of-inertia.png</image:loc>
+      <image:title>Moment of Inertia Theorems and Rotational Inertia Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/oscillation.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/oscillation.png</image:loc>
+      <image:title>Simple Harmonic Motion and Pendulum Oscillation Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/photoelectric-effect.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/photoelectric-effect.png</image:loc>
+      <image:title>Photoelectric Effect Einstein Equation and Stopping Potential Graphs Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/projectile-motion.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/projectile-motion.png</image:loc>
+      <image:title>Projectile Motion Parabolic Trajectory and Range Equations Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/specific-heat-capacity.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/specific-heat-capacity.png</image:loc>
+      <image:title>Specific Heat Capacity and Calorimetry Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/superposition-of-waves.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/superposition-of-waves.png</image:loc>
+      <image:title>Superposition of Waves Interference and Standing Wave Nodes Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/system-of-particles.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/system-of-particles.png</image:loc>
+      <image:title>System of Particles and Centre of Mass Analysis Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/uniform-circular-motion.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/uniform-circular-motion.png</image:loc>
+      <image:title>Uniform Circular Motion Centripetal Acceleration Vector Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/viscosity-and-buoyancy.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/viscosity-and-buoyancy.png</image:loc>
+      <image:title>Viscosity Stokes Law and Archimedes Buoyancy Principle Diagram</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sharadctripathi.github.io/physics/wave-particle-duality.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://sharadctripathi.github.io/physics/images/wave-particle.png</image:loc>
+      <image:title>Wave-Particle Duality and de Broglie Matter Wavelength Diagram</image:title>
+    </image:image>
   </url>
 </urlset>

@@ -18,7 +18,8 @@
 
 <meta name="author" content="Dr. Sharad Chandra Tripathi">
 
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
 <link rel="canonical" href="https://sharadctripathi.github.io/teaching.html">
 
@@ -31,7 +32,7 @@
 <link rel="icon" href="favicon.png" type="image/png">
 
 <!-- Website CSS & Script -->
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 <script src="script.js" defer></script>
 
 
@@ -62,21 +63,54 @@
 
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "Person",
- "name": "Dr. Sharad Chandra Tripathi",
- "jobTitle": "Professor of Physics",
- "worksFor": {
-   "@type": "Organization",
-   "name": "VIT Bhopal University"
- },
- "knowsAbout": [
-   "Physics Education",
-   "Computational Physics",
-   "Space Physics",
-   "Python Programming for Physics",
-   "Scientific Data Analysis"
- ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://sharadctripathi.github.io/teaching.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sharadctripathi.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Teaching",
+          "item": "https://sharadctripathi.github.io/teaching.html"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sharadctripathi.github.io/#person",
+      "name": "Dr. Sharad Chandra Tripathi",
+      "jobTitle": "Senior Assistant Professor of Physics",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "VIT Bhopal University"
+      },
+      "knowsAbout": [
+        "Physics Education",
+        "Computational Physics",
+        "Space Physics",
+        "Python Programming for Physics",
+        "Scientific Data Analysis"
+      ]
+    },
+    {
+      "@type": "Course",
+      "name": "Introduction to Computational Physics",
+      "courseCode": "PHY1003",
+      "description": "Comprehensive course covering numerical techniques, differential equation solvers, orbital mechanics simulations, and Python scientific programming.",
+      "provider": {
+        "@type": "Organization",
+        "name": "VIT Bhopal University"
+      }
+    }
+  ]
 }
 </script>
 
@@ -124,7 +158,7 @@ function sendGAEvent(event_name, params = {}) {
       <img src="profile.jpg?v=3" alt="Dr Sharad Chandra Tripathi physics professor" class="profile" width="135" height="135">
     </picture>
 
-    <h1>Dr. Sharad Chandra Tripathi</h1>
+    <div class="site-title">Dr. Sharad Chandra Tripathi</div>
 
     <p>
       Senior Assistant Professor of Physics <br>
@@ -160,6 +194,14 @@ function sendGAEvent(event_name, params = {}) {
   </div>
 </nav>
 
+<!-- Breadcrumb UI -->
+<nav class="breadcrumb-container" aria-label="Breadcrumb">
+  <ol class="breadcrumb-list">
+    <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Teaching</li>
+  </ol>
+</nav>
+
 
 <main>
 
@@ -169,6 +211,11 @@ function sendGAEvent(event_name, params = {}) {
 <!-- ===================================================== -->
 
 <section>
+
+<h1>Physics Teaching & Computational Courses</h1>
+<p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 25px;">
+  Bridging rigorous physics fundamentals with computational modeling, scientific Python programming, and student innovation.
+</p>
 
 <h2>Teaching Activities</h2>
 
