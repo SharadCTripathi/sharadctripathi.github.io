@@ -19,6 +19,8 @@
 <!-- Security & Privacy Hardening -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://sharadctripathi.github.io data:; connect-src https://www.google-analytics.com https://analytics.google.com; font-src 'self'; frame-ancestors 'none';">
 
 <!-- Favicon -->
 <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -347,7 +349,6 @@
     </p>
     <div class="event-links">
       <a href="/teaching.html" class="event-link">Explore Course Syllabus & Resources →</a>
-      <a href="/assets/LTP_PHY1003_INTRODUCTION-TO-COMPUTATIONAL-PHYSICS.pdf" target="_blank" rel="noopener noreferrer" class="event-link">Download Course LTP (PDF) →</a>
     </div>
   </article>
 

@@ -26,6 +26,8 @@
 <!-- Security & Privacy Hardening -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://sharadctripathi.github.io data:; connect-src https://www.google-analytics.com https://analytics.google.com; font-src 'self'; frame-ancestors 'none';">
 
 <!-- Website Favicon -->
 <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -302,17 +304,17 @@ rel="noopener noreferrer"><strong>VIT Bhopal University</strong></a>
 
 <h4 style="margin-top: 18px; color: var(--accent-gold); font-size: 1.05rem;">🔬 Ph.D. Course Work (Research Scholars):</h4>
 <ul id="vit-phd-courses">
-  <li><strong>Solar &ndash; Terrestrial Physics</strong> (PHY6002) &mdash; <span style="color: var(--accent-gold); font-weight: 600;">Ph.D. Course Work for Research Scholars</span> &mdash; <a href="assets/LT_PHY6002_SOLAR-TERRESTRIAL-PHYSICS.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
+  <li><strong>Solar &ndash; Terrestrial Physics</strong> (PHY6002) &mdash; <span style="color: var(--accent-gold); font-weight: 600;">Ph.D. Course Work for Research Scholars</span></li>
 </ul>
 
 <h4 style="margin-top: 18px; color: var(--accent-blue); font-size: 1.05rem;">🎓 Undergraduate &amp; Postgraduate Courses:</h4>
 <ul id="vit-courses">
 
-<li><strong>Engineering Physics</strong> (PHY1001) &mdash; <a href="assets/LTP_PHY1001_ENGINEERING-PHYSICS.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
-<li><strong>Game Physics</strong> (PHY1002) &mdash; <a href="assets/LT_PHY1002_GAME-PHYSICS.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
-<li><strong>Introduction to Computational Physics</strong> (PHY1003) &mdash; <a href="assets/LTP_PHY1003_INTRODUCTION-TO-COMPUTATIONAL-PHYSICS.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
-<li><strong>Fundamentals of Space Physics</strong> (PHY1004) &mdash; <a href="assets/LTP_PHY1004_FUNDAMENTALS-OF-SPACE-PHYSICS.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
-<li><strong>Game Physics Development (Physics Engine)</strong> (PHY2005) &mdash; <a href="assets/P_PHY2005_GAME-PHYSICS-DEVELOPMENT.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
+<li><strong>Engineering Physics</strong> (PHY1001)</li>
+<li><strong>Game Physics</strong> (PHY1002)</li>
+<li><strong>Introduction to Computational Physics</strong> (PHY1003)</li>
+<li><strong>Fundamentals of Space Physics</strong> (PHY1004)</li>
+<li><strong>Game Physics Development (Physics Engine)</strong> (PHY2005)</li>
 <li>Energy and Environmental Physics (PHY2002)</li>
 <li>Electromagnetic Fields (EEE2002)</li>
 <li>Environmental Science (CHY1002)</li>
@@ -479,7 +481,7 @@ rel="noopener noreferrer"><strong>OIST Bhopal</strong></a>
 
 document.addEventListener("DOMContentLoaded", function(){
 
-const materialsLinks = document.querySelectorAll("#materials-list a, #vit-phd-courses a, #vit-courses a");
+const materialsLinks = document.querySelectorAll("#materials-list a");
 
 materialsLinks.forEach(link => {
 
