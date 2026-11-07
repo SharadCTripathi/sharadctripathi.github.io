@@ -159,8 +159,9 @@
       "@type": "Course",
       "name": "Solar – Terrestrial Physics",
       "courseCode": "PHY6002",
-      "description": "Advanced postgraduate course on solar transients, geomagnetic storm dynamics, GNSS/NavIC observations, and space weather forecasting.",
+      "description": "Prescribed doctoral coursework curriculum for Ph.D. Research Scholars in Physics and Space Sciences, covering solar transients, coronal mass ejections, geomagnetic storm dynamics, GNSS/NavIC observations, and space weather forecasting.",
       "url": "https://sharadctripathi.github.io/assets/LT_PHY6002_SOLAR-TERRESTRIAL-PHYSICS.pdf",
+      "educationalLevel": "Doctoral / Ph.D. Research Scholar Coursework",
       "provider": {
         "@type": "Organization",
         "name": "VIT Bhopal University"
@@ -276,7 +277,7 @@ function sendGAEvent(event_name, params = {}) {
 <h2>Teaching Activities</h2>
 
 <p>
-Dr. Sharad Chandra Tripathi teaches undergraduate and postgraduate courses in physics, computational physics, and interdisciplinary scientific subjects. His teaching integrates theoretical concepts with computational tools, data analysis techniques, and laboratory experiments to provide students with strong analytical and research skills.
+Dr. Sharad Chandra Tripathi teaches undergraduate, postgraduate, and doctoral coursework in physics, computational physics, and space sciences. In particular, he teaches the prescribed doctoral coursework course <strong>Solar &ndash; Terrestrial Physics (PHY6002)</strong> for Ph.D. Research Scholars, guiding scholars through advanced space weather mechanisms, solar transients, and ionospheric investigation techniques. His teaching integrates rigorous theoretical foundations with modern computational methods and observational datasets to prepare students and researchers for cutting-edge scientific investigation.
 </p>
 
 </section>
@@ -299,6 +300,12 @@ target="_blank"
 rel="noopener noreferrer"><strong>VIT Bhopal University</strong></a>
 </p>
 
+<h4 style="margin-top: 18px; color: var(--accent-gold); font-size: 1.05rem;">🔬 Ph.D. &amp; Research Scholar Coursework:</h4>
+<ul id="vit-phd-courses">
+  <li><strong>Solar &ndash; Terrestrial Physics</strong> (PHY6002) &mdash; <span style="color: var(--accent-gold); font-weight: 600;">Prescribed Coursework for Ph.D. Research Scholars</span> &mdash; <a href="assets/LT_PHY6002_SOLAR-TERRESTRIAL-PHYSICS.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
+</ul>
+
+<h4 style="margin-top: 18px; color: var(--accent-blue); font-size: 1.05rem;">🎓 Undergraduate &amp; Postgraduate Courses:</h4>
 <ul id="vit-courses">
 
 <li><strong>Engineering Physics</strong> (PHY1001) &mdash; <a href="assets/LTP_PHY1001_ENGINEERING-PHYSICS.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
@@ -306,7 +313,6 @@ rel="noopener noreferrer"><strong>VIT Bhopal University</strong></a>
 <li><strong>Introduction to Computational Physics</strong> (PHY1003) &mdash; <a href="assets/LTP_PHY1003_INTRODUCTION-TO-COMPUTATIONAL-PHYSICS.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
 <li><strong>Fundamentals of Space Physics</strong> (PHY1004) &mdash; <a href="assets/LTP_PHY1004_FUNDAMENTALS-OF-SPACE-PHYSICS.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
 <li><strong>Game Physics Development (Physics Engine)</strong> (PHY2005) &mdash; <a href="assets/P_PHY2005_GAME-PHYSICS-DEVELOPMENT.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
-<li><strong>Solar &ndash; Terrestrial Physics</strong> (PHY6002) &mdash; <a href="assets/LT_PHY6002_SOLAR-TERRESTRIAL-PHYSICS.pdf" target="_blank" rel="noopener noreferrer">📄 Syllabus (PDF)</a></li>
 <li>Energy and Environmental Physics (PHY2002)</li>
 <li>Electromagnetic Fields (EEE2002)</li>
 <li>Environmental Science (CHY1002)</li>
@@ -443,18 +449,18 @@ rel="noopener noreferrer"><strong>OIST Bhopal</strong></a>
     </a>
   </div>
 
-  <div class="syllabus-card">
+  <div class="syllabus-card" style="border-left-color: var(--accent-gold);">
     <div>
       <div class="syllabus-meta">
         <span class="syllabus-code-badge">PHY6002</span>
-        <span class="syllabus-type-badge">Postgraduate / Research</span>
+        <span class="syllabus-type-badge" style="background: rgba(245, 158, 11, 0.2); color: var(--accent-gold);">Ph.D. Research Scholars Coursework</span>
         <span class="syllabus-credits-badge">3 Credits</span>
       </div>
       <h3 class="syllabus-title">Solar &ndash; Terrestrial Physics</h3>
-      <p class="syllabus-desc">Advanced postgraduate study of solar flares, CMEs, geomagnetic storm propagation, upper-atmospheric ion chemistry, GNSS TEC analysis, and space weather forecasting.</p>
+      <p class="syllabus-desc">Prescribed doctoral coursework curriculum designed for Ph.D. Research Scholars in Physics and Space Sciences. Comprehensive study of solar flares, coronal mass ejections (CMEs), geomagnetic storm dynamics, upper-atmospheric ion chemistry, GNSS/NavIC observations, and space weather forecasting techniques.</p>
     </div>
     <a href="assets/LT_PHY6002_SOLAR-TERRESTRIAL-PHYSICS.pdf" target="_blank" rel="noopener noreferrer" class="syllabus-btn">
-      📥 Download Syllabus (PDF)
+      📥 Download Ph.D. Syllabus (PDF)
     </a>
   </div>
 
@@ -473,7 +479,7 @@ rel="noopener noreferrer"><strong>OIST Bhopal</strong></a>
 
 document.addEventListener("DOMContentLoaded", function(){
 
-const materialsLinks = document.querySelectorAll("#materials-list a");
+const materialsLinks = document.querySelectorAll("#materials-list a, #vit-phd-courses a, #vit-courses a");
 
 materialsLinks.forEach(link => {
 
