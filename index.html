@@ -267,7 +267,7 @@
       <a href="/physics/">Physics Articles</a>
       <a href="/news.html">News</a>
     </div>
-    <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Theme">🌙 Dark</button>
+    <button type="button" id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Theme">🌙 Dark</button>
   </div>
 </nav>
 
@@ -338,28 +338,28 @@ In addition to research, Dr. Tripathi actively contributes to science communicat
     <div class="solar-controls">
       <h3>Observation Wavelength</h3>
       <div class="wavelength-tabs">
-        <button class="wave-btn active" data-src="latest_512_HMIIC.jpg" data-desc="HMI Intensitygram (Photosphere): Shows visible sunspots and active region groups currently crossing the solar disk facing Earth.">
+        <button type="button" class="wave-btn active" aria-label="View Photosphere &amp; Sunspots (HMI)" data-src="latest_512_HMIIC.jpg" data-desc="HMI Intensitygram (Photosphere): Shows visible sunspots and active region groups currently crossing the solar disk facing Earth.">
           <span class="btn-icon">☀️</span>
           <div class="btn-text">
             <span class="btn-title">Photosphere & Sunspots (HMI)</span>
             <span class="btn-sub">Visible surface & active region groups</span>
           </div>
         </button>
-        <button class="wave-btn" data-src="latest_512_HMIB.jpg" data-desc="HMI Magnetogram: Displays magnetic field polarity (white = positive / outward, black = negative / inward). Complex mixed-polarity active regions drive major solar flares.">
+        <button type="button" class="wave-btn" aria-label="View Magnetic Field &amp; Polarity (HMI)" data-src="latest_512_HMIB.jpg" data-desc="HMI Magnetogram: Displays magnetic field polarity (white = positive / outward, black = negative / inward). Complex mixed-polarity active regions drive major solar flares.">
           <span class="btn-icon">🧲</span>
           <div class="btn-text">
             <span class="btn-title">Magnetic Field & Polarity (HMI)</span>
             <span class="btn-sub">Photospheric magnetic flux & flare drivers</span>
           </div>
         </button>
-        <button class="wave-btn" data-src="latest_512_0193.jpg" data-desc="AIA 193Å (Corona & Coronal Holes): Highlights high-temperature coronal plasma (~1.25M K) and dark coronal holes emitting high-speed solar wind streams.">
+        <button type="button" class="wave-btn" aria-label="View Corona &amp; Coronal Holes (AIA 193Å)" data-src="latest_512_0193.jpg" data-desc="AIA 193Å (Corona & Coronal Holes): Highlights high-temperature coronal plasma (~1.25M K) and dark coronal holes emitting high-speed solar wind streams.">
           <span class="btn-icon">🔥</span>
           <div class="btn-text">
             <span class="btn-title">Corona & Coronal Holes (AIA 193Å)</span>
             <span class="btn-sub">Upper atmosphere & solar wind origin</span>
           </div>
         </button>
-        <button class="wave-btn" data-src="latest_512_0304.jpg" data-desc="AIA 304Å (Chromosphere & Prominences): Shows dense plasma (~50,000 K) outlining solar filaments, active prominences, and flare reconnection points.">
+        <button type="button" class="wave-btn" aria-label="View Prominences &amp; Filaments (AIA 304Å)" data-src="latest_512_0304.jpg" data-desc="AIA 304Å (Chromosphere & Prominences): Shows dense plasma (~50,000 K) outlining solar filaments, active prominences, and flare reconnection points.">
           <span class="btn-icon">⚡</span>
           <div class="btn-text">
             <span class="btn-title">Prominences & Filaments (AIA 304Å)</span>
@@ -382,7 +382,7 @@ In addition to research, Dr. Tripathi actively contributes to science communicat
           <span class="info-val">Updated every ~10–15 min</span>
         </div>
         <div class="info-actions">
-          <button id="refreshSunBtn" class="refresh-btn">🔄 Refresh Latest Frame</button>
+          <button type="button" id="refreshSunBtn" class="refresh-btn" aria-label="Refresh latest SDO solar image">🔄 Refresh Latest Frame</button>
         </div>
       </div>
     </div>
@@ -420,7 +420,7 @@ In addition to research, Dr. Tripathi actively contributes to science communicat
           <div class="sw-card-title">Planetary Kp Index</div>
           <div class="sw-card-sub">Geomagnetic Activity (3-hour)</div>
         </div>
-        <span class="sw-status-dot" id="sw-kp-status"></span>
+        <span class="sw-status-dot" id="sw-kp-status" role="img" aria-label="Kp data status"></span>
       </div>
       <div class="sw-kp-display">
         <div class="sw-big-value" id="sw-kp-value">—</div>
@@ -447,7 +447,7 @@ In addition to research, Dr. Tripathi actively contributes to science communicat
           <div class="sw-card-title">Solar X-Ray Flux</div>
           <div class="sw-card-sub">GOES — Flare Activity</div>
         </div>
-        <span class="sw-status-dot" id="sw-xray-status"></span>
+        <span class="sw-status-dot" id="sw-xray-status" role="img" aria-label="X-ray data status"></span>
       </div>
       <div class="sw-big-value" id="sw-xray-value">—</div>
       <div class="sw-card-meta" id="sw-xray-label">Loading…</div>
@@ -463,7 +463,7 @@ In addition to research, Dr. Tripathi actively contributes to science communicat
           <div class="sw-card-title">Solar Proton Flux</div>
           <div class="sw-card-sub">GOES — ≥10 MeV Integral</div>
         </div>
-        <span class="sw-status-dot" id="sw-proton-status"></span>
+        <span class="sw-status-dot" id="sw-proton-status" role="img" aria-label="Proton flux data status"></span>
       </div>
       <div class="sw-big-value" id="sw-proton-value">—</div>
       <div class="sw-card-meta" id="sw-proton-label">Loading…</div>
@@ -479,11 +479,9 @@ In addition to research, Dr. Tripathi actively contributes to science communicat
           <div class="sw-card-title">Solar Wind</div>
           <div class="sw-card-sub">ACE / DSCOVR — L1 Point</div>
         </div>
-        <span class="sw-status-dot" id="sw-wind-status"></span>
+        <span class="sw-status-dot" id="sw-wind-status" role="img" aria-label="Solar wind data status"></span>
       </div>
       <div class="sw-info-row"><span class="sw-info-key">Speed</span><span class="sw-info-val" id="sw-wind-speed">— km/s</span></div>
-      <div class="sw-info-row"><span class="sw-info-key">Density</span><span class="sw-info-val" id="sw-wind-density">— /cm³</span></div>
-      <div class="sw-info-row"><span class="sw-info-key">Temperature</span><span class="sw-info-val" id="sw-wind-temp">— K</span></div>
       <div class="sw-info-row"><span class="sw-info-key">Bz (IMF)</span><span class="sw-info-val" id="sw-wind-bz">— nT</span></div>
       <div class="sw-info-row"><span class="sw-info-key">Bt (Total)</span><span class="sw-info-val" id="sw-wind-bt">— nT</span></div>
     </div>
@@ -502,7 +500,7 @@ In addition to research, Dr. Tripathi actively contributes to science communicat
 
   <div class="sw-footer-row">
     <span class="sw-data-source">Data: <a href="https://www.swpc.noaa.gov/" target="_blank" rel="noopener noreferrer">NOAA SWPC</a> &amp; GOES Satellites — No API key required</span>
-    <button id="sw-refresh-btn" class="refresh-btn">🔄 Refresh Now</button>
+    <button type="button" id="sw-refresh-btn" class="refresh-btn" aria-label="Refresh space weather data">🔄 Refresh Now</button>
   </div>
 
 </section>
@@ -795,7 +793,7 @@ In addition to research, Dr. Tripathi actively contributes to science communicat
 <p>You can reach out for research collaborations, student mentoring, or academic discussions:</p>
 
 <div class="contact-container">
-  <button id="reveal-emails-btn" class="reveal-btn">
+  <button type="button" id="reveal-emails-btn" class="reveal-btn">
     ✉️ Click to View Verified Contact Emails
   </button>
   <div id="secure-email-container" style="display:none;"></div>

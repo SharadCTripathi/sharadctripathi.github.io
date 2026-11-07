@@ -365,52 +365,30 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // Solar wind plasma: rtsw_wind_1m — array newest-first, named object fields
-  //   proton_speed (km/s), proton_density (/cm³), proton_temperature (K)
-  // Solar wind mag: rtsw_mag_1m — array newest-first, named object fields
-  //   bt (nT total field), bz_gsm (nT — GSM component used for geomagnetic coupling)
-  // NOTE: rtsw_wind_1m.json (~3 MB) and rtsw_mag_1m.json (~1.8 MB) are large files.
-  // The default 10 s fetch timeout is too short on slow connections — use 30 s.
-  function fetchJSONLarge(url) {
-    var ctrl  = new AbortController();
-    var timer = setTimeout(function () { ctrl.abort(); }, 30000);
-    return fetch(url, { signal: ctrl.signal })
-      .then(function (r) {
-        clearTimeout(timer);
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .catch(function (e) { clearTimeout(timer); throw e; });
-  }
-
+  // Solar wind: use NOAA SWPC compact summary endpoints (~60 bytes each, CORS-enabled).
+  //   solar-wind-speed.json  → [{proton_speed, time_tag}]
+  //   solar-wind-mag-field.json → [{bt, bz_gsm, time_tag}]
+  // These are single-element arrays with the latest 1-min average — tiny and instant.
   function loadSolarWind() {
     Promise.all([
-      fetchJSONLarge('https://services.swpc.noaa.gov/json/rtsw/rtsw_wind_1m.json'),
-      fetchJSONLarge('https://services.swpc.noaa.gov/json/rtsw/rtsw_mag_1m.json')
+      fetchJSON('https://services.swpc.noaa.gov/products/summary/solar-wind-speed.json'),
+      fetchJSON('https://services.swpc.noaa.gov/products/summary/solar-wind-mag-field.json')
     ])
     .then(function (results) {
-      var plasma  = results[0];
-      var mag     = results[1];
+      var plasma = results[0];
+      var mag    = results[1];
       if (!Array.isArray(plasma) || !plasma.length) throw new Error('Empty plasma data');
       if (!Array.isArray(mag)    || !mag.length)    throw new Error('Empty mag data');
 
-      // Index 0 = most recent (arrays are newest-first)
-      var latestP = plasma[0];
-      var latestM = mag[0];
+      var speed = plasma[0].proton_speed;
+      var bz    = mag[0].bz_gsm;   // GSM frame Bz — drives geomagnetic storms
+      var bt    = mag[0].bt;
 
-      var speed   = latestP.proton_speed;
-      var density = latestP.proton_density;
-      var temp    = latestP.proton_temperature;
-      var bz      = latestM.bz_gsm;    // GSM frame Bz — most relevant for magnetospheric coupling
-      var bt      = latestM.bt;
+      setText('sw-wind-speed', fmt(speed, 0) + ' km/s');
+      setText('sw-wind-bz',    fmt(bz,   1) + ' nT');
+      setText('sw-wind-bt',    fmt(bt,   1) + ' nT');
 
-      setText('sw-wind-speed',   fmt(speed,   0) + ' km/s');
-      setText('sw-wind-density', fmt(density, 1) + ' /cm\u00B3');
-      setText('sw-wind-temp',    fmtTemp(temp));
-      setText('sw-wind-bz',      fmt(bz, 1) + ' nT');
-      setText('sw-wind-bt',      fmt(bt, 1) + ' nT');
-
-      // Southward Bz (GSM) drives geomagnetic storms — colour-code accordingly
+      // Southward Bz (negative) intensifies geomagnetic storms — colour-code accordingly
       var bzNum = (bz !== null && bz !== undefined && !isNaN(+bz)) ? +bz : 0;
       var dot   = (bzNum < -10) ? 'err' : (bzNum < -5) ? 'warn' : 'ok';
       setDot('sw-wind-status', dot);
