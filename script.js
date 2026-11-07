@@ -158,12 +158,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ==========================================================================
    Space Weather Monitor — NOAA SWPC Live Data
+   Endpoints verified: Nov 2026 against live NOAA SWPC JSON feeds
    ========================================================================== */
 
 (function () {
   'use strict';
 
-  // ── Helpers ──────────────────────────────────────────────────────────────
+  // ── Reusable sanitizer node (created once, never attached to DOM) ─────────
+  var _sanitizerDiv = null;
+  function sanitizeText(str) {
+    if (!_sanitizerDiv) _sanitizerDiv = document.createElement('div');
+    _sanitizerDiv.textContent = String(str || '');
+    return _sanitizerDiv.textContent;
+  }
+
+  // ── Interval reference — stored to allow cleanup if needed ────────────────
+  var _refreshInterval = null;
+
+  // ── DOM helpers ───────────────────────────────────────────────────────────
 
   function el(id) { return document.getElementById(id); }
 
@@ -172,35 +184,44 @@ document.addEventListener('DOMContentLoaded', () => {
     if (node) node.textContent = val;
   }
 
-  function setDot(id, state) {       // state: 'ok' | 'warn' | 'err'
+  function setDot(id, state) {   // state: 'ok' | 'warn' | 'err'
     var d = el(id);
-    if (!d) return;
-    d.className = 'sw-status-dot ' + state;
+    if (d) d.className = 'sw-status-dot ' + state;
   }
 
+  // ── Value formatters ──────────────────────────────────────────────────────
+
+  // Safe number formatter — returns em-dash on null/NaN/undefined/empty
   function fmt(val, digits) {
-    if (val === null || val === undefined || val === '' || isNaN(+val)) return '—';
+    if (val === null || val === undefined || val === '' || isNaN(+val)) return '\u2014';
     return (+val).toFixed(digits !== undefined ? digits : 2);
   }
 
-  function fmtSI(val) {              // e.g. 0.000012 → "1.20 × 10⁻⁵ W/m²"
-    if (val === null || val === undefined || isNaN(+val)) return '—';
-    var v = +val;
-    if (v === 0) return '0';
-    var exp = Math.floor(Math.log10(Math.abs(v)));
+  // Scientific notation formatter for X-ray flux values (W/m²)
+  function fmtSI(val) {
+    if (val === null || val === undefined || isNaN(+val) || +val <= 0) return '\u2014';
+    var v        = +val;
+    var exp      = Math.floor(Math.log10(v));
     var mantissa = (v / Math.pow(10, exp)).toFixed(2);
-    var supMap = {'-':'\u207B','0':'\u2070','1':'\u00B9','2':'\u00B2','3':'\u00B3','4':'\u2074','5':'\u2075','6':'\u2076','7':'\u2077','8':'\u2078','9':'\u2079'};
-    var expStr = String(exp).split('').map(function(c){ return supMap[c] || c; }).join('');
+    var supMap   = { '-':'\u207B','0':'\u2070','1':'\u00B9','2':'\u00B2','3':'\u00B3',
+                     '4':'\u2074','5':'\u2075','6':'\u2076','7':'\u2077','8':'\u2078','9':'\u2079' };
+    var expStr   = String(exp).split('').map(function(c){ return supMap[c] || c; }).join('');
     return mantissa + ' \u00D7 10' + expStr + ' W/m\u00B2';
   }
 
+  // Temperature formatter — guards against null, NaN, negative/zero values
   function fmtTemp(val) {
-    if (val === null || val === undefined || isNaN(+val) || +val <= 0) return '—';
+    if (val === null || val === undefined || isNaN(+val) || +val <= 0) return '\u2014';
     return (+val).toExponential(2) + ' K';
   }
 
-  function xrayClass(flux) {         // flux in W/m² — 0.1-0.8 nm long channel
-    if (flux === null || flux === undefined || isNaN(+flux)) return { cls: '—', label: 'No data', dot: 'ok' };
+  // ── Classification helpers ────────────────────────────────────────────────
+
+  // GOES X-ray flux → flare class (0.1–0.8 nm long channel, W/m²)
+  function xrayClass(flux) {
+    if (flux === null || flux === undefined || isNaN(+flux) || +flux < 0) {
+      return { cls: '\u2014', label: 'No data', dot: 'ok' };
+    }
     var f = +flux;
     if (f >= 1e-3) return { cls: 'X' + (f / 1e-3).toFixed(0), label: 'Extreme flare',    dot: 'err'  };
     if (f >= 1e-4) return { cls: 'M' + (f / 1e-4).toFixed(1), label: 'Major flare',      dot: 'warn' };
@@ -209,7 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return                 { cls: 'A',                          label: 'Background quiet', dot: 'ok'   };
   }
 
-  function protonScale(pfu) {        // ≥10 MeV integral flux in pfu
+  // GOES integral proton flux (≥10 MeV, pfu) → NOAA S-scale
+  function protonScale(pfu) {
     if (pfu === null || pfu === undefined || isNaN(+pfu)) return { scale: 'Normal', dot: 'ok' };
     var f = +pfu;
     if (f >= 100000) return { scale: 'S5 Extreme',  dot: 'err'  };
@@ -220,6 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return                  { scale: 'Normal',       dot: 'ok'   };
   }
 
+  // Kp → storm label + status colour
   function kpLabel(kp) {
     if (kp >= 8) return { label: 'Severe\u2013Extreme Storm (G4\u2013G5)', dot: 'err'  };
     if (kp >= 6) return { label: 'Strong Storm (G2\u2013G3)',              dot: 'err'  };
@@ -229,68 +252,75 @@ document.addEventListener('DOMContentLoaded', () => {
     return               { label: 'Very Quiet',                            dot: 'ok'   };
   }
 
-  // ── Sanitize plain text (strip all HTML tags) — prevents XSS ─────────────
-  function sanitizeText(str) {
-    var tmp = document.createElement('div');
-    tmp.textContent = String(str || '');
-    return tmp.textContent;
-  }
-
-  // ── Fetch with timeout ───────────────────────────────────────────────────
+  // ── Fetch with 10 s timeout + HTTP-error guard ────────────────────────────
 
   function fetchJSON(url) {
-    var ctrl = new AbortController();
-    var timer = setTimeout(function(){ ctrl.abort(); }, 10000);
+    var ctrl  = new AbortController();
+    var timer = setTimeout(function () { ctrl.abort(); }, 10000);
     return fetch(url, { signal: ctrl.signal })
-      .then(function(r) {
+      .then(function (r) {
         clearTimeout(timer);
-        if (!r.ok) throw new Error('HTTP ' + r.status);
+        if (!r.ok) throw new Error('HTTP ' + r.status + ' — ' + url);
         return r.json();
       })
-      .catch(function(e) {
+      .catch(function (e) {
         clearTimeout(timer);
         throw e;
       });
   }
 
-  // ── Individual Data Loaders ──────────────────────────────────────────────
+  // ── Individual data loaders ───────────────────────────────────────────────
 
-  // Kp API returns array of objects: {time_tag, Kp, a_running, station_count}
+  // Kp: array of {time_tag, Kp, a_running, station_count} — newest is last element
   function loadKp() {
     fetchJSON('https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json')
-      .then(function(data) {
+      .then(function (data) {
+        if (!Array.isArray(data) || data.length === 0) throw new Error('Empty Kp data');
         var latest = data[data.length - 1];
         var kp = parseFloat(latest.Kp);
-        if (isNaN(kp)) throw new Error('Invalid Kp value');
+        if (isNaN(kp)) throw new Error('Invalid Kp');
         var info = kpLabel(kp);
 
         setText('sw-kp-value', kp.toFixed(1));
         setText('sw-kp-label', info.label);
         setDot('sw-kp-status', info.dot);
 
-        // Move marker: Kp 0–9 → 0–100%
-        var pct = Math.min(100, (kp / 9) * 100);
+        // Position marker: Kp 0–9 mapped to 0–100% of bar width
+        var pct = Math.min(100, Math.max(0, (kp / 9) * 100));
         var bar = el('sw-kp-bar');
         if (bar) bar.style.left = pct + '%';
       })
-      .catch(function() {
+      .catch(function () {
         setText('sw-kp-label', 'Data unavailable');
         setDot('sw-kp-status', 'err');
       });
   }
 
-  // X-ray API returns objects with energy field — long channel is '0.1-0.8nm'
+  // X-ray: array of {time_tag, satellite, flux, observed_flux, energy}
+  // Live energy values: '0.05-0.4nm' (short) and '0.1-0.8nm' (long = 1–8 Å)
+  // Use long channel (0.1-0.8nm) for standard flare classification
   function loadXray() {
     fetchJSON('https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json')
-      .then(function(data) {
-        // Long channel (1–8 Å = 0.1–0.8 nm) — use energy string as returned by NOAA
-        var longCh = data.filter(function(d) {
-          return d.energy === '0.1-0.8nm' || d.energy === '1-8A' || d.energy === '0.1-7.0nm';
+      .then(function (data) {
+        if (!Array.isArray(data) || data.length === 0) throw new Error('Empty X-ray data');
+        // Filter to confirmed long-channel energy string (verified against live API: '0.1-0.8nm' only)
+        var longCh = data.filter(function (d) {
+          return d.energy === '0.1-0.8nm';
         });
         var latest = longCh.length ? longCh[longCh.length - 1] : data[data.length - 1];
-        var flux = (latest.flux !== undefined) ? latest.flux : latest.observed_flux;
-        var info = xrayClass(flux);
-        var timeStr = latest.time_tag ? new Date(latest.time_tag).toUTCString().replace(' GMT', '') + ' UTC' : '—';
+        // Prefer electron-corrected flux; fall back to observed_flux
+        var flux   = (latest.flux !== undefined && latest.flux !== null)
+                   ? latest.flux : latest.observed_flux;
+        var info   = xrayClass(flux);
+
+        // Format UTC timestamp cleanly — NOAA time_tag ends in 'Z'
+        var timeStr = '\u2014';
+        if (latest.time_tag) {
+          try {
+            var d = new Date(latest.time_tag);
+            timeStr = d.toISOString().replace('T', ' ').substring(0, 16) + ' UTC';
+          } catch (_) { timeStr = latest.time_tag; }
+        }
 
         setText('sw-xray-value', info.cls);
         setText('sw-xray-label', info.label);
@@ -298,59 +328,81 @@ document.addEventListener('DOMContentLoaded', () => {
         setText('sw-xray-time',  timeStr);
         setDot('sw-xray-status', info.dot);
       })
-      .catch(function() {
+      .catch(function () {
         setText('sw-xray-label', 'Data unavailable');
         setDot('sw-xray-status', 'err');
       });
   }
 
-  // Proton API returns objects: {time_tag, satellite, flux, energy}
-  // Energy strings: '>=1 MeV', '>=5 MeV', '>=10 MeV', '>=30 MeV', etc.
+  // Proton: array of {time_tag, satellite, flux, energy}
+  // Live energy strings: '>=1 MeV', '>=5 MeV', '>=10 MeV', '>=30 MeV', '>=50 MeV',
+  //                      '>=60 MeV', '>=100 MeV', '>=500 MeV'
+  // S-scale threshold based on ≥10 MeV integral flux in particle flux units (pfu)
   function loadProton() {
     fetchJSON('https://services.swpc.noaa.gov/json/goes/primary/integral-protons-1-day.json')
-      .then(function(data) {
-        var ch10 = data.filter(function(d) {
+      .then(function (data) {
+        if (!Array.isArray(data) || data.length === 0) throw new Error('Empty proton data');
+        var ch10 = data.filter(function (d) {
           return d.energy === '>=10 MeV' || d.energy === '>=10MeV';
         });
-        var latest = ch10.length ? ch10[ch10.length - 1] : null;
-        if (!latest) throw new Error('No >=10 MeV channel found');
-        var pfu = (latest.flux !== undefined) ? latest.flux : latest.observed_flux;
-        var info = protonScale(pfu);
+        if (!ch10.length) throw new Error('No >=10 MeV channel in response');
+        var latest   = ch10[ch10.length - 1];
+        var pfu      = (latest.flux !== undefined && latest.flux !== null)
+                     ? latest.flux : latest.observed_flux;
+        var info     = protonScale(pfu);
         var pfuValid = pfu !== null && pfu !== undefined && !isNaN(+pfu);
+        var isEvent  = pfuValid && +pfu >= 10;
 
-        setText('sw-proton-value', pfuValid ? (+pfu).toFixed(2) : '—');
-        setText('sw-proton-label', +pfu >= 10 ? 'Solar Radiation Event' : 'Quiet \u2014 Below threshold');
-        setText('sw-proton-flux',  pfuValid ? (+pfu).toFixed(2) + ' pfu' : '—');
+        setText('sw-proton-value', pfuValid ? (+pfu).toFixed(2) : '\u2014');
+        setText('sw-proton-label', isEvent ? 'Solar Radiation Event' : 'Quiet \u2014 Below threshold');
+        setText('sw-proton-flux',  pfuValid ? (+pfu).toFixed(2) + ' pfu' : '\u2014');
         setText('sw-proton-scale', info.scale);
         setDot('sw-proton-status', info.dot);
       })
-      .catch(function() {
+      .catch(function () {
         setText('sw-proton-label', 'Data unavailable');
         setDot('sw-proton-status', 'err');
       });
   }
 
-  // Solar wind plasma: array rows [time_tag, density, speed, temperature]
-  // Solar wind mag:    array rows [time_tag, bx, by, bz, lon, lat, bt]
-  // Row 0 is the header row (strings), skip it
+  // Solar wind plasma: rtsw_wind_1m — array newest-first, named object fields
+  //   proton_speed (km/s), proton_density (/cm³), proton_temperature (K)
+  // Solar wind mag: rtsw_mag_1m — array newest-first, named object fields
+  //   bt (nT total field), bz_gsm (nT — GSM component used for geomagnetic coupling)
+  // NOTE: rtsw_wind_1m.json (~3 MB) and rtsw_mag_1m.json (~1.8 MB) are large files.
+  // The default 10 s fetch timeout is too short on slow connections — use 30 s.
+  function fetchJSONLarge(url) {
+    var ctrl  = new AbortController();
+    var timer = setTimeout(function () { ctrl.abort(); }, 30000);
+    return fetch(url, { signal: ctrl.signal })
+      .then(function (r) {
+        clearTimeout(timer);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .catch(function (e) { clearTimeout(timer); throw e; });
+  }
+
   function loadSolarWind() {
     Promise.all([
-      fetchJSON('https://services.swpc.noaa.gov/products/solar-wind/plasma-1-day.json'),
-      fetchJSON('https://services.swpc.noaa.gov/products/solar-wind/mag-1-day.json')
+      fetchJSONLarge('https://services.swpc.noaa.gov/json/rtsw/rtsw_wind_1m.json'),
+      fetchJSONLarge('https://services.swpc.noaa.gov/json/rtsw/rtsw_mag_1m.json')
     ])
-    .then(function(results) {
-      var plasma = results[0];
-      var mag    = results[1];
+    .then(function (results) {
+      var plasma  = results[0];
+      var mag     = results[1];
+      if (!Array.isArray(plasma) || !plasma.length) throw new Error('Empty plasma data');
+      if (!Array.isArray(mag)    || !mag.length)    throw new Error('Empty mag data');
 
-      // Skip header row (index 0 contains column name strings)
-      var latestP = plasma[plasma.length - 1];
-      var latestM = mag[mag.length - 1];
+      // Index 0 = most recent (arrays are newest-first)
+      var latestP = plasma[0];
+      var latestM = mag[0];
 
-      var density = latestP[1];
-      var speed   = latestP[2];
-      var temp    = latestP[3];
-      var bz      = latestM[3];
-      var bt      = latestM[6];
+      var speed   = latestP.proton_speed;
+      var density = latestP.proton_density;
+      var temp    = latestP.proton_temperature;
+      var bz      = latestM.bz_gsm;    // GSM frame Bz — most relevant for magnetospheric coupling
+      var bt      = latestM.bt;
 
       setText('sw-wind-speed',   fmt(speed,   0) + ' km/s');
       setText('sw-wind-density', fmt(density, 1) + ' /cm\u00B3');
@@ -358,52 +410,58 @@ document.addEventListener('DOMContentLoaded', () => {
       setText('sw-wind-bz',      fmt(bz, 1) + ' nT');
       setText('sw-wind-bt',      fmt(bt, 1) + ' nT');
 
-      // Southward Bz is geoeffective — flag it
-      var bzNum = +bz;
-      var dot = (bzNum < -10) ? 'err' : (bzNum < -5) ? 'warn' : 'ok';
+      // Southward Bz (GSM) drives geomagnetic storms — colour-code accordingly
+      var bzNum = (bz !== null && bz !== undefined && !isNaN(+bz)) ? +bz : 0;
+      var dot   = (bzNum < -10) ? 'err' : (bzNum < -5) ? 'warn' : 'ok';
       setDot('sw-wind-status', dot);
     })
-    .catch(function() {
+    .catch(function () {
       setText('sw-wind-speed', 'Unavailable');
       setDot('sw-wind-status', 'err');
     });
   }
 
   // Alerts: array of {product_id, issue_datetime, message}
-  // SECURITY: message text is set via textContent only — no innerHTML on external data
+  // issue_datetime format from NOAA: "2026-11-07 06:26:14.357" (space separator, not T)
+  // SECURITY: all external text inserted via textContent only — zero innerHTML on API data
   function loadAlerts() {
     fetchJSON('https://services.swpc.noaa.gov/products/alerts.json')
-      .then(function(data) {
+      .then(function (data) {
+        if (!Array.isArray(data)) return;
         var cutoff = Date.now() - 6 * 3600 * 1000;
-        var active = data.filter(function(a) {
-          var t = a.issue_datetime ? new Date(a.issue_datetime).getTime() : 0;
-          return t > cutoff && /WATCH|WARNING|ALERT/i.test(a.message || '');
+        var active = data.filter(function (a) {
+          // Normalise NOAA date string: replace space with T for reliable ISO parsing
+          var dtStr = (a.issue_datetime || '').replace(' ', 'T');
+          var t     = dtStr ? new Date(dtStr).getTime() : 0;
+          return !isNaN(t) && t > cutoff && /WATCH|WARNING|ALERT/i.test(a.message || '');
         });
 
         var banner = el('sw-alert-banner');
         if (!banner) return;
-        if (active.length === 0) { banner.style.display = 'none'; return; }
+        if (!active.length) { banner.style.display = 'none'; return; }
 
-        // Sanitize: use DOM textContent only — prevents any XSS from API data
-        var raw = sanitizeText(active[0].message || '');
-        var preview = raw.split('\n').slice(0, 3).join(' ').substring(0, 220);
-        var suffix  = preview.length >= 220 ? '\u2026' : '';
+        // Show only the single most-recent alert (first = newest from NOAA)
+        var raw     = sanitizeText(active[0].message || '');
+        // Skip boilerplate header lines (Serial Number, Issue Time, etc.) and take first real line
+        var lines   = raw.split('\n').map(function(l){ return l.trim(); }).filter(Boolean);
+        var preview = lines.slice(0, 4).join(' \u2022 ').substring(0, 240);
+        var suffix  = preview.length >= 240 ? '\u2026' : '';
 
-        // Build banner safely with DOM nodes — no innerHTML on external content
+        // Build banner with safe DOM methods — zero innerHTML on external content
         while (banner.firstChild) banner.removeChild(banner.firstChild);
-        var icon   = document.createTextNode('\u26A0\uFE0F ');
-        var strong = document.createElement('strong');
-        strong.textContent = 'NOAA Alert: ';
-        var text = document.createTextNode(preview + suffix);
-        banner.appendChild(icon);
-        banner.appendChild(strong);
-        banner.appendChild(text);
+        var iconNode   = document.createTextNode('\u26A0\uFE0F\u00A0');
+        var labelNode  = document.createElement('strong');
+        labelNode.textContent = 'NOAA Space Weather Alert:\u00A0';
+        var textNode   = document.createTextNode(preview + suffix);
+        banner.appendChild(iconNode);
+        banner.appendChild(labelNode);
+        banner.appendChild(textNode);
         banner.style.display = 'block';
       })
-      .catch(function() { /* alerts are non-critical — fail silently */ });
+      .catch(function () { /* alerts are non-critical — silent fail */ });
   }
 
-  // ── Load all & auto-refresh ──────────────────────────────────────────────
+  // ── Orchestrator & auto-refresh ───────────────────────────────────────────
 
   function loadAll() {
     loadKp();
@@ -414,12 +472,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    if (!el('space-weather-monitor')) return;   // guard: section only on index.html
+    if (!el('space-weather-monitor')) return;  // guard: only runs on index.html
 
     loadAll();
 
-    // Auto-refresh every 5 minutes
-    setInterval(loadAll, 5 * 60 * 1000);
+    // Auto-refresh every 5 minutes (store ref to allow future clearInterval if needed)
+    if (!_refreshInterval) {
+      _refreshInterval = setInterval(loadAll, 5 * 60 * 1000);
+    }
 
     // Manual refresh button
     var btn = el('sw-refresh-btn');
